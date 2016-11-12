@@ -57,6 +57,18 @@ RSpec.describe User, :type => :model do
     expect(@user).to_not be_valid
   end
 
+  it "with invalid state will be invalid" do
+    @user.state = "North Carolina"
+
+    expect(@user).to_not be_valid
+  end
+
+  it "with invalid zip will be invalid" do
+    @user.zip_code = "abcde123"
+
+    expect(@user).to_not be_valid
+  end
+
 end
 
 #
