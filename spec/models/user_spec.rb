@@ -81,30 +81,6 @@ RSpec.describe User, :type => :model do
     expect(@user).to_not be_valid
   end
 
-  it "with blank cpr certification is invalid" do
-    @user.cpr_certification = ""
-
-    expect(@user).to_not be_valid
-  end
-
-  it "with blank first_aid_certification is invalid" do
-    @user.first_aid_certification = ""
-
-    expect(@user).to_not be_valid
-  end
-
-  it "with blank active status is invalid" do
-    @user.active = ""
-
-    expect(@user).to_not be_valid
-  end
-
-  it "with blank approved status is invalid" do
-    @user.approved = ""
-
-    expect(@user).to_not be_valid
-  end
-
   it "without phone number is invalid" do
     @user.phone_number = ""
 
@@ -115,6 +91,18 @@ RSpec.describe User, :type => :model do
     @user.phone_number = "abscde"
 
     expect(@user).to_not be_valid
+  end
+
+  it "without birthday is valid" do
+    @user.birthday = nil
+
+    expect(@user).to be_valid
+  end
+
+  it "without hourly rate is valid" do
+    @user.hourly_rate = nil
+
+    expect(@user).to be_valid
   end
 
 end

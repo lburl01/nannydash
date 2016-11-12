@@ -11,8 +11,8 @@ FactoryGirl.define do
     role 2
     birthday "04/29/2001"
     hourly_rate 10.01
-    cpr_certification true
-    first_aid_certification true
+    cpr_certification false
+    first_aid_certification false
     recommendation_one_name "Person One"
     recommendation_one_email "person1@example.com"
     recommendation_two_name "Person Two"
