@@ -81,5 +81,3 @@ test:
 production:
   <<: *default
   database: nannydash_production
-  username: nannydash
-  password: <%= ENV['NANNYDASH_DATABASE_PASSWORD'] %>
