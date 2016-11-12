@@ -22,5 +22,6 @@ FactoryGirl.define do
     active true
     approved true
     about "I've got two children, Lori and Peter, ages 5 and 6 respectively. They're terrible kids."
+    phone_number "555-555-5555"
   end
 end

@@ -105,4 +105,16 @@ RSpec.describe User, :type => :model do
     expect(@user).to_not be_valid
   end
 
+  it "without phone number is invalid" do
+    @user.phone_number = ""
+
+    expect(@user).to_not be_valid
+  end
+
+  it "with invalid phone number is invalid" do
+    @user.phone_number = "abscde"
+
+    expect(@user).to_not be_valid
+  end
+
 end
