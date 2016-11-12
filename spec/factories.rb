@@ -10,9 +10,9 @@ FactoryGirl.define do
     zip_code "27617"
     role 2
     birthday "04/29/2001"
-    hourly_rate 10.00
-    cpr_certification false
-    first_aid_certification false
+    hourly_rate 10.01
+    cpr_certification true
+    first_aid_certification true
     recommendation_one_name "Person One"
     recommendation_one_email "person1@example.com"
     recommendation_two_name "Person Two"
@@ -20,7 +20,7 @@ FactoryGirl.define do
     recommendation_three_name "Person Three"
     recommendation_three_email "person3@example.com"
     active true
-    approved false
+    approved true
     about "I've got two children, Lori and Peter, ages 5 and 6 respectively. They're terrible kids."
   end
 end
