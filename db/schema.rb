@@ -24,17 +24,17 @@ ActiveRecord::Schema.define(version: 20161112195255) do
     t.string   "city",                       default: "",    null: false
     t.string   "state",                      default: "",    null: false
     t.integer  "zip_code",                                   null: false
-    t.integer  "role",                                       null: false
-    t.string   "birthday",                                   null: false
+    t.integer  "role"
+    t.string   "birthday"
     t.float    "hourly_rate"
     t.boolean  "cpr_certification",          default: false, null: false
     t.boolean  "first_aid_certification",    default: false, null: false
-    t.string   "recommendation_one_name",    default: "",    null: false
-    t.string   "recommendation_one_email",   default: "",    null: false
-    t.string   "recommendation_two_name",    default: "",    null: false
-    t.string   "recommendation_two_email",   default: "",    null: false
-    t.string   "recommendation_three_name",  default: "",    null: false
-    t.string   "recommendation_three_email", default: "",    null: false
+    t.string   "recommendation_one_name",    default: ""
+    t.string   "recommendation_one_email",   default: ""
+    t.string   "recommendation_two_name",    default: ""
+    t.string   "recommendation_two_email",   default: ""
+    t.string   "recommendation_three_name",  default: ""
+    t.string   "recommendation_three_email", default: ""
     t.boolean  "active",                     default: false, null: false
     t.boolean  "approved",                   default: false, null: false
     t.text     "about"

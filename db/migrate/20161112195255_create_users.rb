@@ -9,17 +9,17 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :city,                       null: false, default: ""
       t.string :state,                      null: false, default: ""
       t.integer :zip_code,                  null: false, default: ""
-      t.integer :role,                      null: false
-      t.string :birthday,                   null: false
+      t.integer :role
+      t.string :birthday
       t.float :hourly_rate
       t.boolean :cpr_certification,         null: false, default: false
       t.boolean :first_aid_certification,   null: false, default: false
-      t.string :recommendation_one_name,    null: false, default: ""
-      t.string :recommendation_one_email,   null: false, default: ""
-      t.string :recommendation_two_name,    null: false, default: ""
-      t.string :recommendation_two_email,   null: false, default: ""
-      t.string :recommendation_three_name,  null: false, default: ""
-      t.string :recommendation_three_email, null: false, default: ""
+      t.string :recommendation_one_name,    default: ""
+      t.string :recommendation_one_email,   default: ""
+      t.string :recommendation_two_name,    default: ""
+      t.string :recommendation_two_email,   default: ""
+      t.string :recommendation_three_name,  default: ""
+      t.string :recommendation_three_email, default: ""
       t.boolean :active,                    null: false, default: false
       t.boolean :approved,                  null: false, default: false
       t.text :about
