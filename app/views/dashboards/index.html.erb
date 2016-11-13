@@ -1,0 +1,11 @@
+<% @users.each do |user| %>
+  <% if user.role == "manager" %>
+  <h1><%= user.first_name %> <%= user.last_name %> | <%= user.role %></h1>
+  <% elsif user.role == "family" %>
+  <p>
+    <%= user.first_name %> <%= user.last_name %> | <%= user.role %>
+  </p>
+  <% else%>
+    <p><i><%= user.first_name %> <%= user.last_name %> | <%= user.role %> | <%= user.birthday %> </i></p>
+  <% end %>
+<% end %>
