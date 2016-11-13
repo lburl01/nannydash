@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  get 'dashboards/index'
-  get 'dashboards/families' => 'dashboards#families'
+  get 'agency/index'
+  get 'agency/families' => 'agency#families'
 
   root to: 'home#index'
 

@@ -1,4 +1,4 @@
-class DashboardsController < ApplicationController
+class AgencyController < ApplicationController
 
   def index
     @users = User.all
