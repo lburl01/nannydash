@@ -43,7 +43,7 @@ class AgencyController < ApplicationController
     def agency_params
       params.require(:user).permit(:first_name, :last_name, :email, :password,
                                      :street, :city, :state, :zip_code, :role,
-                                     :county, :is_deleted, :picture)
+                                     :county, :is_deleted, :picture, :phone_number)
     end
 
 end
