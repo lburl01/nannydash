@@ -113,4 +113,12 @@ RSpec.describe User, :type => :model do
     expect(@user.county).to eq "Wake"
   end
 
+  it "will upcase state input" do
+    @user.state = "nc"
+
+    @user.save!
+
+    expect(@user.state).to eq "NC"
+  end
+
 end

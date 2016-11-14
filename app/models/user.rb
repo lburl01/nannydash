@@ -5,8 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   before_save :capitalize_county
+  before_save :upcase_state
 
-  VALID_STATE_REGEX = /[A-Z]{2}/
+  VALID_STATE_REGEX = /[A-Z]{2}/i
   VALID_ZIP_REGEX = /\d{5}/
   VALID_BIRTHDAY_REGEX = /\d{2}[\/]\d{2}[\/]\d{4}/
   VALID_RATE_REGEX = /\d+[.]\d{2}/
@@ -31,5 +32,9 @@ class User < ApplicationRecord
 
     def capitalize_county
       self.county = county.capitalize
+    end
+
+    def upcase_state
+      self.state = state.upcase
     end
 end
