@@ -7,6 +7,7 @@
                 city: Faker::Address.city,
                 state: Faker::Address.state_abbr,
                 zip_code: Faker::Address.zip_code,
+                county: "Wake",
                 role: 0,
                 phone_number: Faker::PhoneNumber.phone_number
               )
@@ -21,8 +22,10 @@ end
                   city: Faker::Address.city,
                   state: Faker::Address.state_abbr,
                   zip_code: Faker::Address.zip_code,
+                  county: "Wake",
                   role: 1,
                   phone_number: Faker::PhoneNumber.phone_number,
+                  is_deleted: false,
                   active: false,
                   approved: false,
                   about: Faker::ChuckNorris.fact
@@ -38,8 +41,10 @@ end
                   city: Faker::Address.city,
                   state: Faker::Address.state_abbr,
                   zip_code: Faker::Address.zip_code,
+                  county: "Durham",
                   role: 1,
                   phone_number: Faker::PhoneNumber.phone_number,
+                  is_deleted: false,
                   active: true,
                   approved: true,
                   about: Faker::ChuckNorris.fact
@@ -55,8 +60,9 @@ end
                     city: Faker::Address.city,
                     state: Faker::Address.state_abbr,
                     zip_code: Faker::Address.zip_code,
+                    county: "Wake",
                     role: 2,
-                    birthday: "04/20/1900",
+                    birthday: "04/20/1980",
                     hourly_rate: Faker::Number.decimal(2),
                     cpr_certification: true,
                     first_aid_certification: true,
@@ -67,6 +73,7 @@ end
                     recommendation_three_name: Faker::Name.name,
                     recommendation_three_email: Faker::Internet.email,
                     phone_number: Faker::PhoneNumber.phone_number,
+                    is_deleted: false,
                     active: true,
                     approved: false
                   )
@@ -81,6 +88,7 @@ end
                     city: Faker::Address.city,
                     state: Faker::Address.state_abbr,
                     zip_code: Faker::Address.zip_code,
+                    county: "Durham",
                     role: 2,
                     birthday: "05/20/1990",
                     hourly_rate: Faker::Number.decimal(2),
@@ -93,6 +101,7 @@ end
                     recommendation_three_name: Faker::Name.name,
                     recommendation_three_email: Faker::Internet.email,
                     phone_number: Faker::PhoneNumber.phone_number,
+                    is_deleted: false,
                     active: true,
                     approved: false
                   )
@@ -107,6 +116,7 @@ end
                     city: Faker::Address.city,
                     state: Faker::Address.state_abbr,
                     zip_code: Faker::Address.zip_code,
+                    county: "Orange",
                     role: 2,
                     birthday: "05/20/1990",
                     hourly_rate: Faker::Number.decimal(2),
@@ -119,6 +129,7 @@ end
                     recommendation_three_name: Faker::Name.name,
                     recommendation_three_email: Faker::Internet.email,
                     phone_number: Faker::PhoneNumber.phone_number,
+                    is_deleted: false,
                     active: true,
                     approved: true
                   )
