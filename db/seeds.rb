@@ -62,7 +62,7 @@ end
                     zip_code: Faker::Address.zip_code,
                     county: "Wake",
                     role: 2,
-                    birthday: "04/20/1900",
+                    birthday: "04/20/1980",
                     hourly_rate: Faker::Number.decimal(2),
                     cpr_certification: true,
                     first_aid_certification: true,

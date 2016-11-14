@@ -1,7 +1,7 @@
 class AgencyController < ApplicationController
 
   def index
-    @users = User.all
+    @users = User.manager.all
   end
 
   def new
