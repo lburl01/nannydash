@@ -1,0 +1,17 @@
+div.family-list-wrapper {
+  width: 70%;
+  font-family: 'Helvetica', sans-serif;
+  float: right;
+  font-weight: 100;
+  color: #9b9b9b;
+  th {
+    font-weight: 400;
+    font-size: 18px;
+    padding-right: 20px;
+    text-align: left;
+  }
+  td {
+    padding: 10px;
+    cursor: pointer;
+  }
+}

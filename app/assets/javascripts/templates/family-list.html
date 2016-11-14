@@ -1,5 +1,14 @@
-<h1>
-  <ul>
-    <li ng-repeat="family in $ctrl.families">{{family.first_name +' '+ family.last_name}}</li>
-  </ul>
-</h1>
+<div class="family-list-wrapper">
+  <table>
+    <tr>
+      <th>First Name</th><th>Last Name</th><th>Email</th><th>About</th><th>Status</th>
+      <tr ng-repeat="family in $ctrl.families">
+        <td>{{family.first_name}}</td>
+        <td>{{family.last_name}}</td>
+        <td>{{family.email}}</td>
+        <td>{{family.about | limitTo: 20}}</td>
+        <td>{{family.active}}</td>
+      </tr>
+    </tr>
+  </table>
+</div>

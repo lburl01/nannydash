@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'agency/families' => 'agency#families'
   get 'agency/new' => 'agency#new'
   post 'agency' => 'agency#create'
-
+  
   root to: 'home#index'
 
 end
