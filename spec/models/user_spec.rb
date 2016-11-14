@@ -105,4 +105,12 @@ RSpec.describe User, :type => :model do
     expect(@user).to be_valid
   end
 
+  it "will capitalize county input" do
+    @user.county = "wake"
+
+    @user.save!
+
+    expect(@user.county).to eq "Wake"
+  end
+
 end
