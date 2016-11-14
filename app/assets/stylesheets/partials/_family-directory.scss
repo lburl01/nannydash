@@ -1,9 +1,16 @@
 div.family-list-wrapper {
+
   width: 70%;
   font-family: 'Helvetica', sans-serif;
   float: right;
   font-weight: 100;
   color: #9b9b9b;
+  table {
+    border-collapse: collapse;
+  }
+  tr {
+    border-bottom: 1px solid #ddd;
+  }
   th {
     font-weight: 400;
     font-size: 18px;
@@ -11,7 +18,14 @@ div.family-list-wrapper {
     text-align: left;
   }
   td {
-    padding: 10px;
+    padding: 10px 20px 10px 0;
     cursor: pointer;
   }
+}
+.active {
+  background: #6BB317;
+  text-align: center;
+  color:white;
+  padding: 5px;
+  border-radius: 5px;
 }
