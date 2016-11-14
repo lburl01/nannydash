@@ -1,11 +1,57 @@
-<% @users.each do |user| %>
-  <% if user.role == "manager" %>
-  <h1><%= user.first_name %> <%= user.last_name %> | <%= user.role %></h1>
-  <% elsif user.role == "family" %>
-  <p>
-    <%= user.first_name %> <%= user.last_name %> | <%= user.role %>
-  </p>
-  <% else%>
-    <p><i><%= user.first_name %> <%= user.last_name %> | <%= user.role %> | <%= user.birthday %> </i></p>
-  <% end %>
-<% end %>
+<div class="container">
+  <!-- ******************************
+   Top Navigation
+  ******************************* -->
+  <header>
+    <nav>
+      <h4>Nanny<span>Dash</span></h4>
+    </nav>
+  </header>
+  <!-- ******************************
+   Side Navigation
+  ******************************* -->
+  <aside class="aside-nav">
+    <!-- Directories Nav Section -->
+    <section class="directories">
+      <div class="title">
+        <%= image_tag("sort.png", :alt => "Directories Icon") %>
+        <h1>Directories</h1>
+      </div>
+      <button ui-sref="home.babysitter-directory" type="button">Babysitters</button>
+      <button type="button"><%= link_to "Parents", agency_families_path %></button>
+    </section>
+    <!-- Pending Applications Nav Section -->
+    <section class="pending-apps">
+      <div class="title">
+        <%= image_tag("plus.png", :alt => "Directories Icon") %>
+        <h1>Pending Applications</h1>
+      </div>
+      <button type="button"><span>9</span> | Babysitters</button>
+      <button type="button"><span>4</span> | Parents</button>
+    </section>
+    <!-- Jobs Center Nav Section -->
+    <section class="jobs">
+      <div class="title">
+        <h1>Jobs Center</h1>
+      </div>
+      <button type="button"><span>0</span> | New Jobs</button>
+      <button type="button"><span>23</span> | All Jobs</button>
+    </section>
+    <!-- Messages Nav Section -->
+    <section class="messages">
+      <div class="title">
+        <%= image_tag("mail.png", :alt => "Directories Icon") %>
+        <h1>Messaging Center</h1>
+      </div>
+      <button type="button"><span>4</span> | Messages</button>
+    </section>
+  </aside>
+  <!-- ******************************
+   Content Container
+  ******************************* -->
+  <main>
+    <div class="main-container">
+      <ui-view></ui-view>
+    </div>
+  </main>
+</div>
