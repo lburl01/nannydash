@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   enum role: { manager: 0, family: 1, nanny: 2 }
+  mount_uploader :picture, PictureUploader
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
@@ -16,4 +17,13 @@ class User < ApplicationRecord
   validates :birthday, allow_nil: true, format: { with: VALID_BIRTHDAY_REGEX }
   validates :hourly_rate, allow_nil: true, format: { with: VALID_RATE_REGEX }
   # validates :phone_number, presence: true, format: { with: VALID_PHONE_REGEX }
+  validate :picture_size
+
+  private
+
+    def picture_size
+      if picture.size > 5.megabytes
+        errors.add(:picture, "should be less than 5MB")
+      end
+    end
 end
