@@ -18,7 +18,7 @@
         <h1>Directories</h1>
       </div>
       <button ui-sref="home.babysitter-directory" type="button">Babysitters</button>
-      <button type="button"><%= link_to "Parents", agency_families_path %></button>
+      <button ui-sref="nannyDash.family" type="button">Parents</button>
     </section>
     <!-- Pending Applications Nav Section -->
     <section class="pending-apps">
@@ -51,7 +51,8 @@
   ******************************* -->
   <main>
     <div class="main-container">
-      <h1>main content!</h1>
+      content
+      <ui-view></ui-view>
     </div>
   </main>
 </div>
