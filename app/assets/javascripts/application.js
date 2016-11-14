@@ -10,9 +10,10 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require angular/angular.min.js
 //= require angular-rails-templates
 //= require jquery
-//= require angularjs
-//= require jquery_ujs
+//= require app.module.js
+//= require app.component.js
 //= require_tree ./templates
-//= require_tree .
+//= require_tree ./components
