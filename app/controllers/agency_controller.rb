@@ -17,10 +17,12 @@ class AgencyController < ApplicationController
                     }
     end
 
-    respond_to do |format|
-      format.json { render json: @families }
-      format.html { render :families }
-    end
+    render json: @families
+
+    # respond_to do |format|
+    #   format.json { render json: @families }
+    #   format.html { render :families }
+    # end
   end
 
 end
