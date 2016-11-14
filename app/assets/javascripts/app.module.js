@@ -6,7 +6,6 @@ angular.module('app', ['ui.router', 'templates'])
     $stateProvider.state('nannyDash', {
       url: '/',
       abstract: true,
-      template: '<ui-view></ui-view>'
     }).state('nannyDash.family', {
       url: 'family',
       templateUrl: 'app.html'
