@@ -35,12 +35,11 @@ div.family-list-wrapper {
       color:white;
       padding: 5px;
       border-radius: 5px;
+      background: #EA043A;
       &.active {
         background: #6BB317;
       }
-      &.inactive {
-        background: #EA043A;
-      }
+
     }
   }
 }

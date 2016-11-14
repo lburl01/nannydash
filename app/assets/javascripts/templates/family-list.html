@@ -13,7 +13,8 @@
         <td>{{family.email}}</td>
         <td>{{family.about | limitTo: 20}}</td>
         <td>
-          <span ng-class="{'active': family.active, 'inactive': !family.active}">
+          <span ng-click="$ctrl.changeStatus()"
+          ng-class="{'active': family.active, 'inactive': !family.active}">
             {{family.active ? 'active' : 'inactive'}}
           </span>
         </td>
