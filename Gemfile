@@ -33,6 +33,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'faker'
 gem 'devise'
 gem "pundit"
+gem "figaro"
 
 gem 'carrierwave',             '0.11.2'
 gem 'mini_magick',             '4.5.1'

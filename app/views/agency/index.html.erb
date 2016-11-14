@@ -1,7 +1,0 @@
-<% if @users.count > 1 %>
-  <% @users.each do |user| %>
-    <p><%= user.first_name %> <%= user.last_name %> | <%= user.role %></p>
-  <% end %>
-<% else %>
-  <p><%= @users.first_name %></p>
-<% end %>
