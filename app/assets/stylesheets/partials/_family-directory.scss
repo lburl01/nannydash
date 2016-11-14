@@ -1,5 +1,15 @@
-div.family-list-wrapper {
+.family-header {
+  align-items: center;
+  background: #bdbdbd;
+  border-radius: 5px;
+  color: white;    height: 35px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+  width: 85%;
+}
 
+div.family-list-wrapper {
   width: 70%;
   font-family: 'Helvetica', sans-serif;
   float: right;
@@ -14,18 +24,23 @@ div.family-list-wrapper {
   th {
     font-weight: 400;
     font-size: 18px;
-    padding-right: 20px;
+    padding: 10px 20px 10px 0;
     text-align: left;
   }
   td {
     padding: 10px 20px 10px 0;
     cursor: pointer;
+    span {
+      text-align: center;
+      color:white;
+      padding: 5px;
+      border-radius: 5px;
+      &.active {
+        background: #6BB317;
+      }
+      &.inactive {
+        background: #EA043A;
+      }
+    }
   }
-}
-.active {
-  background: #6BB317;
-  text-align: center;
-  color:white;
-  padding: 5px;
-  border-radius: 5px;
 }
