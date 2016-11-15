@@ -66,6 +66,18 @@ class User < ApplicationRecord
     return @families
   end
 
+  def self.get_family(options)
+    family = User.find(options)
+
+    @family = {"family_id" => family.id, "first_name" => family.first_name,
+                    "last_name" => family.last_name, "email" => family.email,
+                    "phone" => family.phone_number, "street" => family.street,
+                    "city" => family.city, "state" => family.state,
+                    "zip_code" => family.zip_code, "county" => "Wake",
+                    "about" => family.about, "active" => family.active
+                  }
+  end
+
   private
 
     def picture_size
