@@ -22,7 +22,7 @@ RSpec.describe FamiliesController, type: :controller do
 
       get :index
 
-      json = JSON.parse response.body
+      json = JSON.parse(response.body)
 
       expect(json.length).to eq 1
     end
