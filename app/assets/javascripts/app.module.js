@@ -8,9 +8,6 @@ angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPag
       url: '/',
       abstract: true,
       template: '<ui-view></ui-view>'
-    }).state('nannyDash.family', {
-      url: 'family',
-      templateUrl: 'app.html'
     }).state('nannyDash.babysitters', {
       url: 'babysitters',
       templateUrl: 'babysitter-dashboard.html',
