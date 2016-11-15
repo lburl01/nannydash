@@ -7,6 +7,11 @@ class FamiliesController < ApplicationController
     render json: @families
   end
 
+  def show
+    @family = User.get_family(params[:id])
+    render json: @family
+  end
+
   def toggle_active_family
     family = User.find(params[:id])
     family.toggle!(:active)
