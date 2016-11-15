@@ -1,12 +1,11 @@
 angular.module('app', ['ui.router', 'templates'])
   .config(function($stateProvider, $urlRouterProvider) {
 
-    // $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/family');
 
-    $stateProvider.state('nannyDash', {
-      url: 'agency/index/',
-    }).state('nannyDash.family', {
-      url: 'family',
-      templateUrl: 'app.html'
+    $stateProvider.state('family', {
+      url: '/family',
+      template: '<family-list></family-list>'
     });
+
 });
