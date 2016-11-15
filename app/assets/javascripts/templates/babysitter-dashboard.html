@@ -5,7 +5,7 @@
   </div>
   <div class="list">
     <div class="title-container">
-      <h4>Total: 240</h4>
+      <h4>Total: {{babysitters.totalUsers}}</h4>
       <div class="county">
         <h4>Wake County, NC</h4>
         <i class="fa fa-angle-down"></i>
@@ -27,22 +27,15 @@
         <th>Certifications</th>
         <th>Joined</th>
       </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Jane</td>
-        <td>04/20/1990</td>
-        <td>$10</td>
-        <td>true</td>
-        <td>10/24/2014</td>
-      </tr>
-      <tr ng-repeat="person in babysitters.names">
+      <tr ui-sref="nannyDash.babysitter-profile" dir-paginate="person in babysitters.babysitters | itemsPerPage: babysitters.usersPerPage">
         <td>{{person.first_name}}</td>
         <td>{{person.last_name}}</td>
         <td>{{person.birthday}}</td>
-        <td>{{person.hourly_rate}}</td>
-        <td>{{person.cpr_cert}}</td>
-        <td>{{person.joined}}</td>
+        <td>${{person.hourly_rate}}</td>
+        <td><span ng-class="person.cpr_cert ? 'green' : 'red'" class="cpr">{{babysitters.cprCheck(person.cpr_cert)}}</span></td>
+        <td>{{babysitters.getDate(person)}}</td>
       </tr>
     </table>
+    <dir-pagination-controls max-size="5"></dir-pagination-controls>
   </div>
 </div>

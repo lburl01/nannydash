@@ -96,6 +96,16 @@
       table-layout: fixed;
       margin: 0 auto;
 
+      .red {
+        background: red !important;
+        color: #fff;
+      }
+
+      .green {
+        background: green !important;
+        color: #fff;
+      }
+
       tr {
         border-bottom: #9B9B9B solid 1px;
 
@@ -103,13 +113,56 @@
           font-size: 16px;
           text-align: left;
           color: #9B9B9B;
-          padding: 15px 10px;
+          padding: 10px 10px 15px;
         }
 
         td {
           padding: 15px 10px;
           font-size: 14px;
           font-weight: 100;
+          color: #aaa;
+        }
+
+        .cpr {
+          background: #eee;
+          padding: 5px 10px;
+          border-radius: 7px;
+        }
+      }
+    }
+
+    .pagination {
+      margin: 0 auto;
+      display: table;
+      padding-top: 30px;
+
+      .active {
+        background-color: #eee;
+        padding: 6px 8px;
+        border-radius: 5px;
+      }
+
+      li {
+        display: inline-block;
+        padding: 0 8px;
+
+        // &:first-child, &:last-child {
+        //   border: #aaa solid .5px;
+        //   padding: 0px 9px;
+        //   font-size: 21px;
+        //   border-radius: 1px;
+        // }
+
+        &:first-child {
+          margin-right: 5px;
+        }
+
+        &:last-child {
+          margin-left: 5px;
+        }
+
+        a {
+          text-decoration: none;
           color: #aaa;
         }
       }

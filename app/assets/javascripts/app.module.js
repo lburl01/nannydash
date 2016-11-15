@@ -1,4 +1,4 @@
-angular.module('app', ['ui.router', 'templates'])
+angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPagination'])
   .config(function($stateProvider, $urlRouterProvider) {
 
     $urlRouterProvider.otherwise('/');
@@ -14,5 +14,9 @@ angular.module('app', ['ui.router', 'templates'])
       url: 'babysitters',
       templateUrl: 'babysitter-dashboard.html',
       controller: 'babysitterDirectoryController as babysitters'
+    }).state('nannyDash.babysitter-profile', {
+      url: 'babysitter-profile',
+      templateUrl: 'babysitter-profile.html',
+      controller: 'babysitterProfileController as babysitter'
     });
 });
