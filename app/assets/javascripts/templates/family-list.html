@@ -1,0 +1,23 @@
+<div class="family-list-wrapper">
+  <div class="family-header">
+    <p>Total: {{$ctrl.families.length}}</p>
+    <p>All Counties</p>
+  </div>
+
+  <div class="family-table">
+    <ul class="table-head">
+      <li>First Name</li>
+      <li>Last Name</li>
+      <li>Email</li>
+      <li>About</li>
+      <li>Status</li>
+    </ul>
+
+    <div class="table-body">
+      <ul ng-repeat="family in $ctrl.families">
+        <family family="family"></family>
+      </ul>
+    </div>
+
+  </div>
+</div>

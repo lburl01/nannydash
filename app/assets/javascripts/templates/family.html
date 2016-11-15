@@ -1,0 +1,10 @@
+  <li>{{$ctrl.family.first_name}}</li>
+  <li>{{$ctrl.family.last_name}}</li>
+  <li>{{$ctrl.family.email}}</li>
+  <li>{{$ctrl.family.about | limitTo: 20}}</li>
+  <li>
+    <span ng-click="$ctrl.handleToggle($ctrl.family.family_id)"
+    ng-class="{'active': $ctrl.family.active, 'inactive': !$ctrl.family.active}">
+      {{$ctrl.family.active ? 'active' : 'inactive'}}
+    </span>
+  </li>
