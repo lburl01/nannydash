@@ -1,7 +1,7 @@
 angular.module('app', ['ui.router', 'templates'])
   .config(function($stateProvider, $urlRouterProvider) {
 
-    $urlRouterProvider.otherwise('/family');
+    $urlRouterProvider.otherwise('/');
 
     $stateProvider.state('family', {
       url: '/family',
@@ -11,5 +11,13 @@ angular.module('app', ['ui.router', 'templates'])
           return familyAPI.list();
         }
       }
+    }).state('familyProfile', {
+      url: '/family/profile',
+      component: 'familyProfile'
+      // resolve: {
+      //   profile: function(familyAPI) {
+      //     return familyAPI.profileInfo(19);
+      //   }
+      // }
     });
 });

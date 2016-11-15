@@ -25,7 +25,7 @@
     <li>{{$ctrl.family.phone}}</li>
     <li>{{$ctrl.family.about | limitTo: 50}}</li>
     <li>
-      <span>Profile</span>
+      <span ng-click="$ctrl.getProfile()" ui-sref="familyProfile">Profile</span>
     </li>
   </ul>
 </div>
