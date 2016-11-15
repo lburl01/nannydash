@@ -3,6 +3,8 @@ class AgencyController < ApplicationController
 
   def index
     @users = User.manager.all
+
+    render json: @users
   end
 
   def new
@@ -13,7 +15,7 @@ class AgencyController < ApplicationController
     @agency = User.new(agency_params)
     if @agency.save
       flash[:info] = "Account successfully created."
-      redirect_to root_url
+      redirect_to 'agency/index'
     else
       render 'new'
     end
@@ -32,12 +34,9 @@ class AgencyController < ApplicationController
                     }
     end
 
-    render json: @families
-
-    # respond_to do |format|
-    #   format.json { render json: @families }
-    #   format.html { render :families }
-    # end
+    respond_to do |format|
+      format.json { render json: @families }
+    end
   end
 
   private
@@ -45,7 +44,7 @@ class AgencyController < ApplicationController
     def agency_params
       params.require(:user).permit(:first_name, :last_name, :email, :password,
                                      :street, :city, :state, :zip_code, :role,
-                                     :county, :is_deleted, :picture)
+                                     :county, :is_deleted, :picture, :phone_number)
     end
 
 end
