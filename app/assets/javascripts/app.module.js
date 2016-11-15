@@ -15,7 +15,7 @@ angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPag
       templateUrl: 'babysitter-dashboard.html',
       controller: 'babysitterDirectoryController as babysitters'
     }).state('nannyDash.babysitter-profile', {
-      url: 'babysitter-profile',
+      url: 'babysitters/babysitter-profile',
       templateUrl: 'babysitter-profile.html',
       controller: 'babysitterProfileController as babysitter'
     });
