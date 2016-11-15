@@ -1,0 +1,118 @@
+.directory-container {
+  padding: 20px 50px 20px 20px;
+  float: right;
+  width: 68%;
+
+  .search {
+    overflow: hidden;
+    padding-bottom: 40px;
+    padding-top: 20px;
+
+    &:before {
+      font-family: fontawesome;
+      position: absolute;
+      content: "\f002";
+      font-size: 16px;
+      color: #BDBDBD;
+      right: 245px;
+      top: 125px;
+    }
+
+    h1 {
+      float: left;
+      font-size: 24px;
+      font-weight: 100;
+      color: #666;
+      padding-top: 4px;
+    }
+
+    input {
+      float: right;
+      width: 220px;
+      background: #eee;
+      border: #BDBDBD solid 1px;
+      border-radius: 7px;
+      padding: 6px;
+      padding-left: 35px;
+      outline: none;
+      font-size: 15px;
+      font-weight: 300;
+      color: #666;
+      letter-spacing: .5px;
+    }
+  }
+  .list {
+    .title-container {
+      overflow: hidden;
+      background: #BDBDBD;
+      padding: 10px;
+      border-radius: 7px;
+      font-size: 17px;
+      color: #fff;
+      font-weight: 100;
+      margin-bottom: 10px;
+
+      h4 {
+        float: left;
+        padding-top: 3px;
+        padding-right: 7px;
+      }
+
+      .county {
+        float: right;
+        position: relative;
+
+        .fa-angle-down {
+          font-size: 21px;
+          border: #fff solid 1px;
+          padding: 0px 5px;
+          border-radius: 1px;
+
+          &:hover {
+            background: #fff;
+            color: #BDBDBD;
+          }
+        }
+
+        .counties {
+          display: none;
+          position: absolute;
+          background: #BDBDBD;
+          border-radius: 7px;
+          color: #fff;
+
+          ul {
+
+            li {
+              display: inline-block;
+            }
+          }
+        }
+      }
+    }
+
+    table {
+      width: 98%;
+      table-layout: fixed;
+      margin: 0 auto;
+
+      tr {
+        border-bottom: #9B9B9B solid 1px;
+
+        th {
+          font-size: 16px;
+          text-align: left;
+          color: #9B9B9B;
+          padding: 15px 10px;
+        }
+
+        td {
+          padding: 15px 10px;
+          font-size: 14px;
+          font-weight: 100;
+          color: #aaa;
+        }
+      }
+    }
+  }
+}

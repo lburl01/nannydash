@@ -10,5 +10,9 @@ angular.module('app', ['ui.router', 'templates'])
     }).state('nannyDash.family', {
       url: 'family',
       templateUrl: 'app.html'
+    }).state('nannyDash.babysitters', {
+      url: 'babysitters',
+      templateUrl: 'babysitter-dashboard.html',
+      controller: 'babysitterDirectoryController as babysitters'
     });
 });
