@@ -2,6 +2,8 @@ class User < ApplicationRecord
   has_many :job_assignments
   has_many :jobs
 
+  acts_as_messageable
+
   enum role: { manager: 0, family: 1, nanny: 2 }
   mount_uploader :picture, PictureUploader
   devise :database_authenticatable, :registerable,
