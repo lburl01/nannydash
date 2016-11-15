@@ -13,5 +13,7 @@
 //= require angular/angular.min.js
 //= require angular-rails-templates
 //= require jquery
-//= require_tree .
-//= require jquery
+//= require app.module.js
+//= require app.component.js
+//= require_tree ./templates
+//= require_tree ./components

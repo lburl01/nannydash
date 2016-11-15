@@ -28,14 +28,16 @@ class AgencyController < ApplicationController
       @families << {"family_id" => family.id, "first_name" => family.first_name,
                       "last_name" => family.last_name, "email" => family.email,
                       "phone" => family.phone_number, "county" => "Wake",
-                      "about" => family.about, "active?" => family.active
+                      "about" => family.about, "active" => family.active
                     }
     end
 
-    respond_to do |format|
-      format.json { render json: @families }
-      format.html { render :families }
-    end
+    render json: @families
+
+    # respond_to do |format|
+    #   format.json { render json: @families }
+    #   format.html { render :families }
+    # end
   end
 
   private
