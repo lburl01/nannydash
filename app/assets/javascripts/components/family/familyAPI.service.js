@@ -4,7 +4,7 @@
 
     return {
       list: function() {
-        return $http.get("/agency/families.json").then(function(response) {
+        return $http.get("/api/v1/families.json").then(function(response) {
           return response.data;
         }, function() {
           alert('Failed');
