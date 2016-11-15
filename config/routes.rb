@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
 
+  # Angular entry point
+  get 'dashboard' => 'dashboard#index'
+
   get 'api/v1/sitters' => 'sitters#index'
 
   patch 'api/v1/family/:id' => 'families#toggle_active_family'

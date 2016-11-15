@@ -1,3 +1,12 @@
-// Place all the styles related to the Home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+/********** Setup ***********/
+@import 'partials/setup/variables';
+@import 'partials/setup/reset';
+@import 'partials/setup/fonts';
+@import 'partials/setup/general';
+
+/***** Site Components ******/
+@import "partials/container";
+@import "partials/header";
+@import "partials/aside-nav";
+@import 'partials/main';
+@import 'partials/family-directory';
