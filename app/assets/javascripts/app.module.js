@@ -3,6 +3,7 @@ angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPag
 
     $urlRouterProvider.otherwise('/');
 
+
     $stateProvider.state('nannyDash', {
       url: '/',
       abstract: true,
@@ -21,5 +22,13 @@ angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPag
       },
       templateUrl: 'babysitter-profile.html',
       controller: 'babysitterProfileController as babysitter'
+    }).state('family', {
+      url: '/family',
+      component: 'familyList',
+      resolve: {
+        families: function(familyAPI) {
+          return familyAPI.list();
+        }
+      }
     });
 });

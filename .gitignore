@@ -16,12 +16,6 @@
 # Ignore Byebug command history file.
 .byebug_history
 
-#Sass and Node Modules #
-*.css.map
-node_modules
-.sass-cache
-.DS_Store
-
 # Ignore uploaded test images.
 /public/uploads
 

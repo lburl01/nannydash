@@ -9,8 +9,7 @@
                 zip_code: Faker::Address.zip_code,
                 county: "Wake",
                 role: 0,
-                phone_number: Faker::PhoneNumber.phone_number
-              )
+                phone_number: Faker::PhoneNumber.phone_number)
 end
 
 10.times do |index|
@@ -28,8 +27,7 @@ end
                   is_deleted: false,
                   active: false,
                   approved: false,
-                  about: Faker::ChuckNorris.fact
-                )
+                  about: Faker::ChuckNorris.fact)
 end
 
 10.times do |index|
@@ -47,8 +45,7 @@ end
                   is_deleted: false,
                   active: true,
                   approved: true,
-                  about: Faker::ChuckNorris.fact
-                )
+                  about: Faker::ChuckNorris.fact)
 end
 
 10.times do |index|
@@ -75,8 +72,7 @@ end
                     phone_number: Faker::PhoneNumber.phone_number,
                     is_deleted: false,
                     active: true,
-                    approved: false
-                  )
+                    approved: false)
   end
 
 5.times do |index|
@@ -103,8 +99,7 @@ end
                     phone_number: Faker::PhoneNumber.phone_number,
                     is_deleted: false,
                     active: true,
-                    approved: false
-                  )
+                    approved: false)
   end
 
 5.times do |index|
@@ -131,6 +126,27 @@ end
                     phone_number: Faker::PhoneNumber.phone_number,
                     is_deleted: false,
                     active: true,
-                    approved: true
-                  )
+                    approved: true)
   end
+
+  2.times do |index|
+    Job.create!(user_id: 6,
+                  date: Date.today,
+                  start_time: Time.now,
+                  end_time: 3.hours.from_now,
+                  notes: Faker::Hipster.sentence(3, true, 4),
+                  confirmed: false)
+  end
+
+2.times do |index|
+  Job.create!(user_id: 7,
+                date: Date.today,
+                start_time: Time.now,
+                end_time: 3.hours.from_now,
+                notes: Faker::Hipster.sentence(3, true, 4),
+                confirmed: true)
+end
+
+JobAssignment.create!(job_id: 1, user_id: 26)
+JobAssignment.create!(job_id: 2, user_id: 27)
+JobAssignment.create!(job_id: 3, user_id: 27)
