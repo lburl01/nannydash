@@ -8,11 +8,7 @@ angular.module('app', ['ui.router', 'templates'])
       component: 'familyList',
       resolve: {
         families: function(familyAPI) {
-          return familyAPI.list().then(function(response) {
-            return response.data;
-          }, function(response) {
-            alert('Failed');
-          });
+          return familyAPI.list();
         }
       }
     });
