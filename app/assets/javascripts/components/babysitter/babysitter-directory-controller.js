@@ -1,5 +1,5 @@
 angular.module('app')
-    .controller('babysitterDirectoryController', function ($scope, $http, babysitterDirectoryAPI) {
+    .controller('babysitterDirectoryController', function ($http, $state, babysitterDirectoryAPI) {
       /*************************
       Variables
       *************************/
@@ -41,6 +41,6 @@ angular.module('app')
       When user clicks on profile, it will store data and post on new profile page
       *************************/
       this.userClick = function(person) {
-        console.log(person);
+        $state.go('nannyDash.babysitter-profile', {babysitterParam: {sitter: person}});
       }
     });

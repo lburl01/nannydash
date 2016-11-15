@@ -12,20 +12,20 @@
     </div>
   </div>
   <section class="name">
-    <h1>Katie Jones</h1>
+    <h1>{{babysitter.user.first_name}} {{babysitter.user.last_name}}</h1>
     <img src="#" alt="">
   </section>
   <section class="basic-info">
     <h2>Basic Information</h2>
     <!-- Phone Field -->
     <label for="phone">Phone:</label>
-    <input id="phone" type="text" ng-model="babysitter.phone">
+    <input id="phone" type="text" ng-model="babysitter.user.phone">
     <!-- Email Field -->
     <label for="email">Email:</label>
-    <input id="email" type="text" ng-model="babysitter.email">
+    <input id="email" type="text" ng-model="babysitter.user.email">
     <!-- Birthday Field -->
     <label for="birthday">Birthday:</label>
-    <input id="birthday" type="text" ng-model="babysitter.birthday">
+    <input id="birthday" type="text" ng-model="babysitter.user.birthday">
     <!-- Street Field -->
     <label for="street">Street:</label>
     <input id="street" type="text" ng-model="babysitter.street">
@@ -38,7 +38,7 @@
     <!-- zip Field -->
     <label for="zip">zip:</label>
     <input id="zip" type="text" ng-model="babysitter.zip">
-    <h2>Recommendations</h2>
+    <h2 class="rec-title">Recommendations</h2>
     <!-- Recommendation 1 Field -->
     <div class="rec">
       <label>1.</label>
@@ -62,18 +62,19 @@
     <h2>Key Information</h2>
     <!-- Certifications Field -->
     <div class="cert">
-      <label>Certifications</label>
-      <input id="cpr" type="text" ng-model="babysitter.cpr">
-      <input id="first-aid" type="text" ng-model="babysitter.first_aid">
+      <label>Certifications <span>+</span></label>
+      <input ng-show="babysitter.user.cpr_cert === true" id="cpr" type="text" ng-model="babysitter.user.cpr_cert"><span>-</span>
+      <input ng-show="babysitter.user.first_aid_cert === true" id="first-aid" type="text" ng-model="babysitter.user.first_aid_cert"><span>-</span>
     </div>
     <!-- Hourly Rate Field -->
     <label for="rate">Hourly Rate:</label>
-    <input id="rate" type="text" ng-model="babysitter.rate">
+    <input id="rate" type="text" ng-model="babysitter.user.hourly_rate">
     <!-- Age Field -->
     <label for="birthday">Age:</label>
-    <input id="birthday" type="text" ng-model="babysitter.birthday">
+    <input id="birthday" type="text" ng-model="babysitter.user.birthday">
     <!-- Joined Field -->
     <label for="joined">Joined:</label>
-    <input id="joined" type="text" ng-model="babysitter.joined">
+    <input id="joined" type="text" ng-model="babysitter.user.joined">
+    <button type="button">Delete Account</button>
   </section>
 </div>

@@ -27,7 +27,7 @@
         <th>Certifications</th>
         <th>Joined</th>
       </tr>
-      <tr ui-sref="nannyDash.babysitter-profile" dir-paginate="person in babysitters.babysitters | itemsPerPage: babysitters.usersPerPage">
+      <tr ng-click="babysitters.userClick(person)" dir-paginate="person in babysitters.babysitters | itemsPerPage: babysitters.usersPerPage">
         <td>{{person.first_name}}</td>
         <td>{{person.last_name}}</td>
         <td>{{person.birthday}}</td>
