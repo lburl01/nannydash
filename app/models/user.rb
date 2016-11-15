@@ -31,20 +31,21 @@ class User < ApplicationRecord
     @sitters = []
 
     data.each do |sitter|
-      address = "#{sitter.street}, #{sitter.city}, #{sitter.state}, #{sitter.zip_code}"
-      recommendation_one = "#{sitter.recommendation_one_name}, #{sitter.recommendation_one_email}"
-      recommendation_two = "#{sitter.recommendation_two_name}, #{sitter.recommendation_two_email}"
-      recommendation_three = "#{sitter.recommendation_three_name}, #{sitter.recommendation_three_email}"
       @sitters << {"sitter_id" => sitter.id, "first_name" => sitter.first_name,
                       "last_name" => sitter.last_name, "email" => sitter.email,
-                      "phone" => sitter.phone_number, "county" => sitter.county,
-                      "birthday" => sitter.birthday, "address" => address,
+                      "phone" => sitter.phone_number, "birthday" => sitter.birthday,
                       "hourly_rate" => sitter.hourly_rate,
                       "cpr_cert" => sitter.cpr_certification,
                       "first_aid_cert" => sitter.first_aid_certification,
-                      "recomendation_one" => recommendation_one,
-                      "recomendation_two" => recommendation_two,
-                      "recomendation_three" => recommendation_three,
+                      "street" => sitter.street, "city" => sitter.city,
+                      "state" => sitter.state, "zip_code" => sitter.zip_code,
+                      "county" => sitter.county,
+                      "recomendation_one_name" => sitter.recommendation_one_name,
+                      "recomendation_one_email" => sitter.recommendation_one_email,
+                      "recomendation_two_name" => recommendation_two_name,
+                      "recomendation_two_email" => sitter.recommendation_two_email,
+                      "recomendation_three_name" => recommendation_three_name,
+                      "recomendation_three_email" => sitter.recommendation_three_email,
                       "joined" => sitter.created_at
                     }
     end
