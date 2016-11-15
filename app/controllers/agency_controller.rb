@@ -4,7 +4,7 @@ class AgencyController < ApplicationController
   def index
     @users = User.manager.all
 
-    render json: @users
+    render :index
   end
 
   def new
