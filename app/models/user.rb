@@ -1,11 +1,14 @@
 class User < ApplicationRecord
+  include Messageable
+
   has_many :job_assignments
   has_many :jobs
-
-  acts_as_messageable
+  has_many :messages, as: :sender
 
   enum role: { manager: 0, family: 1, nanny: 2 }
+
   mount_uploader :picture, PictureUploader
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
@@ -19,6 +22,7 @@ class User < ApplicationRecord
   VALID_PHONE_REGEX = /\(*\+*[1-9]{0,3}\)*-*[1-9]{0,3}[-. \/]*\(*[2-9]\d{2}\)*[-. \/]*\d{3}[-. \/]*\d{4} *e*x*t*\.* *\d{0,4}/
 
   validates_presence_of :first_name, :last_name, :email, :street, :city, :county
+
   validates :state, presence: true, length: { maximum: 2},
                     format: { with: VALID_STATE_REGEX }
   validates :zip_code, presence: true, format: { with: VALID_ZIP_REGEX }
