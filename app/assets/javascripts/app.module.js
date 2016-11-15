@@ -8,9 +8,6 @@ angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPag
       url: '/',
       abstract: true,
       template: '<ui-view></ui-view>'
-    }).state('nannyDash.family', {
-      url: 'family',
-      templateUrl: 'app.html'
     }).state('nannyDash.babysitters', {
       url: 'babysitters',
       templateUrl: 'babysitter-dashboard.html',
@@ -30,5 +27,13 @@ angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPag
           return familyAPI.list();
         }
       }
+    }).state('familyProfile', {
+      url: '/family/profile',
+      component: 'familyProfile'
+      // resolve: {
+      //   profile: function(familyAPI) {
+      //     return familyAPI.profileInfo(19);
+      //   }
+      // }
     });
 });

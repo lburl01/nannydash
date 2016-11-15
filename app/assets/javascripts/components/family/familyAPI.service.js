@@ -10,8 +10,18 @@
           alert('Failed');
         });
       },
+
       toggleActiveState: function(id) {
-        return $http.patch("/api/v1/family/" + id);
+        return $http.patch("/api/v1/family/" + id + ".json");
+      },
+
+      profileInfo: function(id) {
+        return $http.get("/api/v1/family/" + id + ".json").then(function(response) {
+          console.log(response.data);
+          return response.data;
+        }, function() {
+          alert('Failed');
+        });
       }
     };
 

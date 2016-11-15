@@ -6,7 +6,6 @@
       bindings: {
         families: '<'
       },
-      transclude: true,
       templateUrl: 'family-list.html',
       controller: ['familyAPI', FamilyListController]
     });
