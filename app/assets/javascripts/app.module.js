@@ -5,7 +5,15 @@ angular.module('app', ['ui.router', 'templates'])
 
     $stateProvider.state('family', {
       url: '/family',
-      template: '<family-list></family-list>'
+      component: 'familyList',
+      resolve: {
+        families: function(familyAPI) {
+          return familyAPI.list().then(function(response) {
+            return response.data;
+          }, function(response) {
+            alert('Failed');
+          });
+        }
+      }
     });
-
 });
