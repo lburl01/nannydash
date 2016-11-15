@@ -15,7 +15,7 @@
 
     <div class="table-body">
       <ul ng-repeat="family in $ctrl.families">
-        <family family="family"></family>
+        <family ng-click="$ctrl.select()" family="family"></family>
       </ul>
     </div>
 

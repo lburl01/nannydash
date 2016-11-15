@@ -57,5 +57,29 @@ div.family-list-wrapper {
   }
   family {
     display: flex;
+    flex-direction: column;
+    .panel-heading,
+    .accordian-header,
+    .accordian-body {
+      display: flex;
+      width: 100%;
+    }
+    .panel-body {
+      background-color: #f2f2f2;
+    }
+    .accordian-header {
+      li {
+        border: none;
+        font-weight: 400;
+      }
+    }
+    .accordian-body {
+      li {
+        font-size: 14px;
+        span {
+          background: #adadad !important;
+        }
+      }
+    }
   }
 }

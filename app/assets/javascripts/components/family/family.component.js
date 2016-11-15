@@ -6,6 +6,10 @@
       bindings: {
         family: '<'
       },
+      require: {
+        'parent': '^familyList'
+      },
+      transclude: true,
       templateUrl: 'family.html',
       controller: ['familyAPI', FamilyController]
     });
@@ -17,6 +21,22 @@
       familyAPI.toggleActiveState(id).then( function() {
         ctrl.family.active = !ctrl.family.active;
       });
+    };
+
+    ctrl.$onInit = function () {
+      ctrl.parent.addPanel(ctrl);
+    };
+
+    ctrl.turnOn = function() {
+      ctrl.selected = true;
+    };
+
+    ctrl.turnOff = function() {
+      ctrl.selected = false;
+    };
+
+    ctrl.select = function() {
+      ctrl.parent.selectPanel(ctrl);
     };
 
   }
