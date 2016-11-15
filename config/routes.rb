@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
 
+  # Angular entry point
+  get 'dashboard' => 'dashboard#index'
+
   get 'api/v1/sitters' => 'sitters#index'
 
   patch 'api/v1/family/:id' => 'families#toggle_active_family'
@@ -9,7 +12,7 @@ Rails.application.routes.draw do
   get 'agency/families' => 'agency#families'
   get 'agency/new' => 'agency#new'
   post 'agency' => 'agency#create'
-  
+
   root to: 'home#index'
 
 end

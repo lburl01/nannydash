@@ -4,10 +4,7 @@
 
     return {
       list: function() {
-        return $http({
-          url: "http://localhost:3000/agency/families",
-          method: "GET"
-        });
+        return $http.get("http://localhost:3000/agency/families.json");
       }
     };
 
