@@ -1,3 +1,4 @@
+// erb file app/views/home/index.html.erb
 .landing-page {
     .header-bar {
         display: flex;
@@ -7,23 +8,23 @@
         background: #D8D8D8;
         font-family: Helvetica;
         color: #3d3d3d;
+
+        a,
+        h1 {
+            text-decoration: none;
+            letter-spacing: 2px;
+            color: #3d3d3d;
+            margin: 0 20px;
+        }
+
+        h2 {
+            font-family: cursive;
+            flex-grow: 5;
+        }
     }
 
     img {
-      width: 100%;
-    }
-
-    a,
-    h1 {
-        text-decoration: none;
-        letter-spacing: 2px;
-        color: #3d3d3d;
-        margin: 0 20px;
-    }
-
-    h2 {
-        font-family: cursive;
-        flex-grow: 5;
+        width: 100%;
     }
 
     span.italic {

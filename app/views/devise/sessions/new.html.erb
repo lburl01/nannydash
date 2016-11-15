@@ -1,38 +1,38 @@
-<!-- wrap this page with a tag with class login -->
+<!-- sass file app/assets/stylesheets/partials/_login.scss -->
 <div class="login-page">
     <header class="header-bar">
         <h1>nanny<span class="italic">dash</span>
         </h1>
         <h2>A childcare dashboard for agencies, families and sitters.</h2>
-        <a href="###">register</a>
+        <a href="/agency/new">register</a>
         <a href="/users/sign_in">login</a>
     </header>
-<main class="login-area">
-    <h2>Log in</h2>
-    <hr/>
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="field">
-        <%= f.label :email %><br/>
-        <%= f.email_field :email, autofocus: true %>
-    </div>
+    <main class="login-area">
+        <h2 class="login-header-text">Log in</h2>
+        <hr/>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="field">
+            <%= f.label :email %><br/>
+            <%= f.email_field :email, autofocus: true %>
+        </div>
 
-    <div class="field">
-        <%= f.label :password %><br/>
-        <%= f.password_field :password, autocomplete: "off" %>
-    </div>
+        <div class="field">
+            <%= f.label :password %><br/>
+            <%= f.password_field :password, autocomplete: "off" %>
+        </div>
 
-    <% if devise_mapping.rememberable? -%>
-    <div class="field">
-        <%= f.label :remember_me %>
-        <%= f.check_box :remember_me %>
-    </div>
-    <% end -%>
+        <% if devise_mapping.rememberable? -%>
+        <div class="field">
+            <%= f.label :remember_me %>
+            <%= f.check_box :remember_me %>
+        </div>
+        <% end -%>
 
-    <div class="actions">
-        <%= f.submit "Log in" %>
-    </div>
-    <% end %>
+        <div class="actions">
+            <%= f.submit "Log in" %>
+        </div>
+        <% end %>
 
-    <%= render "devise/shared/links" %>
-</login>
+        <%= render "devise/shared/links" %>
+    </login>
 </main>

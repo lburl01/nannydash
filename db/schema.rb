@@ -27,8 +27,8 @@ ActiveRecord::Schema.define(version: 20161115144420) do
   create_table "jobs", force: :cascade do |t|
     t.integer  "user_id",                                    null: false
     t.date     "date",       default: '2016-11-15',          null: false
-    t.time     "start_time", default: '2000-01-01 15:28:10', null: false
-    t.time     "end_time",   default: '2000-01-01 18:28:10', null: false
+    t.time     "start_time", default: '2000-01-01 19:15:28', null: false
+    t.time     "end_time",   default: '2000-01-01 22:15:28', null: false
     t.text     "notes"
     t.boolean  "confirmed",  default: false,                 null: false
     t.datetime "created_at",                                 null: false

@@ -1,30 +1,65 @@
+<!-- url is agency/new -->
+<!-- sass file app/assets/stylesheets/partials/agency-register.scss -->
+<div class="agency-register-page">
+<header class="header-bar">
+    <h1>nanny<span class="italic">dash</span>
+    </h1>
+    <h2>A childcare dashboard for agencies, families and sitters.</h2>
+    <a href="/agency/new">register</a>
+    <a href="/users/sign_in">login</a>
+</header>
+
 <% if @agency.errors %>
   <div><%= @agency.errors.full_messages.to_sentence %></div>
 <% end %>
-
+<main class="register-area">
+  <h3 class="register-header-text">Register</h3>
+  <hr/>
 <%= form_for(@agency, url: agency_path, html: { multipart: true }) do |f| %>
+<div class="field">
   <%= f.label :first_name %>:
   <%= f.text_field :first_name, placeholder: "First Name" %>
+</div>
+<div class="field">
   <%= f.label :last_name %>:
   <%= f.text_field :last_name, placeholder: "Last Name" %>
+</div>
+<div class="field">
   <%= f.label :email %>:
   <%= f.email_field :email, placeholder: "Email Address" %>
+</div>
+<div class="field">
   <%= f.label :street %>:
   <%= f.text_field :street, placeholder: "Street" %>
+</div>
+<div class="field">
   <%= f.label :city %>:
   <%= f.text_field :city, placeholder: "Raleigh" %>
+</div>
+<div class="field">
   <%= f.label :state %>:
   <%= f.text_field :state, placeholder: "NC" %>
+</div>
+<div class="field">
   <%= f.label :zip_code %>:
   <%= f.text_field :zip_code, placeholder: "Zip Code" %>
+</div>
+<div class="field">
   <%= f.label :county %>:
   <%= f.text_field :county, placeholder: "County" %>
+</div>
+<div class="field">
   <%= f.label :phone_number %>:
   <%= f.text_field :phone_number, placeholder: "Phone Number" %>
+</div>
+<div class="field">
   <%= f.label :password %>:
   <%= f.password_field :password %>
+</div>
   <%= f.hidden_field :role, value: "manager" %>
   <hr>
   <%= f.submit "Join", class: "btn btn-primary" %>
   <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png,image/jpg' %>
 <% end %>
+</main>
+</div>
