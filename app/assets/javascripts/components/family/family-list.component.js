@@ -6,31 +6,31 @@
       bindings: {
         families: '<'
       },
+      transclude: true,
       templateUrl: 'family-list.html',
       controller: ['familyAPI', FamilyListController]
     });
 
     function FamilyListController(familyAPI) {
       var ctrl = this;
+      var panels = [];
 
-      ctrl.$onInit = function() {
-        familyAPI.list().then(function(response) {
-          ctrl.families = response.data;
-        }, function(response) {
-          alert('Failed');
-        });
+      ctrl.addPanel = function(panel) {
+        panels.push(panel);
+        // if (panels.length > 0) {
+        //   panels[0].turnOn();
+        // }
       };
 
-      ctrl.changeStatus = function() {
-        console.log('change');
-        if (this.active) {
-          this.active = false;
-          console.log(this.active);
-        } else {
-          this.active = true;
+      ctrl.selectPanel = function(panel) {
+        for (var i in panels) {
+          if (panel === panels[i]) {
+            panels[i].turnOn();
+          } else {
+            panels[i].turnOff();
+          }
         }
       };
 
     }
-
 })();

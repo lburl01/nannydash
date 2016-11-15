@@ -27,12 +27,15 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+gem 'rake', '~> 11.2', '>= 11.2.2'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 gem 'faker'
 gem 'devise'
 gem "pundit"
+gem "figaro"
 
 gem 'carrierwave',             '0.11.2'
 gem 'mini_magick',             '4.5.1'
@@ -44,6 +47,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'capybara'
   gem "factory_girl_rails", "~> 4.0"
+  gem 'rails-controller-testing'
 end
 
 group :development do
