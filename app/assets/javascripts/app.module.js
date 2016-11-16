@@ -5,12 +5,15 @@ angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPag
 
     $stateProvider.state('jobs', {
       url: '/',
-      component: 'jobList'
+      component: 'jobsList'
+    }).state('newJobs', {
+      url: '/new-jobs',
+      component: 'newJobsList'
     }).state('babysitters', {
       url: 'babysitters',
       templateUrl: 'babysitter-dashboard.html',
       controller: 'babysitterDirectoryController as babysitters'
-    }).state('nannyDash.babysitter-profile', {
+    }).state('babysitter-profile', {
       url: 'babysitters/babysitter-profile',
       params: {
         babysitterParam: null
@@ -33,5 +36,14 @@ angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPag
           return familyAPI.profileInfo($stateParams.familyId);
         }
       }
+    }).state('pendingBabysitters', {
+      url: '/pending-babysitters',
+      component: 'pendingBabysittersList'
+    }).state('pendingParents', {
+      url: '/pending-parents',
+      component: 'pendingParentsList'
+    }).state('messages', {
+      url: '/messages',
+      component: 'messages'
     });
 });

@@ -3,7 +3,7 @@
 
   angular
     .module('app')
-    .component('jobList', {
-      templateUrl: 'job-list.html'
+    .component('messages', {
+      templateUrl: 'messages.html'
     });
 })();
