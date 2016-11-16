@@ -28,8 +28,12 @@
 
       <section class="key-info">
         <h2>Key Information</h2>
-        <input class="status" type="text" ng-model="$ctrl.family.active ? 'active' : 'inactive'">
 
+        <span ng-click="$ctrl.handleToggle($ctrl.family.family_id)"
+          ng-class="{'active': $ctrl.family.active, 'inactive': !$ctrl.family.active}">
+          {{$ctrl.family.active ? 'active' : 'inactive'}}
+        </span>
+        
         <button type="button">Delete Account</button>
       </section>
     </div>
