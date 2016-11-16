@@ -36,8 +36,17 @@ RSpec.describe FamiliesController, type: :controller do
       get :show, params: { id: @user.id }
 
       json = JSON.parse(response.body)
-      
+
       expect(json["family_id"]).to eq 1
+    end
+  end
+
+  describe "PATCH #update" do
+    it 'updates a record' do
+      @user = create(:user)
+
+      expect{ patch :update, id: @user.id, user: { "first_name" => "Lori" } }.to
+        change{User.first_name}.from("Ellis").to("Lori")
     end
   end
 
