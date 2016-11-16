@@ -9,7 +9,7 @@ class FamiliesController < ApplicationController
 
   def show
     @family = User.get_family(params[:id])
-    
+
     render json: @family
   end
 
