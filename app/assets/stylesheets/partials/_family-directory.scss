@@ -11,27 +11,27 @@
 }
 
 div.family-list-wrapper {
-  padding-top: 40px;
-  width: 70%;
   font-family: 'Helvetica', sans-serif;
-  float: right;
   font-weight: 100;
   color: #9b9b9b;
 
   .family-table {
-    width: 90%;
     .table-head {
       display: flex;
       justify-content: flex-start;
       li {
         font-weight: 400;
-        padding: 10px 0;
+        font-size: 16px;
+        text-align: left;
+        color: #9B9B9B;
+        padding: 10px 10px 15px;
       }
     }
     li {
+      padding: 15px 10px;
+      font-weight: 100;
       cursor: pointer;
       border-bottom: 1px solid #d9d9d9;
-      padding: 8px 0;
       width: 15%;
       font-size: 14px;
     }
@@ -47,8 +47,8 @@ div.family-list-wrapper {
       span {
         background: #6BB317;
         color: white;
-        border-radius: 5px;
-        padding: 3px;
+        padding: 5px 10px;
+        border-radius: 7px;
         &.inactive {
           background: #EA043A;
         }
@@ -69,14 +69,15 @@ div.family-list-wrapper {
     }
     .accordian-header {
       li {
+        font-size: 14px;
         border: none;
         font-weight: 400;
       }
     }
     .accordian-body {
       li {
-        font-size: 14px;
-        span {
+        font-size: 13px;
+        span.profile-button {
           background: #adadad !important;
         }
       }

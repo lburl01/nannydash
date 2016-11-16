@@ -32,7 +32,7 @@
         <td>{{person.last_name}}</td>
         <td>{{person.birthday}}</td>
         <td>${{person.hourly_rate}}</td>
-        <td><span ng-class="person.cpr_cert ? 'green' : 'red'" class="cpr">{{babysitters.cprCheck(person.cpr_cert)}}</span></td>
+        <td><span ng-class="person.cpr_certification ? 'green' : 'red'" class="cpr">{{babysitters.cprCheck(person.cpr_certification)}}</span></td>
         <td>{{babysitters.getDate(person)}}</td>
       </tr>
     </table>

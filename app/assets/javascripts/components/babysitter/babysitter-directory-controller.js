@@ -15,6 +15,7 @@ angular.module('app')
           babysitterDirectoryAPI.totalBabysitters = response;
           self.babysitters = babysitterDirectoryAPI.totalBabysitters;
           self.totalUsers = response.length;
+          console.log(self.babysitters);
         }, function(response) {
           alert('Failed');
         });
@@ -41,6 +42,6 @@ angular.module('app')
       When user clicks on profile, it will store data and post on new profile page
       *************************/
       this.userClick = function(person) {
-        $state.go('nannyDash.babysitter-profile', {babysitterParam: {sitter: person}});
+        $state.go('babysitter-profile', {babysitterParam: {sitter: person}});
       }
     });
