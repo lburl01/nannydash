@@ -24,9 +24,9 @@ angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPag
       url: '/family',
       component: 'familyList',
       resolve: {
-        families: function(familyAPI) {
+        families: ['familyAPI', function(familyAPI) {
           return familyAPI.list();
-        }
+        }]
       }
     }).state('messages', {
       url: '/messages',
@@ -36,9 +36,9 @@ angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPag
       url: '/family/profile/:familyId',
       component: 'familyProfile',
       resolve: {
-        profile: function(familyAPI, $stateParams) {
+        profile: ['familyAPI', '$stateParams', function(familyAPI, $stateParams) {
           return familyAPI.profileInfo($stateParams.familyId);
-        }
+        }]
       }
     }).state('pendingBabysitters', {
       url: '/pending-babysitters',
