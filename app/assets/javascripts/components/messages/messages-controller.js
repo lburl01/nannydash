@@ -1,8 +1,8 @@
 angular.module('app')
-    .controller('messagesController', function ($scope, $http, $state, $stateParams, babysitterDirectoryAPI) {
+    .controller('messagesController', ["$scope", "$http", "$state", "$stateParams", "babysitterDirectoryAPI", function ($scope, $http, $state, $stateParams, babysitterDirectoryAPI) {
       /*************************
       Variables
       *************************/
       var self = this;
 
-    });
+    }]);
