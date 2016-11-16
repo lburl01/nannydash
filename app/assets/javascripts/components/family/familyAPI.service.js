@@ -24,7 +24,11 @@
       },
 
       saveProfile: function(id, data) {
-        return $http.patch("/api/v1/family/update/" + id, {user: data});
+        return $http.patch("/api/v1/family/update/" + id + ".json", {user: data});
+      },
+
+      deleteProfile: function(id) {
+        return $http.patch("/api/v1/family/delete/" + id + ".json");
       }
     };
   }]);

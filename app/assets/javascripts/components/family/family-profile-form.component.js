@@ -22,7 +22,13 @@
 
       ctrl.save = function(id) {
         familyAPI.saveProfile(id, ctrl.updateFamily).then(function() {
-          console.log('success! yes! good job!');
+          console.log('success! saved!');
+        });
+      };
+
+      ctrl.delete = function(id) {
+        familyAPI.deleteProfile(id).then(function() {
+          console.log('success! deleted');
         });
       };
     }
