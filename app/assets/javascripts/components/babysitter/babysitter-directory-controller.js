@@ -41,6 +41,6 @@ angular.module('app')
       When user clicks on profile, it will store data and post on new profile page
       *************************/
       this.userClick = function(person) {
-        $state.go('nannyDash.babysitter-profile', {babysitterParam: {sitter: person}});
+        $state.go('babysitter-profile', {babysitterParam: {sitter: person}});
       }
     });

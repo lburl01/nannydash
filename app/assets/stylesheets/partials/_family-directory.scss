@@ -69,14 +69,18 @@ div.family-list-wrapper {
     }
     .accordian-header {
       li {
+        font-size: 14px;
         border: none;
         font-weight: 400;
+        span {
+          display: block;
+        }
       }
     }
     .accordian-body {
       li {
-        font-size: 14px;
-        span {
+        font-size: 13px;
+        span.profile-button {
           background: #adadad !important;
         }
       }

@@ -6,9 +6,6 @@
       bindings: {
         profile: '<'
       },
-      require: {
-        'parent': '^family'
-      },
       templateUrl: 'family-profile.html',
       controller: ['familyAPI', FamilyProfile]
     });
@@ -17,6 +14,7 @@
     var ctrl = this;
 
     ctrl.$onInit = function() {
+
     };
   }
 })();

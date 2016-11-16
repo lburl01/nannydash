@@ -9,56 +9,25 @@
 
     <div class="list">
       <div class="title-container">
-        <div class="county">
+        <div class="message">
           <h4>Message</h4>
           <i class="fa fa-angle-down"></i>
         </div>
       </div>
     </div>
 
-    <section class="name">
-      <h1>{{$ctrl.profile.first_name}} {{$ctrl.profile.last_name}}</h1>
-      <img src="#" alt="">
-    </section>
+    <div class="profile-container">
+      <section class="name">
+        <h1>{{$ctrl.profile.first_name}} {{$ctrl.profile.last_name}}</h1>
+        <img src="#" alt="">
+      </section>
 
+      <section class="basic-info">
+        <h2>Basic Information</h2>
 
-    <section class="basic-info">
-      <h2>Basic Information</h2>
-      <!-- Phone Field -->
-      <label for="phone">Phone:</label>
-      <input id="phone" type="text" value="{{$ctrl.profile.phone}}">
-      <!-- Email Field -->
-      <label for="email">Email:</label>
-      <input id="email" type="text" value="{{$ctrl.profile.email}}">
-      <!-- Street Field -->
-      <label for="street">Street:</label>
-      <input id="street" type="text" value="{{$ctrl.profile.street}}">
-      <!-- City Field -->
-      <label for="city">City:</label>
-      <input id="city" type="text" value="{{$ctrl.profile.city}}">
-      <!-- County Field -->
-      <label for="count">County:</label>
-      <input id="county" type="text" value="{{$ctrl.profile.county}}">
-      <!-- State Field -->
-      <label for="state">State:</label>
-      <input id="state" type="text" value="{{$ctrl.profile.state}}">
-      <!-- zip Field -->
-      <label for="zip">zip:</label>
-      <input id="zip" type="text" value="{{$ctrl.profile.zip_code}}">
-      <!-- About Field -->
-      <label for="about">About:</label>
-      <textarea rows="4" cols="50">
-        {{$ctrl.profile.about}}
-      </textarea>
-    </section>
+        <family-profile-form profile="$ctrl.profile"></family-profile-form>
 
-    <section class="key-info">
-      <h2>Key Information</h2>
-
-      <span>active</span>
-      <button type="button" name="delete">Delete</button>
-    </section>
+      </section>
+    </div>
   </div>
-
-
 </div>
