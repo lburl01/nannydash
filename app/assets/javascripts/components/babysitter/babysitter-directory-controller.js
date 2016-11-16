@@ -40,7 +40,8 @@ angular.module('app')
       *************************/
       this.userClick = function(personId) {
         babysitterDirectoryAPI.userProfile(personId).success(function(response) {
-          $state.go('babysitter-profile', {babysitterParam: {sitter: response}});
+          console.log(response);
+          $state.go('babysitter-profile', {babysitterParam: {sitter: response}, sitterId: personId}, {reload: true});
         });
       }
     }]);

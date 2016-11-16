@@ -12,9 +12,10 @@ angular.module('app')
       this.updatedBabysitters = {};
 
       this.addCerts = function() {
-        $('<div>').attr('class', 'cert-container').appendTo('.cert');
-        $('<input>').attr('id', 'cpr').appendTo('.cert-container');
-        $('<span>').html('-').appendTo('.cert-container');
+        console.log('in');
+        $('<div>').attr('class', 'new-cert-container').appendTo('.cert');
+        $('<input>').attr('id', 'cpr').appendTo('.new-cert-container');
+        $('<span>').html('-').appendTo('.new-cert-container');
       }
 
       this.updateBabysitter = function(id) {
@@ -27,4 +28,13 @@ angular.module('app')
         var updatedUser = self.updatedBabysitters[key] = value;
       }
 
-    }]);
+      this.calculateAge = function() { // birthday is a date
+        console.log($stateParams.babysitterParam.sitter.birthday);
+        // var ageDif = Date.now() - $stateParams.babysitterParam.sitter.getTime();
+        // var ageDate = new Date(ageDif); // miliseconds from epoch
+        // var age = Math.abs(ageDate.getUTCFullYear() - 1970);
+        // console.log(age);
+      }
+      this.calculateAge();
+
+  }]);
