@@ -2,6 +2,7 @@
 //= require angular/angular.min.js
 //= require angular-rails-templates
 //= require angular-ui-router/release/angular-ui-router.js
+//= require angular-utils-pagination/dirPagination.js
 //= require jquery
 //= require app.module.js
 //= require app.component.js

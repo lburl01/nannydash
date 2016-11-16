@@ -14,12 +14,16 @@ angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPag
       templateUrl: 'babysitter-dashboard.html',
       controller: 'babysitterDirectoryController as babysitters'
     }).state('babysitter-profile', {
-      url: '/babysitters/babysitter-profile',
+      url: '/babysitters/profile/:sitterId',
       params: {
-        babysitterParam: null
+        babysitterParam: null,
+        sitterId: null
       },
       templateUrl: 'babysitter-profile.html',
-      controller: 'babysitterProfileController as babysitter'
+      controller: 'babysitterProfileController as babysitter',
+      resolve: {
+
+      }
     }).state('family', {
       url: '/family',
       component: 'familyList',
