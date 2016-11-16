@@ -1,5 +1,5 @@
 angular.module('app')
-    .controller('babysitterDirectoryController', function ($http, $state, babysitterDirectoryAPI) {
+    .controller('babysitterDirectoryController', ["$http", "$state", "babysitterDirectoryAPI", function ($http, $state, babysitterDirectoryAPI) {
       /*************************
       Variables
       *************************/
@@ -43,4 +43,4 @@ angular.module('app')
           $state.go('babysitter-profile', {babysitterParam: {sitter: response}});
         });
       }
-    });
+    }]);

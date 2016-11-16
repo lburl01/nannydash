@@ -1,5 +1,5 @@
 angular.module('app')
-    .controller('babysitterProfileController', function ($scope, $http, $state, $stateParams, babysitterDirectoryAPI) {
+    .controller('babysitterProfileController', ["$scope", "$http", "$state", "$stateParams", "babysitterDirectoryAPI", function ($scope, $http, $state, $stateParams, babysitterDirectoryAPI) {
       /*************************
       Variables
       *************************/
@@ -27,4 +27,4 @@ angular.module('app')
         var updatedUser = self.updatedBabysitters[key] = value;
       }
 
-    });
+    }]);
