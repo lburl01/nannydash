@@ -30,5 +30,6 @@ class SittersController < ApplicationController
                                      :recommendation_one_name, :recommendation_one_email,
                                      :recommendation_two_name, :recommendation_two_email,
                                      :recommendation_three_name, :recommendation_three_email,)
+    end
 
 end
