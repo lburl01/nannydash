@@ -103,36 +103,40 @@
     }
 
     .cert {
-      position: relative;
 
-      span:nth-child(1) {
-        text-align: right;
-        float: right;
-        background: #ddd;
-        padding: 2px 5px;
-        border-radius: 50%;
+      .cert-container {
         position: relative;
-        top: -3px;
-        right: 3px;
-      }
 
-      span:nth-child(3), span:nth-child(5) {
-        position: absolute;
-        background: #fff;
-        padding: 0 6px;
-        border-radius: 50%;
-      }
+        span:nth-child(1) {
+          text-align: right;
+          float: right;
+          background: #ddd;
+          padding: 2px 5px;
+          border-radius: 50%;
+          position: relative;
+          top: -3px;
+          right: 3px;
+        }
 
-      span:nth-child(3) {
-        right: 5px;
-        top: 38px;
-      }
+        span:nth-child(3), span:nth-child(5) {
+          position: absolute;
+          background: #fff;
+          padding: 0 6px;
+          border-radius: 50%;
+        }
 
-      span:nth-child(5) {
-        right: 5px;
-        top: 71px;
+        span:nth-child(3) {
+          right: 5px;
+          top: 38px;
+        }
+
+        span:nth-child(5) {
+          right: 5px;
+          top: 71px;
+        }
       }
     }
+
   }
 
   .basic-info {
@@ -142,5 +146,25 @@
 
   .name {
     padding-left: 0;
+
+    label {
+      width: 100%;
+    }
+
+    input {
+      display: inline-block;
+      width: 100%;
+      background: #fff;
+      border: transparent;
+      font-size: 25px;
+
+      &:nth-child(2) {
+        width: 55%;
+      }
+    }
+
+    img {
+      display: block;
+    }
   }
 }
