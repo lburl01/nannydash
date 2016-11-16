@@ -82,7 +82,7 @@ class User < ApplicationRecord
   end
 
   def self.get_approved_families
-    data = User.family.where(is_deleted: true).where(approved: true).all
+    data = User.family.where(is_deleted: false).where(approved: true).all
 
     @families = []
 
