@@ -16,7 +16,6 @@
       ctrl.updateFamily = {};
 
       ctrl.updateCurrent = function(key, value) {
-        ctrl.updateFamily.family_id = ctrl.id;
         ctrl.updateFamily[key] = value;
         console.log(ctrl.updateFamily);
       };
