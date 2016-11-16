@@ -18,7 +18,7 @@
           <%= image_tag("sort.png", :alt => "Directories Icon") %>
           <h1>Directories</h1>
         </div>
-        <button ui-sref="nannyDash.babysitters" type="button">Babysitters</button>
+        <button ui-sref="babysitters" type="button">Babysitters</button>
         <button ui-sref="family" type="button">Parents</button>
       </section>
       <!-- Pending Applications Nav Section -->
@@ -27,16 +27,16 @@
           <%= image_tag("plus.png", :alt => "Directories Icon") %>
           <h1>Pending Applications</h1>
         </div>
-        <button type="button"><span>9</span> | Babysitters</button>
-        <button type="button"><span>4</span> | Parents</button>
+        <button ui-sref="pendingBabysitters" type="button"><span>9</span> | Babysitters</button>
+        <button ui-sref="pendingParents" type="button"><span>4</span> | Parents</button>
       </section>
       <!-- Jobs Center Nav Section -->
       <section class="jobs">
         <div class="title">
           <h1>Jobs Center</h1>
         </div>
-        <button type="button"><span>0</span> | New Jobs</button>
-        <button type="button"><span>23</span> | All Jobs</button>
+        <button ui-sref="newJobs" type="button"><span>0</span> | New Jobs</button>
+        <button ui-sref="jobs" type="button"><span>23</span> | All Jobs</button>
       </section>
       <!-- Messages Nav Section -->
       <section class="messages">
@@ -44,7 +44,7 @@
           <%= image_tag("mail.png", :alt => "Directories Icon") %>
           <h1>Messaging Center</h1>
         </div>
-        <button type="button"><span>4</span> | Messages</button>
+        <button ui-sref="messages" type="button"><span>4</span> | Messages</button>
       </section>
     </aside>
     <!-- ******************************

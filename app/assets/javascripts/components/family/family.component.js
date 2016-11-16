@@ -23,11 +23,6 @@
       });
     };
 
-    ctrl.getProfile = function(id) {
-      familyAPI.profileInfo(id).then(function() {
-      });
-    };
-
     ctrl.$onInit = function () {
       ctrl.parent.addPanel(ctrl);
     };

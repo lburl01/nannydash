@@ -1,74 +1,112 @@
 .family-profile-wrapper {
   display: flex;
-  width: 70%;
   font-style: 'Helvetica', sans-serif;
-}
 
-.directory-container {
-  .search {
-    display: flex;
-    justify-content: space-between;
-    margin: 30px 0;
-    h1 {
-      font-size: 28px;
-      color: #9b9b9b;
-    }
-  }
-  .county {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    height: 35px;
-    background-color: #bdbdbd;
-    color:white;
-    border-radius: 5px;
-    font-weight: 100;
-  }
-  .list {
-    .title-container {
-      margin-bottom: 35px !important;
-    }
-  }
+  .directory-container {
+    width: 100%;
 
-  .basic-info {
-    textarea {
-      resize: none;
-    }
-  }
-
-  section {
-    width: 30%;
-    float: left;
-    overflow: hidden;
-
-    &:nth-child(4) {
-      width: 40%;
-    }
-
-    &:nth-child(5) {
-      width: 20%;
-    }
-
-    label {
-      width: 25%;
-      display: inline-block;
-    }
-
-    input {
-      width: 65%;
-      display: inline-block;
-    }
-
-    h1 {
-      font-size: 21px;
+    .message {
+      align-items: center;
+      background-color: #bdbdbd;
+      border-radius: 5px;
+      color:white;
+      display: flex;
       font-weight: 100;
-      padding-bottom: 17px;
+      height: 35px;
+      justify-content: flex-end;
+    }
+    .list {
+      .title-container {
+        margin-bottom: 35px !important;
+      }
+      .message {
+        float: right;
+        position: relative;
+
+        .fa-angle-down {
+          font-size: 21px;
+          border: #fff solid 1px;
+          padding: 0px 5px;
+          border-radius: 1px;
+
+          &:hover {
+            background: #fff;
+            color: #BDBDBD;
+          }
+        }
+      }
     }
 
-    h2 {
-      font-size: 18px;
-      font-weight: 100;
-      padding-bottom: 17px;
+    .profile-container {
+      display: flex;
+      width: 100%;
+    }
+
+    .basic-info {
+      flex-grow: 1;
+      padding: 10px;
+      width: 50%;
+      textarea {
+        width: 65%;
+        resize: none;
+        background: #eee;
+        border: #BDBDBD solid 1px;
+        border-radius: 7px;
+        padding: 6px;
+        outline: none;
+        font-size: 13px;
+        font-weight: 300;
+        color: #666;
+        letter-spacing: .5px;
+      }
+      .save {
+        margin-left: 26%;
+        cursor: pointer;
+      }
+    }
+
+    section {
+      width: 30%;
+      float: left;
+      overflow: hidden;
+
+      &:nth-child(4) {
+        width: 40%;
+      }
+
+      &:nth-child(5) {
+        width: 20%;
+      }
+
+      label {
+        width: 25%;
+        display: inline-block;
+      }
+
+      input {
+        width: 65%;
+        display: inline-block;
+        &.status {
+          width: 100%;
+          cursor: pointer;
+        }
+      }
+
+      button {
+        cursor: pointer;
+      }
+
+      h1 {
+        font-size: 21px;
+        font-weight: 100;
+        padding-bottom: 17px;
+      }
+
+      h2 {
+        font-size: 18px;
+        font-weight: 100;
+        padding-bottom: 17px;
+      }
     }
   }
 }

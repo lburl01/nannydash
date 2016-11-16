@@ -1,18 +1,19 @@
 angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPagination'])
   .config(function($stateProvider, $urlRouterProvider) {
 
-    $urlRouterProvider.otherwise('/');
+    // $urlRouterProvider.otherwise('/');
 
-
-    $stateProvider.state('nannyDash', {
+    $stateProvider.state('jobs', {
       url: '/',
-      abstract: true,
-      template: '<ui-view></ui-view>'
-    }).state('nannyDash.babysitters', {
+      component: 'jobsList'
+    }).state('newJobs', {
+      url: '/new-jobs',
+      component: 'newJobsList'
+    }).state('babysitters', {
       url: 'babysitters',
       templateUrl: 'babysitter-dashboard.html',
       controller: 'babysitterDirectoryController as babysitters'
-    }).state('nannyDash.babysitter-profile', {
+    }).state('babysitter-profile', {
       url: 'babysitters/babysitter-profile',
       params: {
         babysitterParam: null
@@ -28,12 +29,21 @@ angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPag
         }
       }
     }).state('familyProfile', {
-      url: '/family/profile',
-      component: 'familyProfile'
-      // resolve: {
-      //   profile: function(familyAPI) {
-      //     return familyAPI.profileInfo(19);
-      //   }
-      // }
+      url: '/family/profile/:familyId',
+      component: 'familyProfile',
+      resolve: {
+        profile: function(familyAPI, $stateParams) {
+          return familyAPI.profileInfo($stateParams.familyId);
+        }
+      }
+    }).state('pendingBabysitters', {
+      url: '/pending-babysitters',
+      component: 'pendingBabysittersList'
+    }).state('pendingParents', {
+      url: '/pending-parents',
+      component: 'pendingParentsList'
+    }).state('messages', {
+      url: '/messages',
+      component: 'messages'
     });
 });
