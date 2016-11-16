@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   get 'api/v1/sitters' => 'sitters#index'
   get 'api/v1/sitter/:id' => 'sitters#show'
-  put 'api/v1/sitter/:id' => 'sitters#update'
+  patch 'api/v1/sitter/:id' => 'sitters#update'
 
   get 'api/v1/families' => 'families#index'
   get 'api/v1/family/:id' => 'families#show'

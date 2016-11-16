@@ -10,15 +10,12 @@ angular.module('app')
       /*************************
       When page first loads, load in babysitters
       *************************/
-      $(document).one('ready',function(){
-        babysitterDirectoryAPI.list().success(function(response) {
-          babysitterDirectoryAPI.totalBabysitters = response;
-          self.babysitters = babysitterDirectoryAPI.totalBabysitters;
-          self.totalUsers = response.length;
-          console.log(self.babysitters);
-        }, function(response) {
-          alert('Failed');
-        });
+      babysitterDirectoryAPI.list().success(function(response) {
+        babysitterDirectoryAPI.totalBabysitters = response;
+        self.babysitters = babysitterDirectoryAPI.totalBabysitters;
+        self.totalUsers = response.length;
+      }, function(response) {
+        alert('Failed');
       });
       /*************************
       Transforming full date/time string to just plain date
@@ -41,7 +38,9 @@ angular.module('app')
       /*************************
       When user clicks on profile, it will store data and post on new profile page
       *************************/
-      this.userClick = function(person) {
-        $state.go('babysitter-profile', {babysitterParam: {sitter: person}});
+      this.userClick = function(personId) {
+        babysitterDirectoryAPI.userProfile(personId).success(function(response) {
+          $state.go('babysitter-profile', {babysitterParam: {sitter: response}});
+        });
       }
     });
