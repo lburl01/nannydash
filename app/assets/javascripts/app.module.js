@@ -30,5 +30,9 @@ angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPag
           return familyAPI.list();
         }
       }
+    }).state('nannyDash.messages', {
+      url: 'messages',
+      templateUrl: 'messages.html',
+      controller: 'messagesController as messages'
     });
 });
