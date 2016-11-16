@@ -23,6 +23,11 @@ class FamiliesController < ApplicationController
     @family.update_attributes(family_params)
   end
 
+  def toggle_deleted_family
+    family = User.find(params[:id])
+    family.toggle!(:is_deleted)
+  end
+
   private
 
     def family_params

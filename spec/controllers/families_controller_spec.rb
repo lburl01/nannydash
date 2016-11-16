@@ -54,4 +54,19 @@ RSpec.describe FamiliesController, type: :controller do
     end
   end
 
+  describe "PATCH #toggle_deleted_family" do
+    it 'toggles the is_deleted column value' do
+      @user = create(:user)
+
+      expect(@user.is_deleted).to eq false
+
+      process :toggle_deleted_family, method: :patch, params: { id: @user.id }
+
+      @user.reload
+
+      expect(@user.is_deleted).to eq true
+
+    end
+  end
+
 end
