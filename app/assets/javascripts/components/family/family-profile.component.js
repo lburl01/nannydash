@@ -13,8 +13,11 @@
   function FamilyProfile(familyAPI) {
     var ctrl = this;
 
-    ctrl.$onInit = function() {
-
+    ctrl.handleToggle = function(id) {
+      familyAPI.toggleActiveState(id).then( function() {
+        ctrl.profile.active = !ctrl.profile.active;
+      });
     };
+
   }
 })();
