@@ -10,7 +10,7 @@ RSpec.describe Messageable do
     @recipient = build(:recipient)
     subject = "Subject Line"
     body = "Lots of text goes here"
-
+    
     @sender.send_message(@recipient, body, subject)
 
     expect(Conversation).to have(1).record

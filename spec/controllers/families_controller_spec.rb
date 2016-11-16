@@ -18,13 +18,26 @@ RSpec.describe FamiliesController, type: :controller do
 
   describe "GET #index" do
     it 'returns an array of json objects' do
-      @user = create(:user, role: 1, approved: true)
+      user_one = create(:user, role: 1, approved: true)
+      user_two = create(:recipient, role: 1, approved: true)
 
       get :index
 
       json = JSON.parse(response.body)
 
-      expect(json.length).to eq 1
+      expect(json.length).to eq 2
+    end
+  end
+
+  describe "GET #show" do
+    it 'returns one json object' do
+      @user = create(:user)
+
+      get :show, params: { id: @user.id }
+
+      json = JSON.parse(response.body)
+      
+      expect(json["family_id"]).to eq 1
     end
   end
 
