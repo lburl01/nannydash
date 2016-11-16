@@ -1,5 +1,4 @@
 <div class="family-profile-wrapper">
-
   <div class="directory-container">
 
     <div class="search">
@@ -24,9 +23,14 @@
 
       <section class="basic-info">
         <h2>Basic Information</h2>
-
         <family-profile-form profile="$ctrl.profile"></family-profile-form>
+      </section>
 
+      <section class="key-info">
+        <h2>Key Information</h2>
+        <input class="status" type="text" ng-model="$ctrl.family.active ? 'active' : 'inactive'">
+
+        <button type="button">Delete Account</button>
       </section>
     </div>
   </div>
