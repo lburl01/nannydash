@@ -33,7 +33,7 @@ class User < ApplicationRecord
   validate :picture_size
 
   def self.get_active_sitters
-    data = User.nanny.all
+    data = User.nanny.where(is_deleted: false).all
 
     @sitters = []
 
@@ -82,7 +82,7 @@ class User < ApplicationRecord
   end
 
   def self.get_approved_families
-    data = User.family.where(approved: true).all
+    data = User.family.where(is_deleted: false).where(approved: true).all
 
     @families = []
 

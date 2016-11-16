@@ -12,6 +12,16 @@ RSpec.describe SittersController, type: :controller do
 
       expect(json.length).to eq 1
     end
+
+    it 'will not return deleted sitters' do
+      @user = create(:user, is_deleted: true)
+
+      get :index
+
+      json = JSON.parse(response.body)
+
+      expect(json.length).to eq 0
+    end
   end
 
   describe "PATCH #toggle_deleted_sitter" do
