@@ -14,4 +14,19 @@ RSpec.describe SittersController, type: :controller do
     end
   end
 
+  describe "PATCH #toggle_deleted_sitter" do
+    it 'toggles the is_deleted column value' do
+      @user = create(:user)
+
+      expect(@user.is_deleted).to eq false
+
+      process :toggle_deleted_sitter, method: :patch, params: { id: @user.id }
+
+      @user.reload
+
+      expect(@user.is_deleted).to eq true
+
+    end
+  end
+
 end

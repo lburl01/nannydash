@@ -19,6 +19,11 @@ class SittersController < ApplicationController
     @sitter.update_attributes(sitter_params)
   end
 
+  def toggle_deleted_sitter
+    sitter = User.find(params[:id])
+    sitter.toggle!(:is_deleted)
+  end
+
   private
 
     def sitter_params
