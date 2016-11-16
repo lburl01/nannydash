@@ -42,8 +42,8 @@ class User < ApplicationRecord
                       "last_name" => sitter.last_name, "email" => sitter.email,
                       "phone" => sitter.phone_number, "birthday" => sitter.birthday,
                       "hourly_rate" => sitter.hourly_rate,
-                      "cpr_cert" => sitter.cpr_certification,
-                      "first_aid_cert" => sitter.first_aid_certification,
+                      "cpr_certification" => sitter.cpr_certification,
+                      "first_aid_certification" => sitter.first_aid_certification,
                       "street" => sitter.street, "city" => sitter.city,
                       "state" => sitter.state, "zip_code" => sitter.zip_code,
                       "county" => sitter.county,
@@ -57,6 +57,28 @@ class User < ApplicationRecord
                     }
     end
     return @sitters
+  end
+
+  def self.get_sitter(options)
+    sitter = User.find(options)
+
+    @sitter = {"sitter_id" => sitter.id, "first_name" => sitter.first_name,
+                    "last_name" => sitter.last_name, "email" => sitter.email,
+                    "phone" => sitter.phone_number, "birthday" => sitter.birthday,
+                    "hourly_rate" => sitter.hourly_rate,
+                    "cpr_certification" => sitter.cpr_certification,
+                    "first_aid_certification" => sitter.first_aid_certification,
+                    "street" => sitter.street, "city" => sitter.city,
+                    "state" => sitter.state, "zip_code" => sitter.zip_code,
+                    "county" => sitter.county,
+                    "recommendation_one_name" => sitter.recommendation_one_name,
+                    "recommendation_one_email" => sitter.recommendation_one_email,
+                    "recommendation_two_name" => sitter.recommendation_two_name,
+                    "recommendation_two_email" => sitter.recommendation_two_email,
+                    "recommendation_three_name" => sitter.recommendation_three_name,
+                    "recommendation_three_email" => sitter.recommendation_three_email,
+                    "joined" => sitter.created_at
+                  }
   end
 
   def self.get_approved_families

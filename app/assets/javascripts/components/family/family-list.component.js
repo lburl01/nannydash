@@ -17,9 +17,6 @@
 
       ctrl.addPanel = function(panel) {
         panels.push(panel);
-        // if (panels.length > 0) {
-        //   panels[0].turnOn();
-        // }
       };
 
       ctrl.selectPanel = function(panel) {

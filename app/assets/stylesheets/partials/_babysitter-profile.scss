@@ -1,0 +1,170 @@
+.directory-container {
+
+  .list {
+    .title-container {
+      margin-bottom: 35px !important;
+    }
+  }
+
+  section {
+    width: 30%;
+    float: left;
+    overflow: hidden;
+    padding: 0 40px;
+
+    &:nth-child(4) {
+      width: 48%;
+    }
+
+    &:nth-child(5) {
+      width: 22%;
+    }
+
+    label {
+      width: 25%;
+      display: inline-block;
+      padding-bottom: 10px;
+      font-weight: 100;
+      font-size: 15px;
+
+    }
+
+    input {
+      font-family: 'Roboto', sans-serif;
+      width: 73%;
+      display: inline-block;
+      margin-bottom: 10px;
+      font-size: 13px;
+      font-weight: 100;
+      padding: 3px 5px;
+      border-radius: 4px;
+      border: #aaa solid .5px;
+      background: #eee;
+      outline: none;
+      color: #666;
+    }
+
+    h1 {
+      font-size: 21px;
+      font-weight: 100;
+      padding-bottom: 17px;
+    }
+
+    h2 {
+      font-size: 18px;
+      font-weight: 100;
+      padding-bottom: 17px;
+    }
+
+    .rec-title {
+      padding-top: 20px;
+    }
+
+    .rec {
+      input {
+        width: 45%;
+
+        &:nth-child(2) {
+          margin-right: 5px;
+        }
+      }
+
+      label {
+        width: 5%;
+      }
+    }
+  }
+
+  .key-info {
+    padding-right: 0;
+
+    input {
+      width: 100%;
+      display: block;
+    }
+
+    label {
+      width: 100%;
+      display: block;
+      padding-top: 10px;
+    }
+
+    button {
+      font-family: 'Roboto', sans-serif;
+      font-size: 14px;
+      font-weight: 100;
+      background: #aaa;
+      border: transparent;
+      border-radius: 4px;
+      padding: 7px 10px;
+      color: #fff;
+      margin-top: 15px;
+      width: 100%;
+    }
+
+    .cert {
+
+      .cert-container {
+        position: relative;
+
+        span:nth-child(1) {
+          text-align: right;
+          float: right;
+          background: #ddd;
+          padding: 2px 5px;
+          border-radius: 50%;
+          position: relative;
+          top: -3px;
+          right: 3px;
+        }
+
+        span:nth-child(3), span:nth-child(5) {
+          position: absolute;
+          background: #fff;
+          padding: 0 6px;
+          border-radius: 50%;
+        }
+
+        span:nth-child(3) {
+          right: 5px;
+          top: 38px;
+        }
+
+        span:nth-child(5) {
+          right: 5px;
+          top: 71px;
+        }
+      }
+    }
+
+  }
+
+  .basic-info {
+    border-left: #eee solid 1px;
+    border-right: #eee solid 1px;
+  }
+
+  .name {
+    padding-left: 0;
+
+    label {
+      width: 100%;
+    }
+
+    input {
+      display: inline-block;
+      width: 100%;
+      background: #fff;
+      border: transparent;
+      font-size: 25px;
+
+      &:nth-child(2) {
+        width: 55%;
+      }
+    }
+
+    img {
+      display: block;
+    }
+  }
+}
