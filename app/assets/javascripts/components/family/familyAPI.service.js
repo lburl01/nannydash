@@ -21,8 +21,14 @@
         }, function() {
           alert('Failed');
         });
+      },
+
+      saveProfile: function(id, data) {
+        console.log('save profile called');
+        console.log(id);
+        console.log(data);
+        return $http.patch("/api/v1/family/update/" + id, data);
       }
     };
-
   }]);
 })();
