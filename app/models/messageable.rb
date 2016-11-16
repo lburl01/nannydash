@@ -5,8 +5,8 @@ module Messageable
         :subject      => subject,
         :created_at   => Time.now,
         :updated_at   => Time.now,
-        :recipient_id => recipient.id,
-        :sender_id    => self.id,
+        :recipient => recipient,
+        :sender    => self,
         :is_deleted   => false
       })
 
