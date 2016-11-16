@@ -108,6 +108,10 @@ class User < ApplicationRecord
                   }
   end
 
+  # def self.toggle_is_deleted
+  #
+  # end
+
   private
 
     def picture_size

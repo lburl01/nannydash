@@ -9,6 +9,7 @@ class FamiliesController < ApplicationController
 
   def show
     @family = User.get_family(params[:id])
+
     render json: @family
   end
 
@@ -19,7 +20,6 @@ class FamiliesController < ApplicationController
 
   def update
     @family = User.find(params[:id])
-
     @family.update_attributes(family_params)
   end
 
