@@ -11,6 +11,8 @@
     });
 
     function FamilyProfileForm(familyAPI) {
-      
+      var ctrl = this;
+      console.log(ctrl.profile);
+      console.log(familyForm.phone[0]);
     }
 })();

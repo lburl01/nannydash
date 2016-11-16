@@ -19,32 +19,22 @@
       <section class="name">
         <h1>{{$ctrl.profile.first_name}} {{$ctrl.profile.last_name}}</h1>
         <img src="#" alt="">
+        <span ng-click="$ctrl.handleToggle($ctrl.profile.family_id)"
+          ng-class="{'active': $ctrl.profile.active, 'inactive': !$ctrl.profile.active}">
+          {{$ctrl.profile.active ? 'active' : 'inactive'}}
+        </span>
       </section>
 
       <section class="basic-info">
         <h2>Basic Information</h2>
-        <form name="familyProfileForm">
+
         <family-profile-form profile="$ctrl.profile"></family-profile-form>
+
       </section>
 
-      <section class="key-info">
+      <!-- <section class="key-info">
         <h2>Key Information</h2>
-          <!-- About Field -->
-          <label for="about">About:</label>
-          <textarea name="about" rows="4" cols="50" ng-model="$ctrl.profile.about">
-          </textarea>
-
-          <span ng-click="$ctrl.handleToggle($ctrl.profile.family_id)"
-            ng-class="{'active': $ctrl.profile.active, 'inactive': !$ctrl.profile.active}">
-            {{$ctrl.profile.active ? 'active' : 'inactive'}}
-          </span>
-
-          <input name="save" class="save" type="submit" value="Save Changes" />
-          <button class="delete" type="button">Delete Account</button>
-
-        </form>
-
-      </section>
+      </section> -->
     </div>
   </div>
 </div>

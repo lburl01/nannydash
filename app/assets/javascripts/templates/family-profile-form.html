@@ -1,3 +1,5 @@
+<form name="familyForm">
+
   <!-- Phone Field -->
   <label for="phone">Phone:</label>
   <input name="phone" id="phone" type="text" ng-model="$ctrl.profile.phone">
@@ -19,3 +21,12 @@
   <!-- zip Field -->
   <label for="zip">Zip Code:</label>
   <input name="phone" id="zip" type="text" ng-model="$ctrl.profile.zip_code">
+  <!-- About Field -->
+  <label for="about">About:</label>
+  <textarea name="about" rows="4" cols="50" ng-model="$ctrl.profile.about">
+  </textarea>
+
+  <input name="save" class="save" type="submit" value="Save Changes" />
+  <button class="delete" type="button">Delete Account</button>
+
+</form>
