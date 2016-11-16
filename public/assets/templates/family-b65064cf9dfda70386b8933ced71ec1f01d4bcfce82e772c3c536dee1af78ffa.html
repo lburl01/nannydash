@@ -1,0 +1,33 @@
+<div class="panel-heading" ng-click="$ctrl.select()">
+  <li>{{$ctrl.family.first_name}}</li>
+  <li>{{$ctrl.family.last_name}}</li>
+  <li>{{$ctrl.family.email}}</li>
+  <li>{{$ctrl.family.about | limitTo: 20}}</li>
+  <li>
+    <span ng-click="$ctrl.handleToggle($ctrl.family.family_id)"
+      ng-class="{'active': $ctrl.family.active, 'inactive': !$ctrl.family.active}">
+      {{$ctrl.family.active ? 'active' : 'inactive'}}
+    </span>
+  </li>
+</div>
+
+<div class="panel-body" ng-if="$ctrl.selected">
+  <ul class="accordian-header">
+    <li>Parent Phone</li>
+    <li>Location</li>
+    <li>Email</li>
+    <li>About</li>
+    <li>Family</li>
+  </ul>
+  <ul class="accordian-body">
+    <li>{{$ctrl.family.first_name +" "+$ctrl.family.last_name}}
+        <br><br>
+        {{$ctrl.family.phone}}</li>
+    <li>{{$ctrl.family.county}}</li>
+    <li>{{$ctrl.family.email}}</li>
+    <li>{{$ctrl.family.about | limitTo: 50}}</li>
+    <li>
+      <span class="profile-button" ui-sref="familyProfile({familyId: $ctrl.family.family_id})">View</span>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,62 @@
+<div class="container">
+  <!-- ******************************
+   Top Navigation
+  ******************************* -->
+  <header>
+    <nav>
+      <h4>Nanny<span>Dash</span></h4>
+    </nav>
+  </header>
+  <!-- ******************************
+   Side Navigation
+  ******************************* -->
+  <div class="all-container">
+    <aside class="aside-nav">
+      <!-- Directories Nav Section -->
+      <section class="directories">
+        <div class="title">
+          <img alt="Directories Icon" src="/assets/sort-4577a3f401a146074d79b54028628de891084688ca4b0f24afe1fe8117178ded.png" />
+          <h1>Directories</h1>
+        </div>
+        <button ui-sref="babysitters" type="button">Babysitters</button>
+        <button ui-sref="family" type="button">Parents</button>
+      </section>
+      <!-- Pending Applications Nav Section -->
+      <section class="pending-apps">
+        <div class="title">
+          <img alt="Directories Icon" src="/assets/plus-8c4426629a20c0df974c5a7d13e221a11332dd1ab7ed10cbb7ec008d1f5ca938.png" />
+          <h1>Pending Applications</h1>
+        </div>
+        <button ui-sref="pendingBabysitters" type="button"><span>9</span> | Babysitters</button>
+        <button ui-sref="pendingParents" type="button"><span>4</span> | Parents</button>
+      </section>
+      <!-- Jobs Center Nav Section -->
+      <section class="jobs">
+        <div class="title">
+          <h1>Jobs Center</h1>
+        </div>
+        <button ui-sref="newJobs" type="button"><span>0</span> | New Jobs</button>
+        <button ui-sref="jobs" type="button"><span>23</span> | All Jobs</button>
+      </section>
+      <!-- Messages Nav Section -->
+      <section class="messages">
+        <div class="title">
+          <img alt="Directories Icon" src="/assets/mail-2472e3481dd65f197658120017b19342c5516d52884e197c4342e28eab3c50e7.png" />
+          <h1>Messaging Center</h1>
+        </div>
+        <button ui-sref="nannyDash.messages" type="button"><span>4</span> | Messages</button>
+        <button ui-sref="messages" type="button"><span>4</span> | Messages</button>
+      </section>
+    </aside>
+    <!-- ******************************
+    Content Container
+    ******************************* -->
+    <main>
+      <div class="main-container">
+
+        <ui-view>LOADING</ui-view>
+
+      </div>
+    </main>
+  </div>
+</div>

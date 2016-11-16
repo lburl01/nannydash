@@ -1,0 +1,1363 @@
+/********** Setup ***********/
+/* line 1, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/setup/_reset.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* line 21, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/setup/_reset.scss */
+body {
+  height: 100vh;
+  line-height: 1;
+  width: 100vw;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* line 27, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/setup/_reset.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 30, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/setup/_reset.scss */
+blockquote, q {
+  quotes: none;
+}
+
+/* line 33, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/setup/_reset.scss */
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+/* line 38, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/setup/_reset.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 42, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/setup/_reset.scss */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+/***** Site Components ******/
+/* line 1, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_container.scss */
+html, body {
+  height: 100% !important;
+  width: 100% !important;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* line 9, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_container.scss */
+.container {
+  height: 100%;
+  margin: 0 auto;
+}
+/* line 13, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_container.scss */
+.container .all-container {
+  width: 100%;
+}
+
+/* line 1, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_header.scss */
+header {
+  background: #D8D8D8;
+  padding: 30px 0 !important;
+}
+/* line 5, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_header.scss */
+header nav {
+  overflow: hidden;
+}
+/* line 8, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_header.scss */
+header nav h4 {
+  float: right;
+  font-size: 18px;
+  padding-right: 20px;
+  color: #555;
+}
+/* line 14, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_header.scss */
+header nav h4 span {
+  font-style: italic;
+}
+
+/* line 1, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_aside-nav.scss */
+.aside-nav {
+  background: #EDEDED;
+  height: 100%;
+  width: 350px;
+  box-sizing: border-box;
+  padding-top: 10px;
+  float: left;
+}
+/* line 9, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_aside-nav.scss */
+.aside-nav section {
+  width: 100%;
+  margin: 0 auto;
+  padding: 15px 0 10px;
+  text-align: center;
+}
+/* line 15, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_aside-nav.scss */
+.aside-nav section .title {
+  margin-bottom: 25px;
+  padding: 15px 0;
+  background: #E2E2E2;
+}
+/* line 20, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_aside-nav.scss */
+.aside-nav section .title img {
+  width: 17px;
+  display: inline-block;
+  margin-right: 5px;
+}
+/* line 26, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_aside-nav.scss */
+.aside-nav section .title h1 {
+  color: #555;
+  font-size: 20px;
+  font-weight: 100;
+  display: inline-block;
+}
+/* line 34, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_aside-nav.scss */
+.aside-nav section button:nth-child(2) {
+  margin-right: 10px;
+}
+/* line 38, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_aside-nav.scss */
+.aside-nav section button {
+  background: #BDBDBD;
+  border-radius: 7px;
+  border: transparent;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 300;
+  width: 150px;
+  padding: 12px 0;
+  font-weight: 300;
+  letter-spacing: .5px;
+  outline: none;
+}
+/* line 52, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_aside-nav.scss */
+.aside-nav section button span {
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+/* line 1, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_main.scss */
+main {
+  height: 100%;
+  width: 100%;
+}
+
+/* line 1, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_family-directory.scss */
+.family-header {
+  align-items: center;
+  background: #bdbdbd;
+  border-radius: 5px;
+  color: white;
+  height: 35px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+  width: 90%;
+}
+
+/* line 13, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_family-directory.scss */
+div.family-list-wrapper {
+  font-family: 'Helvetica', sans-serif;
+  font-weight: 100;
+  color: #9b9b9b;
+}
+/* line 19, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_family-directory.scss */
+div.family-list-wrapper .family-table .table-head {
+  display: flex;
+  justify-content: flex-start;
+}
+/* line 22, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_family-directory.scss */
+div.family-list-wrapper .family-table .table-head li {
+  font-weight: 400;
+  font-size: 16px;
+  text-align: left;
+  color: #9B9B9B;
+  padding: 10px 10px 15px;
+}
+/* line 30, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_family-directory.scss */
+div.family-list-wrapper .family-table li {
+  padding: 15px 10px;
+  font-weight: 100;
+  cursor: pointer;
+  border-bottom: 1px solid #d9d9d9;
+  width: 15%;
+  font-size: 14px;
+}
+/* line 38, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_family-directory.scss */
+div.family-list-wrapper .family-table li:nth-child(3) {
+  width: 35%;
+}
+/* line 41, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_family-directory.scss */
+div.family-list-wrapper .family-table li:nth-child(4) {
+  width: 25%;
+}
+/* line 44, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_family-directory.scss */
+div.family-list-wrapper .family-table li:nth-child(5) {
+  text-align: right;
+  width: 10%;
+}
+/* line 47, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_family-directory.scss */
+div.family-list-wrapper .family-table li:nth-child(5) span {
+  background: #6BB317;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 7px;
+}
+/* line 52, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_family-directory.scss */
+div.family-list-wrapper .family-table li:nth-child(5) span.inactive {
+  background: #EA043A;
+}
+/* line 58, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_family-directory.scss */
+div.family-list-wrapper family {
+  display: flex;
+  flex-direction: column;
+}
+/* line 61, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_family-directory.scss */
+div.family-list-wrapper family .panel-heading,
+div.family-list-wrapper family .accordian-header,
+div.family-list-wrapper family .accordian-body {
+  display: flex;
+  width: 100%;
+}
+/* line 67, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_family-directory.scss */
+div.family-list-wrapper family .panel-body {
+  background-color: #f2f2f2;
+}
+/* line 71, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_family-directory.scss */
+div.family-list-wrapper family .accordian-header li {
+  font-size: 14px;
+  border: none;
+  font-weight: 400;
+}
+/* line 78, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_family-directory.scss */
+div.family-list-wrapper family .accordian-body li {
+  font-size: 13px;
+}
+/* line 80, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_family-directory.scss */
+div.family-list-wrapper family .accordian-body li span.profile-button {
+  background: #adadad !important;
+}
+
+/* line 4, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_babysitter-profile.scss */
+.directory-container .list .title-container {
+  margin-bottom: 35px !important;
+}
+/* line 9, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_babysitter-profile.scss */
+.directory-container section {
+  width: 30%;
+  float: left;
+  overflow: hidden;
+  padding: 0 40px;
+}
+/* line 15, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_babysitter-profile.scss */
+.directory-container section:nth-child(4) {
+  width: 48%;
+}
+/* line 19, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_babysitter-profile.scss */
+.directory-container section:nth-child(5) {
+  width: 22%;
+}
+/* line 23, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_babysitter-profile.scss */
+.directory-container section label {
+  width: 25%;
+  display: inline-block;
+  padding-bottom: 10px;
+  font-weight: 100;
+  font-size: 15px;
+}
+/* line 32, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_babysitter-profile.scss */
+.directory-container section input {
+  font-family: 'Roboto', sans-serif;
+  width: 73%;
+  display: inline-block;
+  margin-bottom: 10px;
+  font-size: 13px;
+  font-weight: 100;
+  padding: 3px 5px;
+  border-radius: 4px;
+  border: #aaa solid .5px;
+  background: #eee;
+  outline: none;
+  color: #666;
+}
+/* line 47, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_babysitter-profile.scss */
+.directory-container section h1 {
+  font-size: 21px;
+  font-weight: 100;
+  padding-bottom: 17px;
+}
+/* line 53, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_babysitter-profile.scss */
+.directory-container section h2 {
+  font-size: 18px;
+  font-weight: 100;
+  padding-bottom: 17px;
+}
+/* line 59, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_babysitter-profile.scss */
+.directory-container section .rec-title {
+  padding-top: 20px;
+}
+/* line 64, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_babysitter-profile.scss */
+.directory-container section .rec input {
+  width: 45%;
+}
+/* line 67, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_babysitter-profile.scss */
+.directory-container section .rec input:nth-child(2) {
+  margin-right: 5px;
+}
+/* line 72, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_babysitter-profile.scss */
+.directory-container section .rec label {
+  width: 5%;
+}
+/* line 78, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_babysitter-profile.scss */
+.directory-container .key-info {
+  padding-right: 0;
+}
+/* line 81, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_babysitter-profile.scss */
+.directory-container .key-info input {
+  width: 100%;
+  display: block;
+}
+/* line 86, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_babysitter-profile.scss */
+.directory-container .key-info label {
+  width: 100%;
+  display: block;
+  padding-top: 10px;
+}
+/* line 92, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_babysitter-profile.scss */
+.directory-container .key-info button {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 100;
+  background: #aaa;
+  border: transparent;
+  border-radius: 4px;
+  padding: 7px 10px;
+  color: #fff;
+  margin-top: 15px;
+  width: 100%;
+}
+/* line 107, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_babysitter-profile.scss */
+.directory-container .key-info .cert .cert-container {
+  position: relative;
+}
+/* line 110, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_babysitter-profile.scss */
+.directory-container .key-info .cert .cert-container span:nth-child(1) {
+  text-align: right;
+  float: right;
+  background: #ddd;
+  padding: 2px 5px;
+  border-radius: 50%;
+  position: relative;
+  top: -3px;
+  right: 3px;
+}
+/* line 121, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_babysitter-profile.scss */
+.directory-container .key-info .cert .cert-container span:nth-child(3), .directory-container .key-info .cert .cert-container span:nth-child(5) {
+  position: absolute;
+  background: #fff;
+  padding: 0 6px;
+  border-radius: 50%;
+}
+/* line 128, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_babysitter-profile.scss */
+.directory-container .key-info .cert .cert-container span:nth-child(3) {
+  right: 5px;
+  top: 38px;
+}
+/* line 133, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_babysitter-profile.scss */
+.directory-container .key-info .cert .cert-container span:nth-child(5) {
+  right: 5px;
+  top: 71px;
+}
+/* line 142, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_babysitter-profile.scss */
+.directory-container .basic-info {
+  border-left: #eee solid 1px;
+  border-right: #eee solid 1px;
+}
+/* line 147, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_babysitter-profile.scss */
+.directory-container .name {
+  padding-left: 0;
+}
+/* line 150, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_babysitter-profile.scss */
+.directory-container .name label {
+  width: 100%;
+}
+/* line 154, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_babysitter-profile.scss */
+.directory-container .name input {
+  display: inline-block;
+  width: 100%;
+  background: #fff;
+  border: transparent;
+  font-size: 25px;
+}
+/* line 161, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_babysitter-profile.scss */
+.directory-container .name input:nth-child(2) {
+  width: 55%;
+}
+/* line 166, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_babysitter-profile.scss */
+.directory-container .name img {
+  display: block;
+}
+
+/* line 1, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_directory-container.scss */
+.directory-container {
+  padding: 20px 50px 20px 20px;
+  float: right;
+  width: 68%;
+}
+/* line 6, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_directory-container.scss */
+.directory-container .search {
+  overflow: hidden;
+  padding-bottom: 40px;
+  padding-top: 20px;
+}
+/* line 11, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_directory-container.scss */
+.directory-container .search:before {
+  font-family: fontawesome;
+  position: absolute;
+  content: "\f002";
+  font-size: 16px;
+  color: #BDBDBD;
+  right: 245px;
+  top: 125px;
+}
+/* line 21, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_directory-container.scss */
+.directory-container .search h1 {
+  float: left;
+  font-size: 24px;
+  font-weight: 100;
+  color: #666;
+  padding-top: 4px;
+}
+/* line 29, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_directory-container.scss */
+.directory-container .search input {
+  float: right;
+  width: 220px;
+  background: #eee;
+  border: #BDBDBD solid 1px;
+  border-radius: 7px;
+  padding: 6px;
+  padding-left: 35px;
+  outline: none;
+  font-size: 15px;
+  font-weight: 300;
+  color: #666;
+  letter-spacing: .5px;
+}
+/* line 45, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_directory-container.scss */
+.directory-container .list .title-container {
+  overflow: hidden;
+  background: #BDBDBD;
+  padding: 10px;
+  border-radius: 7px;
+  font-size: 17px;
+  color: #fff;
+  font-weight: 100;
+  margin-bottom: 10px;
+}
+/* line 55, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_directory-container.scss */
+.directory-container .list .title-container h4 {
+  float: left;
+  padding-top: 3px;
+  padding-right: 7px;
+}
+/* line 61, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_directory-container.scss */
+.directory-container .list .title-container .county {
+  float: right;
+  position: relative;
+}
+/* line 65, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_directory-container.scss */
+.directory-container .list .title-container .county .fa-angle-down {
+  font-size: 21px;
+  border: #fff solid 1px;
+  padding: 0px 5px;
+  border-radius: 1px;
+}
+/* line 71, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_directory-container.scss */
+.directory-container .list .title-container .county .fa-angle-down:hover {
+  background: #fff;
+  color: #BDBDBD;
+}
+/* line 77, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_directory-container.scss */
+.directory-container .list .title-container .county .counties {
+  display: none;
+  position: absolute;
+  background: #BDBDBD;
+  border-radius: 7px;
+  color: #fff;
+}
+/* line 86, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_directory-container.scss */
+.directory-container .list .title-container .county .counties ul li {
+  display: inline-block;
+}
+/* line 94, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_directory-container.scss */
+.directory-container .list table {
+  width: 98%;
+  table-layout: fixed;
+  margin: 0 auto;
+}
+/* line 99, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_directory-container.scss */
+.directory-container .list table .red {
+  background: red !important;
+  color: #fff;
+}
+/* line 104, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_directory-container.scss */
+.directory-container .list table .green {
+  background: green !important;
+  color: #fff;
+}
+/* line 109, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_directory-container.scss */
+.directory-container .list table tr {
+  border-bottom: #9B9B9B solid 1px;
+}
+/* line 112, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_directory-container.scss */
+.directory-container .list table tr th {
+  font-size: 16px;
+  text-align: left;
+  color: #9B9B9B;
+  padding: 10px 10px 15px;
+}
+/* line 119, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_directory-container.scss */
+.directory-container .list table tr td {
+  padding: 15px 10px;
+  font-size: 14px;
+  font-weight: 100;
+  color: #aaa;
+}
+/* line 126, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_directory-container.scss */
+.directory-container .list table tr .cpr {
+  background: #eee;
+  padding: 5px 10px;
+  border-radius: 7px;
+}
+/* line 134, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_directory-container.scss */
+.directory-container .list .pagination {
+  margin: 0 auto;
+  display: table;
+  padding-top: 30px;
+}
+/* line 139, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_directory-container.scss */
+.directory-container .list .pagination .active {
+  background-color: #eee;
+  padding: 6px 8px;
+  border-radius: 5px;
+}
+/* line 145, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_directory-container.scss */
+.directory-container .list .pagination li {
+  display: inline-block;
+  padding: 0 8px;
+}
+/* line 156, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_directory-container.scss */
+.directory-container .list .pagination li:first-child {
+  margin-right: 5px;
+}
+/* line 160, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_directory-container.scss */
+.directory-container .list .pagination li:last-child {
+  margin-left: 5px;
+}
+/* line 164, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_directory-container.scss */
+.directory-container .list .pagination li a {
+  text-decoration: none;
+  color: #aaa;
+}
+/* line 1, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_aside-nav.scss */
+.aside-nav {
+  background: #EDEDED;
+  height: 100%;
+  width: 350px;
+  box-sizing: border-box;
+  padding-top: 10px;
+  float: left;
+}
+/* line 9, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_aside-nav.scss */
+.aside-nav section {
+  width: 100%;
+  margin: 0 auto;
+  padding: 15px 0 10px;
+  text-align: center;
+}
+/* line 15, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_aside-nav.scss */
+.aside-nav section .title {
+  margin-bottom: 25px;
+  padding: 15px 0;
+  background: #E2E2E2;
+}
+/* line 20, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_aside-nav.scss */
+.aside-nav section .title img {
+  width: 17px;
+  display: inline-block;
+  margin-right: 5px;
+}
+/* line 26, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_aside-nav.scss */
+.aside-nav section .title h1 {
+  color: #555;
+  font-size: 20px;
+  font-weight: 100;
+  display: inline-block;
+}
+/* line 34, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_aside-nav.scss */
+.aside-nav section button:nth-child(2) {
+  margin-right: 10px;
+}
+/* line 38, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_aside-nav.scss */
+.aside-nav section button {
+  background: #BDBDBD;
+  border-radius: 7px;
+  border: transparent;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 300;
+  width: 150px;
+  padding: 12px 0;
+  font-weight: 300;
+  letter-spacing: .5px;
+  outline: none;
+}
+/* line 52, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_aside-nav.scss */
+.aside-nav section button span {
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+/* line 4, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_babysitter-profile.scss */
+.directory-container .list .title-container {
+  margin-bottom: 35px !important;
+}
+/* line 9, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_babysitter-profile.scss */
+.directory-container section {
+  width: 30%;
+  float: left;
+  overflow: hidden;
+  padding: 0 40px;
+}
+/* line 15, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_babysitter-profile.scss */
+.directory-container section:nth-child(4) {
+  width: 48%;
+}
+/* line 19, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_babysitter-profile.scss */
+.directory-container section:nth-child(5) {
+  width: 22%;
+}
+/* line 23, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_babysitter-profile.scss */
+.directory-container section label {
+  width: 25%;
+  display: inline-block;
+  padding-bottom: 10px;
+  font-weight: 100;
+  font-size: 15px;
+}
+/* line 32, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_babysitter-profile.scss */
+.directory-container section input {
+  font-family: 'Roboto', sans-serif;
+  width: 73%;
+  display: inline-block;
+  margin-bottom: 10px;
+  font-size: 13px;
+  font-weight: 100;
+  padding: 3px 5px;
+  border-radius: 4px;
+  border: #aaa solid .5px;
+  background: #eee;
+  outline: none;
+  color: #666;
+}
+/* line 47, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_babysitter-profile.scss */
+.directory-container section h1 {
+  font-size: 21px;
+  font-weight: 100;
+  padding-bottom: 17px;
+}
+/* line 53, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_babysitter-profile.scss */
+.directory-container section h2 {
+  font-size: 18px;
+  font-weight: 100;
+  padding-bottom: 17px;
+}
+/* line 59, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_babysitter-profile.scss */
+.directory-container section .rec-title {
+  padding-top: 20px;
+}
+/* line 64, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_babysitter-profile.scss */
+.directory-container section .rec input {
+  width: 45%;
+}
+/* line 67, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_babysitter-profile.scss */
+.directory-container section .rec input:nth-child(2) {
+  margin-right: 5px;
+}
+/* line 72, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_babysitter-profile.scss */
+.directory-container section .rec label {
+  width: 5%;
+}
+/* line 78, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_babysitter-profile.scss */
+.directory-container .key-info {
+  padding-right: 0;
+}
+/* line 81, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_babysitter-profile.scss */
+.directory-container .key-info input {
+  width: 100%;
+  display: block;
+}
+/* line 86, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_babysitter-profile.scss */
+.directory-container .key-info label {
+  width: 100%;
+  display: block;
+  padding-top: 10px;
+}
+/* line 92, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_babysitter-profile.scss */
+.directory-container .key-info button {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 100;
+  background: #aaa;
+  border: transparent;
+  border-radius: 4px;
+  padding: 7px 10px;
+  color: #fff;
+  margin-top: 15px;
+  width: 100%;
+}
+/* line 107, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_babysitter-profile.scss */
+.directory-container .key-info .cert .cert-container {
+  position: relative;
+}
+/* line 110, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_babysitter-profile.scss */
+.directory-container .key-info .cert .cert-container span:nth-child(1) {
+  text-align: right;
+  float: right;
+  background: #ddd;
+  padding: 2px 5px;
+  border-radius: 50%;
+  position: relative;
+  top: -3px;
+  right: 3px;
+}
+/* line 121, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_babysitter-profile.scss */
+.directory-container .key-info .cert .cert-container span:nth-child(3), .directory-container .key-info .cert .cert-container span:nth-child(5) {
+  position: absolute;
+  background: #fff;
+  padding: 0 6px;
+  border-radius: 50%;
+}
+/* line 128, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_babysitter-profile.scss */
+.directory-container .key-info .cert .cert-container span:nth-child(3) {
+  right: 5px;
+  top: 38px;
+}
+/* line 133, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_babysitter-profile.scss */
+.directory-container .key-info .cert .cert-container span:nth-child(5) {
+  right: 5px;
+  top: 71px;
+}
+/* line 142, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_babysitter-profile.scss */
+.directory-container .basic-info {
+  border-left: #eee solid 1px;
+  border-right: #eee solid 1px;
+}
+/* line 147, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_babysitter-profile.scss */
+.directory-container .name {
+  padding-left: 0;
+}
+/* line 150, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_babysitter-profile.scss */
+.directory-container .name label {
+  width: 100%;
+}
+/* line 154, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_babysitter-profile.scss */
+.directory-container .name input {
+  display: inline-block;
+  width: 100%;
+  background: #fff;
+  border: transparent;
+  font-size: 25px;
+}
+/* line 161, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_babysitter-profile.scss */
+.directory-container .name input:nth-child(2) {
+  width: 55%;
+}
+/* line 166, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_babysitter-profile.scss */
+.directory-container .name img {
+  display: block;
+}
+/* line 1, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_container.scss */
+html, body {
+  height: 100% !important;
+  width: 100% !important;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* line 9, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_container.scss */
+.container {
+  height: 100%;
+  margin: 0 auto;
+}
+/* line 13, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_container.scss */
+.container .all-container {
+  width: 100%;
+}
+/* line 1, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_directory-container.scss */
+.directory-container {
+  padding: 20px 50px 20px 20px;
+  float: right;
+  width: 68%;
+}
+/* line 6, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_directory-container.scss */
+.directory-container .search {
+  overflow: hidden;
+  padding-bottom: 40px;
+  padding-top: 20px;
+}
+/* line 11, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_directory-container.scss */
+.directory-container .search:before {
+  font-family: fontawesome;
+  position: absolute;
+  content: "\f002";
+  font-size: 16px;
+  color: #BDBDBD;
+  right: 245px;
+  top: 125px;
+}
+/* line 21, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_directory-container.scss */
+.directory-container .search h1 {
+  float: left;
+  font-size: 24px;
+  font-weight: 100;
+  color: #666;
+  padding-top: 4px;
+}
+/* line 29, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_directory-container.scss */
+.directory-container .search input {
+  float: right;
+  width: 220px;
+  background: #eee;
+  border: #BDBDBD solid 1px;
+  border-radius: 7px;
+  padding: 6px;
+  padding-left: 35px;
+  outline: none;
+  font-size: 15px;
+  font-weight: 300;
+  color: #666;
+  letter-spacing: .5px;
+}
+/* line 45, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_directory-container.scss */
+.directory-container .list .title-container {
+  overflow: hidden;
+  background: #BDBDBD;
+  padding: 10px;
+  border-radius: 7px;
+  font-size: 17px;
+  color: #fff;
+  font-weight: 100;
+  margin-bottom: 10px;
+}
+/* line 55, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_directory-container.scss */
+.directory-container .list .title-container h4 {
+  float: left;
+  padding-top: 3px;
+  padding-right: 7px;
+}
+/* line 61, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_directory-container.scss */
+.directory-container .list .title-container .county {
+  float: right;
+  position: relative;
+}
+/* line 65, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_directory-container.scss */
+.directory-container .list .title-container .county .fa-angle-down {
+  font-size: 21px;
+  border: #fff solid 1px;
+  padding: 0px 5px;
+  border-radius: 1px;
+}
+/* line 71, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_directory-container.scss */
+.directory-container .list .title-container .county .fa-angle-down:hover {
+  background: #fff;
+  color: #BDBDBD;
+}
+/* line 77, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_directory-container.scss */
+.directory-container .list .title-container .county .counties {
+  display: none;
+  position: absolute;
+  background: #BDBDBD;
+  border-radius: 7px;
+  color: #fff;
+}
+/* line 86, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_directory-container.scss */
+.directory-container .list .title-container .county .counties ul li {
+  display: inline-block;
+}
+/* line 94, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_directory-container.scss */
+.directory-container .list table {
+  width: 98%;
+  table-layout: fixed;
+  margin: 0 auto;
+}
+/* line 99, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_directory-container.scss */
+.directory-container .list table .red {
+  background: red !important;
+  color: #fff;
+}
+/* line 104, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_directory-container.scss */
+.directory-container .list table .green {
+  background: green !important;
+  color: #fff;
+}
+/* line 109, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_directory-container.scss */
+.directory-container .list table tr {
+  border-bottom: #9B9B9B solid 1px;
+}
+/* line 112, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_directory-container.scss */
+.directory-container .list table tr th {
+  font-size: 16px;
+  text-align: left;
+  color: #9B9B9B;
+  padding: 10px 10px 15px;
+}
+/* line 119, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_directory-container.scss */
+.directory-container .list table tr td {
+  padding: 15px 10px;
+  font-size: 14px;
+  font-weight: 100;
+  color: #aaa;
+}
+/* line 126, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_directory-container.scss */
+.directory-container .list table tr .cpr {
+  background: #eee;
+  padding: 5px 10px;
+  border-radius: 7px;
+}
+/* line 134, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_directory-container.scss */
+.directory-container .list .pagination {
+  margin: 0 auto;
+  display: table;
+  padding-top: 30px;
+}
+/* line 139, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_directory-container.scss */
+.directory-container .list .pagination .active {
+  background-color: #eee;
+  padding: 6px 8px;
+  border-radius: 5px;
+}
+/* line 145, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_directory-container.scss */
+.directory-container .list .pagination li {
+  display: inline-block;
+  padding: 0 8px;
+}
+/* line 156, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_directory-container.scss */
+.directory-container .list .pagination li:first-child {
+  margin-right: 5px;
+}
+/* line 160, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_directory-container.scss */
+.directory-container .list .pagination li:last-child {
+  margin-left: 5px;
+}
+/* line 164, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_directory-container.scss */
+.directory-container .list .pagination li a {
+  text-decoration: none;
+  color: #aaa;
+}
+/* line 1, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_family-directory.scss */
+.family-header {
+  align-items: center;
+  background: #bdbdbd;
+  border-radius: 5px;
+  color: white;
+  height: 35px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+  width: 90%;
+}
+
+/* line 13, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_family-directory.scss */
+div.family-list-wrapper {
+  font-family: 'Helvetica', sans-serif;
+  font-weight: 100;
+  color: #9b9b9b;
+}
+/* line 19, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_family-directory.scss */
+div.family-list-wrapper .family-table .table-head {
+  display: flex;
+  justify-content: flex-start;
+}
+/* line 22, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_family-directory.scss */
+div.family-list-wrapper .family-table .table-head li {
+  font-weight: 400;
+  font-size: 16px;
+  text-align: left;
+  color: #9B9B9B;
+  padding: 10px 10px 15px;
+}
+/* line 30, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_family-directory.scss */
+div.family-list-wrapper .family-table li {
+  padding: 15px 10px;
+  font-weight: 100;
+  cursor: pointer;
+  border-bottom: 1px solid #d9d9d9;
+  width: 15%;
+  font-size: 14px;
+}
+/* line 38, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_family-directory.scss */
+div.family-list-wrapper .family-table li:nth-child(3) {
+  width: 35%;
+}
+/* line 41, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_family-directory.scss */
+div.family-list-wrapper .family-table li:nth-child(4) {
+  width: 25%;
+}
+/* line 44, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_family-directory.scss */
+div.family-list-wrapper .family-table li:nth-child(5) {
+  text-align: right;
+  width: 10%;
+}
+/* line 47, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_family-directory.scss */
+div.family-list-wrapper .family-table li:nth-child(5) span {
+  background: #6BB317;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 7px;
+}
+/* line 52, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_family-directory.scss */
+div.family-list-wrapper .family-table li:nth-child(5) span.inactive {
+  background: #EA043A;
+}
+/* line 58, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_family-directory.scss */
+div.family-list-wrapper family {
+  display: flex;
+  flex-direction: column;
+}
+/* line 61, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_family-directory.scss */
+div.family-list-wrapper family .panel-heading,
+div.family-list-wrapper family .accordian-header,
+div.family-list-wrapper family .accordian-body {
+  display: flex;
+  width: 100%;
+}
+/* line 67, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_family-directory.scss */
+div.family-list-wrapper family .panel-body {
+  background-color: #f2f2f2;
+}
+/* line 71, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_family-directory.scss */
+div.family-list-wrapper family .accordian-header li {
+  font-size: 14px;
+  border: none;
+  font-weight: 400;
+}
+/* line 78, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_family-directory.scss */
+div.family-list-wrapper family .accordian-body li {
+  font-size: 13px;
+}
+/* line 80, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_family-directory.scss */
+div.family-list-wrapper family .accordian-body li span.profile-button {
+  background: #adadad !important;
+}
+/* line 1, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_family-profile.scss */
+.family-profile-wrapper {
+  display: flex;
+  font-style: 'Helvetica', sans-serif;
+}
+/* line 5, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_family-profile.scss */
+.family-profile-wrapper .directory-container {
+  width: 100%;
+}
+/* line 8, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_family-profile.scss */
+.family-profile-wrapper .directory-container .message {
+  align-items: center;
+  background-color: #bdbdbd;
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  font-weight: 100;
+  height: 35px;
+  justify-content: flex-end;
+}
+/* line 19, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_family-profile.scss */
+.family-profile-wrapper .directory-container .list .title-container {
+  margin-bottom: 35px !important;
+}
+/* line 22, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_family-profile.scss */
+.family-profile-wrapper .directory-container .list .message {
+  float: right;
+  position: relative;
+}
+/* line 26, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_family-profile.scss */
+.family-profile-wrapper .directory-container .list .message .fa-angle-down {
+  font-size: 21px;
+  border: #fff solid 1px;
+  padding: 0px 5px;
+  border-radius: 1px;
+}
+/* line 32, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_family-profile.scss */
+.family-profile-wrapper .directory-container .list .message .fa-angle-down:hover {
+  background: #fff;
+  color: #BDBDBD;
+}
+/* line 40, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_family-profile.scss */
+.family-profile-wrapper .directory-container .profile-container {
+  display: flex;
+  width: 100%;
+}
+/* line 45, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_family-profile.scss */
+.family-profile-wrapper .directory-container .basic-info {
+  flex-grow: 1;
+  padding: 10px;
+  width: 50%;
+}
+/* line 49, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_family-profile.scss */
+.family-profile-wrapper .directory-container .basic-info textarea {
+  width: 65%;
+  resize: none;
+  background: #eee;
+  border: #BDBDBD solid 1px;
+  border-radius: 7px;
+  padding: 6px;
+  outline: none;
+  font-size: 13px;
+  font-weight: 300;
+  color: #666;
+  letter-spacing: .5px;
+}
+/* line 62, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_family-profile.scss */
+.family-profile-wrapper .directory-container .basic-info .save {
+  margin-left: 26%;
+  cursor: pointer;
+}
+/* line 68, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_family-profile.scss */
+.family-profile-wrapper .directory-container section {
+  width: 30%;
+  float: left;
+  overflow: hidden;
+}
+/* line 73, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_family-profile.scss */
+.family-profile-wrapper .directory-container section:nth-child(4) {
+  width: 40%;
+}
+/* line 77, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_family-profile.scss */
+.family-profile-wrapper .directory-container section:nth-child(5) {
+  width: 20%;
+}
+/* line 81, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_family-profile.scss */
+.family-profile-wrapper .directory-container section span {
+  background: #6BB317;
+  border-radius: 7px;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 100;
+  padding: 5px 10px;
+  text-align: center;
+  width: 100%;
+}
+/* line 91, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_family-profile.scss */
+.family-profile-wrapper .directory-container section span.inactive {
+  background: #EA043A;
+}
+/* line 96, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_family-profile.scss */
+.family-profile-wrapper .directory-container section label {
+  width: 25%;
+  display: inline-block;
+}
+/* line 101, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_family-profile.scss */
+.family-profile-wrapper .directory-container section input {
+  width: 65%;
+  display: inline-block;
+}
+/* line 106, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_family-profile.scss */
+.family-profile-wrapper .directory-container section button {
+  cursor: pointer;
+}
+/* line 110, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_family-profile.scss */
+.family-profile-wrapper .directory-container section h1 {
+  font-size: 21px;
+  font-weight: 100;
+  padding-bottom: 17px;
+}
+/* line 116, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_family-profile.scss */
+.family-profile-wrapper .directory-container section h2 {
+  font-size: 18px;
+  font-weight: 100;
+  padding-bottom: 17px;
+}
+/* line 1, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_header.scss */
+header {
+  background: #D8D8D8;
+  padding: 30px 0 !important;
+}
+/* line 5, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_header.scss */
+header nav {
+  overflow: hidden;
+}
+/* line 8, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_header.scss */
+header nav h4 {
+  float: right;
+  font-size: 18px;
+  padding-right: 20px;
+  color: #555;
+}
+/* line 14, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_header.scss */
+header nav h4 span {
+  font-style: italic;
+}
+/* line 1, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_main.scss */
+main {
+  height: 100%;
+  width: 100%;
+}
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+/* line 7, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_reset.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+/* line 28, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_reset.scss */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+/* line 32, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_reset.scss */
+body {
+  line-height: 1;
+}
+
+/* line 35, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_reset.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 38, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_reset.scss */
+blockquote, q {
+  quotes: none;
+}
+
+/* line 41, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_reset.scss */
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+/* line 46, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_reset.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 50, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/_reset.scss */
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+/* line 1, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/setup/_reset.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* line 21, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/setup/_reset.scss */
+body {
+  height: 100vh;
+  line-height: 1;
+  width: 100vw;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* line 27, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/setup/_reset.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 30, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/setup/_reset.scss */
+blockquote, q {
+  quotes: none;
+}
+
+/* line 33, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/setup/_reset.scss */
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+/* line 38, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/setup/_reset.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 42, /Users/loriburleson/Desktop/TIY16/FinalProject/nannydash/app/assets/stylesheets/partials/setup/_reset.scss */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+
