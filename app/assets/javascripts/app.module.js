@@ -28,6 +28,10 @@ angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPag
           return familyAPI.list();
         }
       }
+    }).state('messages', {
+      url: '/messages',
+      templateUrl: 'messages.html',
+      controller: 'messagesController as messages'
     }).state('familyProfile', {
       url: '/family/profile/:familyId',
       component: 'familyProfile',
@@ -42,8 +46,5 @@ angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPag
     }).state('pendingParents', {
       url: '/pending-parents',
       component: 'pendingParentsList'
-    }).state('messages', {
-      url: '/messages',
-      component: 'messages'
     });
 });

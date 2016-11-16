@@ -17,4 +17,18 @@ class FamiliesController < ApplicationController
     family.toggle!(:active)
   end
 
+  def update
+    @family = User.find(params[:id])
+
+    @family.update_attributes(family_params)
+  end
+
+  private
+
+    def family_params
+      params.require(:user).permit(:first_name, :last_name, :email,
+                                    :phone, :street, :city, :state, :zip_code,
+                                    :county, :about, :active)
+    end
+
 end

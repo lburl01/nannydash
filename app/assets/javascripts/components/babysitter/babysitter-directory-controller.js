@@ -4,21 +4,22 @@ angular.module('app')
       Variables
       *************************/
       var self = this;
-      this.babysitters = [];
+      this.babysitters = babysitterDirectoryAPI.totalBabysitters;
       this.totalUsers = 0;
       this.usersPerPage = 5;
       /*************************
       When page first loads, load in babysitters
       *************************/
-      this.init = function() {
+      $(document).one('ready',function(){
         babysitterDirectoryAPI.list().success(function(response) {
-          self.babysitters = response;
+          babysitterDirectoryAPI.totalBabysitters = response;
+          self.babysitters = babysitterDirectoryAPI.totalBabysitters;
           self.totalUsers = response.length;
+          console.log(self.babysitters);
         }, function(response) {
           alert('Failed');
         });
-      }
-      this.init();
+      });
       /*************************
       Transforming full date/time string to just plain date
       *************************/

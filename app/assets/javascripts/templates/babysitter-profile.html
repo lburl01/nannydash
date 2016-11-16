@@ -1,6 +1,8 @@
 <div class="directory-container">
   <div class="search">
     <h1>Babysitters</h1>
+    <span>></span>
+    <h2 ng-model=""></h2>
     <input type="text">
   </div>
   <div class="list">
@@ -12,7 +14,10 @@
     </div>
   </div>
   <section class="name">
-    <h1>{{babysitter.user.first_name}} {{babysitter.user.last_name}}</h1>
+    <label for="phone">First Name:</label>
+    <input class="name-heading" type="text" ng-model="babysitter.user.first_name">
+    <label for="phone">Last Name:</label>
+    <input class="name-heading" type="text" ng-model="babysitter.user.last_name">
     <img src="#" alt="">
   </section>
   <section class="basic-info">
@@ -28,43 +33,47 @@
     <input id="birthday" type="text" ng-model="babysitter.user.birthday">
     <!-- Street Field -->
     <label for="street">Street:</label>
-    <input id="street" type="text" ng-model="babysitter.street">
+    <input id="street" type="text" ng-model="babysitter.user.street">
     <!-- City Field -->
     <label for="city">City:</label>
-    <input id="city" type="text" ng-model="babysitter.city">
+    <input id="city" type="text" ng-model="babysitter.user.city">
     <!-- State Field -->
     <label for="state">State:</label>
-    <input id="state" type="text" ng-model="babysitter.state">
+    <input id="state" type="text" ng-model="babysitter.user.state">
     <!-- zip Field -->
     <label for="zip">zip:</label>
-    <input id="zip" type="text" ng-model="babysitter.zip">
+    <input id="zip" type="text" ng-model="babysitter.user.zip_code">
     <h2 class="rec-title">Recommendations</h2>
     <!-- Recommendation 1 Field -->
     <div class="rec">
       <label>1.</label>
-      <input id="rec-name-1" type="text" ng-model="babysitter.rec_one_name">
-      <input id="rec-phone-1" type="text" ng-model="babysitter.rec_one_phone">
+      <input id="rec-name-1" type="text" ng-model="babysitter.user.recommendation_one_name">
+      <input id="rec-phone-1" type="text" ng-model="babysitter.user.recommendation_one_email">
     </div>
     <!-- Recommendation 2 Field -->
     <div class="rec">
       <label>2.</label>
-      <input id="rec-name-2" type="text" ng-model="babysitter.rec_two_name">
-      <input id="rec-phone-2" type="text" ng-model="babysitter.rec_two_phone">
+      <input id="rec-name-2" type="text" ng-model="babysitter.user.recommendation_two_name">
+      <input id="rec-phone-2" type="text" ng-model="babysitter.user.recommendation_two_email">
     </div>
     <!-- Recommendation 3 Field -->
     <div class="rec">
       <label>3.</label>
-      <input id="rec-name-3" type="text" ng-model="babysitter.rec_three_name">
-      <input id="rec-phone-3" type="text" ng-model="babysitter.rec_three_phone">
+      <input id="rec-name-3" type="text" ng-model="babysitter.user.recommendation_three_name">
+      <input id="rec-phone-3" type="text" ng-model="babysitter.user.recommendation_three_email">
     </div>
   </section>
   <section class="key-info">
     <h2>Key Information</h2>
     <!-- Certifications Field -->
     <div class="cert">
-      <label>Certifications <span>+</span></label>
-      <input ng-show="babysitter.user.cpr_cert === true" id="cpr" type="text" ng-model="babysitter.user.cpr_cert"><span>-</span>
-      <input ng-show="babysitter.user.first_aid_cert === true" id="first-aid" type="text" ng-model="babysitter.user.first_aid_cert"><span>-</span>
+      <label>Certifications <span ng-click="babysitter.addCerts()">+</span></label>
+      <div class="cert-container" ng-show="babysitter.user.cpr_certification === true">
+        <input id="cpr" type="text" ng-model="babysitter.cpr"><span>-</span>
+      </div>
+      <div class="cert-container" ng-show="babysitter.user.first_aid_certification === true">
+        <input id="first-aid" type="text" ng-model="babysitter.firstAid"><span>-</span>
+      </div>
     </div>
     <!-- Hourly Rate Field -->
     <label for="rate">Hourly Rate:</label>

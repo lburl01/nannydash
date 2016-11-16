@@ -1,7 +1,7 @@
 <div class="directory-container">
   <div class="search">
     <h1>Babysitters</h1>
-    <input type="text">
+    <input ng-model="searchBox" type="text">
   </div>
   <div class="list">
     <div class="title-container">
@@ -27,12 +27,12 @@
         <th>Certifications</th>
         <th>Joined</th>
       </tr>
-      <tr ng-click="babysitters.userClick(person)" dir-paginate="person in babysitters.babysitters | itemsPerPage: babysitters.usersPerPage">
+      <tr ng-click="babysitters.userClick(person)" dir-paginate="person in babysitters.babysitters | filter: searchBox | itemsPerPage: babysitters.usersPerPage">
         <td>{{person.first_name}}</td>
         <td>{{person.last_name}}</td>
         <td>{{person.birthday}}</td>
         <td>${{person.hourly_rate}}</td>
-        <td><span ng-class="person.cpr_cert ? 'green' : 'red'" class="cpr">{{babysitters.cprCheck(person.cpr_cert)}}</span></td>
+        <td><span ng-class="person.cpr_certification ? 'green' : 'red'" class="cpr">{{babysitters.cprCheck(person.cpr_certification)}}</span></td>
         <td>{{babysitters.getDate(person)}}</td>
       </tr>
     </table>
