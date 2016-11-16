@@ -17,4 +17,7 @@ class FamiliesController < ApplicationController
     family.toggle!(:active)
   end
 
+  def update
+  end
+
 end
