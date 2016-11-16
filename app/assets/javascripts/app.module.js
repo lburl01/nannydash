@@ -1,5 +1,5 @@
 angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPagination'])
-  .config(function($stateProvider, $urlRouterProvider) {
+  .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 
     $urlRouterProvider.otherwise('/');
 
@@ -47,4 +47,4 @@ angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPag
       url: '/pending-parents',
       component: 'pendingParentsList'
     });
-});
+}]);
