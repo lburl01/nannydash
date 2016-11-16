@@ -1,5 +1,11 @@
 // erb file app/views/home/index.html.erb
+
+body {
+    background: linear-gradient(#9C27B0, rgba(255, 87, 34, 0.86));
+}
+
 .landing-page {
+
     .header-bar {
         display: flex;
         align-items: center;
@@ -8,13 +14,20 @@
         background: #D8D8D8;
         font-family: Helvetica;
         color: #3d3d3d;
-
-        a,
         h1 {
+          margin-left: 10px;
+        }
+        a,
+        .slogan {
             text-decoration: none;
             letter-spacing: 2px;
             color: #3d3d3d;
             margin: 0 20px;
+        }
+
+
+        a:hover {
+            color: white;
         }
 
         h2 {
@@ -33,29 +46,29 @@
     }
 
     .preview-image-container {
-        width: 90%;
-        border-top: 2px solid #3d3d3d;
-        border-right: 2px solid #3d3d3d;
-        border-left: 2px solid #3d3d3d;
+        border: 2px solid #3d3d3d;
+        height: 250px;
         margin: 30px auto 0;
         overflow: hidden;
-        height: 250px;
+        width: 90%;
     }
-
+    //has to be precisely between .user-groups-container and   .header-bar
+    .slogan-mobile {
+      display: none;
+    }
     .user-groups-container {
-        background: #3d3d3d;
-        display: flex;
         align-items: center;
+        background: transparent;
+        display: flex;
+        height: auto;
         justify-content: space-around;
-        // content: url("splashLarge.png");
-        height: 350px;
-        width: auto;
+        text-align: center;
 
         .user-groups {
-            width: 27%;
-            line-height: 1.5em;
             align-self: baseline;
-            margin-top: 60px;
+            line-height: 2rem;
+            margin-top: 30px;
+            width: 31%;
 
             p {
                 font-family: Times;
@@ -69,4 +82,19 @@
             }
         }
     }
+
+    .icon-container {
+        display: flex;
+        height: 100px;
+        justify-content: space-between;
+        padding: 20px;
+
+        .landing-page-icons {
+            background: transparent;
+            display: flex;
+            width: 100%;
+        }
+
+    }
+@import 'landing-page-mobile';
 }

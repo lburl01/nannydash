@@ -3,40 +3,52 @@
     <header class="header-bar">
         <h1>nanny<span class="italic">dash</span>
         </h1>
-        <h2>A childcare dashboard for agencies, families and sitters.</h2>
+        <h2 class="slogan">A childcare dashboard for agencies, families and sitters.</h2>
         <a href="/agency/new">register</a>
         <a href="/users/sign_in">login</a>
-    </header>
 
-    <section class="preview-image-container">
-    <%= image_tag("splashLarge.png", :alt => "Preview image on landing page") %>
-</section>
-    <div class="user-groups-container">
+    </header>
+    <h2 class="slogan-mobile">A childcare dashboard for agencies, families and sitters.</h2>
+    <div class="preview-image-container">
+        <%= image_tag("splashLarge.png", :alt => "Preview image on landing page") %>
+    </div>
+    <main class="user-groups-container">
         <div class="user-groups">
             <p>
                 <span>AGENCIES</span><br>
-                You can view and manage:<br>
-                Babysitter applications and jobs completed<br>
-                Family job posts and scheduled sitters<br>
-                Contact information and message responses
+                -View and manage Babysitter applications and jobs completed<br>
+                -Family job posts and scheduled sitters<br>
+                -Contact information and message responses
             </p>
+
         </div>
         <div class="user-groups">
             <p>
-                <span>FAMLILES</span><br>
-                You can post jobs for any of our sitters<br>
-                Request a specific sitter<br>
-                Add notes or special instructions Message the agency or sitter directly
+                <span>FAMILIES</span><br>
+                -Post jobs for any of our sitters<br>
+                -Request a specific sitter<br>
+                -Add notes or special instructions Message the agency or sitter directly
             </p>
+
         </div>
+
         <div class="user-groups">
             <p>
                 <span>SITTERS</span><br>
-                You can view job posts and requirements<br>
-                See details of your scheduled jobs<br>
-                Message your agency or family directly
+                -View job posts and requirements<br>
+                -See details of your scheduled jobs<br>
+                -Message your agency or family directly
             </p>
+
         </div>
-    </div>
+    </main>
+    <section class="icon-container">
+        <div class="landing-page-icons">
+            <%= image_tag("agency-icon.svg", :alt => "Agency icon") %>
+
+            <%= image_tag("family-icon.svg", :alt => "Family icon") %>
+
+            <%= image_tag("sitter-icon.svg", :alt => "Babysitters icon") %></div>
+    </section>
 
 </div>

@@ -18,16 +18,24 @@
             margin: 0 20px;
         }
 
+        a:hover {
+            color: white;
+        }
+
         h2 {
             font-family: cursive;
             flex-grow: 5;
         }
     }
 
+    hr {
+        width: 100%;
+    }
+
     .register-area {
         align-items: center;
         border-radius: 10px;
-        border: 1px solid #3d3d3d;
+        border: 2px solid #3d3d3d;
         color: #3d3d3d;
         display: flex;
         flex-direction: column;
@@ -37,10 +45,12 @@
         margin: 30px auto 0;
         text-align: center;
         width: 50%;
+
         .register-header-text {
             font-size: 2rem;
             margin: 10px;
         }
+
         .field {
             display: flex;
             align-items: center;
@@ -51,14 +61,12 @@
             }
         }
 
-        hr {
-            width: 100%;
-        }
-
         * {
             //region within register-area
-            margin: 5px;
+            //use * like this sparingly, it can reduce performance
             font-size: 1rem;
+            margin: 5px;
+            width: 95%;
         }
 
         a {
@@ -66,7 +74,10 @@
             color: #3d3d3d;
         }
 
-        .actions input {
+        .bottom-register-form input {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             background: rgba(61, 61, 43, 0);
             border: 2px solid #3d3d3d;
             color: #3d3d3d;
@@ -76,9 +87,17 @@
             width: 100%;
         }
 
-        .actions input:hover {
+        .bottom-register-form input:hover {
             background: rgba(61, 61, 43, 100);
             color: #d8d8d8;
+        }
+
+        #user_picture {
+            width: 100px;
+            margin: 0 auto;
+            color: #3d3d3d;
+            font-family: Helvetica;
+            width: 100%;
         }
 
         #user_city,

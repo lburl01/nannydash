@@ -1,4 +1,5 @@
 // erb file app/views/devise/sessions/new.html.erb
+
 .login-page {
     .header-bar {
         align-items: center;
@@ -17,6 +18,10 @@
             text-decoration: none;
         }
 
+        a:hover {
+            color: white;
+        }
+
         h2 {
             font-family: cursive;
             flex-grow: 5;
@@ -31,7 +36,7 @@
     .login-area {
         align-items: center;
         border-radius: 10px;
-        border: 1px solid #3d3d3d;
+        border: 2px solid #3d3d3d;
         color: #3d3d3d;
         display: flex;
         flex-direction: column;
@@ -41,13 +46,16 @@
         margin: 30px auto 0;
         text-align: center;
         width: 50%;
+
         .login-header-text {
-          font-size: 2rem;
-          margin: 10px;
+            font-size: 2rem;
+            margin: 10px;
         }
+
         .field {
-            display: flex;
             align-items: center;
+            display: flex;
+            justify-content: center;
         }
 
         hr {
