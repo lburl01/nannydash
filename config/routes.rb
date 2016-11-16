@@ -19,6 +19,9 @@ Rails.application.routes.draw do
   get 'agency/new' => 'agency#new'
   post 'agency' => 'agency#create'
 
+  get 'messages/new' => 'messages#new'
+  post 'messages/new' => 'messages#create'
+
   root to: 'home#index'
 
 end

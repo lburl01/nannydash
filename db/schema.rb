@@ -16,9 +16,12 @@ ActiveRecord::Schema.define(version: 20161115185150) do
   enable_extension "plpgsql"
 
   create_table "conversations", force: :cascade do |t|
-    t.string   "subject",    default: "", null: false
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.string   "subject",      default: "",    null: false
+    t.integer  "sender_id"
+    t.integer  "recipient_id"
+    t.boolean  "is_deleted",   default: false, null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   create_table "job_assignments", force: :cascade do |t|
@@ -32,9 +35,9 @@ ActiveRecord::Schema.define(version: 20161115185150) do
 
   create_table "jobs", force: :cascade do |t|
     t.integer  "user_id",                                    null: false
-    t.date     "date",       default: '2016-11-15',          null: false
-    t.time     "start_time", default: '2000-01-01 14:34:53', null: false
-    t.time     "end_time",   default: '2000-01-01 17:34:53', null: false
+    t.date     "date",       default: '2016-11-16',          null: false
+    t.time     "start_time", default: '2000-01-01 21:06:29', null: false
+    t.time     "end_time",   default: '2000-01-01 00:06:29', null: false
     t.text     "notes"
     t.boolean  "confirmed",  default: false,                 null: false
     t.datetime "created_at",                                 null: false
@@ -43,15 +46,18 @@ ActiveRecord::Schema.define(version: 20161115185150) do
   end
 
   create_table "messages", force: :cascade do |t|
-    t.text     "body",            default: "", null: false
+    t.text     "body",            default: "",    null: false
+    t.integer  "recipient_id",                    null: false
     t.string   "subject",         default: ""
-    t.string   "sender_type"
-    t.integer  "sender_id"
-    t.integer  "conversation_id",              null: false
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.integer  "user_id",                         null: false
+    t.integer  "conversation_id",                 null: false
+    t.boolean  "is_read",         default: false, null: false
+    t.boolean  "is_deleted",      default: false, null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.index ["conversation_id"], name: "index_messages_on_conversation_id", using: :btree
-    t.index ["sender_type", "sender_id"], name: "index_messages_on_sender_type_and_sender_id", using: :btree
+    t.index ["recipient_id"], name: "index_messages_on_recipient_id", using: :btree
+    t.index ["user_id"], name: "index_messages_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -99,4 +105,5 @@ ActiveRecord::Schema.define(version: 20161115185150) do
   add_foreign_key "job_assignments", "users"
   add_foreign_key "jobs", "users"
   add_foreign_key "messages", "conversations"
+  add_foreign_key "messages", "users"
 end

@@ -25,8 +25,5 @@
           console.log('success! yes! good job!');
         });
       };
-
-      console.log(ctrl.profile.family_id);
-      console.log(familyForm.phone[0]);
     }
 })();
