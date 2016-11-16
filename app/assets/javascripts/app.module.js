@@ -1,7 +1,7 @@
 angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPagination'])
   .config(function($stateProvider, $urlRouterProvider) {
 
-    // $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/');
 
     $stateProvider.state('jobs', {
       url: '/',
@@ -10,11 +10,11 @@ angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPag
       url: '/new-jobs',
       component: 'newJobsList'
     }).state('babysitters', {
-      url: 'babysitters',
+      url: '/babysitters',
       templateUrl: 'babysitter-dashboard.html',
       controller: 'babysitterDirectoryController as babysitters'
     }).state('babysitter-profile', {
-      url: 'babysitters/babysitter-profile',
+      url: '/babysitters/babysitter-profile',
       params: {
         babysitterParam: null
       },
