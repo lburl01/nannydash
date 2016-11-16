@@ -25,6 +25,7 @@ FactoryGirl.define do
     about "I've got two children, Lori and Peter, ages 5 and 6 respectively. They're terrible kids."
     phone_number "555-555-5555"
     county "Wake"
+    is_deleted false
   end
 
   factory :recipient, class: User do
@@ -53,5 +54,6 @@ FactoryGirl.define do
     about "I've got two children, Lori and Peter, ages 5 and 6 respectively. They're terrible kids."
     phone_number "555-555-5555"
     county "Wake"
+    is_deleted false
   end
 end

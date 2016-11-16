@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'api/v1/sitters' => 'sitters#index'
   get 'api/v1/sitter/:id' => 'sitters#show'
   patch 'api/v1/sitter/:id' => 'sitters#update'
+  patch 'api/v1/sitter/delete/:id' => 'sitters#toggle_deleted_sitter'
 
   get 'api/v1/families' => 'families#index'
   get 'api/v1/family/:id' => 'families#show'
