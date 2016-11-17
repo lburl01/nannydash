@@ -1,3 +1,5 @@
+@import 'partials/setup/variables';
+
 .directory-container {
   float: right;
   width: 100%;
@@ -15,13 +17,13 @@
     span {
       font-size: 28px;
       font-weight: 100;
-      color: #aaa;
+      color: $purple;
       padding: 3px 15px 0;
     }
     h2 {
       font-size: 22px;
       font-weight: 100;
-      color: #666;
+      color: $purple;
       padding-top: 4px;
 
       &:nth-child(3) {
@@ -34,7 +36,7 @@
       position: absolute;
       content: "\f002";
       font-size: 16px;
-      color: #BDBDBD;
+      color: $purple;
       right: 219px;
       top: 52px;
     }
@@ -43,7 +45,7 @@
       float: left;
       font-size: 24px;
       font-weight: 100;
-      color: #666;
+      color: $purple;
       padding-top: 4px;
     }
 
@@ -51,21 +53,21 @@
       float: right;
       width: 220px;
       background: #eee;
-      border: #BDBDBD solid 1px;
+      border: $purple solid 1px;
       border-radius: 7px;
       padding: 6px;
       padding-left: 35px;
       outline: none;
       font-size: 15px;
       font-weight: 300;
-      color: #666;
+      color: $purple;
       letter-spacing: .5px;
     }
   }
   .list {
     .title-container {
       overflow: hidden;
-      background: #BDBDBD;
+      background: $red;
       padding: 10px;
       border-radius: 7px;
       font-size: 17px;
@@ -138,22 +140,26 @@
       margin: 0 auto;
 
       .red {
-        background: red !important;
+        background: $red !important;
         color: #fff;
       }
 
       .green {
-        background: green !important;
+        background: $green !important;
         color: #fff;
       }
 
       tr {
         border-bottom: #ddd solid .5px;
 
+        &:not(:first-child):hover {
+          background: #f2f7f4;
+        }
+
         th {
           font-size: 16px;
           text-align: left;
-          color: #9B9B9B;
+          color: #777;
           padding: 10px 10px 15px;
 
           input {
@@ -170,7 +176,7 @@
           padding: 15px 10px;
           font-size: 14px;
           font-weight: 100;
-          color: #aaa;
+          color: #888;
         }
 
         .cpr {
@@ -213,7 +219,7 @@
 
         a {
           text-decoration: none;
-          color: #aaa;
+          color: #888;
         }
       }
     }

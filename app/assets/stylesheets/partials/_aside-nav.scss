@@ -1,5 +1,7 @@
+@import 'partials/setup/variables';
+
 .aside-nav {
-  background: #EDEDED;
+  background: $lightGreen;
   height: 100%;
   width: 325px;
   box-sizing:border-box;
@@ -21,7 +23,7 @@
     .title {
       margin-bottom: 25px;
       padding: 15px 0;
-      background: #E2E2E2;
+      background: $green;
 
       img {
         width: 17px;
@@ -30,7 +32,7 @@
       }
 
       h1 {
-        color: #555;
+        color: #fff;
         font-size: 20px;
         font-weight: 100;
         display: inline-block;
@@ -42,10 +44,10 @@
     }
 
     button {
-      background: #BDBDBD;
+      background: $lightCream;
       border-radius: 7px;
       border: transparent;
-      color: #fff;
+      color: #777;
       cursor: pointer;
       font-size: 16px;
       font-weight: 300;

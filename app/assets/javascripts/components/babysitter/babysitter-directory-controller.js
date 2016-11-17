@@ -19,7 +19,7 @@ angular.module('app')
       When page first loads, load in babysitters
       *************************/
       babysitterDirectoryAPI.list().success(function(response) {
-        babysitterDirectoryAPI.totalBabysitters = response;
+        babysitterDirectoryAPI.totalBabysitters = response.sitters;
         self.babysitters = babysitterDirectoryAPI.totalBabysitters;
         self.totalUsers = response.length;
       }, function(response) {
