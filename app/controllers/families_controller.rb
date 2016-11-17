@@ -2,9 +2,9 @@ class FamiliesController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    @families = User.get_approved_families
+    @families_counties = User.get_approved_families
 
-    render json: @families
+    render json: @families_counties
   end
 
   def show

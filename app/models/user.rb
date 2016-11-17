@@ -85,15 +85,22 @@ class User < ApplicationRecord
     data = User.family.where(is_deleted: false).where(approved: true).all
 
     @families = []
+    @all_counties = []
 
     data.each do |family|
       @families << {"family_id" => family.id, "first_name" => family.first_name,
                       "last_name" => family.last_name, "email" => family.email,
-                      "phone" => family.phone_number, "county" => "Wake",
+                      "phone" => family.phone_number, "county" => family.county,
                       "about" => family.about, "active" => family.active
                     }
+      @all_counties << family.county
     end
-    return @families
+
+    @counties = @all_counties.uniq
+
+    @data = { "families" => @families, "counties" => @counties}
+
+    return @data
   end
 
   def self.get_family(options)
@@ -103,7 +110,7 @@ class User < ApplicationRecord
                     "last_name" => family.last_name, "email" => family.email,
                     "phone" => family.phone_number, "street" => family.street,
                     "city" => family.city, "state" => family.state,
-                    "zip_code" => family.zip_code, "county" => "Wake",
+                    "zip_code" => family.zip_code, "county" => family.county,
                     "about" => family.about, "active" => family.active
                   }
   end
