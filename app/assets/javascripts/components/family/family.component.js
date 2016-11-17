@@ -16,6 +16,7 @@
 
   function FamilyController(familyAPI) {
     var ctrl = this;
+    ctrl.usersPerPage = 6;
 
     ctrl.handleToggle = function(id) {
       familyAPI.toggleActiveState(id).then( function() {
