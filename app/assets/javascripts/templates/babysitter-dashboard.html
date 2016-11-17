@@ -11,9 +11,7 @@
         <i ng-class="{'arrowActive': babysitters.dropIt}" ng-click="babysitters.dropdown()"class="fa fa-angle-down"></i>
         <div ng-show="babysitters.dropIt" class="counties">
           <ul>
-            <li>Bertie County</li>
-            <li>Anson County</li>
-            <li>Wake County</li>
+            <li ng-repeat="county in babysitters.counties">{{county}}</li>
           </ul>
         </div>
       </div>
