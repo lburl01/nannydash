@@ -7,6 +7,14 @@ angular.module('app')
       this.babysitters = babysitterDirectoryAPI.totalBabysitters;
       this.totalUsers = 0;
       this.usersPerPage = 5;
+      this.dropIt = false;
+      /*************************
+      Toggle county dropdown
+      *************************/
+      this.dropdown = function() {
+        self.dropIt = !self.dropIt;
+        console.log('drop');
+      };
       /*************************
       When page first loads, load in babysitters
       *************************/

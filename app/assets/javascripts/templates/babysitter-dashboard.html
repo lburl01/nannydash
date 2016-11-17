@@ -4,12 +4,12 @@
     <input ng-model="searchBox" type="text">
   </div>
   <div class="list">
-    <div class="title-container">
+    <div class="title-container dropdown-container">
       <h4>Total: {{babysitters.totalUsers}}</h4>
       <div class="county">
         <h4>Wake County, NC</h4>
-        <i class="fa fa-angle-down"></i>
-        <div class="counties">
+        <i ng-class="{'arrowActive': babysitters.dropIt}" ng-click="babysitters.dropdown()"class="fa fa-angle-down"></i>
+        <div ng-show="babysitters.dropIt" class="counties">
           <ul>
             <li>Bertie County</li>
             <li>Anson County</li>

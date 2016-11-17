@@ -64,8 +64,7 @@
   }
   .list {
     .title-container {
-      overflow: visible;
-      height: 40px;
+      overflow: hidden;
       background: #BDBDBD;
       padding: 10px;
       border-radius: 7px;
@@ -73,6 +72,10 @@
       color: #fff;
       font-weight: 100;
       margin-bottom: 10px;
+      &.dropdown-container {
+        height: 40px;
+        overflow: visible;
+      }
 
       h4 {
         float: left;
