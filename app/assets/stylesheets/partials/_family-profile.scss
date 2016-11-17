@@ -1,4 +1,5 @@
 @import 'partials/setup/variables';
+
 .family-profile-wrapper {
   display: flex;
   font-style: 'Helvetica', sans-serif;
@@ -14,13 +15,20 @@
     }
     .message {
       align-items: center;
-      background-color: #bdbdbd;
       border-radius: 5px;
       color:white;
+      cursor: pointer;
       display: flex;
       font-weight: 100;
       height: 35px;
       justify-content: flex-end;
+      span {
+        background: url(asset_path('messages.svg'));
+        background-size: cover;
+        height: 20px;
+        width: 20px;
+        color: white;
+      }
     }
     .list {
       .title-container {
@@ -83,7 +91,7 @@
       }
       .save,
       button.delete {
-        background: #aaa;
+        background: $yellow;
         border-radius: 4px;
         border: transparent;
         color: #fff;
