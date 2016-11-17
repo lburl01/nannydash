@@ -8,9 +8,15 @@ class Job < ApplicationRecord
     @jobs = []
 
     response.each do |job|
-      @jobs << { "job_id" => job.id,
+      @jobs << { "job_id" => job.id, "family_id" => job.family_id,
                  "family_first_name" => job.posted_job.first_name,
-                 "sitter_first_name" => job.assignment.first_name
+                 "family_last_name" => job.posted_job.last_name,
+                 "sitter_first_name" => job.assignment.first_name,
+                 "sitter_last_name" => job.assignment.last_name,
+                 "start_time" => job.start_time.strftime("%I:%M %p"),
+                 "end_time" => job.end_time.strftime("%I:%M %p"),
+                 "confirmed" => job.confirmed,
+                 "created" => job.created_at.strftime("%m/%d/%Y %I:%M %p")
                }
     end
 
