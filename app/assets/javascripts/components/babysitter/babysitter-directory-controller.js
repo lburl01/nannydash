@@ -31,7 +31,7 @@ angular.module('app')
         var objectDate = data.joined;
         var convertDate = new Date(objectDate);
         return newDate = convertDate.getMonth() + '/' + convertDate.getDate() + '/' + convertDate.getFullYear();
-      }
+      };
       /*************************
       Checking to see if CPR is true/false .. then displaying color & new text
       *************************/
@@ -39,9 +39,9 @@ angular.module('app')
         if(value === true) {
           return 'yes';
         } else {
-          return 'no'
+          return 'no';
         }
-      }
+      };
       /*************************
       When user clicks on profile, it will store data and post on new profile page
       *************************/
@@ -50,5 +50,5 @@ angular.module('app')
           console.log(response);
           $state.go('babysitter-profile', {babysitterParam: {sitter: response}, sitterId: personId}, {reload: true});
         });
-      }
+      };
     }]);
