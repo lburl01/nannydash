@@ -7,8 +7,9 @@ class Job < ApplicationRecord
     @jobs = []
 
     response.each do |job|
-      @jobs << { "job_id" => job.id
-      }
+      @jobs << { "job_id" => job.id,
+                 "family_first_name" => User.find(job.family_id).first_name
+               }
     end
 
     return @jobs
