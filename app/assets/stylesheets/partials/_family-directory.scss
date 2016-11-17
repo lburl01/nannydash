@@ -1,3 +1,5 @@
+@import 'partials/setup/variables';
+
 .family-header {
   align-items: center;
   background: #bdbdbd;
@@ -34,6 +36,12 @@ div.family-list-wrapper {
       border-bottom: 1px solid #d9d9d9;
       width: 15%;
       font-size: 14px;
+    }
+    li:nth-child(3), li:nth-child(4) {
+      width: 35%;
+      white-space: nowrap;
+      overflow:hidden !important;
+      text-overflow: ellipsis;
     }
     li:nth-child(3) {
       width: 35%;
@@ -78,7 +86,7 @@ div.family-list-wrapper {
       li {
         font-size: 13px;
         span.profile-button {
-          background: #adadad !important;
+          background: $yellow !important;
         }
       }
     }

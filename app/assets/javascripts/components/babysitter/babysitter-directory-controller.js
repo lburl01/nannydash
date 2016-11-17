@@ -8,6 +8,7 @@ angular.module('app')
       this.totalUsers = 0;
       this.usersPerPage = 6;
       this.dropIt = false;
+      this.counties;
       /*************************
       Toggle county dropdown
       *************************/
@@ -22,6 +23,7 @@ angular.module('app')
         babysitterDirectoryAPI.totalBabysitters = response.sitters;
         self.babysitters = babysitterDirectoryAPI.totalBabysitters;
         self.totalUsers = response.length;
+        self.counties = response.counties;
       }, function(response) {
         alert('Failed');
       });
