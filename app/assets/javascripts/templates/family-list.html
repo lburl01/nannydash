@@ -1,5 +1,4 @@
 <div class="directory-container">
-
   <div class="family-list-wrapper">
 
     <div class="search">
@@ -33,11 +32,13 @@
       </ul>
 
       <div class="table-body">
-        <ul ng-repeat="family in $ctrl.families | filter: searchBox">
+        <ul dir-paginate="family in $ctrl.families | filter: searchBox | itemsPerPage: 5">
           <family ng-click="$ctrl.select()" family="family"></family>
         </ul>
       </div>
 
+
     </div>
+    <dir-pagination-controls max-size="5"></dir-pagination-controls>
   </div>
 </div>
