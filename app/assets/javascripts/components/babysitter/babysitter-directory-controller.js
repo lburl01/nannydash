@@ -28,11 +28,11 @@ angular.module('app')
       /*************************
       Calculating age
       *************************/
-      this.calculateAge = function(age) { // birthday is a date
+      this.calculateAge = function(age) {
         var userBirthday = new Date(age);
         var nowDate = Date.now();
         var ageDif = nowDate - userBirthday.getTime();
-        var ageDate = new Date(ageDif); // miliseconds from epoch
+        var ageDate = new Date(ageDif);
         return age = Math.abs(ageDate.getUTCFullYear() - 1970);
       }
       /*************************

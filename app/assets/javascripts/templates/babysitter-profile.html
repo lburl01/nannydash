@@ -1,4 +1,7 @@
 <div class="directory-container">
+  <!-- ******************************
+   Header Section: Name Breadcrombs and Search Field
+  ******************************* -->
   <div class="search">
     <h1 ui-sref="babysitters">Babysitters</h1>
     <span>></span>
@@ -6,6 +9,9 @@
     <h2>{{babysitter.user.last_name}}</h2>
     <input type="text">
   </div>
+  <!-- ******************************
+   Drop Down County Field
+  ******************************* -->
   <div class="list">
     <div class="title-container">
       <div class="county">
@@ -14,6 +20,9 @@
       </div>
     </div>
   </div>
+  <!-- ******************************
+   Name Fields and Photo Section
+  ******************************* -->
   <section class="name">
     <label for="phone">First Name:</label>
     <input class="name-heading" type="text" ng-model="babysitter.user.first_name" ng-model-options="{ updateOn: 'blur' }" ng-change="babysitter.userInputClick('first_name', babysitter.user.first_name, babysitter.user.sitter_id)">
@@ -21,6 +30,9 @@
     <input class="name-heading" type="text" ng-model="babysitter.user.last_name" ng-model-options="{ updateOn: 'blur' }" ng-change="babysitter.userInputClick('last_name', babysitter.user.last_name, babysitter.user.sitter_id)">
     <img src="#" alt="">
   </section>
+  <!-- ******************************
+   Basic Information Section
+  ******************************* -->
   <section class="basic-info">
     <h2>Basic Information</h2>
     <!-- Phone Field -->
@@ -64,6 +76,9 @@
       <input id="rec-phone-3" type="text" ng-model="babysitter.user.recommendation_three_email" ng-model-options="{ updateOn: 'blur' }" ng-change="babysitter.userInputClick('recommendation_three_name', babysitter.user.recommendation_three_name, babysitter.user.sitter_id)">
     </div>
   </section>
+  <!-- ******************************
+   Key Information Section
+  ******************************* -->
   <section class="key-info">
     <h2>Key Information</h2>
     <!-- Certifications Field -->
@@ -84,7 +99,7 @@
     <input id="birthday" type="text" ng-model="babysitter.age">
     <!-- Joined Field -->
     <label for="joined">Joined:</label>
-    <input id="joined" type="text" ng-model="babysitter.user.joined" ng-model-options="{ updateOn: 'blur' }" ng-change="babysitter.userInputClick('joined', babysitter.user.joined, babysitter.user.sitter_id)">
+    <input id="joined" type="text" ng-model="babysitter.user.getDate(babysitterjoined)" ng-model-options="{ updateOn: 'blur' }" ng-change="babysitter.userInputClick('joined', babysitter.user.joined, babysitter.user.sitter_id)">
     <button ng-click="babysitter.updateBabysitter(babysitter.user.sitter_id)" type="button">Update Account</button>
     <button ng-click="babysitter.deleteBabysitter(babysitter.user.sitter_id)" type="button">Delete Account</button>
   </section>

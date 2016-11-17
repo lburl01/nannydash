@@ -50,5 +50,12 @@ angular.module('app')
         self.age = Math.abs(ageDate.getUTCFullYear() - 1970);
       }
       this.calculateAge();
-
+      /*************************
+      Transforming full date/time string to just plain date
+      *************************/
+      this.getDate = function(data) {
+        var objectDate = data.joined;
+        var convertDate = new Date(objectDate);
+        return newDate = convertDate.getMonth() + '/' + convertDate.getDate() + '/' + convertDate.getFullYear();
+      }
   }]);
