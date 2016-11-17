@@ -5,7 +5,8 @@ angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPag
 
     $stateProvider.state('jobs', {
       url: '/',
-      component: 'jobsList'
+      controller: 'allJobsController as allJobs',
+      templateUrl: 'jobs-list.html'
     }).state('newJobs', {
       url: '/new-jobs',
       component: 'newJobsList'
