@@ -2,6 +2,7 @@ class User < ApplicationRecord
   include Messageable
 
   has_many :job_assignments
+  has_many :assignments, through: :job_assignments, :source => :job
   has_many :jobs
   has_many :sent_messages, :class_name => "Message", foreign_key: "sender_id"
   has_many :received_messages, :class_name => "Message", foreign_key: "recipient_id"
