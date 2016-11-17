@@ -123,6 +123,25 @@ class User < ApplicationRecord
                   }
   end
 
+  def self.get_new_applicants
+    @all_applicants = User.where(role: 1).where({ active: true, approved: false }).or(User.where(role: 2).where({ active: true, approved: false }))
+    @five_applicants = @all_applicants.order(created_at: :desc).limit(5)
+
+    @new_applicants = []
+
+    @five_applicants.each do |application|
+      name = "#{application.first_name} #{application.last_name}"
+      @new_applicants << { "name" => name, "role" => application.role,
+                           "submitted" => application.created_at.strftime("%m/%d/%Y %I:%M %p")
+                         }
+    end
+
+    @new_applicants
+
+    # @all_applicants
+
+  end
+
   private
 
     def picture_size

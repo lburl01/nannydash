@@ -3,14 +3,14 @@ class AgencyController < ApplicationController
 
   def index
     @messages = Message.get_latest_messages
-    # @applications =
+    @applications = User.get_new_applicants
     # @assignments =
     # @open_jobs =
     #
-    # @summary = { "messages" => @messages, "applications" => @applications,
-    #               "assignments" => @assignments, "open_jobs" => @open_jobs}
+    @summary = { "messages" => @messages, "applications" => @applications }
+                  # "assignments" => @assignments, "open_jobs" => @open_jobs}
 
-    render json: @messages
+    render json: @summary
   end
 
   def new
