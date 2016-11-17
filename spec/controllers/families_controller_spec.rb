@@ -29,14 +29,14 @@ RSpec.describe FamiliesController, type: :controller do
       expect(json.length).to eq 2
     end
 
-    it 'will not return deleted sitters' do
+    it 'will not return deleted families' do
       @user = create(:user, is_deleted: true)
 
       get :index
 
       json = JSON.parse(response.body)
-
-      expect(json.length).to eq 0
+      
+      expect(json["families"].length).to eq 0
     end
   end
 
