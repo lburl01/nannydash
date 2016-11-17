@@ -1,0 +1,32 @@
+<form name="familyForm" ng-submit="">
+
+  <!-- Phone Field -->
+  <label for="phone">Phone:</label>
+  <input name="phone" id="phone" type="text" ng-model="$ctrl.profile.phone" ng-model-options="{updateOn: 'blur'}" ng-change="$ctrl.updateCurrent( 'phone', $ctrl.profile.phone)">
+  <!-- Email Field -->
+  <label for="email">Email:</label>
+  <input name="phone" id="email" type="text" ng-model="$ctrl.profile.email" ng-model-options="{updateOn: 'blur'}" ng-change="$ctrl.updateCurrent( 'email', $ctrl.profile.email)">
+  <!-- Street Field -->
+  <label for="street">Street:</label>
+  <input name="phone" id="street" type="text" ng-model="$ctrl.profile.street" ng-model-options="{updateOn: 'blur'}" ng-change="$ctrl.updateCurrent( 'street', $ctrl.profile.street)">
+  <!-- City Field -->
+  <label for="city">City:</label>
+  <input name="phone" id="city" type="text" ng-model="$ctrl.profile.city" ng-model-options="{updateOn: 'blur'}" ng-change="$ctrl.updateCurrent( 'city', $ctrl.profile.city)">
+  <!-- County Field -->
+  <label for="count">County:</label>
+  <input name="phone" id="county" type="text" ng-model="$ctrl.profile.county" ng-model-options="{updateOn: 'blur'}" ng-change="$ctrl.updateCurrent( 'county', $ctrl.profile.county)">
+  <!-- State Field -->
+  <label for="state">State:</label>
+  <input name="phone" id="state" type="text" ng-model="$ctrl.profile.state" ng-model-options="{updateOn: 'blur'}" ng-change="$ctrl.updateCurrent( 'state', $ctrl.profile.state)">
+  <!-- zip Field -->
+  <label for="zip">Zip Code:</label>
+  <input name="phone" id="zip" type="text" ng-model="$ctrl.profile.zip_code" ng-model-options="{updateOn: 'blur'}" ng-change="$ctrl.updateCurrent( 'zip_code', $ctrl.profile.zip_code)">
+  <!-- About Field -->
+  <label for="about">About:</label>
+  <textarea name="about" rows="4" cols="50" ng-model="$ctrl.profile.about" ng-model-options="{updateOn: 'blur'}" ng-change="$ctrl.updateCurrent( 'about', $ctrl.profile.about)">
+  </textarea>
+
+  <input ng-click="$ctrl.save($ctrl.profile.family_id)" name="save" class="save" type="submit" value="Save Changes" />
+  <button ng-click="$ctrl.delete($ctrl.profile.family_id)" class="delete" type="button">Delete Account</button>
+
+</form>

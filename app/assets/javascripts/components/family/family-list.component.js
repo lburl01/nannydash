@@ -14,12 +14,14 @@
     function FamilyListController(familyAPI) {
       var ctrl = this;
       var panels = [];
+      ctrl.dropIt = false;
+
+      ctrl.dropdown = function() {
+        ctrl.dropIt = !ctrl.dropIt;
+      };
 
       ctrl.addPanel = function(panel) {
         panels.push(panel);
-        // if (panels.length > 0) {
-        //   panels[0].turnOn();
-        // }
       };
 
       ctrl.selectPanel = function(panel) {

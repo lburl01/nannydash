@@ -1,24 +1,30 @@
 angular.module('app')
-    .controller('babysitterDirectoryController', function ($http, $state, babysitterDirectoryAPI) {
+    .controller('babysitterDirectoryController', ["$http", "$state", "babysitterDirectoryAPI", function ($http, $state, babysitterDirectoryAPI) {
       /*************************
       Variables
       *************************/
       var self = this;
-      this.babysitters = [];
+      this.babysitters = babysitterDirectoryAPI.totalBabysitters;
       this.totalUsers = 0;
       this.usersPerPage = 5;
+      this.dropIt = false;
+      /*************************
+      Toggle county dropdown
+      *************************/
+      this.dropdown = function() {
+        self.dropIt = !self.dropIt;
+        console.log('drop');
+      };
       /*************************
       When page first loads, load in babysitters
       *************************/
-      this.init = function() {
-        babysitterDirectoryAPI.list().success(function(response) {
-          self.babysitters = response;
-          self.totalUsers = response.length;
-        }, function(response) {
-          alert('Failed');
-        });
-      }
-      this.init();
+      babysitterDirectoryAPI.list().success(function(response) {
+        babysitterDirectoryAPI.totalBabysitters = response;
+        self.babysitters = babysitterDirectoryAPI.totalBabysitters;
+        self.totalUsers = response.length;
+      }, function(response) {
+        alert('Failed');
+      });
       /*************************
       Transforming full date/time string to just plain date
       *************************/
@@ -40,7 +46,10 @@ angular.module('app')
       /*************************
       When user clicks on profile, it will store data and post on new profile page
       *************************/
-      this.userClick = function(person) {
-        $state.go('nannyDash.babysitter-profile', {babysitterParam: {sitter: person}});
+      this.userClick = function(personId) {
+        babysitterDirectoryAPI.userProfile(personId).success(function(response) {
+          console.log(response);
+          $state.go('babysitter-profile', {babysitterParam: {sitter: response}, sitterId: personId}, {reload: true});
+        });
       }
-    });
+    }]);

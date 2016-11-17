@@ -3,7 +3,8 @@ class User < ApplicationRecord
 
   has_many :job_assignments
   has_many :jobs
-  has_many :messages, as: :sender
+  has_many :sent_messages, :class_name => "Message", foreign_key: "sender_id"
+  has_many :received_messages, :class_name => "Message", foreign_key: "recipient_id"
 
   enum role: { manager: 0, family: 1, nanny: 2 }
 
@@ -19,7 +20,7 @@ class User < ApplicationRecord
   VALID_ZIP_REGEX = /\d{5}/
   VALID_BIRTHDAY_REGEX = /\d{2}[\/]\d{2}[\/]\d{4}/
   VALID_RATE_REGEX = /\d+[.]\d{2}/
-  VALID_PHONE_REGEX = /\(*\+*[1-9]{0,3}\)*-*[1-9]{0,3}[-. \/]*\(*[2-9]\d{2}\)*[-. \/]*\d{3}[-. \/]*\d{4} *e*x*t*\.* *\d{0,4}/
+  # VALID_PHONE_REGEX = /\(*\+*[1-9]{0,3}\)*-*[1-9]{0,3}[-. \/]*\(*[2-9]\d{2}\)*[-. \/]*\d{3}[-. \/]*\d{4} *e*x*t*\.* *\d{0,4}/
 
   validates_presence_of :first_name, :last_name, :email, :street, :city, :county
 
@@ -28,11 +29,11 @@ class User < ApplicationRecord
   validates :zip_code, presence: true, format: { with: VALID_ZIP_REGEX }
   validates :birthday, allow_nil: true, format: { with: VALID_BIRTHDAY_REGEX }
   validates :hourly_rate, allow_nil: true, format: { with: VALID_RATE_REGEX }
-  validates :phone_number, presence: true, format: { with: VALID_PHONE_REGEX }
+  # validates :phone_number, presence: true, format: { with: VALID_PHONE_REGEX }
   validate :picture_size
 
   def self.get_active_sitters
-    data = User.nanny.all
+    data = User.nanny.where(is_deleted: false).all
 
     @sitters = []
 
@@ -41,8 +42,8 @@ class User < ApplicationRecord
                       "last_name" => sitter.last_name, "email" => sitter.email,
                       "phone" => sitter.phone_number, "birthday" => sitter.birthday,
                       "hourly_rate" => sitter.hourly_rate,
-                      "cpr_cert" => sitter.cpr_certification,
-                      "first_aid_cert" => sitter.first_aid_certification,
+                      "cpr_certification" => sitter.cpr_certification,
+                      "first_aid_certification" => sitter.first_aid_certification,
                       "street" => sitter.street, "city" => sitter.city,
                       "state" => sitter.state, "zip_code" => sitter.zip_code,
                       "county" => sitter.county,
@@ -58,8 +59,30 @@ class User < ApplicationRecord
     return @sitters
   end
 
+  def self.get_sitter(options)
+    sitter = User.find(options)
+
+    @sitter = {"sitter_id" => sitter.id, "first_name" => sitter.first_name,
+                    "last_name" => sitter.last_name, "email" => sitter.email,
+                    "phone" => sitter.phone_number, "birthday" => sitter.birthday,
+                    "hourly_rate" => sitter.hourly_rate,
+                    "cpr_certification" => sitter.cpr_certification,
+                    "first_aid_certification" => sitter.first_aid_certification,
+                    "street" => sitter.street, "city" => sitter.city,
+                    "state" => sitter.state, "zip_code" => sitter.zip_code,
+                    "county" => sitter.county,
+                    "recommendation_one_name" => sitter.recommendation_one_name,
+                    "recommendation_one_email" => sitter.recommendation_one_email,
+                    "recommendation_two_name" => sitter.recommendation_two_name,
+                    "recommendation_two_email" => sitter.recommendation_two_email,
+                    "recommendation_three_name" => sitter.recommendation_three_name,
+                    "recommendation_three_email" => sitter.recommendation_three_email,
+                    "joined" => sitter.created_at
+                  }
+  end
+
   def self.get_approved_families
-    data = User.family.where(approved: true).all
+    data = User.family.where(is_deleted: false).where(approved: true).all
 
     @families = []
 

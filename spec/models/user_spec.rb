@@ -3,6 +3,7 @@ require "rails_helper"
 RSpec.describe User, :type => :model do
   before do
     @user = build(:user)
+    @user.extend(Messageable)
   end
 
   it "should be valid" do

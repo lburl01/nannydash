@@ -1,34 +1,54 @@
 angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPagination'])
-  .config(function($stateProvider, $urlRouterProvider) {
+  .config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $urlRouterProvider) {
 
     $urlRouterProvider.otherwise('/');
 
-
-    $stateProvider.state('nannyDash', {
+    $stateProvider.state('jobs', {
       url: '/',
-      abstract: true,
-      template: '<ui-view></ui-view>'
-    }).state('nannyDash.family', {
-      url: 'family',
-      templateUrl: 'app.html'
-    }).state('nannyDash.babysitters', {
-      url: 'babysitters',
+      component: 'jobsList'
+    }).state('newJobs', {
+      url: '/new-jobs',
+      component: 'newJobsList'
+    }).state('babysitters', {
+      url: '/babysitters',
       templateUrl: 'babysitter-dashboard.html',
       controller: 'babysitterDirectoryController as babysitters'
-    }).state('nannyDash.babysitter-profile', {
-      url: 'babysitters/babysitter-profile',
+    }).state('babysitter-profile', {
+      url: '/babysitters/profile/:sitterId',
       params: {
-        babysitterParam: null
+        babysitterParam: null,
+        sitterId: null
       },
       templateUrl: 'babysitter-profile.html',
-      controller: 'babysitterProfileController as babysitter'
+      controller: 'babysitterProfileController as babysitter',
+      resolve: {
+
+      }
     }).state('family', {
       url: '/family',
       component: 'familyList',
       resolve: {
-        families: function(familyAPI) {
+        families: ['familyAPI', function(familyAPI) {
           return familyAPI.list();
-        }
+        }]
       }
+    }).state('messages', {
+      url: '/messages',
+      templateUrl: 'messages.html',
+      controller: 'messagesController as messages'
+    }).state('familyProfile', {
+      url: '/family/profile/:familyId',
+      component: 'familyProfile',
+      resolve: {
+        profile: ['familyAPI', '$stateParams', function(familyAPI, $stateParams) {
+          return familyAPI.profileInfo($stateParams.familyId);
+        }]
+      }
+    }).state('pendingBabysitters', {
+      url: '/pending-babysitters',
+      component: 'pendingBabysittersList'
+    }).state('pendingParents', {
+      url: '/pending-parents',
+      component: 'pendingParentsList'
     });
-});
+}]);
