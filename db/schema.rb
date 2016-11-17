@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161117145659) do
+ActiveRecord::Schema.define(version: 20161115185150) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,27 +24,20 @@ ActiveRecord::Schema.define(version: 20161117145659) do
     t.datetime "updated_at",                   null: false
   end
 
-  create_table "job_assignments", force: :cascade do |t|
-    t.integer  "job_id",     null: false
-    t.integer  "user_id",    null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["job_id"], name: "index_job_assignments_on_job_id", using: :btree
-    t.index ["user_id"], name: "index_job_assignments_on_user_id", using: :btree
-  end
-
   create_table "jobs", force: :cascade do |t|
-    t.integer  "user_id",                                     null: false
-    t.date     "date",        default: '2016-11-16',          null: false
-    t.time     "start_time",  default: '2000-01-01 20:44:54', null: false
-    t.time     "end_time",    default: '2000-01-01 23:44:54', null: false
+    t.integer  "family_id",                                   null: false
+    t.integer  "sitter_id"
+    t.date     "date",        default: '2016-11-17',          null: false
+    t.time     "start_time",  default: '2000-01-01 22:24:11', null: false
+    t.time     "end_time",    default: '2000-01-01 01:24:11', null: false
     t.text     "notes"
     t.boolean  "confirmed",   default: false,                 null: false
+    t.boolean  "is_assigned", default: false,                 null: false
+    t.boolean  "is_deleted",  default: false,                 null: false
     t.datetime "created_at",                                  null: false
     t.datetime "updated_at",                                  null: false
-    t.boolean  "is_deleted",  default: false,                 null: false
-    t.boolean  "is_assigned", default: false,                 null: false
-    t.index ["user_id"], name: "index_jobs_on_user_id", using: :btree
+    t.index ["family_id"], name: "index_jobs_on_family_id", using: :btree
+    t.index ["sitter_id"], name: "index_jobs_on_sitter_id", using: :btree
   end
 
   create_table "messages", force: :cascade do |t|
@@ -103,9 +96,6 @@ ActiveRecord::Schema.define(version: 20161117145659) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "job_assignments", "jobs"
-  add_foreign_key "job_assignments", "users"
-  add_foreign_key "jobs", "users"
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "users"
 end

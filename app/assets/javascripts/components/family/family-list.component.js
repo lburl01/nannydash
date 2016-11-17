@@ -4,7 +4,8 @@
     .module('app')
     .component('familyList', {
       bindings: {
-        families: '<'
+        families: '<',
+        counties: '<'
       },
       transclude: true,
       templateUrl: 'family-list.html',
@@ -15,6 +16,13 @@
       var ctrl = this;
       var panels = [];
       ctrl.dropIt = false;
+      ctrl.counties = [];
+
+      ctrl.$onInit = function() {
+        familyAPI.countyList().then(function(response) {
+          ctrl.counties = response;
+        });
+      };
 
       ctrl.dropdown = function() {
         ctrl.dropIt = !ctrl.dropIt;

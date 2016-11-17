@@ -5,11 +5,12 @@ angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPag
 
     $stateProvider.state('dashboard', {
       url: '/',
-      templateUrl: 'dashboard.html',
-      controller: 'dashboardController as dashboard'
+      controller: 'dashboardController as dashboard',
+      templateUrl: 'dashboard.html'
     }).state('jobs', {
       url: '/jobs',
-      component: 'jobsList'
+      controller: 'allJobsController as allJobs',
+      templateUrl: 'jobs-list.html'
     }).state('newJobs', {
       url: '/new-jobs',
       component: 'newJobsList'
@@ -26,7 +27,6 @@ angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPag
       templateUrl: 'babysitter-profile.html',
       controller: 'babysitterProfileController as babysitter',
       resolve: {
-
       }
     }).state('family', {
       url: '/family',
