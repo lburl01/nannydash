@@ -33,11 +33,19 @@ angular.module('app')
         $state.go('babysitters');
       }
       /*************************
+      Convert Strings
+      *************************/
+      this.convertRate = function(rate) {
+        return parseFloat(rate).toFixed(2);
+      }
+      /*************************
       When user hits 'submit' object will be patched to database
       *************************/
       this.userInputClick = function(key, value, sitter_id) {
+        self.convertRate(value);
         self.updatedBabysitters['id'] = sitter_id;
         var updatedUser = self.updatedBabysitters[key] = value;
+        console.log(updatedUser);
       }
       /*************************
       Calculating age
@@ -54,8 +62,9 @@ angular.module('app')
       Transforming full date/time string to just plain date
       *************************/
       this.getDate = function(data) {
-        var objectDate = data.joined;
+        var objectDate = data;
         var convertDate = new Date(objectDate);
         return newDate = convertDate.getMonth() + '/' + convertDate.getDate() + '/' + convertDate.getFullYear();
       }
+      this.getDate()
   }]);

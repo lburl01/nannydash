@@ -1,5 +1,4 @@
 <div class="directory-container">
-
   <div class="family-list-wrapper">
 
     <div class="search">
@@ -7,12 +6,13 @@
       <input type="text" ng-model="searchBox">
     </div>
     <div class="list">
-      <div class="title-container">
+      <div class="title-container dropdown-container">
         <h4>Total: {{$ctrl.families.length}}</h4>
+
         <div class="county">
           <h4>Wake County, NC</h4>
-          <i class="fa fa-angle-down"></i>
-          <div class="counties">
+          <i ng-class="{'arrowActive': $ctrl.dropIt}" ng-click="$ctrl.dropdown()" class="fa fa-angle-down"></i>
+          <div ng-show="$ctrl.dropIt" class="counties">
             <ul>
               <li>Bertie County</li>
               <li>Anson County</li>
@@ -32,7 +32,7 @@
       </ul>
 
       <div class="table-body">
-        <ul dir-paginate="family in $ctrl.families | filter: searchBox | itemsPerPage: $ctrl.usersPerPage">
+        <ul dir-paginate="family in $ctrl.families | filter: searchBox | itemsPerPage: 5">
           <family ng-click="$ctrl.select()" family="family"></family>
         </ul>
       </div>

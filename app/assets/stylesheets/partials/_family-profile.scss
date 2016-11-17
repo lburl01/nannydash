@@ -4,7 +4,13 @@
 
   .directory-container {
     width: 100%;
-
+    .family-link {
+      cursor: pointer;
+      transition: all .5s ease;
+      &:hover {
+        transform: translateY(-5px);
+      }
+    }
     .message {
       align-items: center;
       background-color: #bdbdbd;
@@ -40,6 +46,21 @@
     .profile-container {
       display: flex;
       width: 100%;
+      span {
+        background: #6BB317;
+        border-radius: 7px;
+        color: white;
+        cursor: pointer;
+        display: inline-block;
+        font-weight: 100;
+        margin: 10px 0;
+        padding: 5px 10px;
+        text-align: center;
+        width: 100%;
+        &.inactive {
+          background: #EA043A;
+        }
+      }
     }
 
     .basic-info {
@@ -59,9 +80,19 @@
         color: #666;
         letter-spacing: .5px;
       }
-      .save {
-        margin-left: 26%;
+      .save,
+      button.delete {
+        background: #aaa;
+        border-radius: 4px;
+        border: transparent;
+        color: #fff;
         cursor: pointer;
+        font-family: 'Roboto', sans-serif;
+        font-size: 14px;
+        font-weight: 100;
+        margin: 10px 0 0 26%;
+        padding: 7px 10px;
+        width: 65%;
       }
     }
 
@@ -78,33 +109,18 @@
         width: 20%;
       }
 
-      span {
-        background: #6BB317;
-        border-radius: 7px;
-        color: white;
-        cursor: pointer;
-        display: inline-block;
-        font-weight: 100;
-        padding: 5px 10px;
-        text-align: center;
-        width: 100%;
-        &.inactive {
-          background: #EA043A;
-        }
-      }
-
       label {
         width: 25%;
         display: inline-block;
+        &:last-of-type {
+          position: relative;
+          top: -60px;
+        }
       }
 
       input {
         width: 65%;
         display: inline-block;
-      }
-
-      button {
-        cursor: pointer;
       }
 
       h1 {
@@ -120,4 +136,8 @@
       }
     }
   }
+}
+
+.dropIt {
+  background: red;
 }

@@ -14,6 +14,11 @@
     function FamilyListController(familyAPI) {
       var ctrl = this;
       var panels = [];
+      ctrl.dropIt = false;
+
+      ctrl.dropdown = function() {
+        ctrl.dropIt = !ctrl.dropIt;
+      };
 
       ctrl.addPanel = function(panel) {
         panels.push(panel);
