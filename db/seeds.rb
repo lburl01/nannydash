@@ -129,23 +129,32 @@ end
                     approved: true)
   end
 
-  2.times do |index|
-    Job.create!(user_id: 6,
-                  date: Date.today,
-                  start_time: Time.now,
-                  end_time: 3.hours.from_now,
-                  notes: Faker::Hipster.sentence(3, true, 4),
-                  confirmed: false)
-  end
+  Job.create!(user_id: 6,
+                date: Date.today,
+                start_time: Time.now,
+                end_time: 3.hours.from_now,
+                notes: Faker::Hipster.sentence(3, true, 4),
+                confirmed: false,
+                is_deleted: false,
+                is_assigned: true)
 
-2.times do |index|
   Job.create!(user_id: 7,
                 date: Date.today,
                 start_time: Time.now,
                 end_time: 3.hours.from_now,
                 notes: Faker::Hipster.sentence(3, true, 4),
-                confirmed: true)
-end
+                confirmed: false,
+                is_deleted: false,
+                is_assigned: true)
+
+  Job.create!(user_id: 8,
+                date: Date.today,
+                start_time: Time.now,
+                end_time: 3.hours.from_now,
+                notes: Faker::Hipster.sentence(3, true, 4),
+                confirmed: true,
+                is_deleted: false,
+                is_assigned: true)
 
 JobAssignment.create!(job_id: 1, user_id: 26)
 JobAssignment.create!(job_id: 2, user_id: 27)
