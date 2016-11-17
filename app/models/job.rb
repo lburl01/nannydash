@@ -7,8 +7,7 @@ class Job < ApplicationRecord
     @jobs = []
 
     response.each do |job|
-      @jobs << { "job_id" => job.id, "famliy_first_name" => job.user.first_name,
-                "family_last_name" => job.user.last_name
+      @jobs << { "job_id" => job.id
       }
     end
 
