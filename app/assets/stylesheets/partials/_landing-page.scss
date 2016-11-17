@@ -1,10 +1,8 @@
 // erb file app/views/home/index.html.erb
 
-body {
-    background: linear-gradient(#9C27B0, rgba(255, 87, 34, 0.86));
-}
 
 .landing-page {
+    background: linear-gradient(#9C27B0, rgba(255, 87, 34, 0.86));
 
     .header-bar {
         display: flex;
