@@ -1,3 +1,5 @@
+@import 'partials/setup/variables';
+
 .family-header {
   align-items: center;
   background: #bdbdbd;
@@ -45,12 +47,12 @@ div.family-list-wrapper {
       text-align: right;
       width: 10%;
       span {
-        background: #6BB317;
+        background: $green;
         color: white;
         padding: 5px 10px;
         border-radius: 7px;
         &.inactive {
-          background: #EA043A;
+          background: $red;
         }
       }
     }
@@ -65,7 +67,7 @@ div.family-list-wrapper {
       width: 100%;
     }
     .panel-body {
-      background-color: #f2f2f2;
+      background-color: $babyGreen;
     }
     .accordian-header {
       li {
@@ -78,7 +80,7 @@ div.family-list-wrapper {
       li {
         font-size: 13px;
         span.profile-button {
-          background: #adadad !important;
+          background: $fadedPurple !important;
         }
       }
     }

@@ -1,3 +1,4 @@
+@import 'partials/setup/variables';
 .family-profile-wrapper {
   display: flex;
   font-style: 'Helvetica', sans-serif;
@@ -47,7 +48,7 @@
       display: flex;
       width: 100%;
       span {
-        background: #6BB317;
+        background: $green;
         border-radius: 7px;
         color: white;
         cursor: pointer;
@@ -58,7 +59,7 @@
         text-align: center;
         width: 100%;
         &.inactive {
-          background: #EA043A;
+          background: $red;
         }
       }
     }
@@ -136,8 +137,4 @@
       }
     }
   }
-}
-
-.dropIt {
-  background: red;
 }

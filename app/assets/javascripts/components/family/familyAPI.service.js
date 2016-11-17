@@ -5,7 +5,14 @@
     return {
       list: function() {
         return $http.get("/api/v1/families.json").then(function(response) {
-          return response.data;
+          return response.data.families;
+        }, function() {
+          alert('Failed');
+        });
+      },
+      countyList: function() {
+        return $http.get("/api/v1/families.json").then(function(response) {
+          return response.data.counties;
         }, function() {
           alert('Failed');
         });
