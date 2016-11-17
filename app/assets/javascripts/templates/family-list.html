@@ -14,7 +14,7 @@
           <i ng-class="{'arrowActive': $ctrl.dropIt}" ng-click="$ctrl.dropdown()" class="fa fa-angle-down"></i>
           <div ng-show="$ctrl.dropIt" class="counties">
             <ul ng-repeat="county in $ctrl.counties">
-              <family-county-list county="county"><family-county-list>
+              <li>{{county}}</li>
             </ul>
           </div>
         </div>
