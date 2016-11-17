@@ -1,0 +1,122 @@
+// erb app/views/agency/new.html.erb
+
+.agency-register-page {
+    .header-bar {
+        align-items: center;
+        background: #D8D8D8;
+        color: #3d3d3d;
+        display: flex;
+        font-family: Helvetica;
+        height: 70px;
+        width: 100%;
+
+        a,
+        h1 {
+            text-decoration: none;
+            letter-spacing: 2px;
+            color: #3d3d3d;
+            margin: 0 20px;
+        }
+
+        a:hover {
+            color: white;
+        }
+
+        h2 {
+            font-family: cursive;
+            flex-grow: 5;
+        }
+    }
+
+    hr {
+        width: 100%;
+    }
+
+    .register-area {
+        align-items: center;
+        border-radius: 10px;
+        border: 2px solid #3d3d3d;
+        color: #3d3d3d;
+        display: flex;
+        flex-direction: column;
+        font-family: Helvetica;
+        height: 100%;
+        justify-content: center;
+        margin: 30px auto 0;
+        text-align: center;
+        width: 50%;
+
+        .register-header-text {
+            font-size: 2rem;
+            margin: 10px;
+        }
+
+        .field {
+            display: flex;
+            align-items: center;
+
+            label {
+                width: 40%;
+                text-align: right;
+            }
+        }
+
+        * {
+            //region within register-area
+            //use * like this sparingly, it can reduce performance
+            font-size: 1rem;
+            margin: 5px;
+            width: 95%;
+        }
+
+        a {
+            text-decoration: none;
+            color: #3d3d3d;
+        }
+
+        .bottom-register-form input {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(61, 61, 43, 0);
+            border: 2px solid #3d3d3d;
+            color: #3d3d3d;
+            border-radius: 5px;
+            font-family: Helvetica;
+            height: 30px;
+            width: 100%;
+        }
+
+        .bottom-register-form input:hover {
+            background: rgba(61, 61, 43, 100);
+            color: #d8d8d8;
+        }
+
+        #user_picture {
+            width: 100px;
+            margin: 0 auto;
+            color: #3d3d3d;
+            font-family: Helvetica;
+            width: 100%;
+        }
+
+        #user_city,
+        #user_county,
+        #user_email,
+        #user_first_name,
+        #user_last_name,
+        #user_password,
+        #user_phone_number,
+        #user_state,
+        #user_street,
+        #user_zip_code {
+            border: 2px solid #3d3d3d;
+            border-radius: 5px;
+            color: #3d3d3d;
+            flex-grow: 2;
+            font-family: Helvetica;
+            padding: 5px;
+            width: 100%;
+        }
+    }
+}

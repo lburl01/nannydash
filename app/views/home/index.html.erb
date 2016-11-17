@@ -1,3 +1,54 @@
-<% @users.each do |user| %>
-  <p><%= user.first_name %> <%= user.last_name %> | <%= user.role %></p>
-<% end %>
+<!-- sass file app/assets/stylesheets/partials/_landing-page.scss -->
+<div class="landing-page">
+    <header class="header-bar">
+        <h1>nanny<span class="italic">dash</span>
+        </h1>
+        <h2 class="slogan">A childcare dashboard for agencies, families and sitters.</h2>
+        <a href="/agency/new">register</a>
+        <a href="/users/sign_in">login</a>
+
+    </header>
+    <h2 class="slogan-mobile">A childcare dashboard for agencies, families and sitters.</h2>
+    <div class="preview-image-container">
+        <%= image_tag("splashLarge.png", :alt => "Preview image on landing page") %>
+    </div>
+    <main class="user-groups-container">
+        <div class="user-groups">
+            <p>
+                <span>AGENCIES</span><br>
+                -View and manage Babysitter applications and jobs completed<br>
+                -Family job posts and scheduled sitters<br>
+                -Contact information and message responses
+            </p>
+
+        </div>
+        <div class="user-groups">
+            <p>
+                <span>FAMILIES</span><br>
+                -Post jobs for any of our sitters<br>
+                -Request a specific sitter<br>
+                -Add notes or special instructions Message the agency or sitter directly
+            </p>
+
+        </div>
+
+        <div class="user-groups">
+            <p>
+                <span>SITTERS</span><br>
+                -View job posts and requirements<br>
+                -See details of your scheduled jobs<br>
+                -Message your agency or family directly
+            </p>
+
+        </div>
+    </main>
+    <section class="icon-container">
+        <div class="landing-page-icons">
+            <%= image_tag("agency-icon.svg", :alt => "Agency icon") %>
+
+            <%= image_tag("family-icon.svg", :alt => "Family icon") %>
+
+            <%= image_tag("sitter-icon.svg", :alt => "Babysitters icon") %></div>
+    </section>
+
+</div>

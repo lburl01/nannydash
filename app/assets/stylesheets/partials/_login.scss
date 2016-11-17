@@ -1,0 +1,102 @@
+// erb file app/views/devise/sessions/new.html.erb
+
+.login-page {
+    .header-bar {
+        align-items: center;
+        background: #D8D8D8;
+        color: #3d3d3d;
+        display: flex;
+        font-family: Helvetica;
+        height: 70px;
+        width: 100%;
+
+        a,
+        h1 {
+            color: #3d3d3d;
+            letter-spacing: 2px;
+            margin: 0 20px;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: white;
+        }
+
+        h2 {
+            font-family: cursive;
+            flex-grow: 5;
+        }
+
+        span.italic {
+            font-style: italic;
+            font-weight: 300;
+        }
+    }
+
+    .login-area {
+        align-items: center;
+        border-radius: 10px;
+        border: 2px solid #3d3d3d;
+        color: #3d3d3d;
+        display: flex;
+        flex-direction: column;
+        font-family: Helvetica;
+        height: 100%;
+        justify-content: center;
+        margin: 30px auto 0;
+        text-align: center;
+        width: 50%;
+
+        .login-header-text {
+            font-size: 2rem;
+            margin: 10px;
+        }
+
+        .field {
+            align-items: center;
+            display: flex;
+            justify-content: center;
+        }
+
+        hr {
+            width: 100%;
+        }
+
+        * {
+            //region within login-area
+            margin: 5px;
+            font-size: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: #3d3d3d;
+        }
+
+        .actions input {
+            background: rgba(61, 61, 43, 0);
+            border: 2px solid #3d3d3d;
+            color: #3d3d3d;
+            border-radius: 5px;
+            font-family: Helvetica;
+            width: 100%;
+            height: 30px;
+        }
+
+        .actions input:hover {
+            background: rgba(61, 61, 43, 100);
+            color: #d8d8d8;
+        }
+
+        #user_email,
+        #user_password {
+            border: 2px solid #3d3d3d;
+            border-radius: 5px;
+            color: #3d3d3d;
+            flex-grow: 2;
+            font-family: Helvetica;
+            padding: 5px;
+            width: 100%;
+        }
+    }
+}
