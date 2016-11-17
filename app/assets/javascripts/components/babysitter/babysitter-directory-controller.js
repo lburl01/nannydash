@@ -13,7 +13,6 @@ angular.module('app')
       *************************/
       this.dropdown = function() {
         self.dropIt = !self.dropIt;
-        console.log('drop');
       };
       /*************************
       When page first loads, load in babysitters
