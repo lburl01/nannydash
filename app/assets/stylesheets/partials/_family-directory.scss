@@ -37,6 +37,12 @@ div.family-list-wrapper {
       width: 15%;
       font-size: 14px;
     }
+    li:nth-child(3), li:nth-child(4) {
+      width: 35%;
+      white-space: nowrap;
+      overflow:hidden !important;
+      text-overflow: ellipsis;
+    }
     li:nth-child(3) {
       width: 35%;
     }
@@ -80,6 +86,7 @@ div.family-list-wrapper {
       li {
         font-size: 13px;
         span.profile-button {
+          background: $yellow !important;
           background: $fadedPurple !important;
         }
       }

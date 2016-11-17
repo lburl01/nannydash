@@ -1,3 +1,5 @@
+@import 'partials/setup/variables';
+
 .directory-container {
 
   .list {
@@ -39,7 +41,7 @@
       padding: 3px 5px;
       border-radius: 4px;
       border: #aaa solid .5px;
-      background: #eee;
+      background: #f5f5f5;
       outline: none;
       color: #666;
     }
@@ -93,13 +95,14 @@
       font-family: 'Roboto', sans-serif;
       font-size: 14px;
       font-weight: 100;
-      background: #aaa;
+      background: $yellow;
       border: transparent;
       border-radius: 4px;
       padding: 7px 10px;
       color: #fff;
       margin-top: 15px;
       width: 100%;
+      text-shadow: 1px 1px 1px #a58741
     }
 
     .cert {
@@ -152,7 +155,7 @@
         span {
           text-align: right;
           float: right;
-          background: #ddd;
+          background: #f5f5f5;
           padding: 2px 5px;
           border-radius: 50%;
           position: relative;
