@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161115185150) do
+ActiveRecord::Schema.define(version: 20161117145659) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,14 +34,16 @@ ActiveRecord::Schema.define(version: 20161115185150) do
   end
 
   create_table "jobs", force: :cascade do |t|
-    t.integer  "user_id",                                    null: false
-    t.date     "date",       default: '2016-11-16',          null: false
-    t.time     "start_time", default: '2000-01-01 21:06:29', null: false
-    t.time     "end_time",   default: '2000-01-01 00:06:29', null: false
+    t.integer  "user_id",                                     null: false
+    t.date     "date",        default: '2016-11-17',          null: false
+    t.time     "start_time",  default: '2000-01-01 15:34:06', null: false
+    t.time     "end_time",    default: '2000-01-01 18:34:06', null: false
     t.text     "notes"
-    t.boolean  "confirmed",  default: false,                 null: false
-    t.datetime "created_at",                                 null: false
-    t.datetime "updated_at",                                 null: false
+    t.boolean  "confirmed",   default: false,                 null: false
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
+    t.boolean  "is_deleted",  default: false,                 null: false
+    t.boolean  "is_assigned", default: false,                 null: false
     t.index ["user_id"], name: "index_jobs_on_user_id", using: :btree
   end
 
