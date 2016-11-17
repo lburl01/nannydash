@@ -59,4 +59,20 @@ class Job < ApplicationRecord
     return @newest_jobs
   end
 
+  def self.get_five_open_jobs
+    @response = Job.where({confirmed: true, is_assigned: true}).order(created_at: :desc).limit(5)
+
+    @upcoming_jobs = []
+
+    @response.each do |job|
+      family_name = "#{job.posted_job.first_name} #{job.posted_job.last_name}"
+      sitter_name = "#{job.assignment.first_name} #{job.assignment.last_name}"
+      date_time = "#{job.date} #{job.start_time.strftime("%I:%M %p")}"
+      @upcoming_jobs << { "name" => family_name, "sitter" => sitter_name,
+                        "submitted" => job.created_at.strftime("%m/%d/%Y %I:%M %p") }
+    end
+
+    return @upcoming_jobs
+  end
+
 end
