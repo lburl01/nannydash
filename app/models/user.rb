@@ -3,8 +3,9 @@ class User < ApplicationRecord
 
   has_many :posted_jobs, :class_name => "Job", foreign_key: "family_id"
   has_many :assignments, :class_name => "Job", foreign_key: "sitter_id"
-  has_many :sent_messages, :class_name => "Message", foreign_key: "sender_id"
+  has_many :sent_messages, :class_name => "Message", foreign_key: "user_id"
   has_many :received_messages, :class_name => "Message", foreign_key: "recipient_id"
+  has_many :conversations
 
   enum role: { manager: 0, family: 1, nanny: 2 }
 

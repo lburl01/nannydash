@@ -2,9 +2,15 @@ class AgencyController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    @users = User.manager.all
+    @messages = Message.get_latest_messages
+    # @applications =
+    # @assignments =
+    # @open_jobs =
+    #
+    # @summary = { "messages" => @messages, "applications" => @applications,
+    #               "assignments" => @assignments, "open_jobs" => @open_jobs}
 
-    render :index
+    render json: @messages
   end
 
   def new
