@@ -15,13 +15,20 @@
     function FamilyListController(familyAPI) {
       var ctrl = this;
       var panels = [];
-      ctrl.dropIt = false;
-      ctrl.counties = [];
 
       ctrl.$onInit = function() {
+        ctrl.selectedCounty = "";
+        ctrl.dropIt = false;
+        ctrl.counties = [];
+
         familyAPI.countyList().then(function(response) {
           ctrl.counties = response;
         });
+      };
+
+      ctrl.selectCounty = function(county) {
+        ctrl.selectedCounty = county;
+        ctrl.dropIt = false;
       };
 
       ctrl.dropdown = function() {

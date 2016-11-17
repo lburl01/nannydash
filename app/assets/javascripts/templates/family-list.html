@@ -8,13 +8,13 @@
     <div class="list">
       <div class="title-container dropdown-container">
         <h4>Total: {{$ctrl.families.length}}</h4>
-
         <div class="county">
-          <h4>Wake County, NC</h4>
+          <h4>{{$ctrl.selectedCounty || "All Counties"}}, NC</h4>
           <i ng-class="{'arrowActive': $ctrl.dropIt}" ng-click="$ctrl.dropdown()" class="fa fa-angle-down"></i>
           <div ng-show="$ctrl.dropIt" class="counties">
+            <li ng-click="$ctrl.selectCounty('')">All Counties</li>
             <ul ng-repeat="county in $ctrl.counties">
-              <li ng-model="countyFilter">{{county}}</li>
+              <li ng-click="$ctrl.selectCounty(county)">{{county}}</li>
             </ul>
           </div>
         </div>
@@ -30,7 +30,7 @@
       </ul>
 
       <div class="table-body">
-        <ul dir-paginate="family in $ctrl.families | filter: searchBox | filter: countyFilter |itemsPerPage: 5">
+        <ul dir-paginate="family in $ctrl.families | filter: searchBox | filter: $ctrl.selectedCounty |itemsPerPage: 5">
           <family ng-click="$ctrl.select()" family="family"></family>
         </ul>
       </div>
