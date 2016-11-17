@@ -13,7 +13,6 @@ angular.module('app')
       *************************/
       this.dropdown = function() {
         self.dropIt = !self.dropIt;
-        console.log('drop');
       };
       /*************************
       When page first loads, load in babysitters
@@ -32,7 +31,7 @@ angular.module('app')
         var objectDate = data.joined;
         var convertDate = new Date(objectDate);
         return newDate = convertDate.getMonth() + '/' + convertDate.getDate() + '/' + convertDate.getFullYear();
-      }
+      };
       /*************************
       Calculating age
       *************************/
@@ -50,16 +49,15 @@ angular.module('app')
         if(value === true) {
           return 'yes';
         } else {
-          return 'no'
+          return 'no';
         }
-      }
+      };
       /*************************
       When user clicks on profile, it will store data and post on new profile page
       *************************/
       this.userClick = function(personId) {
         babysitterDirectoryAPI.userProfile(personId).success(function(response) {
-          console.log(response);
           $state.go('babysitter-profile', {babysitterParam: {sitter: response}, sitterId: personId}, {reload: true});
         });
-      }
+      };
     }]);

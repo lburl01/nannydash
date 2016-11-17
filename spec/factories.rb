@@ -56,4 +56,16 @@ FactoryGirl.define do
     county "Wake"
     is_deleted false
   end
+
+  factory :job do
+    id 1
+    user_id 1
+    date "2016-11-17"
+    start_time "15:34:06.88851"
+    end_time "18:34:06.888555"
+    notes "My kid is allergic to bad colors. Don't wear the color red, please"
+    confirmed false
+    is_deleted false
+    is_assigned false
+  end
 end

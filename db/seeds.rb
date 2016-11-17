@@ -129,7 +129,8 @@ end
                     approved: true)
   end
 
-  Job.create!(user_id: 6,
+  Job.create!(family_id: 6,
+                sitter_id: 27,
                 date: Date.today,
                 start_time: Time.now,
                 end_time: 3.hours.from_now,
@@ -138,7 +139,8 @@ end
                 is_deleted: false,
                 is_assigned: true)
 
-  Job.create!(user_id: 7,
+  Job.create!(family_id: 7,
+                sitter_id: 27,
                 date: Date.today,
                 start_time: Time.now,
                 end_time: 3.hours.from_now,
@@ -147,7 +149,8 @@ end
                 is_deleted: false,
                 is_assigned: true)
 
-  Job.create!(user_id: 8,
+  Job.create!(family_id: 8,
+                sitter_id: 26,
                 date: Date.today,
                 start_time: Time.now,
                 end_time: 3.hours.from_now,
@@ -156,6 +159,11 @@ end
                 is_deleted: false,
                 is_assigned: true)
 
-JobAssignment.create!(job_id: 1, user_id: 26)
-JobAssignment.create!(job_id: 2, user_id: 27)
-JobAssignment.create!(job_id: 3, user_id: 27)
+  Job.create!(family_id: 9,
+                date: Date.today,
+                start_time: Time.now,
+                end_time: 3.hours.from_now,
+                notes: Faker::Hipster.sentence(3, true, 4),
+                confirmed: false,
+                is_deleted: false,
+                is_assigned: false)

@@ -23,7 +23,6 @@ angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPag
       templateUrl: 'babysitter-profile.html',
       controller: 'babysitterProfileController as babysitter',
       resolve: {
-
       }
     }).state('family', {
       url: '/family',
