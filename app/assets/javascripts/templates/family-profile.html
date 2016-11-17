@@ -2,7 +2,10 @@
   <div class="directory-container">
 
     <div class="search">
-      <h1 ui-sref="family">Family</h1>
+      <h1 class="family-link" ui-sref="family">Family</h1>
+      <span>></span>
+      <h2>{{$ctrl.profile.first_name}}</h2>
+      <h2>{{$ctrl.profile.last_name}}</h2>
       <input type="text">
     </div>
 

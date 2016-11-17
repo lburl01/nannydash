@@ -1,5 +1,5 @@
 angular.module('app')
-    .controller('babysitterDirectoryController', function ($http, $state, babysitterDirectoryAPI) {
+    .controller('babysitterDirectoryController', ["$http", "$state", "babysitterDirectoryAPI", function ($http, $state, babysitterDirectoryAPI) {
       /*************************
       Variables
       *************************/
@@ -40,7 +40,8 @@ angular.module('app')
       *************************/
       this.userClick = function(personId) {
         babysitterDirectoryAPI.userProfile(personId).success(function(response) {
-          $state.go('babysitter-profile', {babysitterParam: {sitter: response}});
+          console.log(response);
+          $state.go('babysitter-profile', {babysitterParam: {sitter: response}, sitterId: personId}, {reload: true});
         });
       }
-    });
+    }]);

@@ -1,4 +1,4 @@
-angular.module('app').service('babysitterDirectoryAPI', function($http) {
+angular.module('app').service('babysitterDirectoryAPI', ['$http', function($http) {
     this.totalBabysitters = [];
 
     return {
@@ -21,6 +21,13 @@ angular.module('app').service('babysitterDirectoryAPI', function($http) {
           data: {user: data}
         });
         //return $http.patch("/api/v1/sitter/" + id, { newData: data });
+      },
+      profileInfo: function(id) {
+        return $http.get("/api/v1/sitter/" + id + ".json").then(function(response) {
+          return response.data;
+        }, function() {
+          alert('Failed');
+        });
       }
-    }
-  })
+    };
+  }]);
