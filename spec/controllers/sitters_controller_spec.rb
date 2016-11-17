@@ -3,14 +3,14 @@ require 'rails_helper'
 RSpec.describe SittersController, type: :controller do
 
   describe "GET #index" do
-    it 'returns an array of json objects' do
+    it 'returns an array of json sitter objects and an array of unique counties' do
       @user = create(:user, role: 2)
 
       get :index
 
       json = JSON.parse(response.body)
 
-      expect(json.length).to eq 1
+      expect(json.length).to eq 2
     end
 
     it 'will not return deleted sitters' do
@@ -20,7 +20,7 @@ RSpec.describe SittersController, type: :controller do
 
       json = JSON.parse(response.body)
 
-      expect(json.length).to eq 0
+      expect(json["sitters"].length).to eq 0
     end
   end
 
