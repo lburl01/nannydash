@@ -7,4 +7,10 @@ class JobsController < ApplicationController
     render json: @jobs
   end
 
+  def get_new_jobs
+    @new_jobs = Job.get_new_jobs
+
+    render json: @new_jobs
+  end
+
 end
