@@ -33,11 +33,12 @@ class User < ApplicationRecord
   validate :picture_size
 
   def self.get_active_sitters
-    data = User.nanny.where(is_deleted: false).all
+    response = User.nanny.where(is_deleted: false).all
 
     @sitters = []
+    @all_counties = []
 
-    data.each do |sitter|
+    response.each do |sitter|
       @sitters << {"sitter_id" => sitter.id, "first_name" => sitter.first_name,
                       "last_name" => sitter.last_name, "email" => sitter.email,
                       "phone" => sitter.phone_number, "birthday" => sitter.birthday,
@@ -55,8 +56,14 @@ class User < ApplicationRecord
                       "recommendation_three_email" => sitter.recommendation_three_email,
                       "joined" => sitter.created_at
                     }
+      @all_counties << sitter.county
     end
-    return @sitters
+
+    @counties = @all_counties.uniq
+
+    @data = { "sitters" => @sitters, "counties" => @counties}
+
+    return @data
   end
 
   def self.get_sitter(options)
@@ -82,12 +89,12 @@ class User < ApplicationRecord
   end
 
   def self.get_approved_families
-    data = User.family.where(is_deleted: false).where(approved: true).all
+    response = User.family.where(is_deleted: false).where(approved: true).all
 
     @families = []
     @all_counties = []
 
-    data.each do |family|
+    response.each do |family|
       @families << {"family_id" => family.id, "first_name" => family.first_name,
                       "last_name" => family.last_name, "email" => family.email,
                       "phone" => family.phone_number, "county" => family.county,

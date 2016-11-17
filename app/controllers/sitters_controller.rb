@@ -2,9 +2,9 @@ class SittersController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    @sitters = User.get_active_sitters
+    @sitters_counties = User.get_active_sitters
 
-    render json: @sitters
+    render json: @sitters_counties
   end
 
   def show
