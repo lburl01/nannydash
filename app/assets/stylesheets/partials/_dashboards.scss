@@ -1,3 +1,5 @@
+@import 'partials/setup/variables';
+
 .dashboard-container {
   h1 {
     font-size: 24px;
@@ -14,7 +16,7 @@
     padding: 0 15px;
 
     .title-container {
-      background: #BDBDBD;
+      background: $red;
       padding: 10px;
       border-radius: 7px;
       font-size: 17px;
@@ -32,7 +34,7 @@
         th {
           font-size: 16px;
           text-align: left;
-          color: #9B9B9B;
+          color: #777;
           padding: 10px 10px 15px;
 
           input {
@@ -49,7 +51,10 @@
           padding: 10px;
           font-size: 14px;
           font-weight: 100;
-          color: #aaa;
+          color: #888;
+          white-space: nowrap;
+          overflow:hidden !important;
+          text-overflow: ellipsis;
         }
       }
     }
