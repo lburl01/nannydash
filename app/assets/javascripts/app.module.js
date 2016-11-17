@@ -3,8 +3,12 @@ angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPag
 
     $urlRouterProvider.otherwise('/');
 
-    $stateProvider.state('jobs', {
+    $stateProvider.state('dashboard', {
       url: '/',
+      templateUrl: 'dashboard.html',
+      controller: 'dashboardController as dashboard'
+    }).state('jobs', {
+      url: '/jobs',
       component: 'jobsList'
     }).state('newJobs', {
       url: '/new-jobs',

@@ -30,7 +30,7 @@
       <tr ng-click="babysitters.userClick(person.sitter_id)" dir-paginate="person in babysitters.babysitters | filter: searchBox | filter: ageBox | filter: rateBox | itemsPerPage: babysitters.usersPerPage">
         <td>{{person.first_name}}</td>
         <td>{{person.last_name}}</td>
-        <td>{{person.birthday}}</td>
+        <td>{{babysitters.calculateAge(person.birthday)}}</td>
         <td>${{person.hourly_rate}}</td>
         <td><span ng-class="person.cpr_certification ? 'green' : 'red'" class="cpr">{{babysitters.cprCheck(person.cpr_certification)}}</span></td>
         <td>{{babysitters.getDate(person)}}</td>

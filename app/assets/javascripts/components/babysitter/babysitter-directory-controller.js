@@ -6,7 +6,7 @@ angular.module('app')
       var self = this;
       this.babysitters = babysitterDirectoryAPI.totalBabysitters;
       this.totalUsers = 0;
-      this.usersPerPage = 5;
+      this.usersPerPage = 6;
       /*************************
       When page first loads, load in babysitters
       *************************/
@@ -24,6 +24,16 @@ angular.module('app')
         var objectDate = data.joined;
         var convertDate = new Date(objectDate);
         return newDate = convertDate.getMonth() + '/' + convertDate.getDate() + '/' + convertDate.getFullYear();
+      }
+      /*************************
+      Calculating age
+      *************************/
+      this.calculateAge = function(age) { // birthday is a date
+        var userBirthday = new Date(age);
+        var nowDate = Date.now();
+        var ageDif = nowDate - userBirthday.getTime();
+        var ageDate = new Date(ageDif); // miliseconds from epoch
+        return age = Math.abs(ageDate.getUTCFullYear() - 1970);
       }
       /*************************
       Checking to see if CPR is true/false .. then displaying color & new text

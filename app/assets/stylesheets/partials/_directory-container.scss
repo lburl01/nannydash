@@ -1,7 +1,7 @@
 .directory-container {
-  padding: 20px 50px 20px 20px;
   float: right;
-  width: 68%;
+  width: 100%;
+  padding-right: 25px;
 
   .search {
     overflow: hidden;
@@ -35,8 +35,8 @@
       content: "\f002";
       font-size: 16px;
       color: #BDBDBD;
-      right: 245px;
-      top: 125px;
+      right: 219px;
+      top: 52px;
     }
 
     h1 {

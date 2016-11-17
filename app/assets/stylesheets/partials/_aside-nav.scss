@@ -1,10 +1,16 @@
 .aside-nav {
   background: #EDEDED;
   height: 100%;
-  width: 350px;
+  width: 325px;
   box-sizing:border-box;
   padding-top: 10px;
   float: left;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
 
   section {
     width: 100%;
@@ -43,7 +49,7 @@
       cursor: pointer;
       font-size: 16px;
       font-weight: 300;
-      width: 150px;
+      width: 135px;
       padding: 12px 0;
       font-weight: 300;
       letter-spacing: .5px;
