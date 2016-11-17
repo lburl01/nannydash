@@ -4,7 +4,7 @@ class Message < ApplicationRecord
   belongs_to :received_message, :foreign_key => :recipient_id, class_name: 'User'
 
   def self.get_latest_messages
-    response = Message.order(:created_at).limit(5)
+    response = Message.order(created_at: :desc).limit(5)
 
     @messages = []
 
@@ -14,7 +14,7 @@ class Message < ApplicationRecord
     end
 
     return @messages
-    
+
   end
 
 end
