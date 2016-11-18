@@ -39,4 +39,19 @@ RSpec.describe SittersController, type: :controller do
     end
   end
 
+  describe "PATCH #toggle_approved_sitter" do
+    it 'toggles the approved column value' do
+      @user = create(:user)
+
+      expect(@user.approved).to eq false
+
+      process :toggle_approved_sitter, method: :patch, params: { id: @user.id }
+
+      @user.reload
+
+      expect(@user.approved).to eq true
+
+    end
+  end
+
 end

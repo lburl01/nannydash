@@ -39,6 +39,11 @@ class SittersController < ApplicationController
     sitter.toggle!(:is_deleted)
   end
 
+  def toggle_approved_sitter
+    sitter = User.find(params[:id])
+    sitter.toggle!(:approved)
+  end
+
   private
 
     def sitter_params

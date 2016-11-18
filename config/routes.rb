@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'api/v1/sitter/:id' => 'sitters#show'
   patch 'api/v1/sitter/:id' => 'sitters#update'
   patch 'api/v1/sitter/delete/:id' => 'sitters#toggle_deleted_sitter'
+  patch 'api/v1/sitter/approve/:id' => 'sitters#toggle_approved_sitter'
   get 'sitter/new' => 'sitters#new'
   post 'sitter/new' => 'sitters#create'
 
