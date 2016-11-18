@@ -23,8 +23,8 @@ angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPag
       url: '/new-job/info/:jobId',
       component: 'newJobInfo',
       resolve: {
-        jobs: ['newJobsAPI', function(newJobsAPI) {
-          return newJobsAPI.list();
+        jobs: ['newJobsAPI', '$stateParams', function(newJobsAPI, $stateParams) {
+          return newJobsAPI.jobInfo($stateParams.jobId);
         }]
       }
     }).state('babysitters', {
@@ -53,6 +53,7 @@ angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPag
       url: '/messages',
       templateUrl: 'messages.html',
       controller: 'messagesController as messages'
+
     }).state('familyProfile', {
       url: '/family/profile/:familyId',
       component: 'familyProfile',
