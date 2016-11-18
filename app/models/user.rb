@@ -140,6 +140,10 @@ class User < ApplicationRecord
 
   end
 
+  def self.get_pending_sitter_count
+    pending_sitter_count = User.nanny.where( {is_deleted: false, approved: false} ).all.count
+  end
+
   private
 
     def picture_size
