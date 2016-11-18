@@ -1,0 +1,28 @@
+.new-jobs-info-wrapper {
+  h1 {
+    cursor: pointer;
+    transition: all 0.5s ease;
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+  .basic-info {
+    width: 70%;
+  }
+  .key-info {
+    width: 30% !important;
+    textarea {
+      background: #eee;
+      border-radius: 4px;
+      border: #BDBDBD solid 1px;
+      color: #666;
+      font-size: 13px;
+      font-weight: 300;
+      letter-spacing: .5px;
+      outline: none;
+      padding: 6px;
+      resize: none;
+      width: 100%;
+    }
+  }
+}

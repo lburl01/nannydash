@@ -1,0 +1,9 @@
+  <li>{{$ctrl.job.family_first_name}} {{$ctrl.job.family_last_name}}</li>
+  <li>{{$ctrl.job.date}}</li>
+  <li>{{$ctrl.job.start_time}}-{{$ctrl.job.end_time}}</li>
+  <li>{{$ctrl.job.notes | limitTo: 20}}</li>
+  <li>
+    <span class="new-job-button" ui-sref="newJobInfo({jobId: $ctrl.job.job_id})">
+      Job Info
+    </span>
+  </li>
