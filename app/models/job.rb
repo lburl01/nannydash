@@ -45,7 +45,7 @@ class Job < ApplicationRecord
   end
 
   def self.get_five_newest_jobs
-    @response = Job.where({confirmed: false, is_assigned: false}).order(created_at: :desc).limit(5)
+    @response = Job.where({confirmed: false, is_assigned: false, is_deleted: false}).order(created_at: :desc).limit(5)
 
     @newest_jobs = []
 
@@ -60,7 +60,7 @@ class Job < ApplicationRecord
   end
 
   def self.get_five_open_jobs
-    @response = Job.where({confirmed: true, is_assigned: true}).order(created_at: :desc).limit(5)
+    @response = Job.where({confirmed: true, is_assigned: true, is_deleted: false}).order(created_at: :desc).limit(5)
 
     @upcoming_jobs = []
 
@@ -77,22 +77,30 @@ class Job < ApplicationRecord
     return @upcoming_jobs
   end
 
-  def self.show_new_job(options)
+  def self.show_job(options)
     job = Job.find(options)
 
     family_name = "#{job.posted_job.first_name} #{job.posted_job.last_name}"
 
-    @new_job = { "name" => family_name, "phone" => job.posted_job.phone_number,
+    @new_job = { "name" => family_name, "family_id" => job.family_id,
+                 "phone" => job.posted_job.phone_number,
                  "email" => job.posted_job.email, "street" => job.posted_job.street,
                  "city" => job.posted_job.city, "state" => job.posted_job.state,
                  "zip_code" => job.posted_job.zip_code, "date" => job.date,
                  "date_posted" => job.created_at.strftime("%m/%d/%Y %I:%M %p"),
                  "notes" => job.notes
                }
+               
+    if job.sitter_id
+      @new_job["sitter_name"] = "#{job.assignment.first_name} #{job.assignment.last_name}"
+      @new_job["sitter_id"] = job.sitter_id
+    end
+
+    return @new_job
   end
 
   def self.get_new_jobs_count
-    new_jobs = Job.where({confirmed: false, is_assigned: false}).all.count
+    new_jobs = Job.where({confirmed: false, is_assigned: false, is_deleted: false}).all.count
 
     if new_jobs == 0
       return 0

@@ -13,10 +13,10 @@ class JobsController < ApplicationController
     render json: @new_jobs
   end
 
-  def show_new
-    @new_job = Job.show_new_job(params[:id])
+  def show
+    @job = Job.show_job(params[:id])
 
-    render json: @new_job
+    render json: @job
   end
 
   def update

@@ -20,7 +20,7 @@ class User < ApplicationRecord
   VALID_STATE_REGEX = /[A-Z]{2}/i
   VALID_ZIP_REGEX = /\d{5}/
   VALID_BIRTHDAY_REGEX = /\d{2}[\/]\d{2}[\/]\d{4}/
-  VALID_RATE_REGEX = /\d+[.]\d{2}/
+  VALID_RATE_REGEX = /\A\d+([.]\d{0,2})?\z/
   # VALID_PHONE_REGEX = /\(*\+*[1-9]{0,3}\)*-*[1-9]{0,3}[-. \/]*\(*[2-9]\d{2}\)*[-. \/]*\d{3}[-. \/]*\d{4} *e*x*t*\.* *\d{0,4}/
 
   validates_presence_of :first_name, :last_name, :email, :street, :city, :county
@@ -182,4 +182,5 @@ class User < ApplicationRecord
     def upcase_state
       self.state = state.upcase
     end
+
 end

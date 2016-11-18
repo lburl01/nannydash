@@ -13,6 +13,22 @@ class SittersController < ApplicationController
     render json: @sitter
   end
 
+  def new
+    @sitter = User.new
+  end
+
+  def create
+    @sitter = User.new(sitter_params)
+
+    if @sitter.save
+      flash[:info] = "Account successfully created."
+      redirect_to 'dashboard'
+    else
+      render 'new'
+    end
+
+  end
+
   def update
     @sitter = User.find(params[:id])
     @sitter.update_attributes(sitter_params)
@@ -21,6 +37,11 @@ class SittersController < ApplicationController
   def toggle_deleted_sitter
     sitter = User.find(params[:id])
     sitter.toggle!(:is_deleted)
+  end
+
+  def toggle_approved_sitter
+    sitter = User.find(params[:id])
+    sitter.toggle!(:approved)
   end
 
   private
@@ -33,7 +54,8 @@ class SittersController < ApplicationController
                                      :first_aid_certification, :hourly_rate,
                                      :recommendation_one_name, :recommendation_one_email,
                                      :recommendation_two_name, :recommendation_two_email,
-                                     :recommendation_three_name, :recommendation_three_email,)
+                                     :recommendation_three_name, :recommendation_three_email,
+                                     :password, :picture)
     end
 
 end
