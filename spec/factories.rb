@@ -20,7 +20,7 @@ FactoryGirl.define do
     recommendation_two_email "person2@example.com"
     recommendation_three_name "Person Three"
     recommendation_three_email "person3@example.com"
-    active true
+    active false
     approved false
     about "I've got two children, Lori and Peter, ages 5 and 6 respectively. They're terrible kids."
     phone_number "555-555-5555"

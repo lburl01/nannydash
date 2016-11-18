@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get 'api/v1/family/:id' => 'families#show'
   patch 'api/v1/family/update/:id' => 'families#update'
   patch 'api/v1/family/:id' => 'families#toggle_active_family'
+  patch '/api/v1/family/approved/:id' => 'families#toggle_approved_family'
   patch 'api/v1/family/delete/:id' => 'families#toggle_deleted_family'
 
   get 'api/v1/jobs' => 'jobs#index'
