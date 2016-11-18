@@ -25,7 +25,13 @@ Rails.application.routes.draw do
   post 'agency' => 'agency#create'
 
   get 'messages/new' => 'messages#new'
+  get 'messages/index' => 'messages#index'
+  get 'message/detail/:id' => 'messages#show'
   post 'messages/new' => 'messages#create'
+
+  resources :conversations do
+    resources :messages
+  end
 
   root to: 'home#index'
 

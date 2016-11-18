@@ -1,0 +1,7 @@
+<h1>Messages</h1>
+
+<% @messages.each do |message| %>
+  <p>
+    <%= message.sent_message.first_name %>
+  </p>
+<% end %>

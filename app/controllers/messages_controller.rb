@@ -1,8 +1,19 @@
 class MessagesController < ApplicationController
   skip_before_action :verify_authenticity_token
+  before_action do
+   @conversation = Conversation.find(params[:conversation_id])
+  end
+
+  def index
+    @messages = @conversation.messages
+  end
+
+  def show
+    @message = Message.find_by_conversation_id(params[:conversation_id])
+  end
 
   def new
-
+    @message = Message.new
   end
 
   def create
