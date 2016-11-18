@@ -25,7 +25,7 @@ end
                   role: 1,
                   phone_number: Faker::PhoneNumber.phone_number,
                   is_deleted: false,
-                  active: false,
+                  active: true,
                   approved: false,
                   about: Faker::ChuckNorris.fact)
 end
