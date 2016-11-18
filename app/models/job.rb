@@ -101,4 +101,15 @@ class Job < ApplicationRecord
 
   end
 
+  def self.get_all_jobs_count
+    all_jobs = Job.where(is_deleted: false).all.count
+
+    if all_jobs == 0
+      return 0
+    else
+      return all_jobs
+    end
+
+  end
+
 end

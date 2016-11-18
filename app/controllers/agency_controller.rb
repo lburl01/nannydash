@@ -31,13 +31,13 @@ class AgencyController < ApplicationController
     @pending_sitters = User.get_pending_sitter_count
     @pending_parents = User.get_pending_family_count
     @new_jobs = Job.get_new_jobs_count
-    # @all_jobs =
+    @all_jobs = Job.get_all_jobs_count
     # @new_messages =
 
     @count_totals = { "pending_sitters" => @pending_sitters,
                       "pending_parents" => @pending_parents,
-                      "new_jobs" => @new_jobs}
-                    #   "all_jobs" => @all_jobs,
+                      "new_jobs" => @new_jobs,
+                      "all_jobs" => @all_jobs}
                     #   "new_messages" => @new_messages
                     # }
 
