@@ -45,7 +45,7 @@ class Job < ApplicationRecord
   end
 
   def self.get_five_newest_jobs
-    @response = Job.where({confirmed: false, is_assigned: false}).order(created_at: :desc).limit(5)
+    @response = Job.where({confirmed: false, is_assigned: false, is_deleted: false}).order(created_at: :desc).limit(5)
 
     @newest_jobs = []
 
@@ -60,7 +60,7 @@ class Job < ApplicationRecord
   end
 
   def self.get_five_open_jobs
-    @response = Job.where({confirmed: true, is_assigned: true}).order(created_at: :desc).limit(5)
+    @response = Job.where({confirmed: true, is_assigned: true, is_deleted: false}).order(created_at: :desc).limit(5)
 
     @upcoming_jobs = []
 
@@ -92,7 +92,7 @@ class Job < ApplicationRecord
   end
 
   def self.get_new_jobs_count
-    new_jobs = Job.where({confirmed: false, is_assigned: false}).all.count
+    new_jobs = Job.where({confirmed: false, is_assigned: false, is_deleted: false}).all.count
 
     if new_jobs == 0
       return 0
