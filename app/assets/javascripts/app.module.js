@@ -13,7 +13,20 @@ angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPag
       templateUrl: 'jobs-list.html'
     }).state('newJobs', {
       url: '/new-jobs',
-      component: 'newJobsList'
+      component: 'newJobsList',
+      resolve: {
+        jobs: ['newJobsAPI', function(newJobsAPI) {
+          return newJobsAPI.list();
+        }]
+      }
+    }).state('newJobInfo', {
+      url: '/new-job/info/:jobId',
+      component: 'newJobInfo',
+      resolve: {
+        jobs: ['newJobsAPI', '$stateParams', function(newJobsAPI, $stateParams) {
+          return newJobsAPI.jobInfo($stateParams.jobId);
+        }]
+      }
     }).state('babysitters', {
       url: '/babysitters',
       templateUrl: 'babysitter-dashboard.html',
@@ -40,6 +53,7 @@ angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPag
       url: '/messages',
       templateUrl: 'messages.html',
       controller: 'messagesController as messages'
+
     }).state('familyProfile', {
       url: '/family/profile/:familyId',
       component: 'familyProfile',

@@ -3,8 +3,9 @@ class User < ApplicationRecord
 
   has_many :posted_jobs, :class_name => "Job", foreign_key: "family_id"
   has_many :assignments, :class_name => "Job", foreign_key: "sitter_id"
-  has_many :sent_messages, :class_name => "Message", foreign_key: "sender_id"
+  has_many :sent_messages, :class_name => "Message", foreign_key: "user_id"
   has_many :received_messages, :class_name => "Message", foreign_key: "recipient_id"
+  has_many :conversations
 
   enum role: { manager: 0, family: 1, nanny: 2 }
 
@@ -120,6 +121,50 @@ class User < ApplicationRecord
                     "zip_code" => family.zip_code, "county" => family.county,
                     "about" => family.about, "active" => family.active
                   }
+  end
+
+  def self.get_new_applicants
+    @all_applicants = User.where(role: 1).where({ active: true, approved: false }).or(User.where(role: 2).where({ active: true, approved: false }))
+    @five_applicants = @all_applicants.order(created_at: :desc).limit(5)
+
+    @new_applicants = []
+
+    @five_applicants.each do |application|
+      name = "#{application.first_name} #{application.last_name}"
+      @new_applicants << { "application_id" => application.id, "name" => name,
+                           "role" => application.role,
+                           "submitted" => application.created_at.strftime("%m/%d/%Y %I:%M %p")
+                         }
+    end
+
+    @new_applicants
+
+  end
+
+  def self.get_pending_sitter_count
+    pending_sitter_count = User.nanny.where( {active: true, is_deleted: false, approved: false} ).all.count
+
+    if pending_sitter_count == 0
+      return 0
+    else
+      return pending_sitter_count
+    end
+
+  end
+
+  def self.get_pending_family_count
+    pending_family_count = User.family.where( {active: true, is_deleted: false, approved: false} ).all.count
+
+    if pending_family_count == 0
+      return 0
+    else
+      return pending_family_count
+    end
+
+  end
+
+  def self.get_application(options)
+    response = User.find(options)
   end
 
   private

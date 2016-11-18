@@ -1,5 +1,4 @@
 /********** Setup ***********/
-@import 'partials/setup/variables';
 @import 'partials/setup/reset';
 @import 'partials/setup/fonts';
 @import 'partials/setup/general';
@@ -7,8 +6,10 @@
 /***** Site Components ******/
 @import "partials/container";
 @import "partials/header";
+@import "partials/dashboards";
 @import "partials/aside-nav";
 @import 'partials/main';
+@import 'partials/family-profile';
 @import 'partials/family-directory';
 @import 'partials/login';
 @import 'partials/landing-page';
@@ -16,3 +17,5 @@
 @import 'partials/agency-register';
 @import 'partials/babysitter-profile';
 @import 'partials/directory-container';
+@import 'partials/new-jobs';
+@import 'partials/new-job-info'

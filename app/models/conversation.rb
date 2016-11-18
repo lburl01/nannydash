@@ -4,6 +4,7 @@ class Conversation < ApplicationRecord
   has_many :messages, dependent: :destroy
 
   validates_uniqueness_of :sender_id, scope: :recipient_id
+  
   validates :subject, presence: true,
                       length: { maximum: 255 }
 

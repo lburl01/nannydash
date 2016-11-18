@@ -1,0 +1,59 @@
+<div class="new-jobs-info-wrapper">
+  <div class="directory-container">
+
+    <div class="search">
+      <h1 ui-sref="newJobs">New Jobs</h1>
+      <span>></span>
+      <h2>Job ID</h2>
+      <input type="text">
+    </div>
+
+    <div class="list">
+      <div class="title-container">
+        <div class="message">
+          <h4>Job Details</h4>
+        </div>
+      </div>
+    </div>
+
+    <section class="basic-info">
+      <h2>Basic Information</h2>
+      <!-- Family -->
+      <label for="name">Name:</label>
+      <input type="text" name="name" ng-model="$ctrl.jobs.name">
+      <!-- Phone Field -->
+      <label for="phone">Phone:</label>
+      <input id="phone" type="text" ng-model="$ctrl.jobs.phone" ng-model-options="{ updateOn: 'blur' }" >
+      <!-- Email Field -->
+      <label for="email">Email:</label>
+      <input id="email" type="text" ng-model="$ctrl.jobs.email" ng-model-options="{ updateOn: 'blur' }" >
+      <!-- Street Field -->
+      <label for="street">Street:</label>
+      <input id="street" type="text" ng-model="$ctrl.jobs.street" ng-model-options="{ updateOn: 'blur' }" >
+      <!-- City Field -->
+      <label for="city">City:</label>
+      <input id="city" type="text" ng-model="$ctrl.jobs.city" ng-model-options="{ updateOn: 'blur' }" >
+      <!-- State Field -->
+      <label for="state">State:</label>
+      <input id="state" type="text" ng-model="$ctrl.jobs.state" ng-model-options="{ updateOn: 'blur' }" >
+      <!-- Zip Field -->
+      <label for="zip">Zip Code:</label>
+      <input id="zip" type="text" ng-model="$ctrl.jobs.zip_code" ng-model-options="{ updateOn: 'blur' }" >
+      <!-- Notes Field -->
+      <label for="name">Notes:</label>
+      <textarea type="text" name="posted" value="" ng-model="$ctrl.jobs.notes"></textarea>
+
+    </section>
+
+    <section class="key-info">
+      <h2>Key Information</h2>
+      <label for="name">Job Needed For:</label>
+      <input type="text" name="dateNeeded" value="" ng-model="$ctrl.jobs.date">
+      <label for="name">Date Posted:</label>
+      <input type="text" name="posted" value="" ng-model="$ctrl.jobs.date_posted">
+
+      <input name="save" class="save" type="submit" value="Save Changes" />
+      <button ui-sref="family" class="delete" type="button">Delete Job</button>
+    </section>
+  </div>
+</div>

@@ -1,5 +1,3 @@
-@import 'partials/setup/variables';
-
 .family-header {
   align-items: center;
   background: #bdbdbd;
@@ -67,27 +65,27 @@ div.family-list-wrapper {
     display: flex;
     flex-direction: column;
     .panel-heading,
-    .accordian-header,
-    .accordian-body {
+    .accordion-header,
+    .accordion-body {
       display: flex;
       width: 100%;
     }
     .panel-body {
       background-color: $babyGreen;
     }
-    .accordian-header {
+    .accordion-header {
       li {
         font-size: 14px;
         border: none;
         font-weight: 400;
       }
     }
-    .accordian-body {
+    .accordion-body {
       li {
         font-size: 13px;
         span.profile-button {
           background: $yellow !important;
-          background: $fadedPurple !important;
+          text-shadow: 1px 1px 1px #a58741
         }
       }
     }
