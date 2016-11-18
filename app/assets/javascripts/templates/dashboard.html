@@ -13,10 +13,10 @@
         <th>Babysitter</th>
         <th>Time</th>
       </tr>
-      <tr>
-        <td>Mary Jane</td>
-        <td>Laura Smith</td>
-        <td>7:00PM</td>
+      <tr ng-repeat="person in dashboard.openJobs">
+        <td>{{person.name}}</td>
+        <td>{{person.sitter}}</td>
+        <td>{{person.submitted}}</td>
       </tr>
     </table>
   </section>
@@ -33,10 +33,10 @@
         <th>Job For</th>
         <th>Sent</th>
       </tr>
-      <tr>
-        <td>Mary Jane</td>
-        <td>Nov. 8 at 7:00PM</td>
-        <td>7:00PM</td>
+      <tr ng-repeat="person in dashboard.assignments">
+        <td>{{person.name}}</td>
+        <td>{{person.date_time}}</td>
+        <td>{{person.submitted}}</td>
       </tr>
     </table>
   </section>
@@ -50,13 +50,13 @@
     <table>
       <tr>
         <th>From</th>
-        <th>User</th>
+        <th>Role</th>
         <th>Sent</th>
       </tr>
-      <tr>
-        <td>Mary Jane</td>
-        <td>Laura Smith</td>
-        <td>7:00PM</td>
+      <tr ng-repeat="person in dashboard.application">
+        <td>{{person.name}}</td>
+        <td>{{person.role}}</td>
+        <td>{{person.submitted}}</td>
       </tr>
     </table>
   </section>
