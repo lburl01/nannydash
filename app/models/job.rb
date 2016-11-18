@@ -52,7 +52,7 @@ class Job < ApplicationRecord
     @response.each do |job|
       name = "#{job.posted_job.first_name} #{job.posted_job.last_name}"
       date_time = "#{job.date} #{job.start_time.strftime("%I:%M %p")}"
-      @newest_jobs << { "name" => name, "date_time" => date_time,
+      @newest_jobs << { "job_id" => job.id, "name" => name, "date_time" => date_time,
                         "submitted" => job.created_at.strftime("%m/%d/%Y %I:%M %p") }
     end
 
@@ -69,8 +69,9 @@ class Job < ApplicationRecord
       sitter_name = "#{job.assignment.first_name} #{job.assignment.last_name}"
       date_time = "#{job.date} #{job.start_time.strftime("%I:%M %p")}"
 
-      @upcoming_jobs << { "name" => family_name, "sitter" => sitter_name,
-                        "submitted" => job.created_at.strftime("%m/%d/%Y %I:%M %p") }
+      @upcoming_jobs << { "job_id" => job.id, "name" => family_name,
+                          "sitter" => sitter_name,
+                          "submitted" => job.created_at.strftime("%m/%d/%Y %I:%M %p") }
     end
 
     return @upcoming_jobs

@@ -13,6 +13,12 @@ class AgencyController < ApplicationController
     render json: @summary
   end
 
+  def application_show
+    @application = User.get_application(params[:id])
+
+    render json: @application
+  end
+
   def new
     @agency = User.new
   end
