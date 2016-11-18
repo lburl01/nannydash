@@ -68,11 +68,26 @@ class Job < ApplicationRecord
       family_name = "#{job.posted_job.first_name} #{job.posted_job.last_name}"
       sitter_name = "#{job.assignment.first_name} #{job.assignment.last_name}"
       date_time = "#{job.date} #{job.start_time.strftime("%I:%M %p")}"
+
       @upcoming_jobs << { "name" => family_name, "sitter" => sitter_name,
                         "submitted" => job.created_at.strftime("%m/%d/%Y %I:%M %p") }
     end
 
     return @upcoming_jobs
+  end
+
+  def self.show_new_job(options)
+    job = Job.find(options)
+
+    family_name = "#{job.posted_job.first_name} #{job.posted_job.last_name}"
+
+    @new_job = { "name" => family_name, "phone" => job.posted_job.phone_number,
+                 "email" => job.posted_job.email, "street" => job.posted_job.street,
+                 "city" => job.posted_job.city, "state" => job.posted_job.state,
+                 "zip_code" => job.posted_job.zip_code, "date" => job.date,
+                 "date_posted" => job.created_at.strftime("%m/%d/%Y %I:%M %p"),
+                 "notes" => job.notes
+               }
   end
 
 end

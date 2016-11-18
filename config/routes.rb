@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   get 'api/v1/jobs' => 'jobs#index'
   get 'api/v1/jobs/new' => 'jobs#get_new_jobs'
+  get 'api/v1/job/:id' => 'jobs#show_new'
 
   get 'api/v1/agency/summary' => 'agency#index'
   get 'agency/new' => 'agency#new'
