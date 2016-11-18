@@ -11,7 +11,8 @@ class Message < ApplicationRecord
 
     response.each do |message|
       name = "#{message.sent_message.first_name} #{message.sent_message.last_name}"
-      @messages << { "from" => name, "subject" => message.subject, "is_read" => message.is_read }
+      @messages << { "message_id" => message.id, "from" => name,
+                     "subject" => message.subject, "is_read" => message.is_read }
     end
 
     return @messages

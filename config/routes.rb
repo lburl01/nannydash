@@ -18,14 +18,23 @@ Rails.application.routes.draw do
   get 'api/v1/jobs' => 'jobs#index'
   get 'api/v1/jobs/new' => 'jobs#get_new_jobs'
   get 'api/v1/job/:id' => 'jobs#show_new'
+  patch 'api/v1/job/:id' => 'jobs#update'
+  patch 'api/v1/job/delete/id' => 'jobs#toggle_deleted_job'
 
   get 'api/v1/agency/summary' => 'agency#index'
+  get 'api/v1/agency/application/:id' => 'agency#application_show'
   get 'api/v1/agency/count_totals' => 'agency#count_totals'
   get 'agency/new' => 'agency#new'
   post 'agency' => 'agency#create'
 
   get 'messages/new' => 'messages#new'
+  get 'messages/index' => 'messages#index'
+  get 'message/detail/:id' => 'messages#show'
   post 'messages/new' => 'messages#create'
+
+  resources :conversations do
+    resources :messages
+  end
 
   root to: 'home#index'
 

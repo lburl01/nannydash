@@ -167,3 +167,37 @@ end
                 confirmed: false,
                 is_deleted: false,
                 is_assigned: false)
+
+  Conversation.create!(subject: "Inquiry",
+                       sender_id: 8,
+                       recipient_id: 1,
+                       is_deleted: false)
+
+  Conversation.create!(subject: "Question about tonight",
+                      sender_id: 26,
+                      recipient_id: 8,
+                      is_deleted: false)
+
+  Message.create!(body: "I'm wondering about this thing.",
+                  recipient_id: 1,
+                  subject: "Inquiry",
+                  user_id: 8,
+                  conversation_id: 1,
+                  is_read: false,
+                  is_deleted: false)
+
+  Message.create!(body: "My response to that thing.",
+                  recipient_id: 8,
+                  subject: "Inquiry",
+                  user_id: 1,
+                  conversation_id: 1,
+                  is_read: false,
+                  is_deleted: false)
+
+  Message.create!(body: "Here is my question.",
+                  recipient_id: 8,
+                  subject: "Question about tonight",
+                  user_id: 26,
+                  conversation_id: 2,
+                  is_read: false,
+                  is_deleted: false)

@@ -15,7 +15,6 @@ class SittersController < ApplicationController
 
   def update
     @sitter = User.find(params[:id])
-
     @sitter.update_attributes(sitter_params)
   end
 

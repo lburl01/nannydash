@@ -131,7 +131,8 @@ class User < ApplicationRecord
 
     @five_applicants.each do |application|
       name = "#{application.first_name} #{application.last_name}"
-      @new_applicants << { "name" => name, "role" => application.role,
+      @new_applicants << { "application_id" => application.id, "name" => name,
+                           "role" => application.role,
                            "submitted" => application.created_at.strftime("%m/%d/%Y %I:%M %p")
                          }
     end
@@ -160,6 +161,10 @@ class User < ApplicationRecord
       return pending_family_count
     end
 
+  end
+
+  def self.get_application(options)
+    response = User.find(options)
   end
 
   private

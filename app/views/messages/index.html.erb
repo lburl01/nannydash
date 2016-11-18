@@ -1,0 +1,13 @@
+<h1>Messages</h1>
+
+<% @messages.each do |message| %>
+  <p>
+    From: <%= message.sent_message.first_name %> <%= message.sent_message.last_name %>
+  </p>
+  <p>
+    Subject: <%= message.subject %>
+  </p>
+  <p>
+    <%= message.body %>
+  </p>
+<% end %>

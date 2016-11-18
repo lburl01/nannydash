@@ -1,0 +1,12 @@
+<h1>Inbox</h1>
+
+<% @conversations.each do |convo| %>
+  <h3>
+    <%= convo.sender.first_name %> <%= convo.sender.last_name %>
+  </h3>
+  <p>
+    <%= link_to convo.subject, conversation_messages_path(convo) %>
+    <%= convo.created_at.strftime("%m/%d/%Y %I:%M %p") %>
+  </p>
+
+<% end %>
