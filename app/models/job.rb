@@ -90,4 +90,15 @@ class Job < ApplicationRecord
                }
   end
 
+  def self.get_new_jobs_count
+    new_jobs = Job.where({confirmed: false, is_assigned: false}).all.count
+
+    if new_jobs == 0
+      return 0
+    else
+      return new_jobs
+    end
+
+  end
+
 end
