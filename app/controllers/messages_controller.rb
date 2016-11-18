@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
   skip_before_action :verify_authenticity_token
+
   before_action do
    @conversation = Conversation.find(params[:conversation_id])
   end
@@ -9,7 +10,6 @@ class MessagesController < ApplicationController
   end
 
   def show
-    @message = Message.find_by_conversation_id(params[:conversation_id])
   end
 
   def new

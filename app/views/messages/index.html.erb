@@ -2,6 +2,12 @@
 
 <% @messages.each do |message| %>
   <p>
-    <%= message.sent_message.first_name %>
+    From: <%= message.sent_message.first_name %> <%= message.sent_message.last_name %>
+  </p>
+  <p>
+    Subject: <%= message.subject %>
+  </p>
+  <p>
+    <%= message.body %>
   </p>
 <% end %>
