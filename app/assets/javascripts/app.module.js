@@ -13,7 +13,12 @@ angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPag
       templateUrl: 'jobs-list.html'
     }).state('newJobs', {
       url: '/new-jobs',
-      component: 'newJobsList'
+      component: 'newJobsList',
+      resolve: {
+        jobs: ['newJobsAPI', function(newJobsAPI) {
+          return newJobsAPI.list();
+        }]
+      }
     }).state('babysitters', {
       url: '/babysitters',
       templateUrl: 'babysitter-dashboard.html',

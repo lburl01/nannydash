@@ -12,7 +12,6 @@
       },
       countyList: function() {
         return $http.get("/api/v1/families.json").then(function(response) {
-          console.log(response.data.counties);
           return response.data.counties;
         }, function() {
           alert('Failed');

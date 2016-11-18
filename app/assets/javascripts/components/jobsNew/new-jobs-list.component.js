@@ -4,6 +4,14 @@
   angular
     .module('app')
     .component('newJobsList', {
-      templateUrl: 'new-jobs-list.html'
+      bindings: {
+        jobs: '<'
+      },
+      templateUrl: 'new-jobs-list.html',
+      controller: ['newJobsAPI', NewJobsController]
     });
+
+    function NewJobsController(newJobsAPI) {
+      
+    }
 })();
