@@ -40,6 +40,13 @@
       };
 
       ctrl.selectPanel = function(panel) {
+        if (panel.selected) {
+          panels.forEach(function(panel) {
+            panel.turnOff();
+          });
+          return;
+        }
+
         for (var i in panels) {
           if (panel === panels[i]) {
             panels[i].turnOn();
