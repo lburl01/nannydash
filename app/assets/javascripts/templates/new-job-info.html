@@ -36,9 +36,13 @@
       <!-- State Field -->
       <label for="state">State:</label>
       <input id="state" type="text" ng-model="babysitter.user.state" ng-model-options="{ updateOn: 'blur' }" ng-change="babysitter.userInputClick('state', babysitter.user.state, babysitter.user.sitter_id)">
-      <!-- zip Field -->
+      <!-- Zip Field -->
       <label for="zip">Zip Code:</label>
       <input id="zip" type="text" ng-model="babysitter.user.zip_code" ng-model-options="{ updateOn: 'blur' }" ng-change="babysitter.userInputClick('zip_code', babysitter.user.zip_code, babysitter.user.sitter_id)">
+      <!-- Notes Field -->
+      <label for="name">Notes:</label>
+      <textarea type="text" name="posted" value=""></textarea>
+
     </section>
 
     <section class="key-info">
@@ -47,8 +51,8 @@
       <input type="text" name="dateNeeded" value="">
       <label for="name">Date Posted:</label>
       <input type="text" name="posted" value="">
-      <label for="name">Notes:</label>
-      <textarea type="text" name="posted" value=""></textarea>
+      <input name="save" class="save" type="submit" value="Save Changes" />
+      <button ui-sref="family" class="delete" type="button">Delete Job</button>
     </section>
   </div>
 </div>

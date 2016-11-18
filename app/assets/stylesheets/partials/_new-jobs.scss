@@ -1,17 +1,12 @@
-@import 'partials/setup/variables';
-
 new-job {
   display: flex;
 }
 #new-jobs {
   li {
     cursor: default;
-    width: 15%;
+    width: 20%;
     &:nth-child(3) {
       width: 25%;
-    }
-    &:nth-child(4) {
-      width: 30%;
     }
   }
   span.new-job-button {
