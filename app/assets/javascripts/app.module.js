@@ -19,6 +19,14 @@ angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPag
           return newJobsAPI.list();
         }]
       }
+    }).state('newJobInfo', {
+      url: '/new-job/info/:jobId',
+      component: 'newJobInfo',
+      resolve: {
+        jobs: ['newJobsAPI', function(newJobsAPI) {
+          return newJobsAPI.list();
+        }]
+      }
     }).state('babysitters', {
       url: '/babysitters',
       templateUrl: 'babysitter-dashboard.html',

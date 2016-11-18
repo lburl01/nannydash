@@ -18,4 +18,29 @@ new-job {
     background: $yellow !important;
     cursor: pointer;
   }
+  .title-container {
+    display: flex;
+  }
+  .date {
+    position: relative;
+    margin-right: 5px;
+    z-index: 999999;
+
+    .fa-angle-down {
+      cursor: pointer;
+      font-size: 21px;
+      border: #fff solid 1px;
+      padding: 0px 5px;
+      border-radius: 1px;
+      z-index:9999999;
+      &:hover {
+        background: #f8f8f8;
+        color: #BDBDBD;
+      }
+      &.arrowActive {
+        background: #f8f8f8;
+        color: #bdbdbd;
+      }
+    }
+  }
 }
