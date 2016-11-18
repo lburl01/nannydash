@@ -1,0 +1,129 @@
+
+<div class="agency-register-page">
+    <header class="header-bar">
+        <h1>nanny<span class="italic">dash</span>
+        </h1>
+        <h2>A childcare dashboard for agencies, families and sitters.</h2>
+        <a href="/">home</a>
+        <a href="/agency/new">register</a>
+        <a href="/users/sign_in">login</a>
+    </header>
+
+    <% if @sitter.errors %>
+    <div><%= @sitter.errors.full_messages.to_sentence %></div>
+    <% end %>
+    <main class="register-area">
+        <h3 class="register-header-text">Register</h3>
+        <hr/>
+        <%= form_for(@sitter, url: sitter_new_path, html: { multipart: true }) do |f| %>
+        <div class="field">
+            <%= f.label :first_name %>:
+            <%= f.text_field :first_name, placeholder: "First Name" %>
+        </div>
+
+        <div class="field">
+            <%= f.label :last_name %>:
+            <%= f.text_field :last_name, placeholder: "Last Name" %>
+        </div>
+
+        <div class="field">
+            <%= f.label :email %>:
+            <%= f.email_field :email, placeholder: "Email Address" %>
+        </div>
+
+        <div class="field">
+            <%= f.label :street %>:
+            <%= f.text_field :street, placeholder: "Street" %>
+        </div>
+
+        <div class="field">
+            <%= f.label :city %>:
+            <%= f.text_field :city, placeholder: "Raleigh" %>
+        </div>
+
+        <div class="field">
+            <%= f.label :state %>:
+            <%= f.text_field :state, placeholder: "NC" %>
+        </div>
+
+        <div class="field">
+            <%= f.label :zip_code %>:
+            <%= f.text_field :zip_code, placeholder: "Zip Code" %>
+        </div>
+
+        <div class="field">
+            <%= f.label :county %>:
+            <%= f.text_field :county, placeholder: "County" %>
+        </div>
+
+        <div class="field">
+            <%= f.label :phone_number %>:
+            <%= f.text_field :phone_number, placeholder: "Phone Number" %>
+        </div>
+
+        <div class="field">
+            <%= f.label :birthday %>:
+            <%= f.text_field :birthday, placeholder: "Date of Birth" %>
+        </div>
+
+        <div class="field">
+            <%= f.label :hourly_rate %>:
+            <%= f.number_field :hourly_rate, placeholder: "Hourly Rate", step: "0.01" %>
+        </div>
+
+        <div class="field">
+            <%= f.label :cpr_certification %>:
+            <%= f.check_box :cpr_certification, {}, "true", "false" %>
+        </div>
+
+        <div class="field">
+            <%= f.label :first_aid_certification %>:
+            <%= f.check_box :first_aid_certification, {}, "true", "false" %>
+        </div>
+
+        <div class="field">
+            <%= f.label :recommendation_one_name %>:
+            <%= f.text_field :recommendation_one_name, placeholder: "Full Name" %>
+        </div>
+
+        <div class="field">
+            <%= f.label :recommendation_one_email %>:
+            <%= f.email_field :recommendation_one_email, placeholder: "Email Address" %>
+        </div>
+
+        <div class="field">
+            <%= f.label :recommendation_two_name %>:
+            <%= f.text_field :recommendation_two_name, placeholder: "Full Name" %>
+        </div>
+
+        <div class="field">
+            <%= f.label :recommendation_two_email %>:
+            <%= f.email_field :recommendation_two_email, placeholder: "Email Address" %>
+        </div>
+
+        <div class="field">
+            <%= f.label :recommendation_three_name %>:
+            <%= f.text_field :recommendation_three_name, placeholder: "Full Name" %>
+        </div>
+
+        <div class="field">
+            <%= f.label :recommendation_three_email %>:
+            <%= f.email_field :recommendation_three_email, placeholder: "Email Address" %>
+        </div>
+
+        <div class="field">
+            <%= f.label :password %>:
+            <%= f.password_field :password %>
+        </div>
+
+        <%= f.hidden_field :role, value: "nanny" %>
+
+        <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png,image/jpg' %>
+
+        <section class="bottom-register-form">
+            <%= f.submit "Join", class: "btn btn-primary" %>
+        </section>
+
+        <% end %>
+    </main>
+</div>

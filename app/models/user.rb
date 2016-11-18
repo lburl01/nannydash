@@ -182,4 +182,5 @@ class User < ApplicationRecord
     def upcase_state
       self.state = state.upcase
     end
+
 end
