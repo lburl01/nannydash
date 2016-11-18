@@ -9,7 +9,6 @@
             var self = this;
             allJobsAPI.jobsList().success(function(response) {
                 self.totalJobs = response;
-                console.log(response);
             });
             this.name = function(firstName, lastName) {
                 return firstName + " " + lastName;
