@@ -138,8 +138,6 @@ class User < ApplicationRecord
 
     @new_applicants
 
-    # @all_applicants
-
   end
 
   private
