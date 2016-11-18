@@ -141,7 +141,12 @@ class User < ApplicationRecord
   end
 
   def self.get_pending_sitter_count
-    pending_sitter_count = User.nanny.where( {is_deleted: false, approved: false} ).all.count
+    pending_sitter_count = User.nanny.where( {active: true, is_deleted: false, approved: false} ).all.count
+
+  end
+
+  def self.get_pending_family_count
+    pending_family_count = User.family.where( {active: true, is_deleted: false, approved: false} ).all.count
   end
 
   private
