@@ -1,4 +1,4 @@
-<div class="panel-heading" ng-click="$ctrl.select()">
+<div class="panel-heading" ng-click="$ctrl.select()" ng-blur="alert('blur')">
   <li>{{$ctrl.family.first_name}}</li>
   <li>{{$ctrl.family.last_name}}</li>
   <li>{{$ctrl.family.email}}</li>
@@ -14,7 +14,7 @@
 <div class="panel-body" ng-if="$ctrl.selected">
   <ul class="accordian-header">
     <li>Parent Phone</li>
-    <li>Location</li>
+    <li>County</li>
     <li>Email</li>
     <li>About</li>
     <li>Family</li>

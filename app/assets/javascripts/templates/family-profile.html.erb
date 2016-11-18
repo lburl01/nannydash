@@ -13,7 +13,7 @@
       <div class="title-container">
         <div class="message">
           <h4>Message</h4>
-          <i class="fa fa-angle-down"></i>
+          <span></span>
         </div>
       </div>
     </div>
@@ -21,7 +21,7 @@
     <div class="profile-container">
       <section class="name">
         <h1>{{$ctrl.profile.first_name}} {{$ctrl.profile.last_name}}</h1>
-        <img src="#" alt="">
+        <%= image_tag("placeholder.jpeg", :alt => "Preview image on landing page") %>
         <span ng-click="$ctrl.handleToggle($ctrl.profile.family_id)"
         ng-class="{'active': $ctrl.profile.active, 'inactive': !$ctrl.profile.active}">
         {{$ctrl.profile.active ? 'active' : 'inactive'}}
