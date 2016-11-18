@@ -3,6 +3,23 @@
   angular
     .module('app')
     .component('app', {
-      templateUrl: 'app.html'
+      bindings: {
+        count: '<'
+      },
+      templateUrl: 'app.html',
+      controller: ['appAPI', AppController]
     });
+
+  function AppController (appAPI) {
+    var ctrl = this;
+
+    ctrl.$onInit = function() {
+
+      appAPI.totalCount().then(function(data) {
+        ctrl.count = data;
+      });
+      
+    };
+
+  }
 })();

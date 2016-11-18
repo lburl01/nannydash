@@ -5,6 +5,7 @@
 //= require angular-utils-pagination/dirPagination.js
 //= require jquery
 //= require app.module.js
+//= require app.service.js
 //= require app.component.js
 //= require_tree ./templates
 //= require_tree ./components
