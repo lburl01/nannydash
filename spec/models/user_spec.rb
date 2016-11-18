@@ -82,6 +82,12 @@ RSpec.describe User, :type => :model do
     expect(@user).to_not be_valid
   end
 
+  it "with whole number will be valid" do
+    @user.hourly_rate = "25"
+
+    expect(@user).to be_valid
+  end
+
   it "without phone number is invalid" do
     @user.phone_number = ""
 
