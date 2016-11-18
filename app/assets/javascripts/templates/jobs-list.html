@@ -5,25 +5,25 @@
   </div>
   <div class="list">
     <div class="title-container">
-      <h4>Total: 5</h4>
+      <h4>Total: {{ allJobs.totalJobs.length }} </h4>
     </div>
     <table>
       <tr>
         <th>Parent</th>
         <th>Babysitter</th>
-        <th>Time Range</th>
-        <th>Confirmed with Parent</th>
+        <th>Time</th>
+        <th>Confirmed</th>
         <th>Created</th>
       </tr>
       <!-- <tr dir-paginate="job in allJobs.jobs | itemsPerPage: 5"> -->
-      <tr>
-        <td>Todd Snyder</td>
-        <td>Katie Myers</td>
-        <td>7pm-9pm</td>
-        <td>Yes</td>
-        <td>8/11/2016</td>
+      <tr ng-repeat="item in allJobs.totalJobs">
+        <td>{{ allJobs.name( item.family_first_name, item.family_last_name )}}</td>
+        <td>{{ allJobs.name(item.sitter_first_name, item.sitter_last_name ) }}</td>
+        <td>{{ allJobs.time(item.start_time, item.end_time) }}</td>
+        <td>{{ allJobs.confirmed( item.confirmed ) }}</td>
+        <td>{{ item.created }}</td>
       </tr>
     </table>
-    <dir-pagination-controls max-size="5"></dir-pagination-controls>
+    <!-- <dir-pagination-controls max-size="5"></dir-pagination-controls> -->
   </div>
 </div>
