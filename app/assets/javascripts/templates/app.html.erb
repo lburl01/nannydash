@@ -33,8 +33,8 @@
           <%= image_tag("apps.svg", :alt => "Directories Icon") %>
           <h1>Pending Applications</h1>
         </div>
-        <button ui-sref="pendingBabysitters" type="button"><span>9</span> | Babysitters</button>
-        <button ui-sref="pendingParents" type="button"><span>4</span> | Parents</button>
+        <button ui-sref="pendingBabysitters" type="button"><span>{{$ctrl.count.pending_sitters}}</span> | Babysitters</button>
+        <button ui-sref="pendingParents" type="button"><span>{{$ctrl.count.pending_parents}}</span> | Parents</button>
       </section>
       <!-- Jobs Center Nav Section -->
       <section class="jobs">
@@ -42,8 +42,8 @@
           <%= image_tag("job.svg", :alt => "Directories Icon") %>
           <h1>Jobs Center</h1>
         </div>
-        <button ui-sref="newJobs" type="button"><span>0</span> | New Jobs</button>
-        <button ui-sref="jobs" type="button"><span>23</span> | All Jobs</button>
+        <button ui-sref="newJobs" type="button"><span>{{$ctrl.count.new_jobs}}</span> | New Jobs</button>
+        <button ui-sref="jobs" type="button"><span>{{$ctrl.count.all_jobs}}</span> | All Jobs</button>
       </section>
       <!-- Messages Nav Section -->
       <section class="messages">
@@ -51,7 +51,7 @@
           <%= image_tag("messages.svg", :alt => "Directories Icon") %>
           <h1>Messaging Center</h1>
         </div>
-        <button ui-sref="messages" type="button"><span>4</span> | Messages</button>
+        <button ui-sref="messages" type="button"><span>{{$ctrl.count.new_messages}}</span> | Messages</button>
       </section>
     </aside>
     <!-- ******************************
