@@ -2,4 +2,8 @@
   <li>{{$ctrl.job.date}}</li>
   <li>{{$ctrl.job.start_time}}-{{$ctrl.job.end_time}}</li>
   <li>{{$ctrl.job.notes | limitTo: 20}}</li>
-  <li>BUTTON</li>
+  <li>
+    <span class="new-job-button" ui-sref="newJobProfile({jobId: $ctrl.job.job_id})">
+      Job Info
+    </span>
+  </li>
