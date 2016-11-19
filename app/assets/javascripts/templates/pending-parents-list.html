@@ -20,7 +20,7 @@
         </div>
       </div>
 
-    <div class="family-table">
+    <div class="family-table pending-parents">
       <ul class="table-head">
         <li>First Name</li>
         <li>Last Name</li>
@@ -31,7 +31,7 @@
 
       <div class="table-body">
         <ul dir-paginate="parent in $ctrl.parents | filter: searchBox | filter: $ctrl.selectedCounty |itemsPerPage: 5">
-          <parent ng-click="$ctrl.select()" parent="parent"></parent>
+          <pending-parent ng-click="$ctrl.select()" parent="parent"></pending-parent>
         </ul>
       </div>
     </div>
