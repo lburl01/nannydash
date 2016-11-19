@@ -23,7 +23,6 @@
       ctrl.save = function(id) {
         familyAPI.saveProfile(id, ctrl.updateFamily).then(function() {
           console.log('success! saved!');
-          $scope.$emit('updateCount', 0);
         });
       };
 

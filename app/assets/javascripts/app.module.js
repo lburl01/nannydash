@@ -23,7 +23,7 @@ angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPag
       url: '/new-job/info/:jobId',
       component: 'newJobInfo',
       resolve: {
-        jobs: ['newJobsAPI', '$stateParams', function(newJobsAPI, $stateParams) {
+        job: ['newJobsAPI', '$stateParams', function(newJobsAPI, $stateParams) {
           return newJobsAPI.jobInfo($stateParams.jobId);
         }]
       }
