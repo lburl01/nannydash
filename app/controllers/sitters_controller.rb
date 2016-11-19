@@ -44,6 +44,12 @@ class SittersController < ApplicationController
     sitter.toggle!(:approved)
   end
 
+  def pending
+    @pending_sitters = User.get_pending_sitters
+
+    render json: @pending_sitters
+  end
+
   private
 
     def sitter_params
