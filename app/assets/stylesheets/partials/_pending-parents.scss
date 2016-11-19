@@ -1,0 +1,25 @@
+
+.pending-parents {
+  li {
+    cursor: default !important;
+    width: 15%;
+  }
+  li:nth-child(3) {
+    width: 25% !important;
+  }
+  li:nth-child(4) {
+    width: 30% !important;
+  }
+  li:nth-child(5) {
+    width: 15% !important;
+  }
+
+  div.panel-heading {
+    display: flex;
+  }
+  span.pending-parent-profile {
+    background: $yellow !important;
+    text-shadow: 1px 1px 1px #a58741;
+    cursor: pointer;
+  }
+}
