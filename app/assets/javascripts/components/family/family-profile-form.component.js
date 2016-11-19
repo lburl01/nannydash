@@ -7,10 +7,10 @@
       bindings: {
         profile: '<'
       },
-      controller: ['familyAPI', '$filter', '$scope', FamilyProfileForm]
+      controller: ['familyAPI', '$filter', FamilyProfileForm]
     });
 
-    function FamilyProfileForm(familyAPI, $filter, $scope) {
+    function FamilyProfileForm(familyAPI, $filter) {
       var ctrl = this;
       ctrl.id = ctrl.profile.family_id;
       ctrl.updateFamily = {};
