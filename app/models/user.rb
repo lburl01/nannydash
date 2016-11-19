@@ -167,6 +167,14 @@ class User < ApplicationRecord
     response = User.find(options)
   end
 
+  def self.get_pending_sitters
+    pending_sitters = User.nanny.where( { active: true, is_deleted: false, approved: false } ).all
+  end
+
+  def self.get_pending_families
+    pending_families = User.family.where( { active: true, is_deleted: false, approved: false } ).all
+  end
+
   private
 
     def picture_size

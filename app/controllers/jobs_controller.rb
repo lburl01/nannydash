@@ -20,8 +20,8 @@ class JobsController < ApplicationController
   end
 
   def update
-    @family = User.find(params[:id])
-    @family.update_attributes(job_params)
+    @job = Job.find(params[:id])
+    @job.update_attributes(job_params)
   end
 
   def toggle_deleted_job

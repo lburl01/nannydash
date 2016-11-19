@@ -33,6 +33,12 @@ class FamiliesController < ApplicationController
     family.toggle!(:is_deleted)
   end
 
+  def pending
+    @pending_families = User.get_pending_families
+
+    render json: @pending_families
+  end
+
   private
 
     def family_params
