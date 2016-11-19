@@ -1,6 +1,7 @@
 
 .pending-parents {
   li {
+    cursor: default !important;
     width: 15%;
   }
   li:nth-child(3) {
@@ -18,6 +19,7 @@
   }
   span.pending-parent-profile {
     background: $yellow !important;
-    text-shadow: 1px 1px 1px #a58741
+    text-shadow: 1px 1px 1px #a58741;
+    cursor: pointer;
   }
 }
