@@ -3,11 +3,12 @@ class MessagesController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @conversation = Conversation.get_user_conversations
+    @conversation = Conversation.find(params[:conversation_id])
     @messages = @conversation.messages
   end
 
   def show
+    @message = Message.find(params[:id])
   end
 
   def new

@@ -9,7 +9,7 @@ class Conversation < ApplicationRecord
                       length: { maximum: 255 }
 
   def self.get_user_conversations(current_user)
-    @conversations = Conversation.where(sender_id: current_user.id).or(Conversation.where(recipient_id: current_user.id))
+    @conversations = Conversation.where(sender_id: current_user.id).or(Conversation.where(recipient_id: current_user.id)).all
   end
 
 end
