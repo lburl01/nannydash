@@ -1,14 +1,11 @@
-//  get endpoint and object to console log
-// display key values as table data
-// get 'api/v1/jobs' => 'jobs#index'
-
 (function() {
     'use strict';
     angular.module('app')
-        .controller('allJobsController', ['allJobsAPI', function(allJobsAPI) {
+        .controller('allJobsController', ['$state', 'allJobsAPI', function( $state, allJobsAPI ) {
             var self = this;
             allJobsAPI.jobsList().success(function(response) {
                 self.totalJobs = response;
+                console.log(response);
             });
             this.name = function(firstName, lastName) {
                 return firstName + " " + lastName;
@@ -24,5 +21,12 @@
                 }
             };
         }]);
-
+        /*************************
+        When user clicks on <tr>, they go to the the unique job details page
+        *************************/
+        this.jobClicked = function(jobId) {
+          allJobsAPI.jobDetails(jobId).success(function(response) {
+            $state.go('jobs-list-details', {babysitterParam: {sitter: response}, sitterId: jobId}, {reload: true});
+          });
+        };
 })();

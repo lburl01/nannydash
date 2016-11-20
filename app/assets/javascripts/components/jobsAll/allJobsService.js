@@ -5,6 +5,12 @@ angular.module('app').service('allJobsAPI', ['$http', function($http) {
                 url: '/api/v1/jobs',
                 method: 'GET'
             });
+        },
+        jobDetails: function(id) {
+          return $http({
+            url: 'api/v1/job/' + id,
+            method: 'GET'
+          });
         }
     };
 }]);
