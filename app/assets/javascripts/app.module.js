@@ -73,5 +73,13 @@ angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPag
           return pendingParentsAPI.list();
         }]
       }
+    }).state('pendingParentInfo', {
+      url: '/pending-parent/info/:parentId',
+      component: 'pendingParentInfo',
+      resolve: {
+        info: ['pendingParentsAPI', '$stateParams', function(pendingParentsAPI, $stateParams) {
+          return pendingParentsAPI.pendingInfo($stateParams.parentId);
+        }]
+      }
     });
 }]);

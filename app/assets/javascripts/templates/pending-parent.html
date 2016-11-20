@@ -4,7 +4,7 @@
   <li>{{$ctrl.parent.phone_number}}</li>
   <li>{{$ctrl.parent.about | limitTo: 30}}</li>
   <li>
-    <span class="pending-parent-profile">View
+    <span ui-sref="pendingParentInfo({parentId: $ctrl.parent.id})" class="pending-parent-profile">View
     </span>
   </li>
 </div>
