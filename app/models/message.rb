@@ -3,6 +3,10 @@ class Message < ApplicationRecord
   belongs_to :sent_message, :foreign_key => :user_id, class_name: 'User'
   belongs_to :received_message, :foreign_key => :recipient_id, class_name: 'User'
 
+  validates_presence_of :body, :subject
+
+  validates :subject, length: { maximum: 255 }
+
   # need to go back and make this specific to the user logged in (only their new messages)
   def self.get_latest_messages
     response = Message.order(created_at: :desc).limit(5)
