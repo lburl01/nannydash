@@ -1,6 +1,6 @@
 class ConversationsController < ApplicationController
   skip_before_action :verify_authenticity_token
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
 
   def index
     @conversations = Conversation.get_user_conversations(current_user)
