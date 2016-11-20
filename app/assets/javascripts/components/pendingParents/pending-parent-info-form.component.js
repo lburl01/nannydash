@@ -17,9 +17,12 @@
         pendingParentsAPI.toggleApprove(id).then( function() {
           ctrl.info.active = !ctrl.info.active;
           $scope.$emit('updateCount', {});
+        });
+      };
 
-          console.log(ctrl.info.active);
-          console.log(ctrl.info);
+      ctrl.delete = function(id) {
+        pendingParentsAPI.deleteParent(id).then(function() {
+          console.log('success! deleted');
         });
       };
     }
