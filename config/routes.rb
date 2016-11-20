@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {sessions: 'users/sessions'}
 
   # Angular entry point
   get 'dashboard' => 'dashboard#index'
@@ -34,8 +34,6 @@ Rails.application.routes.draw do
   post 'agency' => 'agency#create'
 
   get 'messages/new' => 'messages#new'
-  get 'messages/index' => 'messages#index'
-  get 'message/detail/:id' => 'messages#show'
   post 'messages/new' => 'messages#create'
 
   resources :conversations do

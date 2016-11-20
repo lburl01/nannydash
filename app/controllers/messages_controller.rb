@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
   skip_before_action :verify_authenticity_token
+  before_filter :authenticate_user!
 
   def index
     @conversation = Conversation.find(params[:conversation_id])
@@ -7,6 +8,11 @@ class MessagesController < ApplicationController
   end
 
   def show
+    @message = Message.find(params[:id])
+
+    if @message.user_id != current_user.id
+      @message.update_attribute(:is_read, true)
+    end
   end
 
   def new
@@ -15,7 +21,7 @@ class MessagesController < ApplicationController
 
   def create
     recipient = User.find(params[:recipient][:id])
-    sender = User.find(2)
+    sender = current_user
     conversation = sender.send_message(recipient, params[:message][:body],
                                               params[:message][:subject])
   end
