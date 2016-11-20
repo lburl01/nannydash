@@ -13,4 +13,27 @@ class JobsController < ApplicationController
     render json: @new_jobs
   end
 
+  def show
+    @job = Job.show_job(params[:id])
+
+    render json: @job
+  end
+
+  def update
+    @job = Job.find(params[:id])
+    @job.update_attributes(job_params)
+  end
+
+  def toggle_deleted_job
+    job = Job.find(params[:id])
+    job.toggle!(:is_deleted)
+  end
+
+  private
+
+    def job_params
+      params.require(:job).permit(:sitter_id, :date, :start_time, :end_time, :notes,
+        :confirmed, :is_assigned, :is_deleted)
+    end
+
 end

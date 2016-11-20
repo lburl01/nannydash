@@ -1,1 +1,40 @@
-<h1>PENDING PARENTS HERE</h1>
+<div class="directory-container">
+  <div class="list-wrapper">
+
+    <div class="search">
+      <h1>Pending Parents</h1>
+      <input type="text" ng-model="searchBox">
+    </div>
+    <div class="list">
+      <div class="title-container dropdown-container">
+        <h4>Total: {{$ctrl.parents.length}}</h4>
+        <div class="county">
+          <h4>{{$ctrl.selectedCounty || "All Counties"}}, NC</h4>
+          <i ng-class="{'arrowActive': $ctrl.dropIt}" ng-click="$ctrl.dropdown()" class="fa fa-angle-down"></i>
+          <div ng-show="$ctrl.dropIt" class="counties">
+            <li ng-click="$ctrl.selectCounty('')">All Counties</li>
+            <ul ng-repeat="county in $ctrl.counties">
+              <li ng-click="$ctrl.selectCounty(county)">{{county}}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    <div class="family-table pending-parents">
+      <ul class="table-head">
+        <li>First Name</li>
+        <li>Last Name</li>
+        <li>Phone</li>
+        <li>About</li>
+        <li>Application</li>
+      </ul>
+
+      <div class="table-body">
+        <ul dir-paginate="parent in $ctrl.parents | filter: searchBox | filter: $ctrl.selectedCounty |itemsPerPage: 5">
+          <pending-parent ng-click="$ctrl.select()" parent="parent"></pending-parent>
+        </ul>
+      </div>
+    </div>
+    <dir-pagination-controls max-size="5"></dir-pagination-controls>
+  </div>
+</div>

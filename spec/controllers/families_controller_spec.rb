@@ -35,7 +35,7 @@ RSpec.describe FamiliesController, type: :controller do
       get :index
 
       json = JSON.parse(response.body)
-      
+
       expect(json["families"].length).to eq 0
     end
   end
@@ -75,6 +75,21 @@ RSpec.describe FamiliesController, type: :controller do
       @user.reload
 
       expect(@user.is_deleted).to eq true
+
+    end
+  end
+
+  describe "PATCH #toggle_approved_family" do
+    it 'toggles the approved column value' do
+      @user = create(:user)
+
+      expect(@user.approved).to eq false
+
+      process :toggle_approved_family, method: :patch, params: { id: @user.id }
+
+      @user.reload
+
+      expect(@user.approved).to eq true
 
     end
   end
