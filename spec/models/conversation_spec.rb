@@ -39,6 +39,6 @@ RSpec.describe Conversation, :type => :model do
   it 'exists once per sender/recipient pair' do
     @conversation_2 = build(:conversation)
 
-    expect(@conversation_2).to_not be_valid
+    expect(@conversation_2.save!).to eq false
   end
 end
