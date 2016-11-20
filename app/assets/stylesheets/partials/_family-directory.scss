@@ -10,7 +10,7 @@
   width: 90%;
 }
 
-div.family-list-wrapper {
+div.list-wrapper {
   font-family: 'Helvetica', sans-serif;
   font-weight: 100;
   color: #9b9b9b;
@@ -19,12 +19,22 @@ div.family-list-wrapper {
     .table-head {
       display: flex;
       justify-content: flex-start;
+      cursor: default !important;
+
       li {
+        cursor: default !important;
         font-weight: 400;
         font-size: 16px;
         text-align: left;
         color: #9B9B9B;
         padding: 10px 10px 15px;
+      }
+    }
+    .table-body {
+      ul {
+        &:hover {
+          background-color: $babyGreen;
+        }
       }
     }
     li {

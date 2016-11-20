@@ -1,0 +1,8 @@
+<div class="panel-heading">
+  <li>{{$ctrl.sitter.first_name}} {{$ctrl.sitter.last_name}}</li>
+  <li>{{$ctrl.calculateAge($ctrl.sitter.birthday)}}</li>
+  <li>{{$ctrl.sitter.email}}</li>
+  <li><span ng-class="$ctrl.certified ? 'green' : 'red'" >{{$ctrl.isCertified($ctrl.sitter)}}</span></li>
+  <li>{{$ctrl.sitter.created_at | date: 'MM/dd/yyyy'}}</li>
+  <li><span ui-sref="pendingBabysitterInfo({sitterId: $ctrl.sitter.id})" class="view-sitter">View</span></li>
+</div>

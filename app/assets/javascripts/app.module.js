@@ -64,7 +64,20 @@ angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPag
       }
     }).state('pendingBabysitters', {
       url: '/pending-babysitters',
-      component: 'pendingBabysittersList'
+      component: 'pendingBabysittersList',
+      resolve: {
+        babysitters: ['pendingBabysittersAPI', function(pendingBabysittersAPI) {
+          return pendingBabysittersAPI.list();
+        }]
+      }
+    }).state('pendingBabysitterInfo', {
+      url: '/pending-babysitter/info/:sitterId',
+      component: 'pendingBabysitterInfo',
+      resolve: {
+        info: ['pendingBabysittersAPI', '$stateParams', function(pendingBabysittersAPI, $stateParams) {
+          return pendingBabysittersAPI.pendingInfo($stateParams.sitterId);
+        }]
+      }
     }).state('pendingParents', {
       url: '/pending-parents',
       component: 'pendingParentsList',

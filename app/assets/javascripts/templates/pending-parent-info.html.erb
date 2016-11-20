@@ -2,7 +2,7 @@
   <div class="directory-container">
 
     <div class="search">
-      <h1 class="family-link" ui-sref="family">Pending Parent</h1>
+      <h1 class="family-link" ui-sref="pendingParents">Pending Parent</h1>
       <span>></span>
       <h2>{{$ctrl.info.first_name}}</h2>
       <h2>{{$ctrl.info.last_name}}</h2>
@@ -22,9 +22,6 @@
       <section class="name">
         <h1>{{$ctrl.info.first_name}} {{$ctrl.info.last_name}}</h1>
         <%= image_tag("placeholder.jpeg", :alt => "Preview image on landing page") %>
-        <span ng-class="{'active': $ctrl.info.active, 'inactive': !$ctrl.info.active}">
-        {{$ctrl.info.active ? 'active' : 'inactive'}}
-        </span>
       </section>
 
       <section class="basic-info">
