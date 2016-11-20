@@ -22,8 +22,11 @@
 
       toggleApprove: function(id) {
         return $http.patch("/api/v1/family/approved/" + id + ".json");
-      }
+      },
 
+      deleteParent: function(id) {
+        return $http.patch("/api/v1/family/delete/" + id + ".json");
+      }
     };
   }]);
 })();
