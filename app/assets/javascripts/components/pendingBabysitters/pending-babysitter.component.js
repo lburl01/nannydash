@@ -13,6 +13,7 @@
 
     function PendingBabysitter(pendingBabysittersAPI, $filter) {
       var ctrl = this;
+      ctrl.certified = "";
 
       ctrl.calculateAge = function(birthday) {
         var ageDifMs = Date.now() - new Date(birthday);
@@ -22,8 +23,10 @@
 
       ctrl.isCertified = function(babysitter) {
         if (babysitter.cpr_certification || babysitter.first_aid_certification) {
+          ctrl.certified = true;
           return "yes";
         } else {
+          ctrl.certified = false;
           return "no";
         }
       };
