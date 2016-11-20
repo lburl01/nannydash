@@ -13,7 +13,7 @@
         <th>Babysitter</th>
         <th>Time</th>
       </tr>
-      <tr ng-click="dashboard.userClick(person.sitter_id)" ng-repeat="person in dashboard.openJobs">
+      <tr ng-repeat="person in dashboard.openJobs" ng-click="dashboard.newJobs(person)">
         <td>{{person.name}}</td>
         <td>{{person.sitter}}</td>
         <td>{{person.submitted}}</td>
@@ -33,9 +33,9 @@
         <th>Job For</th>
         <th>Sent</th>
       </tr>
-      <tr ng-repeat="person in dashboard.assignments">
+      <tr ng-repeat="person in dashboard.assignments" ng-click="dashboard.newJobs(person)">
         <td>{{person.name}}</td>
-        <td>{{person.date_time}}</td>
+        <td>{{dashboard.getDate(person.date_time)}}</td>
         <td>{{person.submitted}}</td>
       </tr>
     </table>
@@ -57,7 +57,7 @@
         <th>Role</th>
         <th>Sent</th>
       </tr>
-      <tr ng-repeat="person in dashboard.application">
+      <tr ng-repeat="person in dashboard.application" ng-click="dashboard.pendingApplication(person)">
         <td>{{person.name}}</td>
         <td>{{person.role}}</td>
         <td>{{person.submitted}}</td>

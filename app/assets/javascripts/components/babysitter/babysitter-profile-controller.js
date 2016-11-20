@@ -43,6 +43,7 @@ angular.module('app')
         $(event).remove();
         console.log(self.updatedBabysitters);
       }
+
       /*************************
       Convert Strings
       *************************/
@@ -85,11 +86,10 @@ angular.module('app')
           console.log(response.sitters);
           for(var i= 0; i < response.sitters.length; i++) {
             if(response.sitters[i].first_name === user || response.sitters[i].last_name === user) {
-              //console.log(response.sitters[i].sitter_id);
 
               babysitterDirectoryAPI.userProfile(response.sitters[i].sitter_id).success(function(newResponse) {
-                console.log(newResponse);
-                $state.go('babysitter-profile', {babysitterParam: {sitter: newResponse}, sitterId: newResponse.sitters[i].sitter_id}, {reload: true,  notify: true});
+                console.log(newResponse.sitter_id);
+                $state.go('babysitter-profile', {babysitterParam: {sitter: newResponse}, sitterId: newResponse.sitter_id}, {reload: true,  notify: true});
               });
             }
           }
