@@ -16,7 +16,7 @@ class MessagesController < ApplicationController
 
   def create
     recipient = User.find(params[:recipient][:id])
-    sender = User.find(2)
+    sender = current_user
     conversation = sender.send_message(recipient, params[:message][:body],
                                               params[:message][:subject])
   end
