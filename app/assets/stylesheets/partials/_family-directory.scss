@@ -19,8 +19,10 @@ div.list-wrapper {
     .table-head {
       display: flex;
       justify-content: flex-start;
+      cursor: default !important;
 
       li {
+        cursor: default !important;
         font-weight: 400;
         font-size: 16px;
         text-align: left;
