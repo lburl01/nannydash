@@ -109,6 +109,14 @@ FactoryGirl.define do
     is_deleted false
   end
 
+  factory :conversation_2, class: Conversation do
+    id 1
+    subject "Thing"
+    sender_id 2
+    recipient_id 1
+    is_deleted false
+  end
+
   factory :message do
     id 1
     body "Question"
