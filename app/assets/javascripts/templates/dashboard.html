@@ -4,7 +4,7 @@
    Jobs Section
   ******************************* -->
   <section class="jobs">
-    <div class="title-container">
+    <div class="title-container" ng-click="dashboard.changeStates('jobs')">
       <h2>Today's Jobs: <span>November 24, 2016</span></h2>
     </div>
     <table>
@@ -13,7 +13,7 @@
         <th>Babysitter</th>
         <th>Time</th>
       </tr>
-      <tr ng-repeat="person in dashboard.openJobs">
+      <tr ng-repeat="person in dashboard.openJobs" ng-click="dashboard.newJobs(person)">
         <td>{{person.name}}</td>
         <td>{{person.sitter}}</td>
         <td>{{person.submitted}}</td>
@@ -24,7 +24,7 @@
    New Jobs Section
   ******************************* -->
   <section class="new-jobs">
-    <div class="title-container">
+    <div class="title-container" ng-click="dashboard.changeStates('newJobs')">
       <h2>New Jobs</h2>
     </div>
     <table>
@@ -33,9 +33,9 @@
         <th>Job For</th>
         <th>Sent</th>
       </tr>
-      <tr ng-repeat="person in dashboard.assignments">
+      <tr ng-repeat="person in dashboard.assignments" ng-click="dashboard.newJobs(person)">
         <td>{{person.name}}</td>
-        <td>{{person.date_time}}</td>
+        <td>{{dashboard.getDate(person.date_time)}}</td>
         <td>{{person.submitted}}</td>
       </tr>
     </table>
@@ -44,8 +44,12 @@
    Pending Applications Section
   ******************************* -->
   <section class="applications">
-    <div class="title-container">
+    <div class="title-container" ng-click="dashboard.changeStates('newJobs')">
       <h2>Pending Applications</h2>
+      <div class="buttons">
+        <button ng-click="dashboard.changeStates('pendingParents')">Parent</button>
+        <button ng-click="dashboard.changeStates('pendingBabysitters')">Babysitters</button>
+      </div>
     </div>
     <table>
       <tr>
@@ -53,7 +57,7 @@
         <th>Role</th>
         <th>Sent</th>
       </tr>
-      <tr ng-repeat="person in dashboard.application">
+      <tr ng-repeat="person in dashboard.application" ng-click="dashboard.pendingApplication(person)">
         <td>{{person.name}}</td>
         <td>{{person.role}}</td>
         <td>{{person.submitted}}</td>
@@ -64,7 +68,7 @@
    Messaging Section
   ******************************* -->
   <section class="messages">
-    <div class="title-container">
+    <div class="title-container" ng-click="dashboard.changeStates('messages')">
       <h2>Messaging Center</h2>
     </div>
     <table>

@@ -7,7 +7,7 @@
     <span>></span>
     <h2>{{babysitter.user.first_name}}</h2>
     <h2>{{babysitter.user.last_name}}</h2>
-    <input type="text">
+    <input ng-keyup="$event.keyCode == 13 ? babysitter.searchUser(babysitter.userInput) : null" type="text" ng-model="babysitter.userInput">
   </div>
   <!-- ******************************
    Drop Down County Field
@@ -88,7 +88,7 @@
         <input id="cpr" type="text" ng-model="babysitter.cpr"><span>-</span>
       </div>
       <div class="cert-container" ng-show="babysitter.user.first_aid_certification === true">
-        <input id="first-aid" type="text" ng-model="babysitter.firstAid"><span>-</span>
+        <input id="first-aid" type="text" ng-model="babysitter.firstAid"><span ng-click="babysitter.deleteCert('first_aid_certification', babysitter.user.sitter_id, $event)">-</span>
       </div>
     </div>
     <!-- Hourly Rate Field -->
