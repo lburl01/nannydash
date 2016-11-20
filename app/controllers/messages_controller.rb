@@ -5,10 +5,14 @@ class MessagesController < ApplicationController
   def index
     @conversation = Conversation.find(params[:conversation_id])
     @messages = @conversation.messages
+
   end
 
   def show
     @message = Message.find(params[:id])
+    if @message.user_id != current_user.id
+      @message.update_attribute(:is_read, true)
+    end
   end
 
   def new
