@@ -1,0 +1,46 @@
+#pending-sitter-list {
+  .panel-heading {
+    display: flex;
+  }
+  li {
+    width: 20%;
+    cursor: default;
+  }
+  li:nth-child(2) {
+    width: 10%;
+  }
+  li:nth-child(3) {
+    width: 30%;
+  }
+  li:nth-child(4) {
+    width: 15%;
+    span {
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 7px;
+      &.green {
+        background: $green;
+      }
+      &.red {
+        background: $red;
+      }
+    }
+  }
+  li:nth-child(5) {
+    width: 15%;
+    text-align: left;
+  }
+  li:nth-child(6) {
+    width: 10%;
+    text-align: right;
+    span.view-sitter {
+      background: #efba59 !important;
+      text-shadow: 1px 1px 1px #a58741;
+      cursor: pointer;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 7px;
+    }
+  }
+
+}

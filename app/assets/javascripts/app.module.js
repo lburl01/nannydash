@@ -7,21 +7,15 @@ angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPag
             url: '/',
             controller: 'dashboardController as dashboard',
             templateUrl: 'dashboard.html'
-        })
-
-        .state('jobs', {
+        }).state('jobs', {
             url: '/jobs',
             controller: 'allJobsController as allJobs',
             templateUrl: 'jobs-list.html'
-        })
-
-        .state('jobs-list-details', {
+        }).state('jobs-list-details', {
             url: '/jobs-details',
             controller: 'jobDetailsController as jobDetails',
             templateUrl: 'jobs-list-details.html'
-        })
-
-        .state('newJobs', {
+        }).state('newJobs', {
             url: '/new-jobs',
             component: 'newJobsList',
             resolve: {
@@ -29,9 +23,7 @@ angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPag
                     return newJobsAPI.list();
                 }]
             }
-        })
-
-        .state('newJobInfo', {
+        }).state('newJobInfo', {
             url: '/new-job/info/:jobId',
             component: 'newJobInfo',
             resolve: {
@@ -39,15 +31,11 @@ angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPag
                     return newJobsAPI.jobInfo($stateParams.jobId);
                 }]
             }
-        })
-
-        .state('babysitters', {
+        }).state('babysitters', {
             url: '/babysitters',
             templateUrl: 'babysitter-dashboard.html',
             controller: 'babysitterDirectoryController as babysitters'
-        })
-
-        .state('babysitter-profile', {
+        }).state('babysitter-profile', {
             url: '/babysitters/profile/:sitterId',
             params: {
                 babysitterParam: null,
@@ -56,9 +44,7 @@ angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPag
             templateUrl: 'babysitter-profile.html',
             controller: 'babysitterProfileController as babysitter',
             resolve: {}
-        })
-
-        .state('family', {
+        }).state('family', {
             url: '/family',
             component: 'familyList',
             resolve: {
@@ -66,13 +52,10 @@ angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPag
                     return familyAPI.list();
                 }]
             }
-        })
-
-        .state('messages', {
+        }).state('messages', {
             url: '/messages',
             templateUrl: 'messages.html',
             controller: 'messagesController as messages'
-
 
         }).state('familyProfile', {
             url: '/family/profile/:familyId',
@@ -82,15 +65,37 @@ angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPag
                     return familyAPI.profileInfo($stateParams.familyId);
                 }]
             }
-        })
-
-        .state('pendingBabysitters', {
+        }).state('pendingBabysitters', {
             url: '/pending-babysitters',
-            component: 'pendingBabysittersList'
-        })
-
-        .state('pendingParents', {
+            component: 'pendingBabysittersList',
+            resolve: {
+                babysitters: ['pendingBabysittersAPI', function(pendingBabysittersAPI) {
+                    return pendingBabysittersAPI.list();
+                }]
+            }
+        }).state('pendingBabysitterInfo', {
+            url: '/pending-babysitter/info/:sitterId',
+            component: 'pendingBabysitterInfo',
+            resolve: {
+                info: ['pendingBabysittersAPI', '$stateParams', function(pendingBabysittersAPI, $stateParams) {
+                    return pendingBabysittersAPI.pendingInfo($stateParams.sitterId);
+                }]
+            }
+        }).state('pendingParents', {
             url: '/pending-parents',
-            component: 'pendingParentsList'
+            component: 'pendingParentsList',
+            resolve: {
+                parents: ['pendingParentsAPI', function(pendingParentsAPI) {
+                    return pendingParentsAPI.list();
+                }]
+            }
+        }).state('pendingParentInfo', {
+            url: '/pending-parent/info/:parentId',
+            component: 'pendingParentInfo',
+            resolve: {
+                info: ['pendingParentsAPI', '$stateParams', function(pendingParentsAPI, $stateParams) {
+                    return pendingParentsAPI.pendingInfo($stateParams.parentId);
+                }]
+            }
         });
     }]);

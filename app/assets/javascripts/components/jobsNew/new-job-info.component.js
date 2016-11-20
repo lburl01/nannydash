@@ -18,7 +18,6 @@
     ctrl.$onInit = function() {
     };
 
-
     ctrl.updateCurrent = function(key, value) {
       ctrl.updateNewJob[key] = value;
     };
