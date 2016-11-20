@@ -31,8 +31,8 @@
       </ul>
 
       <div class="table-body">
-        <ul dir-paginate="parent in $ctrl.parents | filter: searchBox | filter: $ctrl.selectedCounty |itemsPerPage: 5">
-          <pending-parent ng-click="$ctrl.select()" parent="parent"></pending-parent>
+        <ul dir-paginate="sitter in $ctrl.babysitters | filter: searchBox | filter: $ctrl.selectedCounty |itemsPerPage: 5">
+          <pending-babysitter sitter="sitter"></pending-babysitter>
         </ul>
       </div>
     </div>

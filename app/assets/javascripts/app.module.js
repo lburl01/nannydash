@@ -64,7 +64,12 @@ angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPag
       }
     }).state('pendingBabysitters', {
       url: '/pending-babysitters',
-      component: 'pendingBabysittersList'
+      component: 'pendingBabysittersList',
+      resolve: {
+        babysitters: ['pendingBabysittersAPI', function(pendingBabysittersAPI) {
+          return pendingBabysittersAPI.list();
+        }]
+      }
     }).state('pendingParents', {
       url: '/pending-parents',
       component: 'pendingParentsList',
