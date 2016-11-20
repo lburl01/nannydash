@@ -22,8 +22,14 @@
     text-shadow: 1px 1px 1px #a58741;
     cursor: pointer;
   }
-
 }
+
+pending-parent-info {
+  span {
+    cursor: default !important;
+  }
+}
+
 pending-parent-info-form {
   input.approve {
     background: #efba59;
@@ -39,5 +45,4 @@ pending-parent-info-form {
     padding: 7px 10px;
     width: 65%;
   }
-
-}
+  }
