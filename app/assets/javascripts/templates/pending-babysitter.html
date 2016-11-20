@@ -1,8 +1,8 @@
 <div class="panel-heading">
   <li>{{$ctrl.sitter.first_name}} {{$ctrl.sitter.last_name}}</li>
-  <li>{{$ctrl.sitter.birthday}}</li>
+  <li>{{$ctrl.calculateAge($ctrl.sitter.birthday)}}</li>
   <li>{{$ctrl.sitter.email}}</li>
   <li>True/False</li>
-  <li>Date</li>
+  <li>{{$ctrl.sitter.created_at | date: 'MM/dd/yyyy'}}</li>
   <li>View</li>
 </div>

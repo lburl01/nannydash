@@ -5,7 +5,6 @@
 
       list: function() {
         return $http.get("api/v1/sitters/pending").then(function(response) {
-          console.log(response.data);
           return response.data;
         }, function() {
           alert("Failed");
