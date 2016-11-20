@@ -2,7 +2,7 @@
   <li>{{$ctrl.sitter.first_name}} {{$ctrl.sitter.last_name}}</li>
   <li>{{$ctrl.calculateAge($ctrl.sitter.birthday)}}</li>
   <li>{{$ctrl.sitter.email}}</li>
-  <li>True/False</li>
+  <li>{{$ctrl.isCertified($ctrl.sitter)}}</li>
   <li>{{$ctrl.sitter.created_at | date: 'MM/dd/yyyy'}}</li>
-  <li>View</li>
+  <li><span class="view-sitter">View</span></li>
 </div>
