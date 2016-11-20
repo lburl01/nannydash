@@ -26,7 +26,8 @@
   <textarea name="about" rows="4" cols="50" ng-model="$ctrl.info.about" ng-model-options="{updateOn: 'blur'}" ng-change="$ctrl.updateCurrent( 'about', $ctrl.info.about)">
   </textarea>
 
-  <button type="button" name="approve" ng-click="$ctrl.handleToggle($ctrl.info.family_id)">
-    {{$ctrl.info.active ? 'Deny Application' : 'Approve Application'}}
-  </button>
+  <input type="button" class="approve" ng-click="$ctrl.handleToggle($ctrl.info.family_id)" 
+  value="{{$ctrl.info.active ? 'Deny Application' : 'Approve Application'}}">
+
+  </input>
 </form>
