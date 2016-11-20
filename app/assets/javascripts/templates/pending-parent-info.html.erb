@@ -2,10 +2,10 @@
   <div class="directory-container">
 
     <div class="search">
-      <h1 class="family-link" ui-sref="family">Family</h1>
+      <h1 class="family-link" ui-sref="family">Pending Parent</h1>
       <span>></span>
-      <h2>{{$ctrl.profile.first_name}}</h2>
-      <h2>{{$ctrl.profile.last_name}}</h2>
+      <h2>{{$ctrl.info.first_name}}</h2>
+      <h2>{{$ctrl.info.last_name}}</h2>
       <input type="text">
     </div>
 
@@ -20,18 +20,17 @@
 
     <div class="profile-container">
       <section class="name">
-        <h1>{{$ctrl.profile.first_name}} {{$ctrl.profile.last_name}}</h1>
+        <h1>{{$ctrl.info.first_name}} {{$ctrl.info.last_name}}</h1>
         <%= image_tag("placeholder.jpeg", :alt => "Preview image on landing page") %>
-        <span ng-click="$ctrl.handleToggle($ctrl.profile.family_id)"
-        ng-class="{'active': $ctrl.profile.active, 'inactive': !$ctrl.profile.active}">
-        {{$ctrl.profile.active ? 'active' : 'inactive'}}
+        <span ng-class="{'active': $ctrl.info.active, 'inactive': !$ctrl.info.active}">
+        {{$ctrl.info.active ? 'active' : 'inactive'}}
         </span>
       </section>
 
       <section class="basic-info">
         <h2>Basic Information</h2>
 
-        <family-profile-form profile="$ctrl.profile"></family-profile-form>
+        <pending-parent-info-form info="$ctrl.info"></pending-parent-info-form>
 
       </section>
     </div>

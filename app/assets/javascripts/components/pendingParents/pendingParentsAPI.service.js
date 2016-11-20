@@ -20,6 +20,11 @@
         }, function() {
           alert('Failed');
         });
+      },
+
+      toggleApprove: function(id) {
+        console.log('approved!');
+        return $http.patch("/api/v1/family/approved/" + id + ".json");
       }
 
     };
