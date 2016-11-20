@@ -70,6 +70,14 @@ angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPag
           return pendingBabysittersAPI.list();
         }]
       }
+    }).state('pendingBabysitterInfo', {
+      url: '/pending-babysitter/info/:sitterId',
+      component: 'pendingBabysitterInfo',
+      resolve: {
+        info: ['pendingBabysittersAPI', '$stateParams', function(pendingBabysittersAPI, $stateParams) {
+          return pendingBabysittersAPI.pendingInfo($stateParams.sitterId);
+        }]
+      }
     }).state('pendingParents', {
       url: '/pending-parents',
       component: 'pendingParentsList',
