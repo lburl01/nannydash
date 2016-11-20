@@ -5,9 +5,10 @@
     From: <%= message.sent_message.first_name %> <%= message.sent_message.last_name %>
   </p>
   <p>
-    Subject: <%= message.subject %>
+    Subject: <%= link_to message.subject, conversation_message_path(@conversation, message) %>
   </p>
   <p>
     <%= message.body %>
   </p>
+
 <% end %>

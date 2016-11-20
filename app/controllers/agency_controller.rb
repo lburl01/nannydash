@@ -1,5 +1,6 @@
 class AgencyController < ApplicationController
   skip_before_action :verify_authenticity_token
+  before_action :authenticate _user!
 
   def index
     @messages = Message.get_latest_messages

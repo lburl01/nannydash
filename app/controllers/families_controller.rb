@@ -1,5 +1,6 @@
 class FamiliesController < ApplicationController
   skip_before_action :verify_authenticity_token
+  before_action :authenticate_user!
 
   def index
     @families_counties = User.get_approved_families
