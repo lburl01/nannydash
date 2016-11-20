@@ -3,7 +3,7 @@ class ConversationsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @conversations = Conversation.all
+    @conversations = Conversation.get_user_conversations(current_user)
   end
 
   def show
