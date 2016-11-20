@@ -1,48 +1,52 @@
-
 .new-jobs-info-wrapper {
-  h1 {
-    cursor: pointer;
-    transition: all 0.5s ease;
-    &:hover {
-      transform: translateY(-5px);
+    h1 {
+        cursor: pointer;
+        transition: all 0.5s ease;
+
+        &:hover {
+            transform: translateY(-5px);
+        }
     }
-  }
-  .basic-info {
-    width: 70%;
-    label:last-of-type {
-      position: relative;
-      top: -33px;
+
+    .basic-info {
+        width: 70%;
+
+        label:last-of-type {
+            top: -33px;
+        }
+
+        textarea {
+            background: #eee;
+            border-radius: 4px;
+            border: #BDBDBD solid 1px;
+            color: #666;
+            font-size: 13px;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            outline: none;
+            padding: 6px;
+            resize: none;
+            width: 73%;
+        }
     }
-    textarea {
-      background: #eee;
-      border-radius: 4px;
-      border: #BDBDBD solid 1px;
-      color: #666;
-      font-size: 13px;
-      font-weight: 300;
-      letter-spacing: .5px;
-      outline: none;
-      padding: 6px;
-      resize: none;
-      width: 73%;
+
+    .key-info {
+        width: 30% !important;
+
+        .save,
+        button.delete {
+            background: $yellow;
+            border-radius: 4px;
+            border: transparent;
+            color: #fff;
+            cursor: pointer;
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px;
+            font-weight: 100;
+            padding: 7px 10px;
+            width: 100%;
+            margin-top: 5px;
+            text-shadow: 1px 1px 1px #a58741;
+        }
     }
-  }
-  .key-info {
-    width: 30% !important;
-    .save,
-    button.delete {
-      background: $yellow;
-      border-radius: 4px;
-      border: transparent;
-      color: #fff;
-      cursor: pointer;
-      font-family: 'Roboto', sans-serif;
-      font-size: 14px;
-      font-weight: 100;
-      padding: 7px 10px;
-      width: 100%;
-      margin-top: 5px;
-      text-shadow: 1px 1px 1px #a58741
-    }
-  }
 }

@@ -12,7 +12,11 @@ angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPag
             controller: 'allJobsController as allJobs',
             templateUrl: 'jobs-list.html'
         }).state('jobs-list-details', {
-            url: '/jobs-details',
+            url: '/jobs-details/:jobId',
+            params: {
+              jobParam: null,
+              jobId: null
+            },
             controller: 'jobDetailsController as jobDetails',
             templateUrl: 'jobs-list-details.html'
         }).state('newJobs', {

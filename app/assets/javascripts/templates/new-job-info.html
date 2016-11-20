@@ -41,7 +41,7 @@
       <input id="zip" type="text" ng-model="$ctrl.job.zip_code" ng-model-options="{ updateOn: 'blur' }" ng-change="$ctrl.updateCurrent( 'zip_code', $ctrl.job.zip_code)">
       <!-- Notes Field -->
       <label for="name">Notes:</label>
-      <textarea type="text" name="posted" value="" ng-model="$ctrl.job.notes" ng-change="$ctrl.updateCurrent( 'notes', $ctrl.job.notes)"></textarea>
+      <input id="notes" type="text" name="posted" value="" ng-model="$ctrl.job.notes" ng-change="$ctrl.updateCurrent( 'notes', $ctrl.job.notes)"></input>
 
     </section>
 

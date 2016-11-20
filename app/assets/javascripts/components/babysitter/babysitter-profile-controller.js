@@ -18,26 +18,26 @@ angular.module('app')
         $('<div>').attr('class', 'new-cert-container').appendTo('.cert');
         $('<input>').attr('id', 'cpr').appendTo('.new-cert-container');
         $('<span>').html('-').appendTo('.new-cert-container');
-      }
+      };
       /*************************
       If user edits input fields, data will be saved in object
       *************************/
       this.updateBabysitter = function(id) {
         babysitterDirectoryAPI.updateUser(id, self.updatedBabysitters);
-      }
+      };
       /*************************
       If user deletes babysitter, sitter will be removed from database
       *************************/
       this.deleteBabysitter = function(id) {
         babysitterDirectoryAPI.deleteUser(id, self.updatedBabysitters);
         $state.go('babysitters');
-      }
+      };
       /*************************
       Convert Strings
       *************************/
       this.convertRate = function(rate) {
         return parseFloat(rate).toFixed(2);
-      }
+      };
       /*************************
       When user hits 'submit' object will be patched to database
       *************************/
@@ -46,7 +46,7 @@ angular.module('app')
         self.updatedBabysitters['id'] = sitter_id;
         var updatedUser = self.updatedBabysitters[key] = value;
         console.log(updatedUser);
-      }
+      };
       /*************************
       Calculating age
       *************************/
@@ -56,7 +56,7 @@ angular.module('app')
         var ageDif = nowDate - userBirthday.getTime();
         var ageDate = new Date(ageDif); // miliseconds from epoch
         self.age = Math.abs(ageDate.getUTCFullYear() - 1970);
-      }
+      };
       this.calculateAge();
       /*************************
       Transforming full date/time string to just plain date
@@ -65,6 +65,6 @@ angular.module('app')
         var objectDate = data;
         var convertDate = new Date(objectDate);
         return newDate = convertDate.getMonth() + '/' + convertDate.getDate() + '/' + convertDate.getFullYear();
-      }
-      this.getDate()
+      };
+      this.getDate();
   }]);
