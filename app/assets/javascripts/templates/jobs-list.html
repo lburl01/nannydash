@@ -1,1 +1,31 @@
-<h1>ALL JOBS HERE</h1>
+<div class="directory-container">
+    <div class="search">
+        <h1>All Jobs</h1>
+        <input type="text" ng-model="searchBox">
+    </div>
+    <div class="list">
+        <div class="title-container">
+            <h4>Total: {{ allJobs.totalJobs.length }} </h4>
+        </div>
+        <table>
+            <tr>
+                <th>Parent</th>
+                <th>Babysitter</th>
+                <th>Time</th>
+                <th>Confirmed</th>
+                <th>Created</th>
+                <th>Details</th>
+            </tr>
+            <tr ng-click="jobs-list-details.jobClicked()" dir-paginate="item in allJobs.totalJobs | filter: searchBox | itemsPerPage: 5">
+                <td>{{ allJobs.name( item.family_first_name, item.family_last_name )}}</td>
+                <td>{{ allJobs.name(item.sitter_first_name, item.sitter_last_name ) }}</td>
+                <td>{{ allJobs.time(item.start_time, item.end_time) }}</td>
+                <td>{{ allJobs.confirmed( item.confirmed ) }}</td>
+                <td>{{ item.created }}</td>
+                <td class="new-job-button" ui-sref="###"></td>
+            </tr>
+        </table>
+        <dir-pagination-controls max-size="5"></dir-pagination-controls>
+    </div>
+
+</div>
