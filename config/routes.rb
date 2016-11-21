@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   # Angular entry point
   get 'dashboard' => 'dashboard#index'
+  get 'nanny_dashboard' => 'nanny_dashboard#index'
+  get 'family_dashboard' => 'family_dashboard#index'
 
   get 'api/v1/sitters' => 'sitters#index'
   get 'api/v1/sitter/:id' => 'sitters#show'
