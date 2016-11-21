@@ -20,8 +20,8 @@
         ctrl.selectedCounty = "";
         ctrl.dropIt = false;
         ctrl.counties = [];
-        ctrl.columnSort = "";
-        ctrl.reverse = true;
+        ctrl.columnSort = "last_name";
+        ctrl.reverse = false;
 
         familyAPI.countyList().then(function(response) {
           ctrl.counties = response;
@@ -29,7 +29,6 @@
       };
 
       ctrl.sortBy = function(columnSort) {
-        console.log(columnSort);
         ctrl.columnSort = columnSort;
         ctrl.reverse = !ctrl.reverse;
       };

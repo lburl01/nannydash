@@ -1,4 +1,7 @@
 #pending-sitter-list {
+  .table-head li {
+    cursor: pointer;
+  }
   .panel-heading {
     display: flex;
   }
