@@ -50,6 +50,16 @@ class SittersController < ApplicationController
     render json: @pending_sitters
   end
 
+  def set_cpr_true
+    sitter = User.find(params[:id])
+    sitter.toggle!(:cpr_certification)
+  end
+
+  def set_first_aid_true
+    sitter = User.find(params[:id])
+    sitter.toggle!(:first_aid_certification)
+  end
+
   private
 
     def sitter_params

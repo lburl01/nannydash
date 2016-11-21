@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get 'api/v1/sitters' => 'sitters#index'
   get 'api/v1/sitter/:id' => 'sitters#show'
   get 'api/v1/sitters/pending' => 'sitters#pending'
+  patch 'api/v1/sitter/cpr/:id' => 'sitter#set_cpr_true'
+  patch 'api/v1/sitter/first_aid/:id' => 'sitter#set_first_aid_true'
   patch 'api/v1/sitter/:id' => 'sitters#update'
   patch 'api/v1/sitter/delete/:id' => 'sitters#toggle_deleted_sitter'
   patch 'api/v1/sitter/approve/:id' => 'sitters#toggle_approved_sitter'
