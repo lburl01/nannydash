@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {sessions: 'users/sessions'}
 
+  authenticated :user, ->(u) { u.manager? } do
+    root to: "dashboard#index", as: :manager_root
+  end
+
   # Angular entry point
   get 'dashboard' => 'dashboard#index'
 

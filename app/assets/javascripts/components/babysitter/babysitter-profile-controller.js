@@ -83,15 +83,18 @@ angular.module('app')
       *************************/
       this.searchUser = function(user) {
         babysitterDirectoryAPI.list().success(function(response) {
-          console.log(response.sitters);
+          var found = false;
           for(var i= 0; i < response.sitters.length; i++) {
-            if(response.sitters[i].first_name === user || response.sitters[i].last_name === user) {
-
+            if(response.sitters[i].first_name.toLowerCase() === user.toLowerCase() || response.sitters[i].last_name.toLowerCase() === user.toLowerCase()) {
               babysitterDirectoryAPI.userProfile(response.sitters[i].sitter_id).success(function(newResponse) {
-                console.log(newResponse.sitter_id);
+                found = true;
                 $state.go('babysitter-profile', {babysitterParam: {sitter: newResponse}, sitterId: newResponse.sitter_id}, {reload: true,  notify: true});
               });
             }
+          }
+          if(!found){
+            console.log("No match found!");
+            $('<p>').html('Sorry, that user does not exist.').appendTo('.search');
           }
         });
       }

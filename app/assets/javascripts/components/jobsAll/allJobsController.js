@@ -24,8 +24,8 @@
                     return "No";
                 }
             };
-            this.jobClicked = function() {
-              console.log('clicked');
+            this.jobClicked = function(job) {
+              console.log(job);
               // allJobsAPI.jobDetails(jobId).success(function(response) {
               //   $state.go('jobs-list-details', {babysitterParam: {sitter: response}, sitterId: jobId}, {reload: true});
               // });
