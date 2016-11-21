@@ -7,7 +7,7 @@
     <span>></span>
     <h2>{{babysitter.user.first_name}}</h2>
     <h2>{{babysitter.user.last_name}}</h2>
-    <input ng-keyup="$event.keyCode == 13 ? babysitter.searchUser(babysitter.userInput) : null" type="text" ng-model="babysitter.userInput">
+    <input ng-keyup="$event.keyCode == 13 ? babysitter.searchUser(babysitter.userInput) : null" type="text" ng-model="babysitter.userInput" placeholder="Search for Babysitter">
   </div>
   <!-- ******************************
    Drop Down County Field

@@ -1,9 +1,10 @@
 angular.module('app')
-    .controller('dashboardController', ["dashboardAPI", "$http", "$state", "$stateParams", function (dashboardAPI, $http, $state, $stateParams) {
+    .controller('dashboardController', ["dashboardAPI", "$http", "$state", "$stateParams", "newJobsAPI", function (dashboardAPI, $http, $state, $stateParams, newJobsAPI) {
       /*************************
       Variables
       *************************/
       var self = this;
+
       /*************************
       Loading in dashboard endpoints
       *************************/
@@ -46,11 +47,31 @@ angular.module('app')
 
       *************************/
       this.getDate = function(data) {
-        var objectDate = data;
-        var convertDate = new Date(objectDate);
-        return newDate = convertDate.getMonth() + '/' + convertDate.getDate() + '/' + convertDate.getFullYear();
+        var myDays = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug", "Sept", "Oct", "Nov", "Dec"];
+        var date = new Date(data);
+        var month = date.getMonth();
+        var day = date.getDate();
+        var hours = date.getHours();
+        var minutes = date.getMinutes();
+        var ampm = hours >= 12 ? 'PM' : 'AM';
+        hours = hours % 12;
+        hours = hours ? hours : 12; // the hour '0' should be '12'
+        minutes = minutes < 10 ? '0'+minutes : minutes;
+        var strTime = hours + ':' + minutes + ampm;
+        var fullDate;
+
+        var now = new Date();
+        var nowDay = now.getDate();
+
+        for(var i = 0; i <= myDays.length; i++) {
+          if(myDays[i] === myDays[month]) {
+            if(day === nowDay) {
+              console.log('working');
+              return fullDate = myDays[month] + ' ' + day + ' at ' + strTime;
+            }
+          }
+        }
       }
-      this.getDate()
 
 
   }]);
