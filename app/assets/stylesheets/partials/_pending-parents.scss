@@ -26,8 +26,12 @@
   }
   span.pending-parent-profile {
     background: $yellow !important;
-    text-shadow: 1px 1px 1px #a58741;
+    text-shadow: 1px 1px 1px #a58741 !important;
     cursor: pointer;
+    &:hover {
+      cursor: pointer;
+      background-color: #e2a338 !important;
+    }
   }
 }
 
@@ -38,7 +42,8 @@ pending-parent-info {
 }
 
 pending-parent-info-form {
-  input.approve {
+  input.approve,
+  button.delete {
     background: #efba59;
     border-radius: 4px;
     border: transparent;
@@ -51,8 +56,9 @@ pending-parent-info-form {
     margin: 10px 0 0 26%;
     padding: 7px 10px;
     width: 65%;
-  }
-  button.delete {
-    text-shadow: 1px 1px 1px #a58741;
+    &:hover {
+      cursor: pointer;
+      background-color: #e2a338;
+    }
   }
 }

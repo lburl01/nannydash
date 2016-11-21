@@ -45,10 +45,19 @@
       color: white;
       padding: 5px 10px;
       border-radius: 7px;
+      &:hover {
+        cursor: pointer;
+        background-color: #e2a338 !important;
+      }
     }
   }
 }
-
+.key-info button{
+  &:hover {
+    cursor: pointer;
+    background-color: #e2a338 !important;
+  }
+}
 .message {
   display: flex;
   justify-content: flex-end;
