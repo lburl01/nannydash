@@ -44,6 +44,8 @@ Rails.application.routes.draw do
   get 'messages/new' => 'messages#new'
   post 'messages/new' => 'messages#create'
 
+  get 'twilio/send_job' => 'twilio#job_alert'
+
   resources :conversations do
     resources :messages
   end
