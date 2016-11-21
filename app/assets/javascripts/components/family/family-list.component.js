@@ -20,10 +20,17 @@
         ctrl.selectedCounty = "";
         ctrl.dropIt = false;
         ctrl.counties = [];
+        ctrl.columnSort = "last_name";
+        ctrl.reverse = false;
 
         familyAPI.countyList().then(function(response) {
           ctrl.counties = response;
         });
+      };
+
+      ctrl.sortBy = function(columnSort) {
+        ctrl.columnSort = columnSort;
+        ctrl.reverse = !ctrl.reverse;
       };
 
       ctrl.selectCounty = function(county) {

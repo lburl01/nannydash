@@ -12,7 +12,18 @@
     });
 
     function PendingBabysittersList() {
+      var ctrl = this;
       
+      ctrl.$onInit = function() {
+        ctrl.reverse = false;
+        ctrl.columnSort = "";
+
+        ctrl.sortBy = function(columnSort) {
+          ctrl.columnSort = columnSort;
+          ctrl.reverse = !ctrl.reverse;
+        };
+
+      };
     }
 
 })();

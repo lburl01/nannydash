@@ -7,30 +7,19 @@
     </div>
     <div class="list">
       <div class="title-container dropdown-container">
-
-        <div class="date">
-          <i ng-class="{'arrowActive': $ctrl.dropIt}" ng-click="$ctrl.dropdown()" class="fa fa-angle-down"></i>
-          <div ng-show="$ctrl.dropIt" class="date">
-            <li ng-click="$ctrl.selectCounty('')">All Counties</li>
-            <ul ng-repeat="county in $ctrl.counties">
-              <li ng-click="$ctrl.selectCounty(county)">{{date}}</li>
-            </ul>
-          </div>
-        </div>
-        <h4>Date</h4>
       </div>
 
     <div class="family-table">
       <ul class="table-head" id="new-jobs-header">
-        <li>Parent</li>
-        <li>Job Date</li>
-        <li>Posted</li>
-        <li>Notes</li>
+        <li ng-click=$ctrl.sortBy('last_name')>Parent</li>
+        <li ng-click=$ctrl.sortBy('date')>Job Date</li>
+        <li ng-click=$ctrl.sortBy('start_time')>Posted</li>
+        <li ng-click=$ctrl.sortBy('notes')>Notes</li>
         <li>View Job</li>
       </ul>
 
       <div class="table-body">
-        <ul dir-paginate="job in $ctrl.jobs | filter: searchBox | filter: $ctrl.selectedCounty |itemsPerPage: 5">
+        <ul dir-paginate="job in $ctrl.jobs | orderBy: $ctrl.columnSort : $ctrl.reverse | filter: searchBox | filter: $ctrl.selectedCounty |itemsPerPage: 5">
           <new-job ng-click="$ctrl.select()" job="job"></new-job>
         </ul>
       </div>
