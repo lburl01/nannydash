@@ -57,6 +57,11 @@ angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPag
             templateUrl: 'messages.html',
             controller: 'messagesController as messages'
 
+        }).state('new-message', {
+            url: '/new-message',
+            templateUrl: 'message-new.html',
+            controller: 'newMessageController as newMessage'
+
         }).state('familyProfile', {
             url: '/family/profile/:familyId',
             component: 'familyProfile',

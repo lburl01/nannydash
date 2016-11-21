@@ -43,7 +43,7 @@
     <input id="email" type="text" ng-model="babysitter.user.email" ng-model-options="{ updateOn: 'blur' }" ng-change="babysitter.userInputClick('email', babysitter.user.email, babysitter.user.sitter_id)">
     <!-- Birthday Field -->
     <label for="birthday">Birthday:</label>
-    <input id="birthday" type="text" ng-model="babysitter.user.birthday" ng-model-options="{ updateOn: 'blur' }" ng-change="babysitter.userInputClick('birthday', babysitter.user.birthday, babysitter.user.sitter_id)">
+    <input id="birthday" type="text" ng-model="babysitter.user.birthday" ng-model-options="{ updateOn: 'blur' }" ng-change="babysitter.userInputClick('birthday', babysitter.user.birthday, babysitter.user.sitter_id); babysitter.calculateAge();">
     <!-- Street Field -->
     <label for="street">Street:</label>
     <input id="street" type="text" ng-model="babysitter.user.street" ng-model-options="{ updateOn: 'blur' }" ng-change="babysitter.userInputClick('street', babysitter.user.street, babysitter.user.sitter_id)">
@@ -96,7 +96,7 @@
     <input id="rate" type="text" ng-model="babysitter.user.hourly_rate" ng-model-options="{ updateOn: 'blur' }" ng-change="babysitter.userInputClick('hourly_rate', babysitter.user.hourly_rate, babysitter.user.sitter_id)">
     <!-- Age Field -->
     <label for="birthday">Age:</label>
-    <input id="birthday" type="text" ng-model="babysitter.age">
+    <input id="birthday" type="text" ng-model="babysitter.age" disabled>
     <!-- Joined Field -->
     <label for="joined">Joined:</label>
     <input id="joined" type="text" ng-model="babysitter.getDate(babysitter.user.joined)" ng-model-options="{ updateOn: 'blur' }" ng-change="babysitter.userInputClick('joined', babysitter.user.joined, babysitter.user.sitter_id)">

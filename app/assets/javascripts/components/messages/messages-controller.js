@@ -5,4 +5,8 @@ angular.module('app')
       *************************/
       var self = this;
 
+      this.messageClick = function() {
+        $state.go('new-message');
+      }
+
     }]);

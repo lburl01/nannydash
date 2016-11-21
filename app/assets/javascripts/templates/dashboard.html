@@ -74,13 +74,13 @@
     <table>
       <tr>
         <th>From</th>
-        <th>Message</th>
+        <th>Subject</th>
         <th>Read?</th>
       </tr>
-      <tr>
-        <td>Mary Jane</td>
-        <td>"Hey there, did you get"</td>
-        <td>7:00PM</td>
+      <tr ng-repeat="person in dashboard.messages">
+        <td>{{person.from}}</td>
+        <td>{{person.subject}}</td>
+        <td>{{person.is_read}}</td>
       </tr>
     </table>
   </section>

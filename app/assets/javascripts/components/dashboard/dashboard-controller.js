@@ -12,6 +12,7 @@ angular.module('app')
         self.application = response.applications
         self.assignments = response.assignments
         self.messages = response.messages;
+        console.log(self.messages);
         self.openJobs = response.open_jobs;
       }, function(response) {
         alert('Failed');

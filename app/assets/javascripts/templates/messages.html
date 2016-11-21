@@ -6,6 +6,10 @@
   <div class="list">
     <div class="title-container">
       <h4>Total: 10</h4>
+      <div ng-click="messages.messageClick()" class="message">
+        <i class="fa fa-plus-circle"></i>
+        <h4>New Message</h4>
+      </div>
     </div>
     <table>
       <tr>
@@ -14,7 +18,7 @@
         <th>Sent</th>
         <th>Replied?</th>
       </tr>
-      <!-- <tr ng-click="babysitters.userClick(person)" dir-paginate="person in babysitters.babysitters | itemsPerPage: babysitters.usersPerPage">
+      <!-- <tr ng-click="messages.userClick(person)" dir-paginate="person in messages.babysitters | itemsPerPage: babysitters.usersPerPage">
         <td>{{person.from}}</td>
         <td>{{person.message}}</td>
         <td>{{person.sent}}</td>

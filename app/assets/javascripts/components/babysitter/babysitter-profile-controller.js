@@ -15,7 +15,6 @@ angular.module('app')
       Verifying Certifications
       *************************/
       this.addCerts = function() {
-        console.log('in');
         $('<div>').attr('class', 'new-cert-container').appendTo('.cert');
         $('<input>').attr('id', 'cpr').appendTo('.new-cert-container');
         $('<span>').html('-').appendTo('.new-cert-container');
@@ -48,7 +47,8 @@ angular.module('app')
       Convert Strings
       *************************/
       this.convertRate = function(rate) {
-        return parseFloat(rate).toFixed(2);
+        console.log(Number(rate).toFixed(2));
+        return Number(rate).toFixed(2);
       }
       /*************************
       When user hits 'submit' object will be patched to database
@@ -57,6 +57,7 @@ angular.module('app')
         self.convertRate(value);
         self.updatedBabysitters['id'] = sitter_id;
         var updatedUser = self.updatedBabysitters[key] = value;
+        console.log(self.updatedBabysitters);
       }
       /*************************
       Calculating age
@@ -93,7 +94,6 @@ angular.module('app')
             }
           }
           if(!found){
-            console.log("No match found!");
             $('<p>').html('Sorry, that user does not exist.').appendTo('.search');
           }
         });
