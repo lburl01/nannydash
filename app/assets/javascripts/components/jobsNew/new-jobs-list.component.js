@@ -12,5 +12,17 @@
     });
 
     function NewJobsController(newJobsAPI) {
+      var ctrl = this;
+
+      ctrl.$onInit = function() {
+        ctrl.columnSort = "last_name";
+        ctrl.reverse = "true";
+
+        ctrl.sortBy = function(columnSort) {
+          ctrl.columnSort = columnSort;
+          ctrl.reverse = !ctrl.reverse;
+        };
+
+      };
     }
 })();
