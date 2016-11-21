@@ -53,7 +53,7 @@
       <input type="text" name="posted" value="" ng-model="$ctrl.job.date_posted" ng-change="$ctrl.updateCurrent( 'date_posted', $ctrl.job.date_posted)">
 
       <input name="save" ng-click="$ctrl.save($ctrl.jobId)" class="save" type="submit" value="Save Changes" />
-      <button ui-sref="family" ng-click="$ctrl.delete($ctrl.jobId)" class="delete" type="button">Delete Job</button>
+      <button ng-click="$ctrl.delete($ctrl.jobId)" class="delete" type="button">Delete Job</button>
     </section>
   </div>
 </div>

@@ -1,6 +1,5 @@
 class JobsController < ApplicationController
   skip_before_action :verify_authenticity_token
-  before_action :authenticate_user!
 
   def index
     @jobs = Job.get_assigned_jobs
