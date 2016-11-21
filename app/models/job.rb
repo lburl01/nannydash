@@ -3,7 +3,7 @@ class Job < ApplicationRecord
   belongs_to :assignment, :foreign_key => :sitter_id, class_name: 'User', optional: true
 
   def self.get_assigned_jobs
-    response = Job.where(is_deleted: false).where(is_assigned: true).all
+    response = Job.where( { is_deleted: false, is_assigned: true } ).all
 
     @jobs = []
 
@@ -25,7 +25,7 @@ class Job < ApplicationRecord
   end
 
   def self.get_new_jobs
-    response = Job.where({is_deleted: false, is_assigned: false}).all
+    response = Job.where( { is_deleted: false, is_assigned: false } ).all
 
     @new_jobs = []
 
@@ -45,7 +45,7 @@ class Job < ApplicationRecord
   end
 
   def self.get_five_newest_jobs
-    @response = Job.where({confirmed: false, is_assigned: false, is_deleted: false}).order(created_at: :desc).limit(5)
+    @response = Job.where( { confirmed: false, is_assigned: false, is_deleted: false } ).order(created_at: :desc).limit(5)
 
     @newest_jobs = []
 
@@ -60,7 +60,7 @@ class Job < ApplicationRecord
   end
 
   def self.get_five_open_jobs
-    @response = Job.where({confirmed: true, is_assigned: true, is_deleted: false}).order(created_at: :desc).limit(5)
+    @response = Job.where( { confirmed: true, is_assigned: true, is_deleted: false } ).order(created_at: :desc).limit(5)
 
     @upcoming_jobs = []
 
@@ -90,7 +90,7 @@ class Job < ApplicationRecord
                  "date_posted" => job.created_at.strftime("%m/%d/%Y %I:%M %p"),
                  "notes" => job.notes
                }
-               
+
     if job.sitter_id
       @new_job["sitter_name"] = "#{job.assignment.first_name} #{job.assignment.last_name}"
       @new_job["sitter_id"] = job.sitter_id

@@ -10,6 +10,7 @@ angular.module('app')
       this.firstAid = "First-Aid Certified";
       this.userInput = false;
       this.updatedBabysitters = {};
+      this.userInput = "";
       /*************************
       Verifying Certifications
       *************************/
@@ -33,6 +34,17 @@ angular.module('app')
         $state.go('babysitters');
       }
       /*************************
+      delete certification
+      *************************/
+      this.deleteCert = function(key, sitter_id, event) {
+        self.updatedBabysitters['id'] = sitter_id;
+        var updatedUser = self.updatedBabysitters[key] = false;
+        babysitterDirectoryAPI.updateUser(sitter_id, self.updatedBabysitters);
+        $(event).remove();
+        console.log(self.updatedBabysitters);
+      }
+
+      /*************************
       Convert Strings
       *************************/
       this.convertRate = function(rate) {
@@ -45,7 +57,6 @@ angular.module('app')
         self.convertRate(value);
         self.updatedBabysitters['id'] = sitter_id;
         var updatedUser = self.updatedBabysitters[key] = value;
-        console.log(updatedUser);
       }
       /*************************
       Calculating age
@@ -67,4 +78,21 @@ angular.module('app')
         return newDate = convertDate.getMonth() + '/' + convertDate.getDate() + '/' + convertDate.getFullYear();
       }
       this.getDate()
+      /*************************
+      Search user in input search field
+      *************************/
+      this.searchUser = function(user) {
+        babysitterDirectoryAPI.list().success(function(response) {
+          console.log(response.sitters);
+          for(var i= 0; i < response.sitters.length; i++) {
+            if(response.sitters[i].first_name === user || response.sitters[i].last_name === user) {
+
+              babysitterDirectoryAPI.userProfile(response.sitters[i].sitter_id).success(function(newResponse) {
+                console.log(newResponse.sitter_id);
+                $state.go('babysitter-profile', {babysitterParam: {sitter: newResponse}, sitterId: newResponse.sitter_id}, {reload: true,  notify: true});
+              });
+            }
+          }
+        });
+      }
   }]);

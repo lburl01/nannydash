@@ -3,10 +3,14 @@
     angular.module('app')
         .controller('allJobsController', ['$state', 'allJobsAPI', function( $state, allJobsAPI ) {
             var self = this;
+
+
+
             allJobsAPI.jobsList().success(function(response) {
                 self.totalJobs = response;
-                console.log(response);
+                console.log(self.totalJobs);
             });
+
             this.name = function(firstName, lastName) {
                 return firstName + " " + lastName;
             };
@@ -20,13 +24,11 @@
                     return "No";
                 }
             };
+            this.jobClicked = function() {
+              console.log('clicked');
+              // allJobsAPI.jobDetails(jobId).success(function(response) {
+              //   $state.go('jobs-list-details', {babysitterParam: {sitter: response}, sitterId: jobId}, {reload: true});
+              // });
+            };
         }]);
-        /*************************
-        When user clicks on <tr>, they go to the the unique job details page
-        *************************/
-        this.jobClicked = function(jobId) {
-          allJobsAPI.jobDetails(jobId).success(function(response) {
-            $state.go('jobs-list-details', {babysitterParam: {sitter: response}, sitterId: jobId}, {reload: true});
-          });
-        };
 })();
