@@ -3,22 +3,21 @@ class TwilioController < ApplicationController
 
   def job_alert
     @text_message = "
-     This comes from TwilioController
-     Go to: https://nannydash.herokuapp.com for more details."
+      It works! From TwilioController
+      Go to: https://nannydash.herokuapp.com for more details."
 
-    begin
-      #  @recipient = User.find(params[:id])
-      #  phone_number = @recipient.phone_number
-      phone_number = '+18433278047'
-      send_message(phone_number, @text_message)
-      flash[:success] = "Babysitters will be notified."
-    rescue
-      flash[:alert] = "Something when wrong."
-    end
+    #  @recipient = User.find(params[:id])
+    #  phone_number = sanitize("@recipient.phone_number")
+    phone_number = ENV['SAMPLE_NUMBER']
+    send_message(phone_number, @text_message)
 
   end
 
   private
+
+    def sanitize(number)
+      "+1" + number.gsub(/^1|\D/, "")
+    end
 
     def send_message(phone_number, text_message)
 
