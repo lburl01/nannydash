@@ -1,4 +1,7 @@
 #pending-sitter-list {
+  .table-head li {
+    cursor: pointer;
+  }
   .panel-heading {
     display: flex;
   }
@@ -20,9 +23,11 @@
       border-radius: 7px;
       &.green {
         background: $green;
+        text-shadow: 1px 1px 1px #4b775d;
       }
       &.red {
         background: $red;
+        text-shadow: 1px 1px 1px #9a463e;
       }
     }
   }
@@ -42,5 +47,17 @@
       border-radius: 7px;
     }
   }
+}
 
+.message {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 10px;
+  span {
+    background: url(asset_path('messages.svg'));
+    background-size: cover;
+    height: 20px;
+    width: 20px;
+    color: white;
+  }
 }

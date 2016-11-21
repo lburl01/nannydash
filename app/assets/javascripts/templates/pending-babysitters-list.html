@@ -3,7 +3,7 @@
 
     <div class="search">
       <h1>Pending Babysitters</h1>
-      <input type="text" ng-model="searchBox">
+      <input type="text" ng-model="searchBox" placeholder="Search">
     </div>
     <div class="list">
       <div class="title-container dropdown-container">
@@ -22,16 +22,16 @@
 
     <div class="family-table" id="pending-sitter-list">
       <ul class="table-head">
-        <li>Babysitter</li>
-        <li>Age</li>
-        <li>Email</li>
-        <li>Certified</li>
-        <li>Applied</li>
+        <li ng-click=$ctrl.sortBy('last_name')>Babysitter</li>
+        <li ng-click=$ctrl.sortBy('$ctrl.calculateAge($ctrl.sitter.birthday)')>Age</li>
+        <li ng-click=$ctrl.sortBy('email')>Email</li>
+        <li ng-click=$ctrl.sortBy('certified')>Certified</li>
+        <li ng-click=$ctrl.sortBy('created_at')>Applied</li>
         <li>Application</li>
       </ul>
 
       <div class="table-body">
-        <ul dir-paginate="sitter in $ctrl.babysitters | filter: searchBox | filter: $ctrl.selectedCounty |itemsPerPage: 5">
+        <ul dir-paginate="sitter in $ctrl.babysitters | orderBy: $ctrl.columnSort : $ctrl.reverse | filter: searchBox | filter: $ctrl.selectedCounty |itemsPerPage: 5">
           <pending-babysitter sitter="sitter"></pending-babysitter>
         </ul>
       </div>

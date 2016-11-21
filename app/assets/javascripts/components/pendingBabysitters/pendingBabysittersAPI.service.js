@@ -5,12 +5,18 @@
 
       list: function() {
         return $http.get("/api/v1/sitters/pending").then(function(response) {
-          return response.data;
+          return response.data.sitters;
         }, function() {
           alert("Failed");
         });
       },
-
+      countyList: function() {
+        return $http.get("/api/v1/sitters/pending.json").then(function(response) {
+          return response.data.counties;
+        }, function() {
+          alert('Failed');
+        });
+      },
       pendingInfo: function(id) {
         return $http.get("/api/v1/sitter/" + id + ".json").then(function(response) {
           return response.data;

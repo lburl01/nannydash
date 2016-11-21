@@ -169,10 +169,30 @@ class User < ApplicationRecord
 
   def self.get_pending_sitters
     pending_sitters = User.nanny.where( { active: true, is_deleted: false, approved: false } ).all
+
+    @all_counties = []
+
+    pending_sitters.each do |sitter|
+      @all_counties << sitter.county
+    end
+
+    @counties = @all_counties.uniq
+
+    @data = { "sitters" => pending_sitters, "counties" => @counties}
   end
 
   def self.get_pending_families
     pending_families = User.family.where( { active: true, is_deleted: false, approved: false } ).all
+
+    @all_counties = []
+
+    pending_families.each do |family|
+      @all_counties << family.county
+    end
+
+    @counties = @all_counties.uniq
+
+    @data = { "families" => pending_families, "counties" => @counties}
   end
 
   private

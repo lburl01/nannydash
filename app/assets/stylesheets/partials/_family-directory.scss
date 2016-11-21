@@ -22,7 +22,6 @@ div.list-wrapper {
       cursor: default !important;
 
       li {
-        cursor: default !important;
         font-weight: 400;
         font-size: 16px;
         text-align: left;
@@ -65,8 +64,10 @@ div.list-wrapper {
         color: white;
         padding: 5px 10px;
         border-radius: 7px;
+        text-shadow: 1px 1px 1px #4b775d;
         &.inactive {
           background: $red;
+          text-shadow: 1px 1px 1px #9a463e;
         }
       }
     }

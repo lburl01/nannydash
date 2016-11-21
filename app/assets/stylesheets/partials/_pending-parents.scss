@@ -1,4 +1,12 @@
 .pending-parents {
+
+  .table-head li {
+    cursor: pointer !important;
+    &:nth-child(5) {
+      cursor: default !important;
+    }
+  }
+
   li {
     cursor: default !important;
     width: 15%;
