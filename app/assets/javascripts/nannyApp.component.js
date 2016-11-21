@@ -3,7 +3,7 @@
   angular
     .module('nannyApp')
     .component('nannyApp', {
-      templateUrl: 'nanny-app.html',
+      templateUrl: 'nanny/nanny-app.html',
       controller: [nannyAppController]
   });
 

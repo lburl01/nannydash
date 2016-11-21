@@ -3,7 +3,7 @@
   angular
     .module('familyApp')
     .component('familyApp', {
-      templateUrl: 'family-app.html',
+      templateUrl: 'family/family-app.html',
       controller: [familyAppController]
   });
 
