@@ -42,7 +42,11 @@
       padding: 7px 10px;
       width: 100%;
       margin-top: 5px;
-      text-shadow: 1px 1px 1px #a58741
+      text-shadow: 1px 1px 1px #a58741;
+      &:hover {
+        cursor: pointer;
+        background-color: #e2a338;
+      }
     }
   }
 }
