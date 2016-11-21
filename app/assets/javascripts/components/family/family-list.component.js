@@ -20,10 +20,18 @@
         ctrl.selectedCounty = "";
         ctrl.dropIt = false;
         ctrl.counties = [];
+        ctrl.columnSort = "";
+        ctrl.reverse = true;
 
         familyAPI.countyList().then(function(response) {
           ctrl.counties = response;
         });
+      };
+
+      ctrl.sortBy = function(columnSort) {
+        console.log(columnSort);
+        ctrl.columnSort = columnSort;
+        ctrl.reverse = !ctrl.reverse;
       };
 
       ctrl.selectCounty = function(county) {

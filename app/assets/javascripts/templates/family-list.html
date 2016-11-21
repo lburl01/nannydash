@@ -22,15 +22,15 @@
 
     <div class="family-table">
       <ul class="table-head">
-        <li>First Name</li>
-        <li>Last Name</li>
-        <li>Email</li>
-        <li>About</li>
-        <li>Status</li>
+        <li ng-click=$ctrl.sortBy('first_name')>First Name</li>
+        <li ng-click=$ctrl.sortBy('last_name')>Last Name</li>
+        <li ng-click=$ctrl.sortBy('email')>Email</li>
+        <li ng-click=$ctrl.sortBy('about')>About</li>
+        <li ng-click=$ctrl.sortBy('active')>Status</li>
       </ul>
 
       <div class="table-body">
-        <ul dir-paginate="family in $ctrl.families | filter: searchBox | filter: $ctrl.selectedCounty |itemsPerPage: 5">
+        <ul dir-paginate="family in $ctrl.families | orderBy: $ctrl.columnSort : $ctrl.reverse | filter: searchBox | filter: $ctrl.selectedCounty |itemsPerPage: 5">
           <family ng-click="$ctrl.select()" family="family"></family>
         </ul>
       </div>
