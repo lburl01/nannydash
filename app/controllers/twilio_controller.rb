@@ -6,15 +6,15 @@ class TwilioController < ApplicationController
      This comes from TwilioController
      Go to: https://nannydash.herokuapp.com for more details."
 
-     begin
+    begin
       #  @recipient = User.find(params[:id])
       #  phone_number = @recipient.phone_number
-      phone_number = '+17049950579'
-       send_message(phone_number, @text_message)
-       flash[:success] = "Babysitters will be notified."
-     rescue
-       flash[:alert] = "Something when wrong."
-     end
+      phone_number = '+18433278047'
+      send_message(phone_number, @text_message)
+      flash[:success] = "Babysitters will be notified."
+    rescue
+      flash[:alert] = "Something when wrong."
+    end
 
   end
 
