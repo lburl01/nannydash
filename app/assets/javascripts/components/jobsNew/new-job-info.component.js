@@ -19,10 +19,13 @@
     };
 
     ctrl.updateCurrent = function(key, value) {
+      console.log(key);
+      console.log(value);
       ctrl.updateNewJob[key] = value;
     };
 
     ctrl.save = function(id) {
+      console.log(ctrl.updateNewJob);
       newJobsAPI.saveJob(id, ctrl.updateNewJob).then(function() {
         console.log("Saved: " + ctrl.updateNewJob);
       });
