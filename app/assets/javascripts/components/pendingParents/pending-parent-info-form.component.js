@@ -7,22 +7,24 @@
       bindings: {
         info: '<'
       },
-      controller: ['pendingParentsAPI', '$scope', PendingParentInfoForm]
+      controller: ['pendingParentsAPI', '$scope', '$state', PendingParentInfoForm]
     });
 
-    function PendingParentInfoForm(pendingParentsAPI, $scope) {
+    function PendingParentInfoForm(pendingParentsAPI, $scope, $state) {
       var ctrl = this;
 
       ctrl.handleToggle = function(id) {
         pendingParentsAPI.toggleApprove(id).then( function() {
           ctrl.info.active = !ctrl.info.active;
           $scope.$emit('updateCount', {});
+          $state.go('pendingParents');
         });
       };
 
       ctrl.delete = function(id) {
         pendingParentsAPI.deleteParent(id).then(function() {
-          console.log('success! deleted');
+          $scope.$emit('updateCount', {});
+          $state.go('pendingParents');
         });
       };
     }

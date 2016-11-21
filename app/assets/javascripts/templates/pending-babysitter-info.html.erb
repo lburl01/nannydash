@@ -94,7 +94,7 @@
     <label for="joined">Joined:</label>
     <input type="text" name="name" ng-value="$ctrl.info.joined | date: 'MM/dd/yyyy'">
 
-    <button ng-click="babysitter.updateBabysitter($ctrl.info.sitter_id)" type="button">Approve</button>
-    <button ng-click="babysitter.updateBabysitter($ctrl.info.sitter_id)" type="button">Delete</button>
+    <button ng-click="$ctrl.approve($ctrl.info.sitter_id)" type="button">Approve</button>
+    <button ng-click="$ctrl.delete($ctrl.info.sitter_id)" type="button">Delete</button>
   </section>
 </div>
