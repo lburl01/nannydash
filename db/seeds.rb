@@ -148,16 +148,6 @@ end
   end
 
 Job.create!(family_id: 6,
-              sitter_id: 26,
-              date: Date.today,
-              start_time: Time.now,
-              end_time: 3.hours.from_now,
-              notes: Faker::Hipster.sentence(3, true, 4),
-              confirmed: false,
-              is_deleted: false,
-              is_assigned: true)
-
-Job.create!(family_id: 7,
               sitter_id: 25,
               date: Date.today,
               start_time: Time.now,
@@ -167,8 +157,18 @@ Job.create!(family_id: 7,
               is_deleted: false,
               is_assigned: true)
 
-Job.create!(family_id: 8,
+Job.create!(family_id: 7,
               sitter_id: 24,
+              date: Date.today,
+              start_time: Time.now,
+              end_time: 3.hours.from_now,
+              notes: Faker::Hipster.sentence(3, true, 4),
+              confirmed: false,
+              is_deleted: false,
+              is_assigned: true)
+
+Job.create!(family_id: 8,
+              sitter_id: 23,
               date: Date.today,
               start_time: Time.now,
               end_time: 3.hours.from_now,

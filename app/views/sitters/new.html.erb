@@ -1,19 +1,13 @@
 <div id="sitter-register-page">
     <header class="header-bar">
-        <h1>nanny<span class="italic">dash</span>
-        </h1>
-        <h2>A childcare dashboard for agencies, families and sitters.</h2>
-        <a href="/">home</a>
-        <a href="/agency/new">register</a>
-        <a href="/users/sign_in">login</a>
+        <h1 ui-sref="/">nanny<span class="italic">dash</span></h1>
+        <h2>Registration</h2>
     </header>
 
     <% if @sitter.errors %>
     <div><%= @sitter.errors.full_messages.to_sentence %></div>
     <% end %>
     <main class="register-area">
-
-        <h3 class="register-header-text">Register</h3>
 
         <%= form_for(@sitter, url: sitter_new_path, html: { multipart: true }) do |f| %>
 
@@ -85,57 +79,53 @@
           <span class="certification-form">
             <div class="field">
               <%= f.check_box :cpr_certification, {}, "true", "false" %>
-              <%= f.label :cpr_certification %>
+              <%= f.label :cpr_certification, "CPR Certification" %>
             </div>
 
             <div class="field">
               <%= f.check_box :first_aid_certification, {}, "true", "false" %>
-              <%= f.label :first_aid_certification %>
+              <%= f.label :first_aid_certification, "First Aid Certification" %>
             </div>
           </span>
         </div>
 
         <h3 class="section-title">Recommendations</h3>
         <div class="section-border">
+          <%= f.label :recommendation_one_name, "First" %>
           <span class="recommendation-section">
-          <div class="field">
-            <%= f.label :recommendation_one_name %>
-            <%= f.text_field :recommendation_one_name, placeholder: "Full Name" %>
-          </div>
-
-          <div class="field">
-            <%= f.label :recommendation_one_email %>
-            <%= f.email_field :recommendation_one_email, placeholder: "Email Address" %>
-          </div>
+            <div class="field">
+              <%= f.text_field :recommendation_one_name, placeholder: "Full Name" %>
+            </div>
+            <div class="field">
+              <%= f.email_field :recommendation_one_email, placeholder: "Email Address" %>
+            </div>
           </span>
 
+          <%= f.label :recommendation_one_name, "Second" %>
           <span class="recommendation-section">
-          <div class="field">
-            <%= f.label :recommendation_two_name %>
-            <%= f.text_field :recommendation_two_name, placeholder: "Full Name" %>
-          </div>
+            <div class="field">
+              <%= f.text_field :recommendation_two_name, placeholder: "Full Name" %>
+            </div>
 
-          <div class="field">
-            <%= f.label :recommendation_two_email %>
-            <%= f.email_field :recommendation_two_email, placeholder: "Email Address" %>
-          </div>
+            <div class="field">
+              <%= f.email_field :recommendation_two_email, placeholder: "Email Address" %>
+            </div>
           </span>
 
+          <%= f.label :recommendation_one_name, "Third" %>
           <span class="recommendation-section">
-          <div class="field">
-            <%= f.label :recommendation_three_name %>
-            <%= f.text_field :recommendation_three_name, placeholder: "Full Name" %>
-          </div>
+            <div class="field">
+              <%= f.text_field :recommendation_three_name, placeholder: "Full Name" %>
+            </div>
 
-          <div class="field">
-            <%= f.label :recommendation_three_email %>
-            <%= f.email_field :recommendation_three_email, placeholder: "Email Address" %>
-          </div>
+            <div class="field">
+              <%= f.email_field :recommendation_three_email, placeholder: "Email Address" %>
+            </div>
           </span>
         </div>
 
         <h3 class="section-title">Login Information</h3>
-        <div class="section-border">
+        <div class="section-border picture">
           <div class="field">
             <%= f.label :email %>
             <%= f.email_field :email, placeholder: "Email Address" %>
@@ -146,13 +136,17 @@
             <%= f.password_field :password %>
           </div>
 
+          <%= f.label :picture, "Upload Profile Picture" %>
+          <%= image_tag("upload.svg", :alt => "Preview image on landing page") %>
+
           <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png,image/jpg' %>
+
           <%= f.hidden_field :role, value: "nanny" %>
         </div>
 
 
         <section class="bottom-register-form">
-            <%= f.submit "Join", class: "btn btn-primary" %>
+            <%= f.submit "Register", class: "btn btn-primary" %>
         </section>
 
         <% end %>
