@@ -15,7 +15,7 @@ RSpec.describe JobsController, type: :controller do
       get :index
 
       json = JSON.parse(response.body)
-
+      
       expect(json.length).to eq 1
     end
   end
@@ -27,7 +27,16 @@ RSpec.describe JobsController, type: :controller do
 
       json = JSON.parse(response.body)
 
-      expect(json.length).to eq 1
+      expect(json[0]["job_id"]).to eq 1
+    end
+
+    it 'will not return assigned jobs' do
+
+      get :get_new_jobs
+
+      json = JSON.parse(response.body)
+
+      expect(json[0]["job_id"]).to_not eq 2
     end
   end
 
