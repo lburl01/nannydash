@@ -7,9 +7,8 @@ class Message < ApplicationRecord
 
   validates :subject, length: { maximum: 255 }
 
-  # need to go back and make this specific to the user logged in (only their new messages)
-  def self.get_latest_messages
-    response = Message.order(created_at: :desc).limit(5)
+  def self.get_latest_messages(current_user)
+    response = Message.where(recipient_id: current_user.id).order(created_at: :desc).limit(5)
 
     @messages = []
 
@@ -23,15 +22,8 @@ class Message < ApplicationRecord
 
   end
 
-# need to go back and make this specific to the user logged in (only their new messages)
-  def self.get_new_messages_count
-    new_messages = Message.where( { is_deleted: false, is_read: false } ).all.count
-
-    if new_messages == 0
-      return 0
-    else
-      return new_messages
-    end
+  def self.get_new_messages_count(current_user)
+    new_messages = Message.where( { recipient_id: current_user.id, is_deleted: false, is_read: false } ).all.count
 
   end
 
