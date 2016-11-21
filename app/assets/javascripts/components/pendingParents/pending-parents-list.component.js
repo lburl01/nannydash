@@ -12,7 +12,17 @@
     });
 
     function PendingParentsController(pendingParentsAPI) {
+      var ctrl = this;
 
+      ctrl.$onInit = function() {
+        ctrl.columnSort = "last_name";
+        ctrl.reverse = false;
+
+        ctrl.sortBy = function(columnSort) {
+          ctrl.columnSort = columnSort;
+          ctrl.reverse = !ctrl.reverse;
+        };
+      };
     }
 
 })();
