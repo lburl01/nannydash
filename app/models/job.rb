@@ -86,12 +86,14 @@ class Job < ApplicationRecord
 
     @new_job = { "name" => family_name, "family_id" => job.family_id,
                  "phone" => job.posted_job.phone_number,
-                 "email" => job.posted_job.email, "street" => job.posted_job.street,
+                 "county" => job.posted_job.county,
+                 "email" => job.posted_job.email,
+                 "street" => job.posted_job.street,
                  "city" => job.posted_job.city, "state" => job.posted_job.state,
                  "zip_code" => job.posted_job.zip_code, "date" => job.date,
                  "date_posted" => job.created_at.strftime("%m/%d/%Y %I:%M %p"),
-                 "notes" => job.notes
-               }
+                 "notes" => job.notes, "job_id" => job.id,
+                 "confirmed" => job.confirmed, "is_assigned" => job.is_assigned}
 
     if job.sitter_id
       @new_job["sitter_name"] = "#{job.assignment.first_name} #{job.assignment.last_name}"
