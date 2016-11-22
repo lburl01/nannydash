@@ -59,7 +59,8 @@ class Message < ApplicationRecord
                          "recipient_name" => recipient_name,
                          "sender_id" => message.user_id,
                          "sender_name" => sender_name,
-                         "subject" => message.subject
+                         "subject" => message.subject,
+                         "created_at" => message.created_at.strftime("%m/%d/%Y %I:%M %p")
                         }
   end
 

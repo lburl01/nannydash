@@ -21,7 +21,8 @@ class Conversation < ApplicationRecord
 
       @conversations << { "sender_id" => convo.sender_id, "convo_id" => convo.id,
         "subject" => convo.subject, "recipient_id" => convo.recipient_id,
-        "created_at" => convo.created_at, "sender_name" => sender_name,
+        "created_at" => convo.created_at.strftime("%m/%d/%Y %I:%M %p"),
+        "sender_name" => sender_name,
         "recipient_name" => recipient_name}
     end
 
@@ -37,7 +38,8 @@ class Conversation < ApplicationRecord
     @conversation = { "id" => convo.id, "subject" => convo.subject,
                       "sender_id" => convo.sender_id, "sender_name" => sender_name,
                       "recipient_id" => convo.recipient_id,
-                      "recipient_name" => recipient_name}
+                      "recipient_name" => recipient_name,
+                      "created_at" => convo.created_at.strftime("%m/%d/%Y %I:%M %p")}
   end
 
   private
