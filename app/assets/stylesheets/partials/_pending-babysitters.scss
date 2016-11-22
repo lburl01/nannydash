@@ -94,9 +94,9 @@ span.pending-sitter-buttons {
     }
   }
 }
-.message {
-  // display: flex;
-  // justify-content: flex-end;
+.envelope {
+  display: flex;
+  justify-content: flex-end;
   padding-right: 10px;
   span {
     background: url(asset_path('messages.svg'));
