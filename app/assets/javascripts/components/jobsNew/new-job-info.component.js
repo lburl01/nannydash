@@ -14,18 +14,21 @@
     var ctrl = this;
     ctrl.jobId = $stateParams.jobId;
     ctrl.updateNewJob = {};
+    ctrl.visibility = false;
+    ctrl.deletedText = false;
+
+    ctrl.popup = function() {
+      ctrl.visibility = !ctrl.visibility;
+    };
 
     ctrl.$onInit = function() {
     };
 
     ctrl.updateCurrent = function(key, value) {
-      console.log(key);
-      console.log(value);
       ctrl.updateNewJob[key] = value;
     };
 
     ctrl.save = function(id) {
-      console.log(ctrl.updateNewJob);
       newJobsAPI.saveJob(id, ctrl.updateNewJob).then(function() {
         console.log("Saved: " + ctrl.updateNewJob);
       });
@@ -35,6 +38,7 @@
       newJobsAPI.deleteJob(id).then(function() {
         console.log("Deleted: Job ID " + id);
         $scope.$emit('updateCount', {});
+        ctrl.deletedText = true;
         $state.go('newJobs');
       });
     };

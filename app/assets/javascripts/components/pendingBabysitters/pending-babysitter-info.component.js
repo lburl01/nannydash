@@ -11,6 +11,11 @@
 
   function PendingBabysitterInfo(pendingBabysittersAPI, $scope, $state) {
     var ctrl = this;
+    ctrl.visibility = false;
+
+    ctrl.popup = function() {
+      ctrl.visibility = !ctrl.visibility;
+    };
 
     ctrl.calculateAge = function(birthday) {
       var ageDifMs = Date.now() - new Date(birthday);
@@ -27,6 +32,7 @@
 
     ctrl.delete = function(id) {
       pendingBabysittersAPI.deleteSitter(id).then(function() {
+        ctrl.visibility = false;
         $scope.$emit('updateCount', {});
         $state.go('pendingBabysitters');
       });

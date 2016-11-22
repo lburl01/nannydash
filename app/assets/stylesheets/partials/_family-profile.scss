@@ -172,96 +172,97 @@
       }
     }
   }
-  .popup {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s 0s, visibility 0s 0.3s;
-    position: fixed;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    background-color: rgba(86, 86, 86, 0.69);
-    &.visible {
-      opacity: 1;
-      visibility: visible;
-      transition: opacity 0.3s 0s, visibility 0s 0s;
-    }
+}
+
+// Popup Modal
+.visible .popup-container {
+  transform: translateY(0);
+}
+.popup {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s 0s, visibility 0s 0.3s;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(86, 86, 86, 0.69);
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s 0s, visibility 0s 0s;
   }
-  .popup-container {
-    transform: translateY(-40px);
-    transition-property: transform;
-    transition-duration: 0.3s;
-    position: relative;
-    width: 90%;
-    max-width: 400px;
-    background: #FFF;
-    border-radius: .25em .25em .4em .4em;
-    text-align: center;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    margin: 20% auto;
-    .close {
-      cursor: pointer;
-      height: 30px;
+}
+.popup-container {
+  transform: translateY(-40px);
+  transition-property: transform;
+  transition-duration: 0.3s;
+  position: relative;
+  width: 90%;
+  max-width: 400px;
+  background: #FFF;
+  border-radius: .25em .25em .4em .4em;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  margin: 20% auto;
+  .close {
+    cursor: pointer;
+    height: 30px;
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    width: 30px;
+    transition: all 0.4s ease-out;
+    &::before {
+      background-color: $grey;
+      content: '';
+      height: 3px;
+      left: 8px;
+      position: absolute;
+      top: 12px;
+      transform: rotate(45deg);
+      width: 14px;
+    }
+    &::after {
+      background-color: $grey;
+      content: '';
+      height: 3px;
       position: absolute;
       right: 8px;
-      top: 8px;
-      width: 30px;
-      transition: all 0.4s ease-out;
-
-      &::before {
-        background-color: $grey;
-        content: '';
-        height: 3px;
-        left: 8px;
-        position: absolute;
-        top: 12px;
-        transform: rotate(45deg);
-        width: 14px;
-      }
-      &::after {
-        background-color: $grey;
-        content: '';
-        height: 3px;
-        position: absolute;
-        right: 8px;
-        top: 12px;
-        transform: rotate(-45deg);
-        width: 14px;
-      }
-      &:hover {
-        transform: rotate(90deg);
-      }
+      top: 12px;
+      transform: rotate(-45deg);
+      width: 14px;
     }
-    p {
-      color: $grey;
-      padding: 3em 1em;
-    }
-    ul {
-      display: flex;
-      cursor: pointer;
-      li {
-        flex-grow: 1;
-        padding: 20px;
-        color: white;
-        &:first-child {
-          background: $green;
-          border-radius: 0 0 0 .25em;
-          &:hover {
-            background: lighten($green, 10%);
-          }
-        }
-        &:last-child {
-          background: $red;
-          border-radius: 0 0 .25em 0;
-          &:hover {
-            background: lighten($red, 10%);
-          }
-        }
-      }
+    &:hover {
+      transform: rotate(90deg);
     }
   }
-  .visible .popup-container {
-    transform: translateY(0);
+  p {
+    color: $grey;
+    padding: 3em 1em;
+  }
+  ul {
+    display: flex;
+    cursor: pointer;
+    li {
+      flex-grow: 1;
+      padding: 20px;
+      color: white;
+      &:first-child {
+        background: $green;
+        border-radius: 0 0 0 .25em;
+        &:hover {
+          background: lighten($green, 10%);
+        }
+      }
+      &:last-child {
+        background: $red;
+        border-radius: 0 0 .25em 0;
+        &:hover {
+          background: lighten($red, 10%);
+        }
+      }
+    }
   }
 }
