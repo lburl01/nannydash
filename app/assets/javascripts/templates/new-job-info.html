@@ -54,7 +54,7 @@
         <label for="name">Date Posted:</label>
         <input type="text" name="posted" value="" ng-model="$ctrl.job.date_posted" ng-change="$ctrl.updateCurrent( 'date_posted', $ctrl.job.date_posted)">
 
-        <button ng-click="$ctrl.popup()" class="delete" type="button">Delete Job</button>
+        <button ng-click="$ctrl.popup()" class="delete" ng-class="{'redDelete': $ctrl.visibility}" type="button">Delete Job</button>
       </section>
       </form>
     </fieldset>

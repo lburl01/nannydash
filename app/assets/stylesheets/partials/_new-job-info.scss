@@ -53,6 +53,10 @@
         background: $red !important;
         text-shadow: 1px 1px 1px darken($red, 30%);
       }
+      &.redDelete {
+        background: $red !important;
+        text-shadow: 1px 1px 1px darken($red, 30%);
+      }
     }
   }
 }
