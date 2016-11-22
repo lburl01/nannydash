@@ -26,7 +26,7 @@
   <textarea name="about" rows="4" cols="50" ng-model="$ctrl.profile.about" ng-model-options="{updateOn: 'blur'}" ng-change="$ctrl.updateCurrent( 'about', $ctrl.profile.about)">
   </textarea>
 
-  <input ng-click="$ctrl.save($ctrl.profile.family_id)" name="save" class="save" type="submit" value="Save Changes" />
+  <input ng-click="$ctrl.save($ctrl.profile.family_id)" name="save" class="save" type="submit" value="{{$ctrl.saveText}}" />
   <button ng-click="$ctrl.delete($ctrl.profile.family_id)" ui-sref="family" class="delete" type="button">Delete Account</button>
 
 </form>

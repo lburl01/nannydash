@@ -90,9 +90,10 @@
         color: #666;
         letter-spacing: .5px;
       }
+
       .save,
       button.delete {
-        background: $yellow;
+        background: #9E9E9E;
         border-radius: 4px;
         border: transparent;
         color: #fff;
@@ -103,6 +104,19 @@
         margin: 10px 0 0 26%;
         padding: 7px 10px;
         width: 65%;
+      }
+      .save {
+        &:hover {
+          background: $yellow;
+        }
+        &.updated {
+          content: "Saved!";
+        }
+      }
+      .delete {
+        &:hover {
+          background: $red;
+        }
       }
     }
 
