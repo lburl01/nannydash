@@ -14,6 +14,20 @@ class FamiliesController < ApplicationController
     render json: @family
   end
 
+  def new
+    @family = User.new
+  end
+
+  def create
+    @family = User.new(family_params)
+
+    if @family.save
+      redirect_to family_root
+    else
+      render 'new'
+    end
+  end
+
   def toggle_active_family
     family = User.find(params[:id])
     family.toggle!(:active)
@@ -45,7 +59,7 @@ class FamiliesController < ApplicationController
     def family_params
       params.require(:user).permit(:first_name, :last_name, :email,
                                     :phone_number, :street, :city, :state, :zip_code,
-                                    :county, :about, :active)
+                                    :county, :about, :active, :password, :picture, :role)
     end
 
 end
