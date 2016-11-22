@@ -1,14 +1,12 @@
 (function() {
   'use strict';
-  angular.module('nannyApp').factory('nannyAppAPI', ['$http', '$location', function($http, $location){
+  angular.module('nannyApp').factory('nannyAppAPI', ['$http', '$window', function($http, $window){
     return {
-
-      // signOut: function() {
-      //   console.log('Signed Out');
-      //   return $http.delete("/users/sign_out").then(function() {
-      //     $location.path('/home');
       //
-      //     console.log('Signed Out!');
+      // deleteUser: function() {
+      //   return $http.delete("/users/sign_out").then(function() {
+      //     $window.location.href = '/home';
+      //     console.log('Signed Out of Nanny App!');
       //   }, function() {
       //     alert('Failed to sign out.');
       //   });
