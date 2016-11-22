@@ -121,6 +121,12 @@ class User < ApplicationRecord
                     "zip_code" => family.zip_code, "county" => family.county,
                     "about" => family.about, "active" => family.active
                   }
+
+    if family.picture.model["picture"]
+      @family["picture_url"] = "http://nannydash.s3.amazonaws.com/uploads/user/picture/#{family.id}/#{family.picture}"
+    end
+
+    return @family
   end
 
   def self.get_new_applicants
