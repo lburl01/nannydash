@@ -39,9 +39,17 @@
       padding: 3px 5px;
       border-radius: 4px;
       border: #aaa solid .5px;
-      background: #f5f5f5;
+      background: #fff;
       outline: none;
       color: #666;
+
+      &:active, &:focus {
+        border: $red solid .5px;
+      }
+    }
+
+    .changed {
+      background: $red;
     }
 
     h1 {
@@ -78,6 +86,10 @@
   .key-info {
     padding-right: 0;
 
+    #age {
+      background: #f5f5f5;
+    }
+
     input {
       width: 100%;
       display: block;
@@ -98,11 +110,16 @@
       font-family: 'Roboto', sans-serif;
       font-size: 14px;
       font-weight: 100;
+      border: transparent;
+      border-radius: 4px;
+      padding: 7px 10px;
+      color: #fff;
       margin-top: 15px;
       outline: none;
       padding: 7px 10px;
       text-shadow: 1px 1px 1px darken($grey, 20%);
       width: 100%;
+
       &:first-of-type:hover {
         background: $yellow;
         text-shadow: 1px 1px 1px darken($yellow, 20%);
@@ -117,63 +134,25 @@
       }
     }
 
+      &:nth-child(1n) {
+        background: $yellow;
+        text-shadow: 1px 1px 1px #a58741;
+      }
+
+      &:nth-child(2n) {
+        background: #aaa;
+        text-shadow: none;
+
+        &:hover {
+          background: $red;
+        }
+      }
+    }
+
     .cert {
 
       label {
-        span {
-          text-align: right;
-          float: right;
-          background: #ddd;
-          padding: 2px 5px;
-          border-radius: 50%;
-          position: relative;
-          top: -3px;
-          right: 3px;
-          cursor: pointer;
-        }
-      }
 
-      .new-cert-container {
-        position: relative;
-
-        span {
-          position: absolute;
-          background: #fff;
-          padding: 0 6px;
-          border-radius: 50%;
-          right: 4px;
-          top: 3px;
-          cursor: pointer;
-        }
-      }
-
-      .cert-container {
-        position: relative;
-
-        span {
-          position: absolute;
-          background: #fff;
-          padding: 0 6px;
-          border-radius: 50%;
-          right: 4px;
-          top: 3px;
-          cursor: pointer;
-        }
-      }
-
-      .cert-container:nth-child(1) {
-        position: relative;
-
-        span {
-          text-align: right;
-          float: right;
-          background: #f5f5f5;
-          padding: 2px 5px;
-          border-radius: 50%;
-          position: relative;
-          top: -3px;
-          right: 3px;
-        }
       }
     }
 
@@ -211,4 +190,3 @@
       display: block;
     }
   }
-}

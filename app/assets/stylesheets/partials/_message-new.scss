@@ -1,0 +1,55 @@
+.newMessage {
+  .search {
+    &:before {
+      display: none;
+    }
+  }
+
+  .message {
+    padding: 0 20px;
+
+    .subject {
+      margin-bottom: 25px;
+    }
+
+    label, textarea, input {
+      width: 100%;
+      display: block;
+    }
+
+    label {
+      font-size: 18px;
+      font-weight: 100;
+      margin-bottom: 17px;
+    }
+
+    textarea, input {
+      font-family: 'Roboto', sans-serif;
+      display: inline-block;
+      margin-bottom: 10px;
+      font-size: 13px;
+      font-weight: 100;
+      padding: 10px;
+      border-radius: 4px;
+      border: #aaa solid .5px;
+      background: #f5f5f5;
+      outline: none;
+      color: #666;
+    }
+
+    button {
+      font-family: 'Roboto', sans-serif;
+      font-size: 18px;
+      font-weight: 100;
+      background: #74A588;
+      border: transparent;
+      border-radius: 4px;
+      padding: 10px;
+      color: #fff;
+      width: 150px;
+      display: block;
+      margin: 0 auto;
+      margin-top: 15px;
+    }
+  }
+}

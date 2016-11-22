@@ -3,7 +3,9 @@ class MessagesController < ApplicationController
 
   def index
     @conversation = Conversation.find(params[:conversation_id])
-    @messages = @conversation.messages
+    @messages = Message.get_messages(@conversation)
+
+    render json: @messages
   end
 
   def show
@@ -12,6 +14,8 @@ class MessagesController < ApplicationController
     if @message.user_id != current_user.id
       @message.update_attribute(:is_read, true)
     end
+
+    render json: @message
   end
 
   def new

@@ -1,0 +1,110 @@
+.message {
+  font-size: 17px;
+  font-weight: 100;
+  color: #666;
+
+  .search {
+    &:before {
+      display: none;
+    }
+  }
+
+  .message-bar {
+    overflow: hidden;
+    padding: 10px 0 40px;
+
+    h4 {
+      font-size: 16px;
+
+      span {
+        font-weight: 400;
+        color: #666;
+      }
+
+      &:nth-child(1) {
+        float: left;
+      }
+
+      &:nth-child(2) {
+        float: right;
+      }
+
+    }
+  }
+
+  .message-container {
+    background: #eee;
+    padding: 20px;
+    border-radius: 7px;
+
+    button {
+      float: right;
+      background: $red;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 7px;
+      border: transparent;
+      font-size: 15px;
+      cursor: pointer;
+      outline: none;
+
+      i {
+        padding-right: 3px;
+      }
+    }
+
+    h4 {
+      font-weight: 400;
+      padding-bottom: 20px;
+    }
+
+    p {
+      font-size: 15px;
+    }
+  }
+
+  .reply {
+    position: relative;
+
+    textarea {
+      width: 100%;
+      border-radius: 7px;
+      border: #ddd solid 1px;
+      margin-top: 20px;
+      outline: none;
+      padding: 15px;
+    }
+
+    .buttons {
+      position: absolute;
+      width: 100%;
+      margin: 0 auto;
+      display: block;
+      text-align: center;
+      bottom: 3px;
+      background: #eee;
+      padding: 10px 0;
+      border-bottom-right-radius: 7px;
+      border-bottom-left-radius: 7px;
+
+      button {
+        background: $green;
+        color: white;
+        padding: 5px;
+        border-radius: 7px;
+        border: transparent;
+        font-size: 13px;
+        cursor: pointer;
+        outline: none;
+
+        &:first-child {
+          background: #aaa;
+        }
+
+        i {
+          padding-right: 3px;
+        }
+      }
+    }
+  }
+}

@@ -11,11 +11,25 @@ class Conversation < ApplicationRecord
                       length: { maximum: 255 }
 
   def self.get_user_conversations(current_user)
-    @conversations = Conversation.where(sender_id: current_user.id).or(Conversation.where(recipient_id: current_user.id)).all
+    data = Conversation.where(sender_id: current_user.id).or(Conversation.where(recipient_id: current_user.id)).all
+
+    @conversations = []
+
+    data.each do |convo|
+      sender_name = "#{convo.sender.first_name} #{convo.sender.last_name}"
+      recipient_name = "#{convo.recipient.first_name} #{convo.recipient.last_name}"
+
+      @conversations << { "sender_id" => convo.sender_id, "convo_id" => convo.id,
+        "subject" => convo.subject, "recipient_id" => convo.recipient_id,
+        "created_at" => convo.created_at, "sender_name" => sender_name,
+        "recipient_name" => recipient_name}
+    end
+
+    return @conversations
   end
 
   private
-  
+
     def check_sender_recipient
       errors.add(:recipient, "can't be the same as sender") if sender_id == recipient_id
     end

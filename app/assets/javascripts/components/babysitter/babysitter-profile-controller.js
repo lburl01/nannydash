@@ -12,44 +12,36 @@ angular.module('app')
       this.updatedBabysitters = {};
       this.userInput = "";
       self.visibility = false;
+      this.changed = true;
       /*************************
       Verifying Certifications
       *************************/
       this.addCerts = function() {
-        console.log('in');
-        $('<div>').attr('class', 'new-cert-container').appendTo('.cert');
-        $('<input>').attr('id', 'cpr').appendTo('.new-cert-container');
-        $('<span>').html('-').appendTo('.new-cert-container');
+
       }
       /*************************
       If user edits input fields, data will be saved in object
       *************************/
       this.updateBabysitter = function(id) {
+        self.changed = true;
         babysitterDirectoryAPI.updateUser(id, self.updatedBabysitters);
       }
       /*************************
       If user deletes babysitter, sitter will be removed from database
       *************************/
       this.deleteBabysitter = function(id) {
-        babysitterDirectoryAPI.deleteUser(id, self.updatedBabysitters);
-        $state.go('babysitters');
+        var result = confirm("Are you sure you want to delete user?");
+        if (result) {
+          babysitterDirectoryAPI.deleteUser(id, self.updatedBabysitters);
+          $state.go('babysitters',{reload: true});
+        }
       }
-      /*************************
-      delete certification
-      *************************/
-      this.deleteCert = function(key, sitter_id, event) {
-        self.updatedBabysitters['id'] = sitter_id;
-        var updatedUser = self.updatedBabysitters[key] = false;
-        babysitterDirectoryAPI.updateUser(sitter_id, self.updatedBabysitters);
-        $(event).remove();
-        console.log(self.updatedBabysitters);
-      }
-
       /*************************
       Convert Strings
       *************************/
       this.convertRate = function(rate) {
-        return parseFloat(rate).toFixed(2);
+        console.log(Number(rate).toFixed(2));
+        return Number(rate).toFixed(2);
       }
       /*************************
       When user hits 'submit' object will be patched to database
@@ -58,6 +50,7 @@ angular.module('app')
         self.convertRate(value);
         self.updatedBabysitters['id'] = sitter_id;
         var updatedUser = self.updatedBabysitters[key] = value;
+        console.log(self.updatedBabysitters);
       }
       /*************************
       Calculating age
@@ -94,7 +87,6 @@ angular.module('app')
             }
           }
           if(!found){
-            console.log("No match found!");
             $('<p>').html('Sorry, that user does not exist.').appendTo('.search');
           }
         });

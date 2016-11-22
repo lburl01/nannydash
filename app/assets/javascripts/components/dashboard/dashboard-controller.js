@@ -12,6 +12,7 @@ angular.module('app')
         self.application = response.applications
         self.assignments = response.assignments
         self.messages = response.messages;
+        console.log(self.messages);
         self.openJobs = response.open_jobs;
       }, function(response) {
         alert('Failed');
@@ -41,6 +42,14 @@ angular.module('app')
       this.newJobs = function(job) {
         dashboardAPI.jobDetails(job.job_id).success(function(response) {
           $state.go("newJobInfo", {jobId: job.job_id});
+        });
+      }
+      /*************************
+      When user clicks on message
+      *************************/
+      this.message = function(conversationId, messageId) {
+        dashboardAPI.message(conversationId, messageId).success(function(response) {
+          console.log(response);
         });
       }
       /*************************
