@@ -1,5 +1,9 @@
 
 .new-jobs-info-wrapper {
+  input {
+    background: #fff !important;
+    cursor: default;
+  }
   h1 {
     cursor: pointer;
     transition: all 0.5s ease;
@@ -14,10 +18,11 @@
       top: -33px;
     }
     textarea {
-      background: #eee;
+      background: #fff;
       border-radius: 4px;
       border: #BDBDBD solid 1px;
       color: #666;
+      cursor: default;
       font-size: 13px;
       font-weight: 300;
       letter-spacing: .5px;
@@ -29,9 +34,8 @@
   }
   .key-info {
     width: 30% !important;
-    .save,
     button.delete {
-      background: $yellow;
+      background: $grey;
       border-radius: 4px;
       border: transparent;
       color: #fff;
@@ -41,11 +45,13 @@
       font-weight: 100;
       padding: 7px 10px;
       width: 100%;
-      margin-top: 5px;
-      text-shadow: 1px 1px 1px #a58741;
+      margin-top: 110px;
+      text-shadow: 1px 1px 1px darken($grey, 30%);
+      outline: none;
       &:hover {
         cursor: pointer;
-        background-color: #e2a338;
+        background: $red !important;
+        text-shadow: 1px 1px 1px darken($red, 30%);
       }
     }
   }
