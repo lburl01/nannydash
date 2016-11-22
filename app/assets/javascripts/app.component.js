@@ -26,5 +26,9 @@
       });
     });
 
+    // ctrl.logout = function() {
+    //   appAPI.signOut();
+    // };
+
   }
 })();

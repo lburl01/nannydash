@@ -1,1 +1,26 @@
-<h1>New Jobs List</h1>
+<div class="nanny-directory-container" id="new-jobs">
+  <div class="list-wrapper">
+    
+    <div class="list">
+      <div class="title-container dropdown-container">
+        <h4>Total: {{$ctrl.newJob.length}}</h4>
+      </div>
+
+    <div class="family-table">
+      <ul class="table-head" id="new-jobs-header">
+        <li>Parent</li>
+        <li>Job Date</li>
+        <li>Posted</li>
+        <li>Notes</li>
+        <li>View Job</li>
+      </ul>
+
+      <div class="table-body">
+        <!-- <ul dir-paginate="job in $ctrl.jobs | orderBy: $ctrl.columnSort : $ctrl.reverse | filter: searchBox | filter: $ctrl.selectedCounty |itemsPerPage: 5">
+          <new-job ng-click="$ctrl.select()" job="job"></new-job>
+        </ul> -->
+      </div>
+    </div>
+    <dir-pagination-controls max-size="5"></dir-pagination-controls>
+  </div>
+</div>

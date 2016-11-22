@@ -4,6 +4,7 @@
 //= require angular-ui-router/release/angular-ui-router.js
 //= require angular-utils-pagination/dirPagination.js
 //= require jquery
+//= require jquery_ujs
 //= require app.module.js
 //= require nannyApp.module.js
 //= require familyApp.module.js

@@ -1,6 +1,6 @@
 (function() {
   'use strict';
-  angular.module('app').factory('appAPI', ['$http', function($http){
+  angular.module('app').factory('appAPI', ['$http', '$state', function($http, $state){
     return {
 
       totalCount: function() {
@@ -10,6 +10,15 @@
           alert('Failed');
         });
       }
+
+      // signOut: function() {
+      //   return $http.delete("/users/sign_out_session").then(function() {
+      //     $state.go('home');
+      //     console.log('Signed Out!');
+      //   }, function() {
+      //     alert('Failed to sign out.');
+      //   });
+      // }
 
     };
   }]);

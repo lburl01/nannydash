@@ -14,7 +14,6 @@ angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPag
             component: 'jobDetails',
             resolve: {
                 job: ['allJobsAPI', '$stateParams', function(allJobsAPI, $stateParams) {
-                    //returning id of job clicked on (1, 2 or 3)
                     return allJobsAPI.jobDetails($stateParams.jobId);
                 }]
             }
