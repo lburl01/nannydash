@@ -35,6 +35,10 @@ class JobsController < ApplicationController
     render json: @unassigned_jobs
   end
 
+  def assign_sitter
+    job = Job.assign_sitter_job(current_user, params[:id])
+  end
+
   private
 
     def job_params

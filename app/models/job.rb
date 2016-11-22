@@ -129,4 +129,11 @@ class Job < ApplicationRecord
 
   end
 
+  def self.assign_sitter_job(current_user, options)
+    job = Job.find(options)
+
+    job.sitter_id = current_user.id
+    job.toggle!(:is_assigned)
+  end
+
 end
