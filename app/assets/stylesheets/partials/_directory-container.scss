@@ -203,10 +203,17 @@
 
       tr {
         border-bottom: #ddd solid .5px;
+        position: relative;
 
         &:not(:first-child):hover {
           background: $babyGreen;
           cursor: pointer;
+        }
+
+        th, td {
+          white-space: nowrap;
+          overflow: hidden !important;
+          text-overflow: ellipsis;
         }
 
         th {
@@ -230,6 +237,25 @@
           font-size: 14px;
           font-weight: 100;
           color: #888;
+          position: relative;
+        }
+
+        .readTrue {
+          background: $green;
+          color: #fff;
+          border-radius: 4px;
+          width: 50px;
+          position: absolute;
+          text-align: center;
+          padding: 5px;
+          bottom: 10px;
+
+          &:before {
+            font-family: fontawesome;
+            content: "\f0e0";
+            font-size: 12px;
+            margin-right: 3px;
+          }
         }
 
         .cpr {
@@ -237,6 +263,41 @@
           padding: 5px 10px;
           border-radius: 7px;
         }
+      }
+    }
+
+    .message-table {
+      td:nth-child(1), th:nth-child(1) {
+        width: 18%;
+        position: relative;
+
+        h6 {
+          background: #eee;
+          width: 30px;
+          padding: 7.5px;
+          text-align: center;
+          border-radius: 50%;
+          position: absolute;
+          bottom: 7px;
+        }
+      }
+
+      td:nth-child(3), th:nth-child(3) {
+        width: 38%;
+      }
+    }
+
+    .messages-table {
+      td:nth-child(3), th:nth-child(3) {
+        width: 40%;
+      }
+
+      td:nth-child(5), th:nth-child(5) {
+        width: 12%;
+      }
+
+      td:nth-child(6), th:nth-child(6) {
+        width: 6%;
       }
     }
 

@@ -1,9 +1,7 @@
 module Messageable
 
-  def send_message(recipient, msg_body, subject)
-      convo = Conversation.find_by(
-        :recipient => recipient,
-        :sender    => self)
+  def send_message(recipient, msg_body, subject, conversation_id)
+      convo = Conversation.find(conversation_id)
 
       if convo.nil?
         convo = Conversation.create!(

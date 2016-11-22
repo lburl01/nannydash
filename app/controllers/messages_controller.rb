@@ -26,7 +26,7 @@ class MessagesController < ApplicationController
     recipient = User.find(params[:id])
     sender = current_user
     conversation = sender.send_message(recipient, params[:body],
-                                              params[:subject])
+                                       params[:subject], params[:conversation_id])
   end
 
 end

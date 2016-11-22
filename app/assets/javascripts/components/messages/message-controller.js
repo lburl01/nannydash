@@ -24,7 +24,8 @@ angular.module('app')
 
       this.replyMessage = function(body, subject) {
         var replyObject = {};
-        replyObject['id'] = 8;
+        replyObject['id'] = self.message.sender_id;
+        replyObject['conversation_id'] = self.message.conversation_id;
         replyObject['subject'] = subject;
         replyObject['body'] = body;
 

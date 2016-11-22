@@ -11,18 +11,22 @@
         <h4>New Message</h4>
       </div>
     </div>
-    <table>
+    <table class="messages-table">
       <tr>
         <th>From</th>
         <th>Subject</th>
         <th>Body</th>
         <th>Sent</th>
+        <th>Read?</th>
+        <th></th>
       </tr>
       <tr ng-click="messages.messagesClick(messages.conversationMessage[key])" ng-repeat="(key, value) in messages.conversationMessage">
         <td>{{value.sender_name}}</td>
         <td>{{value.subject}}</td>
         <td>{{value.body}}</td>
         <td>{{value.created_at}}</td>
+        <td><h6 ng-class="{'readTrue': messages.read}">{{messages.read}}</h6></td>
+        <td><h6><i class="fa fa-trash" aria-hidden="true"></i></h6></td>
       </tr>
 
     </table>

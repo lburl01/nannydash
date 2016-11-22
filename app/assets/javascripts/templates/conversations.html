@@ -11,13 +11,15 @@
         <h4>New Message</h4>
       </div>
     </div>
-    <table>
+    <table class="message-table">
       <tr>
+        <th>Messages</th>
         <th>From</th>
         <th>Subject</th>
         <th>Sent</th>
       </tr>
       <tr ng-click="conversations.conversationClick(message.convo_id)" ng-repeat="message in conversations.conversation">
+        <td><h6 ng-init="conversations.messageCount(message.convo_id)">{{conversations.count}}</h6></td>
         <td>{{message.sender_name}}</td>
         <td>{{message.subject}}</td>
         <td>{{message.created_at}}</td>
