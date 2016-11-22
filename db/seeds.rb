@@ -240,6 +240,16 @@ Conversation.create!(subject: "Question about tonight",
                     recipient_id: 2,
                     is_deleted: false)
 
+Conversation.create!(subject: "The kids were great!",
+                     sender_id: 3,
+                     recipient_id: 2,
+                     is_deleted: false)
+
+Conversation.create!(subject: "Going on family vacation",
+                    sender_id: 3,
+                    recipient_id: 1,
+                    is_deleted: false)
+
 Message.create!(body: "I'm wondering about this thing.",
                 recipient_id: 1,
                 subject: "Inquiry",
@@ -261,5 +271,29 @@ Message.create!(body: "Here is my question.",
                 subject: "Question about tonight",
                 user_id: 25,
                 conversation_id: 2,
+                is_read: false,
+                is_deleted: false)
+
+Message.create!(subject: "The kids were great!",
+                user_id: 3,
+                recipient_id: 2,
+                body: "Had such a good time hanging out with Violet and Charlie last night. Look forward to working with your family again soon!"
+                conversation_id: 3,
+                is_read: false,
+                is_deleted: false)
+
+Message.create!(subject: "Thanks",
+                user_id: 2,
+                recipient_id: 3,
+                body: "The kids couldn't stop talking about the game you taught them. See you soon."
+                conversation_id: 3,
+                is_read: false,
+                is_deleted: false)
+
+Message.create!(subject: "Going on family vacation",
+                sender_id: 3,
+                recipient_id: 1,
+                body: "Just FYI that I will be out of town Dec. 20-Jan. 5.",
+                conversation_id: 4,
                 is_read: false,
                 is_deleted: false)
