@@ -37,7 +37,9 @@ Rails.application.routes.draw do
   get 'api/v1/jobs' => 'jobs#index'
   get 'api/v1/jobs/new' => 'jobs#get_new_jobs'
   get 'api/v1/job/:id' => 'jobs#show'
+  get 'api/v1/jobs/five_unassigned' => 'jobs#five_unassigned_jobs'
   patch 'api/v1/job/:id' => 'jobs#update'
+  patch 'api/v1/job/assign/:id' => 'jobs#assign_sitter'
   patch 'api/v1/job/delete/:id' => 'jobs#toggle_deleted_job'
 
   get 'api/v1/agency/summary' => 'agency#index'
@@ -47,6 +49,7 @@ Rails.application.routes.draw do
   post 'agency' => 'agency#create'
 
   get 'messages/new' => 'messages#new'
+  patch 'message/delete/:id' => 'messages#toggle_deleted_message'
   post 'messages/new' => 'messages#create'
 
   get 'twilio/send_job' => 'twilio#job_alert'

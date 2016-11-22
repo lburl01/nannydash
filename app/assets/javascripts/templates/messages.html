@@ -25,8 +25,8 @@
         <td>{{value.subject}}</td>
         <td>{{value.body}}</td>
         <td>{{value.created_at}}</td>
-        <td><h6 ng-class="{'readTrue': messages.read}">{{messages.read}}</h6></td>
-        <td><h6><i class="fa fa-trash" aria-hidden="true"></i></h6></td>
+        <td><h6 ng-class="{'readTrue': value.is_read === true, 'readFalse': value.is_read === false}">{{value.is_read}}</h6></td>
+        <td><h6 ng-click="messages.delete($event, value)"><i class="fa fa-trash" aria-hidden="true"></i></h6></td>
       </tr>
 
     </table>

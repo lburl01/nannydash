@@ -38,10 +38,16 @@ angular.module('app').service('dashboardAPI', ['$http', function($http) {
         });
       },
       reply: function(data) {
-        console.log(data);
         return $http({
           url: "/messages/new",
           method: "POST",
+          data: data
+        });
+      },
+      deleteMessage: function(id, data) {
+        return $http({
+          url: "/message/delete/" + id,
+          method: "PATCH",
           data: data
         });
       }

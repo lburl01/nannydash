@@ -5,8 +5,8 @@ angular.module('app')
       *************************/
       var self = this;
 
-      this.sendMessage = function(subject, body) {
-        console.log(subject, body);
+      this.sendMessage = function(recipient, subject, body) {
+        console.log(recipient, subject, body);
       }
 
     }]);

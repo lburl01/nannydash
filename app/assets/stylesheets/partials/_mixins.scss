@@ -1,4 +1,9 @@
 @mixin media($bp) {
+  @if $bp == largeDesktop {
+    @media only screen and (max-width: 1035px) {
+      @content;
+    }
+  }
   @if $bp == desktop {
     @media only screen and (max-width: 990px) {
       @content;

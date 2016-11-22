@@ -8,7 +8,7 @@ class Message < ApplicationRecord
   validates :subject, length: { maximum: 255 }
 
   def self.get_latest_messages(current_user)
-    response = Message.where(recipient_id: current_user.id).order(created_at: :desc).limit(5)
+    response = Message.where({recipient_id: current_user.id, is_deleted: false}).order(created_at: :desc).limit(5)
 
     @messages = []
 
@@ -31,12 +31,12 @@ class Message < ApplicationRecord
   def self.get_messages(conversation)
     @messages = Message.where( { is_deleted: false, conversation_id: conversation.id } ).all
 
-    @message_details = []
+    @message_details = {}
 
     @messages.each do |message|
       sender_name = "#{message.sent_message.first_name} #{message.sent_message.last_name}"
-      @message_details << { "body" => message.body, "subject" => message.subject,
-                            "conversation_id" => message.conversation_id,
+      @message_details[message.conversation_id] = {
+                            "body" => message.body, "subject" => message.subject,
                             "created_at" => message.created_at.strftime("%m/%d/%Y %I:%M %p"),
                             "message_id" => message.id,
                             "is_read" => message.is_read,
@@ -44,7 +44,7 @@ class Message < ApplicationRecord
                             "sender_id" => message.user_id,
                             "sender_name" => sender_name }
     end
-
+    
     return @message_details
 
   end
@@ -61,6 +61,7 @@ class Message < ApplicationRecord
                          "sender_name" => sender_name,
                          "subject" => message.subject,
                          "conversation_id" => message.conversation_id,
+                         "is_read" => message.is_read,
                          "created_at" => message.created_at.strftime("%m/%d/%Y %I:%M %p")
                         }
   end

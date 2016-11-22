@@ -29,4 +29,9 @@ class MessagesController < ApplicationController
                                        params[:subject], params[:conversation_id])
   end
 
+  def toggle_deleted_message
+    message = Message.find(params[:id])
+    message.toggle!(:is_deleted)
+  end
+
 end

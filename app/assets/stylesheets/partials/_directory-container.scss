@@ -101,7 +101,7 @@
       position: relative;
       display: flex;
       align-items: center;
-      justify-content: flex-end;
+      justify-content: space-between;
 
       &.dropdown-container {
         overflow: visible;
@@ -256,6 +256,17 @@
             font-size: 12px;
             margin-right: 3px;
           }
+        }
+
+        .readFalse {
+          background: $red;
+          color: #fff;
+          border-radius: 4px;
+          width: 50px;
+          position: absolute;
+          text-align: center;
+          padding: 5px;
+          bottom: 10px;
         }
 
         .cpr {

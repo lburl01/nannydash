@@ -4,24 +4,16 @@ angular.module('app')
       Variables
       *************************/
       var self = this;
-      this.count;
 
       this.messageClick = function() {
         $state.go('new-message');
       }
 
       dashboardAPI.conversationMessages().success(function(response) {
-        //console.log(response);
+        console.log("Conversations");
+        console.log(response);
         self.conversation = response;
       });
-
-      this.messageCount = function(id) {
-        dashboardAPI.allMessages(id).success(function(response) {
-          console.log(response.length);
-          self.count = response.length;
-          //self.count;
-        });
-      }
 
       this.conversationClick = function(id) {
         dashboardAPI.allMessages(id).success(function(response) {
