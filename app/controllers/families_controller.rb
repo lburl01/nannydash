@@ -21,7 +21,8 @@ class FamiliesController < ApplicationController
     @family = User.new(family_params)
 
     if @family.save
-      redirect_to family_root
+      sign_in @family
+      redirect_to family_root_url
     else
       render 'new'
     end
