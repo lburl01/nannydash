@@ -8,7 +8,7 @@ class Message < ApplicationRecord
   validates :subject, length: { maximum: 255 }
 
   def self.get_latest_messages(current_user)
-    response = Message.where(recipient_id: current_user.id).order(created_at: :desc).limit(5)
+    response = Message.where({recipient_id: current_user.id, is_deleted: false}).order(created_at: :desc).limit(5)
 
     @messages = []
 
