@@ -24,18 +24,11 @@
   ******************************* -->
     <section class="name">
         <h2>Family</h2>
-        <label>First Name:</label>
-        <input class="name-heading" type="text" ng-model="">
-
-        <label>Last Name:</label>
-        <input class="name-heading" type="text">
+        <label class="name-heading">{{ $ctrl.job.name }}</label>
 
         <h2>Sitter</h2>
-        <label >First Name:</label>
-        <input class="name-heading" type="text" ng-model="">
+        <label class="name-heading" ng-model="$ctrl.job.sitter_name">
 
-        <label>Last Name:</label>
-        <input class="name-heading" type="text" ng-model="">
     </section>
     <!-- ******************************
    Basic Information Section
@@ -44,24 +37,25 @@
         <h2>Job Details (Family)</h2>
 
         <label for="phone">Phone:</label>
-        <input id="phone" type="text" ng-model="">
-
+        <input id="phone" type="text" ng-model="$ctrl.job.phone" ng-model-options="{ updateOn: 'blur' }" ng-change="$ctrl.updateCurrent( 'phone', $ctrl.job.phone)">
         <label for="email">Email:</label>
-        <input id="email" type="text" ng-model="babysitter.user.email">
+        <input id="email" type="text" ng-model="$ctrl.job.email" ng-model-options="{ updateOn: 'blur' }" ng-change="$ctrl.updateCurrent( 'email', $ctrl.job.email)">
 
         <label for="street">Street:</label>
-        <input id="street" type="text" ng-model="">
+        <input id="street" type="text"
+        ng-model="$ctrl.job.street" ng-model-options="{ updateOn: 'blur' }" ng-change="$ctrl.updateCurrent( 'street', $ctrl.job.street)">
 
         <label for="city">City:</label>
-        <input id="city" type="text" ng-model="">
+        <input id="city" type="text" ng-model="$ctrl.job.city" ng-model-options="{ updateOn: 'blur' }" ng-change="$ctrl.updateCurrent( 'city', $ctrl.job.city)">
 
         <label for="state">State:</label>
-        <input id="state" type="text" ng-model="">
+        <input id="state" type="text" ng-model="$ctrl.job.state" ng-model-options="{ updateOn: 'blur' }" ng-change="$ctrl.updateCurrent( 'state', $ctrl.job.state)">
 
         <label for="zip">Zip:</label>
-        <input id="zip" type="text" ng-model="">
+        <input id="zip" type="text" ng-model="$ctrl.job.zip_code" ng-model-options="{ updateOn: 'blur' }" ng-change="$ctrl.updateCurrent( 'zip_code', $ctrl.job.zip_code)">
 
         <label for="name" id="jobsListDetailsNotes">Notes:</label>
-        <textarea type="text" name="posted" value="" ng-model=""></textarea>
+        <textarea type="text" name="posted" ng-model="$ctrl.job.notes" ng-model-options="{ updateOn: 'blur' }" ng-change="$ctrl.updateCurrent( 'notes', $ctrl.job.notes)"></textarea>
+        <input name="save" ng-click="$ctrl.save($ctrl.jobId)" class="save" type="submit" value="Save Changes" />
     </section>
 </div>

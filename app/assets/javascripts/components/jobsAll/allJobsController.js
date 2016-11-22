@@ -7,7 +7,6 @@
 
             allJobsAPI.jobsList().success(function(response) {
                 self.totalJobs = response;
-                console.log(response);
             });
             this.name = function(firstName, lastName) {
                 return firstName + " " + lastName;
@@ -17,20 +16,21 @@
             };
             this.confirmed = function(confirmation) {
                 if (confirmation === true) {
-                    return "Yes";
+                    return "True";
                 } else {
-                    return "No";
+                    return "False";
                 }
             };
             this.jobClicked = function(jobId) {
                 allJobsAPI.jobDetails(jobId).success(function(response) {
-                    console.log(response);
+                  self.jobDetails = response;
+console.log(response);
                     $state.go('jobs-list-details', {
                         params: {
                             job: response
                         },
                         jobDetail: jobId
-                    });
+                    }, {reload: true});
                 });
             };
         }]);

@@ -3,8 +3,10 @@ angular.module('app')
       /*************************
       Variables
       *************************/
+      console.log($stateParams.sitterId);
       var self = this;
-      this.user = $stateParams.babysitterParam.sitter;
+      this.user = $stateParams.sitterId;
+
       this.total = babysitterDirectoryAPI.totalBabysitters;
       this.cpr = "CPR Certified";
       this.firstAid = "First-Aid Certified";
@@ -14,7 +16,6 @@ angular.module('app')
       Verifying Certifications
       *************************/
       this.addCerts = function() {
-        console.log('in');
         $('<div>').attr('class', 'new-cert-container').appendTo('.cert');
         $('<input>').attr('id', 'cpr').appendTo('.new-cert-container');
         $('<span>').html('-').appendTo('.new-cert-container');
@@ -45,13 +46,13 @@ angular.module('app')
         self.convertRate(value);
         self.updatedBabysitters['id'] = sitter_id;
         var updatedUser = self.updatedBabysitters[key] = value;
-        console.log(updatedUser);
+
       };
       /*************************
       Calculating age
       *************************/
       this.calculateAge = function() { // birthday is a date
-        var userBirthday = new Date($stateParams.babysitterParam.sitter.birthday);
+        var userBirthday = new Date($stateParams.sitterId.birthday);
         var nowDate = Date.now();
         var ageDif = nowDate - userBirthday.getTime();
         var ageDate = new Date(ageDif); // miliseconds from epoch

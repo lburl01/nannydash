@@ -1,8 +1,6 @@
 angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPagination'])
     .config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $urlRouterProvider) {
-
         $urlRouterProvider.otherwise('/');
-
         $stateProvider.state('dashboard', {
             url: '/',
             controller: 'dashboardController as dashboard',
@@ -13,12 +11,13 @@ angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPag
             templateUrl: 'jobs-list.html'
         }).state('jobs-list-details', {
             url: '/jobs-details/:jobId',
-            params: {
-              jobParam: null,
-              jobId: null
-            },
-            controller: 'jobDetailsController as jobDetails',
-            templateUrl: 'jobs-list-details.html'
+            component: 'jobDetails',
+            resolve: {
+                job: ['allJobsAPI', '$stateParams', function(allJobsAPI, $stateParams) {
+                    //returning id of job clicked on (1, 2 or 3)
+                    return allJobsAPI.jobDetails($stateParams.jobId);
+                }]
+            }
         }).state('newJobs', {
             url: '/new-jobs',
             component: 'newJobsList',

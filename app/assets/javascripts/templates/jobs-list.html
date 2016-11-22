@@ -16,13 +16,13 @@
                 <th>Created</th>
                 <th>Details</th>
             </tr>
-            <tr ng-click="allJobs.jobClicked(item.job_id)" dir-paginate="item in allJobs.totalJobs | filter: searchBox | itemsPerPage: 5">
-                <td>{{ allJobs.name( item.family_first_name, item.family_last_name )}}</td>
-                <td>{{ allJobs.name(item.sitter_first_name, item.sitter_last_name ) }}</td>
-                <td>{{ allJobs.time(item.start_time, item.end_time) }}</td>
+            <tr dir-paginate="item in allJobs.totalJobs | filter: searchBox | itemsPerPage: 5" ui-sref="jobs-list-details({jobId:item.job_id})">
+                <td>{{ allJobs.name( item.family_first_name, item.family_last_name ) }}</td>
+                <td>{{ allJobs.name( item.sitter_first_name, item.sitter_last_name ) }}</td>
+                <td>{{ allJobs.time( item.start_time, item.end_time ) }}</td>
                 <td>{{ allJobs.confirmed( item.confirmed ) }}</td>
                 <td>{{ item.created }}</td>
-                <td class="new-job-button" ui-sref="###"></td>
+                <!-- <td class="new-job-button">Details</td> -->
             </tr>
         </table>
         <dir-pagination-controls max-size="5"></dir-pagination-controls>
