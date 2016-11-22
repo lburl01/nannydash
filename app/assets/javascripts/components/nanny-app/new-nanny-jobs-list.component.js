@@ -4,6 +4,15 @@
   angular
   .module('nannyApp')
   .component('newNannyJobsList', {
-    templateUrl: 'nanny/new-jobs-list.html'
+    bindings: {
+      newJob: '<'
+    },
+    templateUrl: 'nanny/new-jobs-list.html',
+    controller: ['newNannyJobsAPI', NewNannyJobsList]
   });
+
+  function NewNannyJobsList(newNannyJobsAPI) {
+
+  }
+
 })();

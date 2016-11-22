@@ -7,10 +7,10 @@
         count: '<'
       },
       templateUrl: 'app.html',
-      controller: ['appAPI', '$scope', AppController]
+      controller: ['appAPI', '$scope', '$http', '$location', '$window', AppController]
     });
 
-  function AppController (appAPI, $scope) {
+  function AppController (appAPI, $scope, $http, $location, $window) {
     var ctrl = this;
 
     ctrl.$onInit = function() {
@@ -25,6 +25,16 @@
         ctrl.count = data;
       });
     });
+
+    ctrl.logout = function() {
+      $http.delete("/users/sign_out").then(function() {
+        $window.location.href = '/home';
+
+        console.log('Success! Signed out!');
+      }, function() {
+        alert("Failed to sign out");
+      });
+    };
 
   }
 })();

@@ -58,6 +58,7 @@ Rails.application.routes.draw do
     resources :messages
   end
 
+  get 'home' => 'home#index'
   root to: 'home#index'
 
 end

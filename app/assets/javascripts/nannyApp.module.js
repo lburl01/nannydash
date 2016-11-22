@@ -12,7 +12,13 @@
         component: 'upcomingJobsList'
       }).state('newNannyJobs', {
         url: '/new-jobs',
-        component: 'newNannyJobsList'
+        component: 'newNannyJobsList',
+        resolve: {
+          newJob: ['newNannyJobsAPI', function(newNannyJobsAPI) {
+            console.log('app module nanny jobs');
+            return newNannyJobsAPI.list();
+          }]
+        }
       }).state('parentDirectory', {
         url: '/parents',
         component: 'parentList'
