@@ -134,31 +134,7 @@
         text-shadow: 1px 1px 1px darken($red, 30%);
       }
     }
-
-      // &:nth-child(1n) {
-      //   background: $yellow;
-      //   text-shadow: 1px 1px 1px #a58741;
-      // }
-      //
-      // &:nth-child(2n) {
-      //   background: #aaa;
-      //   text-shadow: none;
-      //
-      //   &:hover {
-      //     background: $red;
-      //   }
-      // }
-    }
-
-    .cert {
-
-      label {
-
-      }
-    }
-
   }
-
   .basic-info {
     border-left: #eee solid 1px;
     border-right: #eee solid 1px;
@@ -191,3 +167,4 @@
       display: block;
     }
   }
+}

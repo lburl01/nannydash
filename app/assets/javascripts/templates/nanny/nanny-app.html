@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" id="nanny-dashboard">
   <!-- ******************************
    Top Navigation
   ******************************* -->
@@ -8,14 +8,47 @@
       <h4>Nanny<span>Dash</span></h4>
       <div class="user">
         <i class="fa fa-user" aria-hidden="true"></i>
-        <h4>Hey, Mary Jane</h4>
+        <h4>Hey, Nanny Fanny</h4>
         <button>Log Out</button>
       </div>
     </nav>
   </header>
 
+  <h1>Welcome to the NannyDash Portal!</h1>
 
+  <nav id="nanny-nav">
+    <section class="nanny-directory">
+      <div class="title">
+        <h2>List of scheduled jobs</h2>
+      </div>
+      <button ui-sref="upcomingJobs" type="button" name="button">20 | Upcoming Jobs</button>
+    </section>
+    <section class="nanny-directory">
+      <div class="title">
+        <h2>Available Jobs</h2>
+      </div>
+      <button ui-sref="newNannyJobs" type="button" name="button">17 | New Jobs</button>
+    </section>
+    <section class="nanny-directory">
+      <div class="title">
+        <h2>Parents Directory</h2>
+      </div>
+      <button ui-sref="parentDirectory" type="button" name="button"> 11 | Parents</button>
+    </section>
+    <section class="nanny-directory">
+      <div class="title">
+        <h2>Messaging Center</h2>
+      </div>
+      <button ui-sref="messaging" type="button" name="button">7 | Messages</button>
+    </section>
+  </nav>
 
+  <main>
+    <div class="main-container">
 
+      <ui-view>LOADING</ui-view>
+
+    </div>
+  </main>
 
 </div>
