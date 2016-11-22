@@ -58,7 +58,8 @@ class Message < ApplicationRecord
                          "recipient_id" => message.recipient_id,
                          "recipient_name" => recipient_name,
                          "sender_id" => message.user_id,
-                         "sender_name" => sender_name
+                         "sender_name" => sender_name,
+                         "subject" => message.subject
                         }
   end
 
