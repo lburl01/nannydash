@@ -12,26 +12,25 @@
 
     function FamilyProfileForm(familyAPI, $filter) {
       var ctrl = this;
-      ctrl.saveText = "Save Changes";
+      ctrl.savedText = false;
+      ctrl.deletedText = false;
       ctrl.id = ctrl.profile.family_id;
       ctrl.updateFamily = {};
 
       ctrl.updateCurrent = function(key, value) {
         ctrl.updateFamily[key] = value;
-        ctrl.saveText = "Save Changes";
-        console.log(ctrl.updateFamily);
+        ctrl.savedText = false;
       };
 
       ctrl.save = function(id) {
         familyAPI.saveProfile(id, ctrl.updateFamily).then(function() {
-          ctrl.saveText = "Saved!";
-          console.log('success! saved!');
+          ctrl.savedText = true;
         });
       };
 
       ctrl.delete = function(id) {
         familyAPI.deleteProfile(id).then(function() {
-          console.log('success! deleted');
+          ctrl.deletedText = true;
         });
       };
     }

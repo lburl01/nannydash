@@ -106,6 +106,13 @@
         width: 65%;
       }
       .save {
+        &.saved {
+          background: $yellow;
+        }
+        &.disabled {
+          background: #9E9E9E !important;
+          cursor: default;
+        }
         &:hover {
           background: $yellow;
         }
@@ -116,6 +123,10 @@
       .delete {
         &:hover {
           background: $red;
+        }
+        &.deleted {
+          background: $red;
+          cursor: default;
         }
       }
     }
