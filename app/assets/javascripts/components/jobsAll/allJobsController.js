@@ -32,13 +32,6 @@ console.log(response);
                         jobDetail: jobId
                     }, {reload: true});
                 });
-=======
-            this.jobClicked = function(job) {
-              console.log(job);
-              // allJobsAPI.jobDetails(jobId).success(function(response) {
-              //   $state.go('jobs-list-details', {babysitterParam: {sitter: response}, sitterId: jobId}, {reload: true});
-              // });
->>>>>>> 49e2431f446c8ea50701140359e6e4211cb7f324
             };
         }]);
 })();
