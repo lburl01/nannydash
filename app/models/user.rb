@@ -123,7 +123,7 @@ class User < ApplicationRecord
                   }
 
     if family.picture.model["picture"]
-      @family["picture_url"] = "http://nannydash.s3.amazonaws.com/#{family.picture}"
+      @family["picture_url"] = "http://nannydash.s3.amazonaws.com#{family.picture}"
     end
 
     return @family
