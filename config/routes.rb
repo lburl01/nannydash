@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     root to: "nanny_dashboard#index", as: :nanny_root
   end
 
+  get 'users/all_active' => 'messages#get_possible_recipients'
+
   get 'api/v1/sitters' => 'sitters#index'
   get 'api/v1/sitter/:id' => 'sitters#show'
   get 'api/v1/sitters/pending' => 'sitters#pending'

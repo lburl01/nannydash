@@ -34,4 +34,10 @@ class MessagesController < ApplicationController
     message.toggle!(:is_deleted)
   end
 
+  def get_possible_recipients
+    @recipients = User.get_recipients
+
+    render json: @recipients
+  end
+
 end

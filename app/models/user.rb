@@ -201,6 +201,20 @@ class User < ApplicationRecord
     @data = { "families" => pending_families, "counties" => @counties}
   end
 
+  def self.get_recipients
+    possible_recipients = User.where(is_deleted: false).all
+
+    @all_recipients = []
+
+    possible_recipients.each do |user|
+      full_name = "#{user.first_name} #{user.last_name}"
+      @all_recipients << { "name" => full_name, "role" => user.role }
+    end
+
+    return @all_recipients
+
+  end
+
   private
 
     def picture_size
