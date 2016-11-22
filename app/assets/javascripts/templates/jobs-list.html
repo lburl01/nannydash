@@ -14,13 +14,16 @@
                 <th>Time</th>
                 <th>Confirmed</th>
                 <th>Created</th>
-                <th>Details</th>
             </tr>
             <tr dir-paginate="item in allJobs.totalJobs | filter: searchBox | itemsPerPage: 5" ui-sref="jobs-list-details({jobId:item.job_id})">
                 <td>{{ allJobs.name( item.family_first_name, item.family_last_name ) }}</td>
+
                 <td>{{ allJobs.name( item.sitter_first_name, item.sitter_last_name ) }}</td>
+
                 <td>{{ allJobs.time( item.start_time, item.end_time ) }}</td>
+
                 <td>{{ allJobs.confirmed( item.confirmed ) }}</td>
+
                 <td>{{ item.created }}</td>
             </tr>
         </table>

@@ -1,0 +1,28 @@
+.jobs-list-details-page {
+    .save.saveButton {
+        width: 100%;
+    }
+
+    .save.saveButton:hover {
+      background: #93baa2;
+      color:white;
+    }
+
+    section.basic-info {
+        width: 70%;
+    }
+
+    #jobDetailsNotes {
+        resize: none;
+        width: 73%;
+    }
+
+    label.jobsListDetailsNotes {
+        position: relative;
+        bottom: 50px;
+    }
+
+    div.search::before {
+        display: none;
+    }
+}

@@ -4,24 +4,24 @@
 @import 'partials/setup/general';
 
 /***** Site Components ******/
-@import "partials/container";
-@import "partials/header";
-@import "partials/dashboards";
+@import 'partials/agency-register';
 @import "partials/aside-nav";
-@import 'partials/main';
+@import 'partials/babysitter-profile';
+@import "partials/container";
+@import "partials/dashboards";
+@import 'partials/directory-container';
 @import 'partials/family-profile';
 @import 'partials/family-directory';
-@import 'partials/login';
+@import "partials/header";
+@import 'partials/jobs-list-details';
 @import 'partials/landing-page';
 @import 'partials/landing-page-mobile';
-@import 'partials/agency-register';
-@import 'partials/sitter-register';
-@import 'partials/babysitter-profile';
-@import 'partials/directory-container';
+@import 'partials/login';
+@import 'partials/main';
+@import 'partials/message-new';
+@import 'partials/message';
 @import 'partials/new-jobs';
-@import 'partials/job-details';
 @import 'partials/new-job-info';
 @import 'partials/pending-parents';
 @import 'partials/pending-babysitters';
-@import 'partials/message-new';
-@import 'partials/message';
+@import 'partials/sitter-register';
