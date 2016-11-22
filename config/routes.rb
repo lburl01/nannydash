@@ -37,6 +37,7 @@ Rails.application.routes.draw do
   get 'api/v1/jobs' => 'jobs#index'
   get 'api/v1/jobs/new' => 'jobs#get_new_jobs'
   get 'api/v1/job/:id' => 'jobs#show'
+  get 'api/v1/jobs/five_unassigned' => 'jobs#five_unassigned_jobs'
   patch 'api/v1/job/:id' => 'jobs#update'
   patch 'api/v1/job/delete/:id' => 'jobs#toggle_deleted_job'
 

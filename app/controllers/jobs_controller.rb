@@ -29,6 +29,12 @@ class JobsController < ApplicationController
     job.toggle!(:is_deleted)
   end
 
+  def five_unassigned_jobs
+    @unassigned_jobs = Job.get_five_newest_jobs
+
+    render json: @unassigned_jobs
+  end
+
   private
 
     def job_params

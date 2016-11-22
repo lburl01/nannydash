@@ -52,10 +52,14 @@ class Job < ApplicationRecord
     @newest_jobs = []
 
     @response.each do |job|
-      name = "#{job.posted_job.first_name} #{job.posted_job.last_name}"
+      family_name = "#{job.posted_job.first_name} #{job.posted_job.last_name}"
       date_time = "#{job.date} #{job.start_time.strftime("%I:%M %p")}"
-      @newest_jobs << { "job_id" => job.id, "name" => name, "date_time" => date_time,
-                        "submitted" => job.created_at.strftime("%m/%d/%Y %I:%M %p") }
+      @newest_jobs << { "job_id" => job.id, "name" => family_name,
+                        "date_time" => date_time,
+                        "county" => job.posted_job.county,
+                        "start_time" => job.start_time.strftime("%I:%M %p"),
+                        "end_time" => job.end_time.strftime("%I:%M %p"),
+                        "submitted" => job.created_at.strftime("%m/%d/%Y %I:%M %p")}
     end
 
     return @newest_jobs
