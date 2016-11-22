@@ -49,21 +49,28 @@ pending-parent-info-form {
   }
   input.approve,
   button.delete {
-    background: #efba59;
+    background: $grey;
     border-radius: 4px;
     border: transparent;
     color: #fff;
     cursor: pointer;
-    text-shadow: 1px 1px 1px #a58741;
+    text-shadow: 1px 1px 1px darken($grey, 30%);
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 100;
     margin: 10px 0 0 26%;
     padding: 7px 10px;
     width: 65%;
+  }
+  .approve {
     &:hover {
       cursor: pointer;
-      background-color: #e2a338 !important;
+      background-color: $yellow !important;
+      text-shadow: 1px 1px 1px darken($yellow, 30%);
     }
+  }
+  .redDelete {
+    background-color: $red !important;
+    text-shadow: 1px 1px 1px darken($red, 30%);
   }
 }
