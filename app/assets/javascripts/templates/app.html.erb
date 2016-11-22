@@ -18,6 +18,14 @@
   ******************************* -->
   <div class="all-container">
     <aside class="aside-nav">
+      <!-- Messages Nav Section -->
+      <section class="messages">
+        <div class="title">
+          <%= image_tag("messages.svg", :alt => "Directories Icon") %>
+          <h1>Messaging Center</h1>
+        </div>
+        <button ui-sref="messages" type="button"><span>{{$ctrl.count.new_messages}}</span> | Messages</button>
+      </section>
       <!-- Directories Nav Section -->
       <section class="directories">
         <div class="title">
@@ -44,14 +52,6 @@
         </div>
         <button ui-sref="newJobs" type="button"><span>{{$ctrl.count.new_jobs}}</span> | New Jobs</button>
         <button ui-sref="jobs" type="button"><span>{{$ctrl.count.all_jobs}}</span> | All Jobs</button>
-      </section>
-      <!-- Messages Nav Section -->
-      <section class="messages">
-        <div class="title">
-          <%= image_tag("messages.svg", :alt => "Directories Icon") %>
-          <h1>Messaging Center</h1>
-        </div>
-        <button ui-sref="messages" type="button"><span>{{$ctrl.count.new_messages}}</span> | Messages</button>
       </section>
     </aside>
     <!-- ******************************

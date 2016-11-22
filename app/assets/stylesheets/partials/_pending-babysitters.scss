@@ -52,6 +52,10 @@
     }
   }
 }
+input.pending-sitter {
+  background: white !important;
+  cursor: default;
+}
 .key-info button{
   &:hover {
     cursor: pointer;
