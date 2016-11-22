@@ -3,6 +3,7 @@
   .list {
     .title-container {
       margin-bottom: 35px !important;
+      height: 50px;
     }
   }
 
@@ -29,7 +30,7 @@
 
     }
 
-    input {
+    input, textarea {
       font-family: 'Roboto', sans-serif;
       width: 73%;
       display: inline-block;
@@ -134,19 +135,19 @@
       }
     }
 
-      &:nth-child(1n) {
-        background: $yellow;
-        text-shadow: 1px 1px 1px #a58741;
-      }
-
-      &:nth-child(2n) {
-        background: #aaa;
-        text-shadow: none;
-
-        &:hover {
-          background: $red;
-        }
-      }
+      // &:nth-child(1n) {
+      //   background: $yellow;
+      //   text-shadow: 1px 1px 1px #a58741;
+      // }
+      //
+      // &:nth-child(2n) {
+      //   background: #aaa;
+      //   text-shadow: none;
+      //
+      //   &:hover {
+      //     background: $red;
+      //   }
+      // }
     }
 
     .cert {

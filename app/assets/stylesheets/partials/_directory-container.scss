@@ -99,9 +99,11 @@
       font-weight: 100;
       margin-bottom: 10px;
       position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
 
       &.dropdown-container {
-        height: 40px;
         overflow: visible;
       }
 

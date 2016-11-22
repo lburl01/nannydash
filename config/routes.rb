@@ -5,10 +5,13 @@ Rails.application.routes.draw do
     root to: "dashboard#index", as: :manager_root
   end
 
-  # Angular entry point
-  get 'dashboard' => 'dashboard#index'
-  get 'nanny_dashboard' => 'nanny_dashboard#index'
-  get 'family_dashboard' => 'family_dashboard#index'
+  authenticated :user, ->(u) { u.family? } do
+    root to: "family_dashboard#index", as: :family_root
+  end
+
+  authenticated :user, ->(u) { u.nanny? } do
+    root to: "nanny_dashboard#index", as: :nanny_root
+  end
 
   get 'api/v1/sitters' => 'sitters#index'
   get 'api/v1/sitter/:id' => 'sitters#show'
@@ -28,6 +31,8 @@ Rails.application.routes.draw do
   patch 'api/v1/family/:id' => 'families#toggle_active_family'
   patch '/api/v1/family/approved/:id' => 'families#toggle_approved_family'
   patch 'api/v1/family/delete/:id' => 'families#toggle_deleted_family'
+  get 'family/new' => 'families#new'
+  post 'family/new' => 'families#create'
 
   get 'api/v1/jobs' => 'jobs#index'
   get 'api/v1/jobs/new' => 'jobs#get_new_jobs'

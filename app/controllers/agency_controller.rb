@@ -27,7 +27,7 @@ class AgencyController < ApplicationController
     @agency = User.new(agency_params)
     if @agency.save
       flash[:info] = "Account successfully created."
-      redirect_to 'agency/index'
+      redirect_to manager_root
     else
       render 'new'
     end

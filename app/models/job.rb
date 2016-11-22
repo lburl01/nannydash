@@ -2,6 +2,8 @@ class Job < ApplicationRecord
   belongs_to :posted_job, :foreign_key => :family_id, class_name: 'User'
   belongs_to :assignment, :foreign_key => :sitter_id, class_name: 'User', optional: true
 
+  validates_presence_of :family_id, :date, :start_time, :end_time
+
   def self.get_assigned_jobs
     response = Job.where( { is_deleted: false, is_assigned: true } ).all
 
