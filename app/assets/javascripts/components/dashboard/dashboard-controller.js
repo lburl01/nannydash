@@ -45,6 +45,14 @@ angular.module('app')
         });
       }
       /*************************
+      When user clicks on message
+      *************************/
+      this.message = function(conversationId, messageId) {
+        dashboardAPI.message(conversationId, messageId).success(function(response) {
+          console.log(response);
+        });
+      }
+      /*************************
 
       *************************/
       this.getDate = function(data) {

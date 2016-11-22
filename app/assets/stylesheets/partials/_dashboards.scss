@@ -44,6 +44,11 @@
       tr {
         border-bottom: #ddd solid .5px;
 
+        &:not(:first-child):hover {
+          background: $babyGreen;
+          cursor: pointer;
+        }
+
         th {
           font-size: 16px;
           text-align: left;

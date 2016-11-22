@@ -21,7 +21,7 @@ angular.module('app')
       babysitterDirectoryAPI.list().success(function(response) {
         babysitterDirectoryAPI.totalBabysitters = response.sitters;
         self.babysitters = babysitterDirectoryAPI.totalBabysitters;
-        self.totalUsers = response.length;
+        self.totalUsers = response.sitters.length;
         self.counties = response.counties;
       }, function(response) {
         alert('Failed');

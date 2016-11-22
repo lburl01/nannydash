@@ -1,6 +1,6 @@
 <div class="directory-container">
   <div class="search">
-    <h1>Messages</h1>
+    <h1 ui-sref="conversations">Conversations</h1><span>></span><h1>Messages</h1>
     <input type="text">
   </div>
   <div class="list">
@@ -14,17 +14,17 @@
     <table>
       <tr>
         <th>From</th>
-        <th>Message</th>
+        <th>Subject</th>
+        <th>Body</th>
         <th>Sent</th>
-        <th>Replied?</th>
       </tr>
-      <!-- <tr ng-click="messages.userClick(person)" dir-paginate="person in messages.babysitters | itemsPerPage: babysitters.usersPerPage">
-        <td>{{person.from}}</td>
-        <td>{{person.message}}</td>
-        <td>{{person.sent}}</td>
-        <td>${{person.replied}}</td>
-      </tr> -->
+      <tr ng-click="messages.messagesClick(messages.conversationMessage[key])" ng-repeat="(key, value) in messages.conversationMessage">
+        <td>{{value.sender_name}}</td>
+        <td>{{value.subject}}</td>
+        <td>{{value.body}}</td>
+        <td>{{value.created_at}}</td>
+      </tr>
+
     </table>
-    <dir-pagination-controls max-size="5"></dir-pagination-controls>
   </div>
 </div>

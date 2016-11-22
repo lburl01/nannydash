@@ -3,10 +3,14 @@ class ConversationsController < ApplicationController
 
   def index
     @conversations = Conversation.get_user_conversations(current_user)
+
+    render json: @conversations
   end
 
   def show
     @conversation = Conversation.find(params[:id])
+
+    render json: @conversation
   end
 
   def new

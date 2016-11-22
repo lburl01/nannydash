@@ -15,7 +15,8 @@ class Message < ApplicationRecord
 
     response.each do |message|
       name = "#{message.sent_message.first_name} #{message.sent_message.last_name}"
-      @messages << { "message_id" => message.id, "from" => name,
+      @messages << { "conversation_id" => message.conversation_id,
+                     "message_id" => message.id, "from" => name,
                      "subject" => message.subject, "is_read" => message.is_read }
     end
 
@@ -32,6 +33,27 @@ class Message < ApplicationRecord
     else
       return new_messages
     end
+
+  end
+
+  def self.get_messages(conversation)
+    @messages = Message.where( { is_deleted: false, conversation_id: conversation.id } ).all
+
+    @message_details = []
+
+    @messages.each do |message|
+      sender_name = "#{message.sent_message.first_name} #{message.sent_message.last_name}"
+      @message_details << { "body" => message.body, "subject" => message.subject,
+                            "conversation_id" => message.conversation_id,
+                            "created_at" => message.created_at.strftime("%m/%d/%Y %I:%M %p"),
+                            "message_id" => message.id,
+                            "is_read" => message.is_read,
+                            "recipient_id" => message.recipient_id,
+                            "sender_id" => message.user_id,
+                            "sender_name" => sender_name }
+    end
+
+    return @message_details
 
   end
 

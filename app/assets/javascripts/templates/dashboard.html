@@ -77,7 +77,7 @@
         <th>Subject</th>
         <th>Read?</th>
       </tr>
-      <tr ng-repeat="person in dashboard.messages">
+      <tr ng-click="dashboard.message(person.conversation_id, person.message_id)" ng-repeat="person in dashboard.messages">
         <td>{{person.from}}</td>
         <td>{{person.subject}}</td>
         <td>{{person.is_read}}</td>
