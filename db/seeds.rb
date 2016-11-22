@@ -11,6 +11,41 @@ User.create!(first_name: "Agency",
               role: 0,
               phone_number: Faker::PhoneNumber.phone_number)
 
+User.create!(first_name: "Family",
+              last_name: "Example",
+              email: "family@example.com",
+              password: "password",
+              street: Faker::Address.street_address,
+              city: Faker::Address.city,
+              state: Faker::Address.state_abbr,
+              zip_code: Faker::Address.zip_code,
+              county: "Orange",
+              role: 1,
+              about: "I love my family!",
+              phone_number: Faker::PhoneNumber.phone_number)
+
+User.create!(first_name: "Sitter",
+              last_name: "Example",
+              email: "sitter@example.com",
+              password: "password",
+              street: Faker::Address.street_address,
+              city: Faker::Address.city,
+              state: Faker::Address.state_abbr,
+              zip_code: Faker::Address.zip_code,
+              county: "Durham",
+              role: 2,
+              birthday: "12/20/1990",
+              hourly_rate: Faker::Number.decimal(2),
+              cpr_certification: true,
+              first_aid_certification: false,
+              recommendation_one_name: Faker::Name.name,
+              recommendation_one_email: Faker::Internet.email,
+              recommendation_two_name: Faker::Name.name,
+              recommendation_two_email: Faker::Internet.email,
+              recommendation_three_name: Faker::Name.name,
+              recommendation_three_email: Faker::Internet.email,
+              phone_number: Faker::PhoneNumber.phone_number)
+
 
 5.times do |index|
   User.create!(first_name: Faker::Name.first_name,
