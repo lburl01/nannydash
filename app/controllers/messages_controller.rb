@@ -9,10 +9,10 @@ class MessagesController < ApplicationController
   end
 
   def show
-    @message = Message.find(params[:id])
+    @message = Message.show_message(params[:id])
 
-    if @message.user_id != current_user.id
-      @message.update_attribute(:is_read, true)
+    if @message['sender_id'] != current_user.id
+      @message['is_read'] = true
     end
 
     render json: @message
