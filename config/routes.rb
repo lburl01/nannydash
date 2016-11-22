@@ -47,6 +47,7 @@ Rails.application.routes.draw do
   post 'agency' => 'agency#create'
 
   get 'messages/new' => 'messages#new'
+  patch 'message/delete/:id' => 'messages#toggle_deleted_message'
   post 'messages/new' => 'messages#create'
 
   get 'twilio/send_job' => 'twilio#job_alert'
