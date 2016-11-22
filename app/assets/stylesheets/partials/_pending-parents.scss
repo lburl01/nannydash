@@ -42,6 +42,11 @@ pending-parent-info {
 }
 
 pending-parent-info-form {
+  input.pending-parent,
+  textarea.pending-parent {
+    background: #fff !important;
+    cursor: default;
+  }
   input.approve,
   button.delete {
     background: #efba59;
@@ -58,7 +63,7 @@ pending-parent-info-form {
     width: 65%;
     &:hover {
       cursor: pointer;
-      background-color: #e2a338;
+      background-color: #e2a338 !important;
     }
   }
 }
