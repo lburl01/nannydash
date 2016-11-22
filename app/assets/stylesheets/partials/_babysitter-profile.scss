@@ -90,17 +90,31 @@
     }
 
     button {
+      background: $grey;
+      border-radius: 4px;
+      border: transparent;
+      color: #fff;
+      cursor: pointer;
       font-family: 'Roboto', sans-serif;
       font-size: 14px;
       font-weight: 100;
-      background: $yellow;
-      border: transparent;
-      border-radius: 4px;
-      padding: 7px 10px;
-      color: #fff;
       margin-top: 15px;
+      outline: none;
+      padding: 7px 10px;
+      text-shadow: 1px 1px 1px darken($grey, 20%);
       width: 100%;
-      text-shadow: 1px 1px 1px #a58741
+      &:first-of-type:hover {
+        background: $yellow;
+        text-shadow: 1px 1px 1px darken($yellow, 20%);
+      }
+      &:last-of-type:hover {
+        background: $red;
+        text-shadow: 1px 1px 1px darken($red, 20%);
+      }
+      &.redDelete {
+        background: $red !important;
+        text-shadow: 1px 1px 1px darken($red, 30%);
+      }
     }
 
     .cert {

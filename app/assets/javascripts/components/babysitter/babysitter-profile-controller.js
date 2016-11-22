@@ -11,6 +11,7 @@ angular.module('app')
       this.userInput = false;
       this.updatedBabysitters = {};
       this.userInput = "";
+      self.visibility = false;
       /*************************
       Verifying Certifications
       *************************/
@@ -98,4 +99,10 @@ angular.module('app')
           }
         });
       }
+      /*************************
+      Delete Popup
+      *************************/
+      this.popup = function() {
+        self.visibility = !self.visibility;
+      };
   }]);
