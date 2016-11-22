@@ -12,33 +12,38 @@ angular.module('app')
       this.firstAid = "First-Aid Certified";
       this.userInput = false;
       this.updatedBabysitters = {};
+      this.userInput = "";
+      self.visibility = false;
+      this.changed = true;
       /*************************
       Verifying Certifications
       *************************/
       this.addCerts = function() {
-        $('<div>').attr('class', 'new-cert-container').appendTo('.cert');
-        $('<input>').attr('id', 'cpr').appendTo('.new-cert-container');
-        $('<span>').html('-').appendTo('.new-cert-container');
-      };
+      }
       /*************************
       If user edits input fields, data will be saved in object
       *************************/
       this.updateBabysitter = function(id) {
+        self.changed = true;
         babysitterDirectoryAPI.updateUser(id, self.updatedBabysitters);
       };
       /*************************
       If user deletes babysitter, sitter will be removed from database
       *************************/
       this.deleteBabysitter = function(id) {
-        babysitterDirectoryAPI.deleteUser(id, self.updatedBabysitters);
-        $state.go('babysitters');
-      };
+        var result = confirm("Are you sure you want to delete user?");
+        if (result) {
+          babysitterDirectoryAPI.deleteUser(id, self.updatedBabysitters);
+          $state.go('babysitters',{reload: true});
+        }
+      }
       /*************************
       Convert Strings
       *************************/
       this.convertRate = function(rate) {
-        return parseFloat(rate).toFixed(2);
-      };
+        console.log(Number(rate).toFixed(2));
+        return Number(rate).toFixed(2);
+      }
       /*************************
       When user hits 'submit' object will be patched to database
       *************************/
@@ -46,8 +51,8 @@ angular.module('app')
         self.convertRate(value);
         self.updatedBabysitters['id'] = sitter_id;
         var updatedUser = self.updatedBabysitters[key] = value;
-
-      };
+        console.log(self.updatedBabysitters);
+      }
       /*************************
       Calculating age
       *************************/
@@ -66,6 +71,31 @@ angular.module('app')
         var objectDate = data;
         var convertDate = new Date(objectDate);
         return newDate = convertDate.getMonth() + '/' + convertDate.getDate() + '/' + convertDate.getFullYear();
+      }
+      this.getDate()
+      /*************************
+      Search user in input search field
+      *************************/
+      this.searchUser = function(user) {
+        babysitterDirectoryAPI.list().success(function(response) {
+          var found = false;
+          for(var i= 0; i < response.sitters.length; i++) {
+            if(response.sitters[i].first_name.toLowerCase() === user.toLowerCase() || response.sitters[i].last_name.toLowerCase() === user.toLowerCase()) {
+              babysitterDirectoryAPI.userProfile(response.sitters[i].sitter_id).success(function(newResponse) {
+                found = true;
+                $state.go('babysitter-profile', {babysitterParam: {sitter: newResponse}, sitterId: newResponse.sitter_id}, {reload: true,  notify: true});
+              });
+            }
+          }
+          if(!found){
+            $('<p>').html('Sorry, that user does not exist.').appendTo('.search');
+          }
+        });
+      }
+      /*************************
+      Delete Popup
+      *************************/
+      this.popup = function() {
+        self.visibility = !self.visibility;
       };
-      this.getDate();
   }]);

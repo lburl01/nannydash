@@ -6,17 +6,36 @@
     bindings: {
       info: '<'
     },
-    controller: ['pendingBabysittersAPI', PendingBabysitterInfo]
+    controller: ['pendingBabysittersAPI', '$scope', '$state', PendingBabysitterInfo]
   });
 
-  function PendingBabysitterInfo(pendingBabysittersAPI) {
+  function PendingBabysitterInfo(pendingBabysittersAPI, $scope, $state) {
     var ctrl = this;
+    ctrl.visibility = false;
+
+    ctrl.popup = function() {
+      ctrl.visibility = !ctrl.visibility;
+    };
 
     ctrl.calculateAge = function(birthday) {
       var ageDifMs = Date.now() - new Date(birthday);
       var ageDate = new Date(ageDifMs);
       return Math.abs(ageDate.getUTCFullYear() - 1970);
     };
-    
+
+    ctrl.approve = function(id) {
+      pendingBabysittersAPI.approveSitter(id).then(function() {
+        $scope.$emit('updateCount', {});
+        $state.go('pendingBabysitters');
+      });
+    };
+
+    ctrl.delete = function(id) {
+      pendingBabysittersAPI.deleteSitter(id).then(function() {
+        ctrl.visibility = false;
+        $scope.$emit('updateCount', {});
+        $state.go('pendingBabysitters');
+      });
+    };
   }
 })();

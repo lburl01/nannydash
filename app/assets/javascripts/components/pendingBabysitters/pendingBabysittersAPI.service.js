@@ -4,18 +4,36 @@
     return {
 
       list: function() {
-        return $http.get("api/v1/sitters/pending").then(function(response) {
+        return $http.get("/api/v1/sitters/pending").then(function(response) {
+          return response.data.sitters;
+        }, function() {
+          alert("Failed");
+        });
+      },
+      countyList: function() {
+        return $http.get("/api/v1/sitters/pending.json").then(function(response) {
+          return response.data.counties;
+        }, function() {
+          alert('Failed');
+        });
+      },
+      pendingInfo: function(id) {
+        return $http.get("/api/v1/sitter/" + id + ".json").then(function(response) {
           return response.data;
         }, function() {
           alert("Failed");
         });
       },
 
-      pendingInfo: function(id) {
-        return $http.get("api/v1/sitter/" + id + ".json").then(function(response) {
+      deleteSitter: function(id) {
+        return $http.patch("/api/v1/sitter/delete/" + id + ".json").then(function(response) {
           return response.data;
-        }, function() {
-          alert("Failed");
+        });
+      },
+
+      approveSitter: function(id) {
+        return $http.patch("/api/v1/sitter/approve/" + id + ".json").then (function(response) {
+          return response.data;
         });
       }
 

@@ -1,6 +1,5 @@
 class SittersController < ApplicationController
   skip_before_action :verify_authenticity_token
-  before_action :authenticate_user!
 
   def index
     @sitters_counties = User.get_active_sitters
@@ -49,6 +48,16 @@ class SittersController < ApplicationController
     @pending_sitters = User.get_pending_sitters
 
     render json: @pending_sitters
+  end
+
+  def set_cpr_true
+    sitter = User.find(params[:id])
+    sitter.toggle!(:cpr_certification)
+  end
+
+  def set_first_aid_true
+    sitter = User.find(params[:id])
+    sitter.toggle!(:first_aid_certification)
   end
 
   private

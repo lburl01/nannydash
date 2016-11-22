@@ -1,33 +1,43 @@
-<form name="familyForm" ng-submit="">
+<fieldset ng-disabled=true>
+  <form name="familyForm" ng-submit="">
+    <!-- Phone Field -->
+    <label for="phone">Phone:</label>
+    <input class="pending-parent" name="phone" id="phone" type="text" ng-model="$ctrl.info.phone" ng-model-options="{updateOn: 'blur'}" ng-change="$ctrl.updateCurrent( 'phone', $ctrl.info.phone)">
+    <!-- Email Field -->
+    <label for="email">Email:</label>
+    <input class="pending-parent" name="phone" id="email" type="text" ng-model="$ctrl.info.email" ng-model-options="{updateOn: 'blur'}" ng-change="$ctrl.updateCurrent( 'email', $ctrl.info.email)">
+    <!-- Street Field -->
+    <label for="street">Street:</label>
+    <input class="pending-parent" name="phone" id="street" type="text" ng-model="$ctrl.info.street" ng-model-options="{updateOn: 'blur'}" ng-change="$ctrl.updateCurrent( 'street', $ctrl.info.street)">
+    <!-- City Field -->
+    <label for="city">City:</label>
+    <input class="pending-parent" name="phone" id="city" type="text" ng-model="$ctrl.info.city" ng-model-options="{updateOn: 'blur'}" ng-change="$ctrl.updateCurrent( 'city', $ctrl.info.city)">
+    <!-- County Field -->
+    <label for="count">County:</label>
+    <input class="pending-parent" name="phone" id="county" type="text" ng-model="$ctrl.info.county" ng-model-options="{updateOn: 'blur'}" ng-change="$ctrl.updateCurrent( 'county', $ctrl.info.county)">
+    <!-- State Field -->
+    <label for="state">State:</label>
+    <input class="pending-parent" name="phone" id="state" type="text" ng-model="$ctrl.info.state" ng-model-options="{updateOn: 'blur'}" ng-change="$ctrl.updateCurrent( 'state', $ctrl.info.state)">
+    <!-- zip Field -->
+    <label for="zip">Zip Code:</label>
+    <input class="pending-parent" name="phone" id="zip" type="text" ng-model="$ctrl.info.zip_code" ng-model-options="{updateOn: 'blur'}" ng-change="$ctrl.updateCurrent( 'zip_code', $ctrl.info.zip_code)">
+    <!-- About Field -->
+    <label for="about">About:</label>
+    <textarea class="pending-parent" name="about" rows="4" cols="50" ng-model="$ctrl.info.about" ng-model-options="{updateOn: 'blur'}" ng-change="$ctrl.updateCurrent( 'about', $ctrl.info.about)">
+    </textarea>
 
-  <!-- Phone Field -->
-  <label for="phone">Phone:</label>
-  <input name="phone" id="phone" type="text" ng-model="$ctrl.info.phone" ng-model-options="{updateOn: 'blur'}" ng-change="$ctrl.updateCurrent( 'phone', $ctrl.info.phone)">
-  <!-- Email Field -->
-  <label for="email">Email:</label>
-  <input name="phone" id="email" type="text" ng-model="$ctrl.info.email" ng-model-options="{updateOn: 'blur'}" ng-change="$ctrl.updateCurrent( 'email', $ctrl.info.email)">
-  <!-- Street Field -->
-  <label for="street">Street:</label>
-  <input name="phone" id="street" type="text" ng-model="$ctrl.info.street" ng-model-options="{updateOn: 'blur'}" ng-change="$ctrl.updateCurrent( 'street', $ctrl.info.street)">
-  <!-- City Field -->
-  <label for="city">City:</label>
-  <input name="phone" id="city" type="text" ng-model="$ctrl.info.city" ng-model-options="{updateOn: 'blur'}" ng-change="$ctrl.updateCurrent( 'city', $ctrl.info.city)">
-  <!-- County Field -->
-  <label for="count">County:</label>
-  <input name="phone" id="county" type="text" ng-model="$ctrl.info.county" ng-model-options="{updateOn: 'blur'}" ng-change="$ctrl.updateCurrent( 'county', $ctrl.info.county)">
-  <!-- State Field -->
-  <label for="state">State:</label>
-  <input name="phone" id="state" type="text" ng-model="$ctrl.info.state" ng-model-options="{updateOn: 'blur'}" ng-change="$ctrl.updateCurrent( 'state', $ctrl.info.state)">
-  <!-- zip Field -->
-  <label for="zip">Zip Code:</label>
-  <input name="phone" id="zip" type="text" ng-model="$ctrl.info.zip_code" ng-model-options="{updateOn: 'blur'}" ng-change="$ctrl.updateCurrent( 'zip_code', $ctrl.info.zip_code)">
-  <!-- About Field -->
-  <label for="about">About:</label>
-  <textarea name="about" rows="4" cols="50" ng-model="$ctrl.info.about" ng-model-options="{updateOn: 'blur'}" ng-change="$ctrl.updateCurrent( 'about', $ctrl.info.about)">
-  </textarea>
+  </form>
+</fieldset>
+<input type="button" class="approve" ng-click="$ctrl.handleToggle($ctrl.info.family_id)" value="Approve"></input>
+<button ng-click="$ctrl.popup()" class="delete" ng-class="{'redDelete': $ctrl.visibility}" type="button">Delete Application</button>
 
-  <input type="button" class="approve" ng-click="$ctrl.handleToggle($ctrl.info.family_id)" value="Approve">
-  <button ng-click="$ctrl.delete($ctrl.info.family_id)" ui-sref="pendingParents" class="delete" type="button">Delete Application</button>
-
-  </input>
-</form>
+<div ng-class="{'visible': $ctrl.visibility}" class="popup" role="alert">
+  <div class="popup-container">
+    <a ng-click="$ctrl.popup()" class="close img-replace"></a>
+    <p>Are you sure you want to delete this family?</p>
+    <ul class="popup-buttons">
+      <li ng-click="$ctrl.delete($ctrl.info.family_id)">Yes</li>
+      <li ng-click="$ctrl.popup()">No</li>
+    </ul>
+  </div>
+</div>

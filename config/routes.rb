@@ -1,12 +1,20 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {sessions: 'users/sessions'}
 
+  authenticated :user, ->(u) { u.manager? } do
+    root to: "dashboard#index", as: :manager_root
+  end
+
   # Angular entry point
   get 'dashboard' => 'dashboard#index'
+  get 'nanny_dashboard' => 'nanny_dashboard#index'
+  get 'family_dashboard' => 'family_dashboard#index'
 
   get 'api/v1/sitters' => 'sitters#index'
   get 'api/v1/sitter/:id' => 'sitters#show'
   get 'api/v1/sitters/pending' => 'sitters#pending'
+  patch 'api/v1/sitter/cpr/:id' => 'sitter#set_cpr_true'
+  patch 'api/v1/sitter/first_aid/:id' => 'sitter#set_first_aid_true'
   patch 'api/v1/sitter/:id' => 'sitters#update'
   patch 'api/v1/sitter/delete/:id' => 'sitters#toggle_deleted_sitter'
   patch 'api/v1/sitter/approve/:id' => 'sitters#toggle_approved_sitter'
@@ -35,6 +43,8 @@ Rails.application.routes.draw do
 
   get 'messages/new' => 'messages#new'
   post 'messages/new' => 'messages#create'
+
+  get 'twilio/send_job' => 'twilio#job_alert'
 
   resources :conversations do
     resources :messages

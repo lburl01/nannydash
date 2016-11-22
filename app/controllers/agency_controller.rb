@@ -1,9 +1,8 @@
 class AgencyController < ApplicationController
   skip_before_action :verify_authenticity_token
-  before_action :authenticate_user!
 
   def index
-    @messages = Message.get_latest_messages
+    @messages = Message.get_latest_messages(current_user)
     @applications = User.get_new_applicants
     @assignments = Job.get_five_newest_jobs
     @open_jobs = Job.get_five_open_jobs
@@ -39,7 +38,7 @@ class AgencyController < ApplicationController
     @pending_parents = User.get_pending_family_count
     @new_jobs = Job.get_new_jobs_count
     @all_jobs = Job.get_all_jobs_count
-    @new_messages = Message.get_new_messages_count
+    @new_messages = Message.get_new_messages_count(current_user)
 
     @count_totals = { "pending_sitters" => @pending_sitters,
                       "pending_parents" => @pending_parents,

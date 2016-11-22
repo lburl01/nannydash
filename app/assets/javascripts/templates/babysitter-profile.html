@@ -7,7 +7,7 @@
     <span>></span>
     <h2>{{babysitter.user.first_name}}</h2>
     <h2>{{babysitter.user.last_name}}</h2>
-    <input type="text">
+    <input ng-keyup="$event.keyCode == 13 ? babysitter.searchUser(babysitter.userInput) : null" type="text" ng-model="babysitter.userInput" placeholder="Search for Babysitter">
   </div>
   <!-- ******************************
    Drop Down County Field
@@ -37,13 +37,13 @@
     <h2>Basic Information</h2>
     <!-- Phone Field -->
     <label for="phone">Phone:</label>
-    <input id="phone" type="text" ng-model="babysitter.user.phone" ng-model-options="{ updateOn: 'blur' }" ng-change="babysitter.userInputClick('phone', babysitter.user.phone, babysitter.user.sitter_id)">
+    <input id="phone" type="text" ng-class="{changed: babysitter.changed}" ng-model="babysitter.user.phone" ng-model-options="{ updateOn: 'blur' }" ng-change="babysitter.userInputClick('phone', babysitter.user.phone, babysitter.user.sitter_id)">
     <!-- Email Field -->
     <label for="email">Email:</label>
     <input id="email" type="text" ng-model="babysitter.user.email" ng-model-options="{ updateOn: 'blur' }" ng-change="babysitter.userInputClick('email', babysitter.user.email, babysitter.user.sitter_id)">
     <!-- Birthday Field -->
     <label for="birthday">Birthday:</label>
-    <input id="birthday" type="text" ng-model="babysitter.user.birthday" ng-model-options="{ updateOn: 'blur' }" ng-change="babysitter.userInputClick('birthday', babysitter.user.birthday, babysitter.user.sitter_id)">
+    <input id="birthday" type="text" ng-model="babysitter.user.birthday" ng-model-options="{ updateOn: 'blur' }" ng-change="babysitter.userInputClick('birthday', babysitter.user.birthday, babysitter.user.sitter_id); babysitter.calculateAge();">
     <!-- Street Field -->
     <label for="street">Street:</label>
     <input id="street" type="text" ng-model="babysitter.user.street" ng-model-options="{ updateOn: 'blur' }" ng-change="babysitter.userInputClick('street', babysitter.user.street, babysitter.user.sitter_id)">
@@ -83,24 +83,36 @@
     <h2>Key Information</h2>
     <!-- Certifications Field -->
     <div class="cert">
-      <label>Certifications <span ng-click="babysitter.addCerts()">+</span></label>
-      <div class="cert-container" ng-show="babysitter.user.cpr_certification === true">
-        <input id="cpr" type="text" ng-model="babysitter.cpr"><span>-</span>
+      <label>Certifications</label>
+      <div class="cert-container" ng-click="babysitter.addCerts(babysitter.user.cpr_certification)">
+        <input id="cpr" type="text" ng-model="babysitter.cpr">
       </div>
-      <div class="cert-container" ng-show="babysitter.user.first_aid_certification === true">
-        <input id="first-aid" type="text" ng-model="babysitter.firstAid"><span>-</span>
+      <div class="cert-container" ng-click="babysitter.addCerts(babysitter.user.first_aid_certification)">
+        <input id="first-aid" type="text" ng-model="babysitter.firstAid">
       </div>
     </div>
     <!-- Hourly Rate Field -->
     <label for="rate">Hourly Rate:</label>
     <input id="rate" type="text" ng-model="babysitter.user.hourly_rate" ng-model-options="{ updateOn: 'blur' }" ng-change="babysitter.userInputClick('hourly_rate', babysitter.user.hourly_rate, babysitter.user.sitter_id)">
     <!-- Age Field -->
-    <label for="birthday">Age:</label>
-    <input id="birthday" type="text" ng-model="babysitter.age">
+    <label for="age">Age:</label>
+    <input id="age" type="text" ng-model="babysitter.age" disabled>
     <!-- Joined Field -->
     <label for="joined">Joined:</label>
     <input id="joined" type="text" ng-model="babysitter.getDate(babysitter.user.joined)" ng-model-options="{ updateOn: 'blur' }" ng-change="babysitter.userInputClick('joined', babysitter.user.joined, babysitter.user.sitter_id)">
     <button ng-click="babysitter.updateBabysitter(babysitter.user.sitter_id)" type="button">Update Account</button>
-    <button ng-click="babysitter.deleteBabysitter(babysitter.user.sitter_id)" type="button">Delete Account</button>
+    <button ng-click="babysitter.popup()" ng-class="{'redDelete': babysitter.visibility}" type="button">Delete Account</button>
   </section>
+
+  <div ng-class="{'visible': babysitter.visibility}" class="popup" role="alert">
+    <div class="popup-container">
+      <a ng-click="babysitter.popup()" class="close img-replace"></a>
+      <p>Are you sure you want to delete this family?</p>
+      <ul class="popup-buttons">
+        <li ng-click="babysitter.deleteBabysitter(babysitter.user.sitter_id)">Yes</li>
+        <li ng-click="babysitter.popup()">No</li>
+      </ul>
+    </div>
+  </div>
+
 </div>

@@ -1,4 +1,5 @@
 <div class="directory-container">
+  <fieldset ng-disabled="true">
   <div class="search">
     <h1 ui-sref="babysitters">Pending Babysitter</h1>
     <span>></span>
@@ -9,11 +10,12 @@
   <!-- ******************************
    Drop Down County Field
   ******************************* -->
+
   <div class="list">
     <div class="title-container">
-      <div class="county">
+      <div class="message">
         <h4>Message</h4>
-        <i class="fa fa-angle-down"></i>
+        <span></span>
       </div>
     </div>
   </div>
@@ -25,48 +27,49 @@
   <!-- ******************************
    Basic Information Section
   ******************************* -->
+
   <section class="basic-info">
     <h2>Basic Information</h2>
     <!-- Phone Field -->
     <label for="phone">Phone:</label>
-    <input id="phone" type="text" ng-model="$ctrl.info.phone" ng-model-options="{ updateOn: 'blur' }">
+    <input class="pending-sitter" id="phone" type="text" ng-model="$ctrl.info.phone" ng-model-options="{ updateOn: 'blur' }">
     <!-- Email Field -->
     <label for="email">Email:</label>
-    <input id="email" type="text" ng-model="$ctrl.info.email" ng-model-options="{ updateOn: 'blur' }">
+    <input class="pending-sitter" id="email" type="text" ng-model="$ctrl.info.email" ng-model-options="{ updateOn: 'blur' }">
     <!-- Birthday Field -->
     <label for="birthday">Birthday:</label>
-    <input id="birthday" type="text" ng-model="$ctrl.info.birthday" ng-model-options="{ updateOn: 'blur' }">
+    <input class="pending-sitter" id="birthday" type="text" ng-model="$ctrl.info.birthday" ng-model-options="{ updateOn: 'blur' }">
     <!-- Street Field -->
     <label for="street">Street:</label>
-    <input id="street" type="text" ng-model="$ctrl.info.street" ng-model-options="{ updateOn: 'blur' }">
+    <input class="pending-sitter" id="street" type="text" ng-model="$ctrl.info.street" ng-model-options="{ updateOn: 'blur' }">
     <!-- City Field -->
     <label for="city">City:</label>
-    <input id="city" type="text" ng-model="$ctrl.info.city" ng-model-options="{ updateOn: 'blur' }">
+    <input class="pending-sitter" id="city" type="text" ng-model="$ctrl.info.city" ng-model-options="{ updateOn: 'blur' }">
     <!-- State Field -->
     <label for="state">State:</label>
-    <input id="state" type="text" ng-model="$ctrl.info.state" ng-model-options="{ updateOn: 'blur' }">
+    <input class="pending-sitter" id="state" type="text" ng-model="$ctrl.info.state" ng-model-options="{ updateOn: 'blur' }">
     <!-- Zip Code Field -->
     <label for="zip">Zip Code:</label>
-    <input id="zip" type="text" ng-model="$ctrl.info.zip_code" ng-model-options="{ updateOn: 'blur' }">
+    <input class="pending-sitter" id="zip" type="text" ng-model="$ctrl.info.zip_code" ng-model-options="{ updateOn: 'blur' }">
 
     <h2 class="rec-title">Recommendations</h2>
     <!-- Recommendation 1 Field -->
     <div class="rec">
       <label>1.</label>
-      <input id="rec-name-1" type="text" ng-model="$ctrl.info.recommendation_one_name" ng-model-options="{ updateOn: 'blur' }" ng-change="$ctrl.infoInputClick('recommendation_one_name', $ctrl.info.recommendation_one_name, $ctrl.info.sitter_id)">
-      <input id="rec-phone-1" type="text" ng-model="$ctrl.info.recommendation_one_email" ng-model-options="{ updateOn: 'blur' }" ng-change="$ctrl.infoInputClick('recommendation_one_name', $ctrl.info.recommendation_one_name, $ctrl.info.sitter_id)">
+      <input class="pending-sitter" id="rec-name-1" type="text" ng-model="$ctrl.info.recommendation_one_name" ng-model-options="{ updateOn: 'blur' }" ng-change="$ctrl.infoInputClick('recommendation_one_name', $ctrl.info.recommendation_one_name, $ctrl.info.sitter_id)">
+      <input class="pending-sitter" id="rec-phone-1" type="text" ng-model="$ctrl.info.recommendation_one_email" ng-model-options="{ updateOn: 'blur' }" ng-change="$ctrl.infoInputClick('recommendation_one_name', $ctrl.info.recommendation_one_name, $ctrl.info.sitter_id)">
     </div>
     <!-- Recommendation 2 Field -->
     <div class="rec">
       <label>2.</label>
-      <input id="rec-name-2" type="text" ng-model="$ctrl.info.recommendation_two_name" ng-model-options="{ updateOn: 'blur' }" ng-change="$ctrl.infoInputClick('recommendation_two_name', $ctrl.info.recommendation_two_name, $ctrl.info.sitter_id)">
-      <input id="rec-phone-2" type="text" ng-model="$ctrl.info.recommendation_two_email" ng-model-options="{ updateOn: 'blur' }" ng-change="$ctrl.infoInputClick('recommendation_two_name', $ctrl.info.recommendation_two_name, $ctrl.info.sitter_id)">
+      <input class="pending-sitter" id="rec-name-2" type="text" ng-model="$ctrl.info.recommendation_two_name" ng-model-options="{ updateOn: 'blur' }" ng-change="$ctrl.infoInputClick('recommendation_two_name', $ctrl.info.recommendation_two_name, $ctrl.info.sitter_id)">
+      <input class="pending-sitter" id="rec-phone-2" type="text" ng-model="$ctrl.info.recommendation_two_email" ng-model-options="{ updateOn: 'blur' }" ng-change="$ctrl.infoInputClick('recommendation_two_name', $ctrl.info.recommendation_two_name, $ctrl.info.sitter_id)">
     </div>
     <!-- Recommendation 3 Field -->
     <div class="rec">
       <label>3.</label>
-      <input id="rec-name-3" type="text" ng-model="$ctrl.info.recommendation_three_name" ng-model-options="{ updateOn: 'blur' }" ng-change="$ctrl.infoInputClick('recommendation_three_name', $ctrl.info.recommendation_three_name, $ctrl.info.sitter_id)">
-      <input id="rec-phone-3" type="text" ng-model="$ctrl.info.recommendation_three_email" ng-model-options="{ updateOn: 'blur' }" ng-change="$ctrl.infoInputClick('recommendation_three_name', $ctrl.info.recommendation_three_name, $ctrl.info.sitter_id)">
+      <input class="pending-sitter" id="rec-name-3" type="text" ng-model="$ctrl.info.recommendation_three_name" ng-model-options="{ updateOn: 'blur' }" ng-change="$ctrl.infoInputClick('recommendation_three_name', $ctrl.info.recommendation_three_name, $ctrl.info.sitter_id)">
+      <input class="pending-sitter" id="rec-phone-3" type="text" ng-model="$ctrl.info.recommendation_three_email" ng-model-options="{ updateOn: 'blur' }" ng-change="$ctrl.infoInputClick('recommendation_three_name', $ctrl.info.recommendation_three_name, $ctrl.info.sitter_id)">
     </div>
   </section>
   <!-- ******************************
@@ -78,23 +81,38 @@
     <div class="cert">
       <label>Certifications</label>
       <div class="cert-container" ng-show="$ctrl.info.cpr_certification === true">
-        <input id="cpr" type="text" value="CPR Certified">
+        <input class="pending-sitter" id="cpr" type="text" value="CPR Certified">
       </div>
       <div class="cert-container" ng-show="$ctrl.info.first_aid_certification === true">
-        <input id="first-aid" type="text" value="First Aid Certified">
+        <input class="pending-sitter" id="first-aid" type="text" value="First Aid Certified">
       </div>
     </div>
     <!-- Hourly Rate Field -->
     <label for="rate">Hourly Rate:</label>
-    <input id="rate" type="text" ng-model="$ctrl.info.hourly_rate" ng-model-options="{ updateOn: 'blur' }" ng-change="$ctrl.infoInputClick('hourly_rate', $ctrl.info.hourly_rate, $ctrl.info.sitter_id)">
+    <input class="pending-sitter" id="rate" type="text" ng-model="$ctrl.info.hourly_rate" ng-model-options="{ updateOn: 'blur' }" ng-change="$ctrl.infoInputClick('hourly_rate', $ctrl.info.hourly_rate, $ctrl.info.sitter_id)">
     <!-- Age Field -->
     <label for="birthday">Age:</label>
-    <input id="birthday" type="text" ng-value="$ctrl.calculateAge($ctrl.info.birthday)">
+    <input class="pending-sitter" id="birthday" type="text" ng-value="$ctrl.calculateAge($ctrl.info.birthday)">
     <!-- Joined Field -->
     <label for="joined">Joined:</label>
-    <input type="text" name="name" ng-value="$ctrl.info.joined | date: 'MM/dd/yyyy'">
-
-    <button ng-click="babysitter.updateBabysitter($ctrl.info.sitter_id)" type="button">Approve</button>
-    <button ng-click="babysitter.updateBabysitter($ctrl.info.sitter_id)" type="button">Delete</button>
+    <input class="pending-sitter" type="text" name="name" ng-value="$ctrl.info.joined | date: 'MM/dd/yyyy'">
   </section>
+  </fieldset>
+
+  <span class="pending-sitter-buttons">
+    <button class="pending-sitter" ng-click="$ctrl.approve($ctrl.info.sitter_id)" type="button">Approve</button>
+    <button class="pending-sitter" ng-click="$ctrl.popup()" ng-class="{'redDelete': $ctrl.visibility}" type="button">Delete</button>
+  </span>
+
+  <div ng-class="{'visible': $ctrl.visibility}" class="popup" role="alert">
+    <div class="popup-container">
+      <a ng-click="$ctrl.popup()" class="close img-replace"></a>
+      <p>Are you sure you want to delete this nanny?</p>
+      <ul class="popup-buttons">
+        <li ng-click="$ctrl.delete($ctrl.info.sitter_id)">Yes</li>
+        <li ng-click="$ctrl.popup()">No</li>
+      </ul>
+    </div>
+  </div>
+
 </div>

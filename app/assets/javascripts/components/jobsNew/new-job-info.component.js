@@ -7,13 +7,19 @@
         job: '<'
       },
       templateUrl: 'new-job-info.html',
-      controller: ['newJobsAPI', '$stateParams', '$scope', NewJobInfoController]
+      controller: ['newJobsAPI', '$stateParams', '$scope', '$state', NewJobInfoController]
     });
 
-  function NewJobInfoController(newJobsAPI, $stateParams, $scope) {
+  function NewJobInfoController(newJobsAPI, $stateParams, $scope, $state) {
     var ctrl = this;
     ctrl.jobId = $stateParams.jobId;
     ctrl.updateNewJob = {};
+    ctrl.visibility = false;
+    ctrl.deletedText = false;
+
+    ctrl.popup = function() {
+      ctrl.visibility = !ctrl.visibility;
+    };
 
     ctrl.$onInit = function() {
     };
@@ -32,7 +38,8 @@
       newJobsAPI.deleteJob(id).then(function() {
         console.log("Deleted: Job ID " + id);
         $scope.$emit('updateCount', {});
-
+        ctrl.deletedText = true;
+        $state.go('newJobs');
       });
     };
 

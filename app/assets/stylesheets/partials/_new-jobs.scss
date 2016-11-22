@@ -9,9 +9,13 @@ new-job {
       width: 25%;
     }
   }
+  .table-head li {
+    cursor: pointer !important;
+  }
   span.new-job-button {
     background: $yellow !important;
     cursor: pointer;
+    text-shadow: 1px 1px 1px #a58741
   }
   .title-container {
     display: flex;

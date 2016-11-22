@@ -1,6 +1,6 @@
 class FamiliesController < ApplicationController
   skip_before_action :verify_authenticity_token
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
 
   def index
     @families_counties = User.get_approved_families
@@ -44,7 +44,7 @@ class FamiliesController < ApplicationController
 
     def family_params
       params.require(:user).permit(:first_name, :last_name, :email,
-                                    :phone, :street, :city, :state, :zip_code,
+                                    :phone_number, :street, :city, :state, :zip_code,
                                     :county, :about, :active)
     end
 

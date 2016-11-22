@@ -1,4 +1,12 @@
 .pending-parents {
+
+  .table-head li {
+    cursor: pointer !important;
+    &:nth-child(5) {
+      cursor: default !important;
+    }
+  }
+
   li {
     cursor: default !important;
     width: 15%;
@@ -18,8 +26,12 @@
   }
   span.pending-parent-profile {
     background: $yellow !important;
-    text-shadow: 1px 1px 1px #a58741;
+    text-shadow: 1px 1px 1px #a58741 !important;
     cursor: pointer;
+    &:hover {
+      cursor: pointer;
+      background-color: #e2a338 !important;
+    }
   }
 }
 
@@ -30,13 +42,19 @@ pending-parent-info {
 }
 
 pending-parent-info-form {
-  input.approve {
-    background: #efba59;
+  input.pending-parent,
+  textarea.pending-parent {
+    background: #fff !important;
+    cursor: default;
+  }
+  input.approve,
+  button.delete {
+    background: $grey;
     border-radius: 4px;
     border: transparent;
     color: #fff;
     cursor: pointer;
-    text-shadow: 1px 1px 1px #a58741;
+    text-shadow: 1px 1px 1px darken($grey, 30%);
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 100;
@@ -44,7 +62,15 @@ pending-parent-info-form {
     padding: 7px 10px;
     width: 65%;
   }
-  button.delete {
-    text-shadow: 1px 1px 1px #a58741;
+  .approve {
+    &:hover {
+      cursor: pointer;
+      background-color: $yellow !important;
+      text-shadow: 1px 1px 1px darken($yellow, 30%);
+    }
+  }
+  .redDelete {
+    background-color: $red !important;
+    text-shadow: 1px 1px 1px darken($red, 30%);
   }
 }

@@ -8,6 +8,17 @@
     padding-bottom: 40px;
     padding-top: 20px;
 
+    p {
+      position: absolute;
+      right: 39px;
+      bottom: 605px;
+      font-size: 13px;
+      background: #a64e45;
+      padding: 5px 8px;
+      border-radius: 4px;
+      color: #fff;
+    }
+
     span, h2 {
       float: left;
     }
@@ -72,9 +83,35 @@
       color: #fff;
       font-weight: 100;
       margin-bottom: 10px;
+      position: relative;
+
       &.dropdown-container {
         height: 40px;
         overflow: visible;
+      }
+
+      .message {
+        position: absolute;
+        background: #eea199;
+        padding: 5px 8px;
+        border-radius: 4px;
+        right: 6px;
+        bottom: 6px;
+        cursor: pointer;
+
+        &:hover {
+          background: $yellow;
+        }
+
+        h4 {
+          float: left;
+          padding: 0;
+        }
+
+        i {
+          float: left;
+          padding-right: 5px;
+        }
       }
 
       h4 {
@@ -151,7 +188,8 @@
         border-bottom: #ddd solid .5px;
 
         &:not(:first-child):hover {
-          background: #f2f7f4;
+          background: $babyGreen;
+          cursor: pointer;
         }
 
         th {
@@ -199,13 +237,6 @@
       li {
         display: inline-block;
         padding: 0 8px;
-
-        // &:first-child, &:last-child {
-        //   border: #aaa solid .5px;
-        //   padding: 0px 9px;
-        //   font-size: 21px;
-        //   border-radius: 1px;
-        // }
 
         &:first-child {
           margin-right: 5px;

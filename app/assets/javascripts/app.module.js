@@ -55,11 +55,30 @@ angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPag
                     return familyAPI.list();
                 }]
             }
+        }).state('conversations', {
+            url: '/conversations',
+            templateUrl: 'conversations.html',
+            controller: 'conversationController as conversations'
+        }).state('message', {
+            url: '/message/:conversationId',
+            templateUrl: 'message.html',
+            controller: 'messageController as message',
+            params: {
+                messageParam: null,
+                conversationId: null
+            },
         }).state('messages', {
-            url: '/messages',
+            url: '/messages/:conversationId',
             templateUrl: 'messages.html',
-            controller: 'messagesController as messages'
-
+            controller: 'messagesController as messages',
+            params: {
+                messagesParam: null,
+                conversationId: null
+            },
+        }).state('new-message', {
+            url: '/new-message',
+            templateUrl: 'message-new.html',
+            controller: 'newMessageController as newMessage'
         }).state('familyProfile', {
             url: '/family/profile/:familyId',
             component: 'familyProfile',
