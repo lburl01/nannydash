@@ -18,6 +18,12 @@ html, body {
     main {
       padding-left: 355px;
       padding-top: 25px;
+      @include media(desktop) {
+        padding: 195px 35px 35px;
+      };
+      @include media(tablet) {
+        padding: 330px 25px 25px;
+      };
     }
   }
 }

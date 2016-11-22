@@ -16,10 +16,11 @@ angular.module('app')
 
       this.messagesClick = function(object) {
         console.log(object);
-        $state.go('message', {messageParam: {message: object}, conversationId: object.conversation_id}, {reload: true});
-
-        // dashboardAPI.allMessages(id).success(function(response) {
-        //   console.log(response);
-        // });
+        var conversationId = object.conversation_id;
+        var messageId = object.message_id;
+        dashboardAPI.message(conversationId, messageId).success(function(response) {
+          console.log(response);
+          $state.go('message', {messageParam: {message: response}, conversationId: conversationId}, {reload: true});
+        });
       }
     }]);

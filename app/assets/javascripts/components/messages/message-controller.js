@@ -6,4 +6,29 @@ angular.module('app')
       var self = this;
       this.message = $stateParams.messageParam.message;
       this.replyShow = false;
+
+      this.backToMessages = function(id) {
+        dashboardAPI.allMessages(id).success(function(response) {
+          console.log(response);
+          $state.go('messages', {
+            messagesParam: {
+              messages: response
+            },
+              conversationId: id
+            },
+            {
+              reload: true
+            });
+        });
+      }
+
+      this.replyMessage = function(body, subject) {
+        var replyObject = {};
+        replyObject['id'] = 8;
+        replyObject['subject'] = subject;
+        replyObject['body'] = body;
+
+        console.log(replyObject);
+        dashboardAPI.reply(replyObject);
+      }
     }]);

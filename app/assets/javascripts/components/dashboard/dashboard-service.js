@@ -36,6 +36,14 @@ angular.module('app').service('dashboardAPI', ['$http', function($http) {
           url: "/conversations/"+ id +"/messages",
           method: "GET"
         });
+      },
+      reply: function(data) {
+        console.log(data);
+        return $http({
+          url: "/messages/new",
+          method: "POST",
+          data: data
+        });
       }
     };
   }]);

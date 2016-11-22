@@ -2,11 +2,18 @@
   float: right;
   width: 100%;
   padding-right: 25px;
+  @include media(desktop) {
+    padding: 0 25px 25px;
+  };
 
   .search {
     overflow: hidden;
     padding-bottom: 40px;
     padding-top: 20px;
+
+    h1 {
+      cursor: pointer;
+    }
 
     p {
       position: absolute;
@@ -48,6 +55,14 @@
       color: $purple;
       right: 219px;
       top: 52px;
+      @include media(desktop) {
+        right: 257px;
+        top: 222px;
+      };
+      @include media(tablet) {
+        top: 357px;
+        right: 246px;
+      };
     }
 
     h1 {
@@ -90,7 +105,7 @@
         overflow: visible;
       }
 
-      .message {
+      .message-row {
         position: absolute;
         background: #eea199;
         padding: 5px 8px;
