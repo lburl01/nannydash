@@ -277,7 +277,7 @@ Message.create!(body: "Here is my question.",
 Message.create!(subject: "The kids were great!",
                 user_id: 3,
                 recipient_id: 2,
-                body: "Had such a good time hanging out with Violet and Charlie last night. Look forward to working with your family again soon!"
+                body: "Had such a good time hanging out with Violet and Charlie last night. Look forward to working with your family again soon!",
                 conversation_id: 3,
                 is_read: false,
                 is_deleted: false)
@@ -285,13 +285,13 @@ Message.create!(subject: "The kids were great!",
 Message.create!(subject: "Thanks",
                 user_id: 2,
                 recipient_id: 3,
-                body: "The kids couldn't stop talking about the game you taught them. See you soon."
+                body: "The kids couldn't stop talking about the game you taught them. See you soon.",
                 conversation_id: 3,
                 is_read: false,
                 is_deleted: false)
 
 Message.create!(subject: "Going on family vacation",
-                sender_id: 3,
+                user_id: 3,
                 recipient_id: 1,
                 body: "Just FYI that I will be out of town Dec. 20-Jan. 5.",
                 conversation_id: 4,
