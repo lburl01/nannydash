@@ -49,4 +49,19 @@ class Message < ApplicationRecord
 
   end
 
+  def self.show_message(options)
+    message = Message.find(options)
+    recipient_name = "#{message.received_message.first_name} #{message.received_message.last_name}"
+    sender_name = "#{message.sent_message.first_name} #{message.sent_message.last_name}"
+
+    @message_details = { "message_id" => message.id, "body" => message.body,
+                         "recipient_id" => message.recipient_id,
+                         "recipient_name" => recipient_name,
+                         "sender_id" => message.user_id,
+                         "sender_name" => sender_name,
+                         "subject" => message.subject,
+                         "created_at" => message.created_at.strftime("%m/%d/%Y %I:%M %p")
+                        }
+  end
+
 end

@@ -21,11 +21,25 @@ class Conversation < ApplicationRecord
 
       @conversations << { "sender_id" => convo.sender_id, "convo_id" => convo.id,
         "subject" => convo.subject, "recipient_id" => convo.recipient_id,
-        "created_at" => convo.created_at, "sender_name" => sender_name,
+        "created_at" => convo.created_at.strftime("%m/%d/%Y %I:%M %p"),
+        "sender_name" => sender_name,
         "recipient_name" => recipient_name}
     end
 
     return @conversations
+  end
+
+  def self.get_conversation(options)
+    convo = Conversation.find(options)
+
+    sender_name = "#{convo.sender.first_name} #{convo.sender.last_name}"
+    recipient_name = "#{convo.recipient.first_name} #{convo.recipient.last_name}"
+
+    @conversation = { "id" => convo.id, "subject" => convo.subject,
+                      "sender_id" => convo.sender_id, "sender_name" => sender_name,
+                      "recipient_id" => convo.recipient_id,
+                      "recipient_name" => recipient_name,
+                      "created_at" => convo.created_at.strftime("%m/%d/%Y %I:%M %p")}
   end
 
   private
