@@ -21,7 +21,8 @@ class SittersController < ApplicationController
     @sitter = User.new(sitter_params)
 
     if @sitter.save
-      redirect_to nanny_root
+      sign_in @sitter
+      redirect_to nanny_root_url
     else
       render 'new'
     end
