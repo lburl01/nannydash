@@ -115,7 +115,7 @@ class Job < ApplicationRecord
   end
 
   def self.get_assigned_jobs_count
-    new_jobs = Job.where({confirmed: true, is_assigned: true, is_deleted: false}).all.count
+    new_jobs = Job.where({is_assigned: true, is_deleted: false}).all.count
   end
 
   def self.get_all_jobs_count
