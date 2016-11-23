@@ -134,7 +134,7 @@ class User < ApplicationRecord
   end
 
   def self.get_new_applicants
-    @all_applicants = User.where(role: 1).where({ active: true, approved: false }).or(User.where(role: 2).where({ active: true, approved: false }))
+    @all_applicants = User.family.where({ active: true, approved: false }).or(User.nanny.where({ active: true, approved: false }))
     @five_applicants = @all_applicants.order(created_at: :desc).limit(5)
 
     @new_applicants = []
