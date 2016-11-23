@@ -1,22 +1,33 @@
 (function() {
+  'use strict';
   angular
     .module('nannyApp')
     .component('nannyApp', {
+      bindings: {
+        count: '<'
+      },
       templateUrl: 'nanny/nanny-app.html',
-      controller: ['$http', '$window', nannyAppController]
+      controller: ['nannyApp', '$http', '$scope', '$window', NannyAppController]
   });
 
-  function nannyAppController($http, $window) {
+  function NannyAppController(nannyApp, $http, $scope, $window) {
     var ctrl = this;
 
-    ctrl.signOut = function() {
-      $http.delete("/users/sign_out").then(function() {
-        $window.location.href = '/home';
-
-        console.log('Success! Signed out!');
-      }, function() {
-        alert("Failed to sign out");
+    ctrl.$onInit = function() {
+      nannyApp.totalCount().then(function(data) {
+        ctrl.count = data;
       });
+    };
+
+    $scope.$on('updateCount', function(event) {
+      console.log('scope on updated count');
+      nannyApp.totalCount().then(function(data) {
+        ctrl.count = data;
+      });
+    });
+
+    ctrl.signOut = function() {
+      nannyApp.deleteUser();
     };
 
   }

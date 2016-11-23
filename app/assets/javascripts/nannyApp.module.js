@@ -7,21 +7,33 @@
       $stateProvider.state("nanny_dashboard", {
         url: '/',
         component: 'nannyDashboard'
-      }).state('upcomingJobs', {
-        url: '/upcoming-jobs',
-        component: 'upcomingJobsList'
       }).state('newNannyJobs', {
         url: '/new-jobs',
         component: 'newNannyJobsList',
         resolve: {
-          newJob: ['newNannyJobsAPI', function(newNannyJobsAPI) {
-            console.log('app module nanny jobs');
-            return newNannyJobsAPI.list();
+          newJob: ['nannyAppAPI', function(nannyAppAPI) {
+            return nannyAppAPI.list();
           }]
         }
+      }).state('newNannyJobInfo', {
+        url: '/new-jobs/info/:jobId',
+        component: 'newNannyJobInfo',
+        resolve: {
+          jobInfo: ['nannyAppAPI', '$stateParams', function(nannyAppAPI, $stateParams) {
+            return nannyAppAPI.info($stateParams.jobId);
+          }]
+        }
+      }).state('upcomingJobs', {
+        url: '/upcoming-jobs',
+        component: 'upcomingJobsList'
       }).state('parentDirectory', {
         url: '/parents',
-        component: 'parentList'
+        component: 'parentList',
+        resolve: {
+          families: ['nannyAppAPI', function(nannyAppAPI) {
+            return nannyAppAPI.familyList();
+          }]
+        }
       }).state('messaging', {
         url: '/messaging',
         component: 'nannyMessages'

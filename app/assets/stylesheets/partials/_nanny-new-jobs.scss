@@ -1,20 +1,100 @@
 .nanny-directory-container {
   .title-container {
-    overflow: hidden;
-    background: #D6655A;
-    padding: 10px;
-    border-radius: 7px;
-    font-size: 17px;
-    color: #fff;
-    font-weight: 100;
-    position: relative;
-    display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin: 50px 80px;
+    background: #D6655A;
+    border-radius: 7px;
+    color: #fff;
+    display: flex;
+    font-size: 17px;
+    font-weight: 100;
     height: 50px;
+    justify-content: space-between;
+    overflow: hidden;
+    padding: 10px;
+    position: relative;
   }
-  .family-table {
-    margin: 10px 90px;
+}
+
+#new-nanny-jobs {
+  padding: 0 80px;
+  ul {
+    display: flex;
+    li:nth-child(3) {
+      width: 25%;
+    }
+    li:nth-child(5) {
+      width: 20%;
+    }
+  }
+  div.search {
+    overflow: hidden;
+    padding-bottom: 40px;
+    padding-top: 20px;
+    input {
+      float: right;
+      width: 220px;
+      background: #f5f5f5;
+      border: #42282F solid 1px;
+      border-radius: 7px;
+      padding: 6px;
+      padding-left: 35px;
+      outline: none;
+      font-size: 15px;
+      font-weight: 300;
+      color: #42282F;
+      letter-spacing: .5px;
+    }
+  }
+}
+
+.new-nanny-job-info {
+  padding: 0 10%;
+  div.search {
+    padding-right: 1em;
+    padding-bottom: 30px;
+  }
+  div.list,
+  fieldset {
+    padding: 0 1em;
+  }
+
+  fieldset {
+    .key-info {
+      padding-right: 40px;
+      border-right: 1px solid #eee;
+    }
+  }
+  .request-button {
+    background: $grey;
+    border-radius: 4px;
+    border: transparent;
+    color: #fff;
+    cursor: pointer;
+    float: right;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 100;
+    margin: -50px 53px 40px 10px;;
+    outline: none;
+    padding: 7px 10px;
+    text-shadow: 1px 1px 1px darken($grey, 30%);
+    width: 22%;
+    &:hover {
+      cursor: pointer;
+      background: $yellow !important;
+      text-shadow: 1px 1px 1px darken($yellow, 30%);
+    }
+    &.yellowRequest {
+      background: $yellow !important;
+      cursor: default;
+      text-shadow: 1px 1px 1px darken($yellow, 30%);
+    }
+  }
+}
+.logOutButton {
+  cursor: pointer;
+  outline: none;
+  &:hover {
+    background: darken($yellow, 10%);
   }
 }

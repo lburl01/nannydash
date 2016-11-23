@@ -8,11 +8,11 @@
       newJob: '<'
     },
     templateUrl: 'nanny/new-jobs-list.html',
-    controller: ['newNannyJobsAPI', NewNannyJobsList]
+    controller: ['nannyAppAPI', NewNannyJobsList]
   });
 
-  function NewNannyJobsList(newNannyJobsAPI) {
-
+  function NewNannyJobsList(nannyAppAPI) {
+    var ctrl = this;
   }
 
 })();

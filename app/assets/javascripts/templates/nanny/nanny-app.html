@@ -4,44 +4,44 @@
   ******************************* -->
   <header>
     <nav>
-      <h4 ui-sref="dashboard"><i class="fa fa-home"></i>Dashboard</h4>
+      <h4 ui-sref="nanny_dashboard"><i class="fa fa-home"></i>Dashboard</h4>
       <h4>Nanny<span>Dash</span></h4>
       <div class="user">
         <i class="fa fa-user" aria-hidden="true"></i>
         <h4>Hey, Nanny Fanny</h4>
-        <button ng-click="$ctrl.signOut()">Log Out</button>
+        <button class="logOutButton" ng-click="$ctrl.signOut()">Log Out</button>
       </div>
     </nav>
   </header>
 
   <!-- <h1>Welcome to the NannyDash Portal!</h1> -->
 
-  <!-- <nav id="nanny-nav">
+  <nav id="nanny-nav">
     <section class="nanny-directory">
       <div class="title">
         <h2>List of scheduled jobs</h2>
       </div>
-      <button ui-sref="upcomingJobs" type="button" name="button">20 | Upcoming Jobs</button>
+      <button ui-sref="upcomingJobs" type="button" name="button">{{$ctrl.count.assigned_jobs}} | Upcoming Jobs</button>
     </section>
     <section class="nanny-directory">
       <div class="title">
-        <h2>Available Jobs</h2>
+        <h2>All available jobs</h2>
       </div>
-      <button ui-sref="newNannyJobs" type="button" name="button">17 | New Jobs</button>
+      <button ui-sref="newNannyJobs" type="button" name="button">{{$ctrl.count.unassigned_jobs}} | All Jobs</button>
     </section>
     <section class="nanny-directory">
       <div class="title">
-        <h2>Parents Directory</h2>
+        <h2>List of families</h2>
       </div>
-      <button ui-sref="parentDirectory" type="button" name="button"> 11 | Parents</button>
+      <button ui-sref="parentDirectory" type="button" name="button">{{$ctrl.count.all_families}} | Parents</button>
     </section>
     <section class="nanny-directory">
       <div class="title">
         <h2>Messaging Center</h2>
       </div>
-      <button ui-sref="messaging" type="button" name="button">7 | Messages</button>
+      <button ui-sref="messaging" type="button" name="button">{{$ctrl.count.new_messages}} | Messages</button>
     </section>
-  </nav> -->
+  </nav>
 
   <main>
     <div class="main-container">

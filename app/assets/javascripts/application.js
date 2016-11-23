@@ -11,6 +11,7 @@
 //= require app.component.js
 //= require nannyApp.component.js
 //= require familyApp.component.js
+//= require nannyApp.service.js
 //= require app.service.js
 //= require_tree ./templates
 //= require_tree ./components
