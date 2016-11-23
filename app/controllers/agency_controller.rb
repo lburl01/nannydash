@@ -34,7 +34,7 @@ class AgencyController < ApplicationController
   end
 
   def count_totals
-    @new_jobs = Job.get_unasigned_jobs_count
+    @new_jobs = Job.get_unassigned_jobs_count
     @all_jobs = Job.get_all_jobs_count
     @new_messages = Message.get_new_messages_count(current_user)
 
