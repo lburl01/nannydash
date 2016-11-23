@@ -4,10 +4,10 @@
 @import 'partials/setup/general';
 
 /***** Site Components ******/
+@import "partials/mixins";
 @import 'partials/agency-register';
 @import "partials/aside-nav";
 @import 'partials/babysitter-profile';
-@import "partials/mixins";
 @import "partials/container";
 @import "partials/dashboards";
 @import 'partials/directory-container';
