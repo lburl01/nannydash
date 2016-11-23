@@ -1,41 +1,21 @@
-@media (max-width: 550px) {
-    .header-bar {
-        justify-content: space-around;
-        font-size: 1.3rem;
-    }
-
-    h2.slogan {
-        display: none;
-    }
-
-    h2.slogan-mobile {
-        display: flex;
-        text-decoration: none;
-        letter-spacing: 2px;
-        color: #3d3d3d;
-        width: 60%;
-        text-align: center;
-        margin: 20px auto 0;
-        font-family: cursive;
-        font-size: 1.2rem;
-    }
-
-    .user-groups-container {
+@media (max-width: 400px) {
+    .topThreeHeader {
         flex-direction: column;
-        width: 60%;
-        margin: 0 auto;
-        font-size: 1.2rem;
+        align-items: center;
 
-        .user-groups {
+        .newAgencyTablet {
             width: 100%;
+        }
+
+        .returningUser {
+            text-align: center;
+            width: 33%;
         }
     }
 
-    .preview-image-container {
-        height: 125px;
-    }
-
-    .icon-container {
-        display: none;
+    .explanatoryHeader {
+        width: 50%;
+        text-align: center;
+        align-self: center;
     }
 }

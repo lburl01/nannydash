@@ -4,11 +4,64 @@
         <h1 class="">nanny<span class="italic">dash</span>
         </h1>
         <!-- <a href="/agency/new">register</a> -->
-        <a href="/users/sign_in">login</a>
+        <!-- <a href="/users/sign_in">login</a> -->
     </header>
-    <div  class=""class="preview-image-container">
-        <%= image_tag("splashLarge.png", :alt => "Preview image on landing page") %>
-    </div>
+    <section class="topThreeHeader">
+        <div class="returningUser">
+            <h2>Returning User?</h2>
+
+            <%= form_for("user", :url => user_session_path) do |f| %>
+            <div class="field">
+                <%= f.label :email %><br/>
+                <%= f.email_field :email, autofocus: true %>
+            </div>
+
+            <div class="field">
+                <%= f.label :password %><br/>
+                <%= f.password_field :password, autocomplete: "off" %>
+            </div>
+
+            <div class="actions">
+                <%= f.submit "Log in" %>
+            </div>
+            <% end %>
+
+        </div>
+        <div class="liftingKidIcon">
+            <%= image_tag("kidInAir.svg", :alt => "Babysitters icon") %>
+        </div>
+        <div class="newAgencyTablet">Registering a new agency? Please, follow the email link you received and we'll see you soon!
+        </div>
+        <div class="newAgency">
+            <h2>New Agency?</h2>
+            <h4>We’re excited to hear you’re interested in NannyDash!</h4>
+            <h4>Please register below.</h4>
+        </div>
+    </section>
+    <section class="middleDivider">
+        <h3>Our Product</h3>
+    </section>
+
+    <main class="main">
+        <div class="explanatoryGroup">
+            <h2 class="explanatoryHeader">The Dashboard</h2>
+            <p class="explanatoryParagraph">Nanny<span class="italic">dash</span>
+                provides a centralized platform for agencies, families and sitters to stay up to date with each other.
+                <span class="usersInParagraph">Agency representatives:</span>
+                you can view and manage sitter applications, jobs completed, family job posts, scheduled sitters, contact information and message other users.
+                <span class="usersInParagraph">Parents and guardians:</span>
+                if registered with an agency, you can post jobs, update your family profile, add helpful hints for sitters and message your sitter or agency.
+                <span class="usersInParagraph">Nannies:</span>
+                you can view and apply for jobs that parents have posted, view your profile, and message parents or your agency.
+            </p>
+        </div>
+        <div class="previewImageContainer">
+            <%= image_tag("nannydashPreview.png", :alt => "Preview inside nanny dash") %>
+        </div>
+    </main>
+</div>
+
+<!-- </header>
     <main class="user-groups-container">
         <div class="user-groups">
             <p>
@@ -38,7 +91,11 @@
             </p>
 
         </div>
-    </main>
+
+    <div  class=""class="preview-image-container">
+        <%= image_tag("splashLarge.png", :alt => "Preview image on landing page") %>
+    </div>
+        </main>
     <section class="icon-container">
         <div class="landing-page-icons">
             <%= image_tag("agency-icon.svg", :alt => "Agency icon") %>
@@ -46,6 +103,4 @@
             <%= image_tag("family-icon.svg", :alt => "Family icon") %>
 
             <%= image_tag("sitter-icon.svg", :alt => "Babysitters icon") %></div>
-    </section>
-
-</div>
+    </section> -->

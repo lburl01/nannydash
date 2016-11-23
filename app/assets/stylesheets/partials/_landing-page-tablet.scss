@@ -1,0 +1,50 @@
+@media (max-width: 900px) {
+    .header-bar {
+        justify-content: space-around;
+        font-size: 1.3rem;
+    }
+
+    .topThreeHeader {
+        width: 90%;
+
+        .newAgency {
+            display: none;
+        }
+
+        img {
+            height: 150px;
+        }
+
+        .newAgency,
+        .returningUser {
+            width: 30%;
+        }
+
+        .newAgencyTablet {
+            display: block;
+            width: 30%;
+            line-height: 1.5rem;
+            color: #9B9B9B;
+        }
+    }
+
+    .main {
+        flex-direction: column;
+        align-items: center;
+
+        .explanatoryGroup {
+            display: flex;
+            width: 100%;
+            padding: 0;
+        }
+
+        .explanatoryParagraph {
+            margin-bottom: 3%;
+            line-height: 1.5rem;
+        }
+
+        .previewImageContainer {
+            width: 100%;
+        }
+    }
+}
