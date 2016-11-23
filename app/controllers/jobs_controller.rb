@@ -44,7 +44,8 @@ class JobsController < ApplicationController
   end
 
   def create
-    @job = Job.new(family_id: params[:family_id], start_time: params[:start_time],
+    @family = current_user
+    @job = Job.new(family_id: current_user.id, start_time: params[:start_time],
                    end_time: params[:end_time], date: params[:date],
                    notes: params[:notes])
 
