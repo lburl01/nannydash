@@ -31,21 +31,21 @@ class Message < ApplicationRecord
   def self.get_messages(conversation)
     @messages = Message.where( { is_deleted: false, conversation_id: conversation.id } ).all
 
-    @message_details = []
+    @message_hash = {}
 
     @messages.each do |message|
       sender_name = "#{message.sent_message.first_name} #{message.sent_message.last_name}"
-      @message_details << { "body" => message.body, "subject" => message.subject,
-                            "conversation_id" => message.conversation_id,
+      @message_hash[message.id] = { "body" => message.body,
+                            "subject" => message.subject,
                             "created_at" => message.created_at.strftime("%m/%d/%Y %I:%M %p"),
-                            "message_id" => message.id,
+                            "conversation_id" => message.conversation_id,
                             "is_read" => message.is_read,
                             "recipient_id" => message.recipient_id,
                             "sender_id" => message.user_id,
                             "sender_name" => sender_name }
     end
 
-    return @message_details
+    return @message_hash
 
   end
 

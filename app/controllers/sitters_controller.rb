@@ -60,6 +60,12 @@ class SittersController < ApplicationController
     sitter.toggle!(:first_aid_certification)
   end
 
+  def available
+    @available_sitters = User.get_available_sitters
+
+    render json: @available_sitters
+  end
+
   private
 
     def sitter_params

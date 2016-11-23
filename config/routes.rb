@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get 'users/all_active' => 'messages#get_possible_recipients'
 
   get 'api/v1/sitters' => 'sitters#index'
+  get 'api/v1/sitters/available' => 'sitters#available'
   get 'api/v1/sitter/:id' => 'sitters#show'
   get 'api/v1/sitters/pending' => 'sitters#pending'
   patch 'api/v1/sitter/cpr/:id' => 'sitter#set_cpr_true'

@@ -95,6 +95,8 @@ class Job < ApplicationRecord
                  "street" => job.posted_job.street,
                  "city" => job.posted_job.city, "state" => job.posted_job.state,
                  "zip_code" => job.posted_job.zip_code, "date" => job.date,
+                 "start_time" => job.start_time.strftime("%I:%M %p"), 
+                 "end_time" => job.end_time.strftime("%I:%M %p"),
                  "date_posted" => job.created_at.strftime("%m/%d/%Y %I:%M %p"),
                  "notes" => job.notes, "job_id" => job.id,
                  "confirmed" => job.confirmed, "is_assigned" => job.is_assigned}
