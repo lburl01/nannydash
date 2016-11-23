@@ -24,6 +24,7 @@ class Message < ApplicationRecord
   end
 
   def self.get_new_messages_count(current_user)
+    
     new_messages = Message.where( { recipient_id: current_user.id, is_deleted: false, is_read: false } ).all.count
 
   end

@@ -26,5 +26,6 @@ module Nannydash
     config.to_prepare do
       DeviseController.respond_to :html, :json
     end
+    config.active_record.time_zone_aware_types = [:datetime, :time]
   end
 end

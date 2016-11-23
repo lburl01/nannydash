@@ -90,7 +90,7 @@ class User < ApplicationRecord
   end
 
   def self.get_approved_families
-    response = User.family.where(is_deleted: false).where(approved: true).all
+    response = User.family.where( { is_deleted: false, approved: true } ).all
 
     @families = []
     @all_counties = []
@@ -109,6 +109,10 @@ class User < ApplicationRecord
     @data = { "families" => @families, "counties" => @counties}
 
     return @data
+  end
+
+  def self.get_all_families_count
+    @all_families = User.family.where( { is_deleted: false, approved: true, active: true } ).all.count
   end
 
   def self.get_family(options)
