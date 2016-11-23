@@ -1,0 +1,57 @@
+<div id="family-profile-wrapper" class="nanny-profile-wrapper">
+  <div class="directory-container">
+
+    <div class="list">
+      <div class="title-container">
+        <div class="envelope">
+          <h4>Message</h4>
+          <span></span>
+        </div>
+      </div>
+    </div>
+    <div class="profile-container">
+      <section class="name">
+        <h1>{{$ctrl.parent.first_name}} {{$ctrl.parent.last_name}}</h1>
+        <%= image_tag("placeholder.jpeg", :alt => "Preview image on landing page") %>
+        <span ng-class="{'active': $ctrl.parent.active, 'inactive': !$ctrl.parent.active}">
+        {{$ctrl.parent.active ? 'active' : 'inactive'}}
+        </span>
+      </section>
+
+      <section class="basic-info">
+        <h2>Basic Information</h2>
+
+      <fieldset ng-disabled=true>
+        <form name="familyForm" ng-submit="">
+          <!-- Phone Field -->
+          <label for="phone">Phone:</label>
+          <input name="phone" id="phone" type="text" ng-model="$ctrl.parent.phone" ng-model-options="{updateOn: 'blur'}" ng-change="$ctrl.updateCurrent( 'phone_number', $ctrl.parent.phone)">
+          <!-- Email Field -->
+          <label for="email">Email:</label>
+          <input name="phone" id="email" type="text" ng-model="$ctrl.parent.email" ng-model-options="{updateOn: 'blur'}" ng-change="$ctrl.updateCurrent( 'email', $ctrl.parent.email)">
+          <!-- Street Field -->
+          <label for="street">Street:</label>
+          <input name="phone" id="street" type="text" ng-model="$ctrl.parent.street" ng-model-options="{updateOn: 'blur'}" ng-change="$ctrl.updateCurrent( 'street', $ctrl.parent.street)">
+          <!-- City Field -->
+          <label for="city">City:</label>
+          <input name="phone" id="city" type="text" ng-model="$ctrl.parent.city" ng-model-options="{updateOn: 'blur'}" ng-change="$ctrl.updateCurrent( 'city', $ctrl.parent.city)">
+          <!-- County Field -->
+          <label for="count">County:</label>
+          <input name="phone" id="county" type="text" ng-model="$ctrl.parent.county" ng-model-options="{updateOn: 'blur'}" ng-change="$ctrl.updateCurrent( 'county', $ctrl.parent.county)">
+          <!-- State Field -->
+          <label for="state">State:</label>
+          <input name="phone" id="state" type="text" ng-model="$ctrl.parent.state" ng-model-options="{updateOn: 'blur'}" ng-change="$ctrl.updateCurrent( 'state', $ctrl.parent.state)">
+          <!-- zip Field -->
+          <label for="zip">Zip Code:</label>
+          <input name="phone" id="zip" type="text" ng-model="$ctrl.parent.zip_code" ng-model-options="{updateOn: 'blur'}" ng-change="$ctrl.updateCurrent( 'zip_code', $ctrl.parent.zip_code)">
+          <!-- About Field -->
+          <label for="about">About:</label>
+          <textarea name="about" rows="4" cols="50" ng-model="$ctrl.parent.about" ng-model-options="{updateOn: 'blur'}" ng-change="$ctrl.updateCurrent( 'about', $ctrl.parent.about)">
+          </textarea>
+        </form>
+      </fieldset>
+
+      </section>
+    </div>
+  </div>
+</div>

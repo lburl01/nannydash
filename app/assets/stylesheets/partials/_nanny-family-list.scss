@@ -19,5 +19,25 @@
       }
     }
   }
+}
 
+#family-profile-wrapper.nanny-profile-wrapper {
+  padding: 30px 10%;
+  .directory-container {
+    padding: 0;
+  }
+  section.name {
+    padding: 40px;
+    border-left: 1px solid #eee;
+  }
+  section.basic-info {
+    padding-left: 50px !important;
+    label {
+      width: 20%;
+    }
+    input,
+    textarea {
+      width: 70%;
+    }
+  }
 }
