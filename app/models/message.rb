@@ -52,6 +52,9 @@ class Message < ApplicationRecord
 
   def self.show_message(options)
     message = Message.find(options)
+
+    message.update_attribute(:is_read, true)
+
     recipient_name = "#{message.received_message.first_name} #{message.received_message.last_name}"
     sender_name = "#{message.sent_message.first_name} #{message.sent_message.last_name}"
 
@@ -61,6 +64,7 @@ class Message < ApplicationRecord
                          "sender_id" => message.user_id,
                          "sender_name" => sender_name,
                          "subject" => message.subject,
+                         "conversation_id" => message.conversation_id,
                          "is_read" => message.is_read,
                          "created_at" => message.created_at.strftime("%m/%d/%Y %I:%M %p")
                         }

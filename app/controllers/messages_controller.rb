@@ -11,10 +11,6 @@ class MessagesController < ApplicationController
   def show
     @message = Message.show_message(params[:id])
 
-    if @message['sender_id'] != current_user.id
-      @message['is_read'] = true
-    end
-
     render json: @message
   end
 
@@ -26,7 +22,7 @@ class MessagesController < ApplicationController
     recipient = User.find(params[:id])
     sender = current_user
     conversation = sender.send_message(recipient, params[:body],
-                                              params[:subject])
+                                       params[:subject])
   end
 
   def toggle_deleted_message

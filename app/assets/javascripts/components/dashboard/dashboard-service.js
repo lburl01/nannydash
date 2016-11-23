@@ -36,6 +36,26 @@ angular.module('app').service('dashboardAPI', ['$http', function($http) {
           url: "/conversations/"+ id +"/messages",
           method: "GET"
         });
+      },
+      reply: function(data) {
+        return $http({
+          url: "/messages/new",
+          method: "POST",
+          data: data
+        });
+      },
+      deleteMessage: function(id, data) {
+        return $http({
+          url: "/message/delete/" + id,
+          method: "PATCH",
+          data: data
+        });
+      },
+      activeBabysitters: function() {
+        return $http({
+          url: "/users/all_active",
+          method: "GET"
+        });
       }
     };
   }]);
