@@ -14,8 +14,7 @@
       },
 
       totalCount: function() {
-        return $http.get("/api/v1/agency/count_totals").then(function(response) {
-          console.log(response.data);
+        return $http.get("sitter_dash/counts.json").then(function(response) {
           return response.data;
         }, function() {
           alert('Failed');

@@ -28,7 +28,12 @@
         component: 'upcomingJobsList'
       }).state('parentDirectory', {
         url: '/parents',
-        component: 'parentList'
+        component: 'parentList',
+        resolve: {
+          families: ['nannyAppAPI', function(nannyAppAPI) {
+            return nannyAppAPI.familyList();
+          }]
+        }
       }).state('messaging', {
         url: '/messaging',
         component: 'nannyMessages'

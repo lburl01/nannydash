@@ -32,10 +32,13 @@
 }
 
 .new-nanny-job-info {
-  padding: 0 8%;
+  div.search {
+    padding-right: 1em;
+    padding-bottom: 30px;
+  }
   div.list,
   fieldset {
-    padding: 0 3em;
+    padding: 0 1em;
   }
 
   fieldset {
@@ -69,5 +72,12 @@
       cursor: default;
       text-shadow: 1px 1px 1px darken($yellow, 30%);
     }
+  }
+}
+.logOutButton {
+  cursor: pointer;
+  outline: none;
+  &:hover {
+    background: darken($yellow, 10%);
   }
 }

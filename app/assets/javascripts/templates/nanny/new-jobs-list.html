@@ -1,6 +1,10 @@
 <div class="nanny-directory-container" id="new-nanny-jobs">
   <div class="list-wrapper">
 
+    <div class="search">
+      <input type="text" ng-model="searchBox" placeholder="Search">
+    </div>
+
     <div class="list">
       <div class="title-container dropdown-container">
         <h4>Total: {{$ctrl.newJob.length}}</h4>

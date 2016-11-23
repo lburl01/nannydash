@@ -1,0 +1,17 @@
+#nanny-family-list {
+  padding: 0 80px;
+  ul {
+    display: flex;
+    li {
+      &:nth-child(3) {
+        width: 25%;
+      }
+      &:nth-child(4) {
+        width: 20%;
+      }
+      &:nth-child(5) {
+        width: 30%;
+      }
+    }
+  }
+}

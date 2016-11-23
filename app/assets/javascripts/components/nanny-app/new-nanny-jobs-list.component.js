@@ -12,7 +12,7 @@
   });
 
   function NewNannyJobsList(nannyAppAPI) {
-
+    var ctrl = this;
   }
 
 })();

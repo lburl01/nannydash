@@ -1,1 +1,46 @@
-<h1>List of Parents</h1>
+<div class="directory-container new-nanny-job-info" id="nanny-family-list">
+  <div class="list-wrapper">
+
+    <div class="search">
+      <input type="text" ng-model="searchBox" placeholder="Search">
+    </div>
+
+    <div class="list">
+      <div class="title-container dropdown-container">
+        <h4>Total: {{$ctrl.families.length}}</h4>
+
+        <div class="county">
+          <h4>{{$ctrl.selectedCounty || "All Counties"}}, NC</h4>
+          <i ng-class="{'arrowActive': $ctrl.dropIt}" ng-click="$ctrl.dropdown()" class="fa fa-angle-down"></i>
+          <div ng-show="$ctrl.dropIt" class="counties">
+            <li ng-click="$ctrl.selectCounty('')">All Counties</li>
+            <ul ng-repeat="county in $ctrl.counties">
+              <li ng-click="$ctrl.selectCounty(county)">{{county}}</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+    <div class="family-table">
+      <ul class="table-head">
+        <li ng-click=$ctrl.sortBy('first_name')>First Name</li>
+        <li ng-click=$ctrl.sortBy('last_name')>Last Name</li>
+        <li ng-click=$ctrl.sortBy('email')>Email</li>
+        <li ng-click=$ctrl.sortBy('phone')>Phone</li>
+        <li ng-click=$ctrl.sortBy('about')>About</li>
+      </ul>
+
+      <div class="table-body">
+        <ul dir-paginate="family in $ctrl.families | orderBy: $ctrl.columnSort : $ctrl.reverse | filter: searchBox | filter: $ctrl.selectedCounty |itemsPerPage: 5">
+            <li>{{family.first_name}}</li>
+            <li>{{family.last_name}}</li>
+            <li>{{family.email}}</li>
+            <li>{{family.phone}}</li>
+            <li>{{family.about | limitTo: 35}}</li>
+        </ul>
+      </div>
+    </div>
+    <dir-pagination-controls max-size="5"></dir-pagination-controls>
+  </div>
+</div>
