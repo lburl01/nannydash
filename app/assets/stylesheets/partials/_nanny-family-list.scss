@@ -1,5 +1,10 @@
 #nanny-family-list {
   padding: 0 80px;
+  .counties {
+    li {
+      width: 100%;
+    }
+  }
   ul {
     display: flex;
     li {
@@ -14,4 +19,5 @@
       }
     }
   }
+
 }
