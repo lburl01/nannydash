@@ -7,18 +7,17 @@
       $stateProvider.state("nanny_dashboard", {
         url: '/',
         component: 'nannyDashboard'
-      }).state('upcomingJobs', {
-        url: '/upcoming-jobs',
-        component: 'upcomingJobsList'
       }).state('newNannyJobs', {
         url: '/new-jobs',
         component: 'newNannyJobsList',
         resolve: {
-          newJob: ['newNannyJobsAPI', function(newNannyJobsAPI) {
+          newJob: ['nannyAppAPI', function(nannyAppAPI) {
             console.log('app module nanny jobs');
-            return newNannyJobsAPI.list();
           }]
         }
+      }).state('upcomingJobs', {
+        url: '/upcoming-jobs',
+        component: 'upcomingJobsList'
       }).state('parentDirectory', {
         url: '/parents',
         component: 'parentList'
