@@ -10,6 +10,33 @@
 
     .subject {
       margin-bottom: 25px;
+      position: relative;
+
+      .users {
+        background: #eee;
+        padding: 15px;
+        width: 70%;
+        position: absolute;
+        z-index: 1;
+        left: 85px;
+        top: -1px;
+      }
+
+      i {
+        font-size: 23px;
+        position: absolute;
+        top: -3px;
+        left: 32px;
+        color: $red;
+        cursor: pointer;
+      }
+
+    }
+
+    .subject:first-child {
+      input {
+        background: #f5f5f5;
+      }
     }
 
     label, textarea, input {
@@ -29,10 +56,10 @@
       margin-bottom: 10px;
       font-size: 13px;
       font-weight: 100;
-      padding: 10px;
+      padding: 5px;
       border-radius: 4px;
       border: #aaa solid .5px;
-      background: #f5f5f5;
+      background: #fff;
       outline: none;
       color: #666;
     }

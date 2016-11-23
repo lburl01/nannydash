@@ -50,6 +50,12 @@ angular.module('app').service('dashboardAPI', ['$http', function($http) {
           method: "PATCH",
           data: data
         });
+      },
+      activeBabysitters: function() {
+        return $http({
+          url: "/users/all_active",
+          method: "GET"
+        });
       }
     };
   }]);

@@ -6,7 +6,12 @@
     <div class="message">
       <div class="subject">
         <label for="recipient">To:</label>
-        <input id="subject" type="text" ng-model="recipient">
+        <i class="fa fa-plus-square" ng-click="newMessage.loadBabysitters()"></i>
+        <input id="subject" type="text" ng-model="recipient" disabled>
+        <div class="users">
+          <p>Mary Jane</p>
+          <p>Chloe Collier</p>
+        </div>
       </div>
       <div class="subject">
         <label for="subject">Subject:</label>
