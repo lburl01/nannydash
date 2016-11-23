@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   end
 
   get 'users/all_active' => 'messages#get_possible_recipients'
+  get 'user/logged_in' => 'agency#show_current_user'
 
   get 'sitter_dash/counts' => 'nanny_dashboard#get_all_counts'
   get 'sitter/scheduled_jobs' => 'nanny_dashboard#get_scheduled_jobs'
