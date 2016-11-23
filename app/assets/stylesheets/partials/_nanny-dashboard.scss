@@ -9,38 +9,6 @@
   }
 }
 
-#nanny-nav {
-  display: flex;
-  justify-content: space-around;
-  background: $lightGreen;
-  color: white;
-  height: 100px;
-  .title {
-    h2 {
-      padding: 10px;
-      font-family: 'Roboto', sans-serif;
-      font-weight: 100;
-      font-size: 18px;
-      text-align: center;
-    }
-  }
-
-  button {
-    background: #f2edde;
-    border-radius: 7px;
-    border: transparent;
-    color: #777;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: 300;
-    width: 180px;
-    padding: 12px 0;
-    font-weight: 300;
-    letter-spacing: .5px;
-    outline: none;
-
-  }
-}
 #nanny-dashboard-container {
   .dashboard-container {
     display: flex;

@@ -15,32 +15,54 @@
   </header>
 
   <!-- <h1>Welcome to the NannyDash Portal!</h1> -->
-
   <nav id="nanny-nav">
-    <section class="nanny-directory">
-      <div class="title">
-        <h2>List of scheduled jobs</h2>
-      </div>
-      <button ui-sref="upcomingJobs" type="button" name="button">{{$ctrl.count.assigned_jobs}} | Upcoming Jobs</button>
-    </section>
-    <section class="nanny-directory">
-      <div class="title">
-        <h2>All available jobs</h2>
-      </div>
-      <button ui-sref="newNannyJobs" type="button" name="button">{{$ctrl.count.unassigned_jobs}} | All Jobs</button>
-    </section>
-    <section class="nanny-directory">
-      <div class="title">
-        <h2>List of families</h2>
-      </div>
-      <button ui-sref="parentDirectory" type="button" name="button">{{$ctrl.count.all_families}} | Parents</button>
-    </section>
-    <section class="nanny-directory">
-      <div class="title">
-        <h2>Messaging Center</h2>
-      </div>
-      <button ui-sref="messaging" type="button" name="button">{{$ctrl.count.new_messages}} | Messages</button>
-    </section>
+    <ul>
+      <li>
+        <div class="title">
+          <h2>List of scheduled jobs</h2>
+        </div>
+        <button ui-sref="upcomingJobs" type="button" name="button">{{$ctrl.count.assigned_jobs}} | Upcoming Jobs</button>
+      </li>
+      <li>
+        <div class="title">
+          <h2>All available jobs</h2>
+        </div>
+        <button ui-sref="newNannyJobs" type="button" name="button">{{$ctrl.count.unassigned_jobs}} | All Jobs</button>
+      </li>
+      <li>
+        <div class="title">
+          <h2>List of families</h2>
+        </div>
+        <button ui-sref="nannyParentDirectory" type="button" name="button">{{$ctrl.count.all_families}} | Parents</button>
+      </li>
+      <li>
+        <div class="title">
+          <h2>Messaging Center</h2>
+        </div>
+        <button ui-sref="messaging" type="button" name="button">{{$ctrl.count.new_messages}} | Messages</button>
+      </li>
+    </ul>
+  </nav>
+
+  <div id="nav-trigger">
+    <span>Menu</span>
+  </div>
+
+  <nav id="nav-mobile">
+    <ul>
+      <li>
+        <a href="#">Upcoming Jobs</a>
+      </li>
+      <li>
+        <a href="#">All Jobs</a>
+      </li>
+      <li>
+        <a href="#">Parents</a>
+      </li>
+      <li>
+        <a href="#">Messages</a>
+      </li>
+    </ul>
   </nav>
 
   <main>

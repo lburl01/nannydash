@@ -32,7 +32,7 @@
       </ul>
 
       <div class="table-body">
-        <ul dir-paginate="family in $ctrl.families | orderBy: $ctrl.columnSort : $ctrl.reverse | filter: searchBox | filter: $ctrl.selectedCounty |itemsPerPage: 5">
+        <ul dir-paginate="family in $ctrl.families | filter: searchBox | filter: $ctrl.selectedCounty |itemsPerPage: 5" ui-sref="nannyParentInfo({parentId: family.family_id})">
             <li>{{family.first_name}}</li>
             <li>{{family.last_name}}</li>
             <li>{{family.email}}</li>
