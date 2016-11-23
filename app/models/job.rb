@@ -95,7 +95,7 @@ class Job < ApplicationRecord
                  "street" => job.posted_job.street,
                  "city" => job.posted_job.city, "state" => job.posted_job.state,
                  "zip_code" => job.posted_job.zip_code, "date" => job.date,
-                 "start_time" => job.start_time.strftime("%I:%M %p"), 
+                 "start_time" => job.start_time.strftime("%I:%M %p"),
                  "end_time" => job.end_time.strftime("%I:%M %p"),
                  "date_posted" => job.created_at.strftime("%m/%d/%Y %I:%M %p"),
                  "notes" => job.notes, "job_id" => job.id,
@@ -109,15 +109,13 @@ class Job < ApplicationRecord
     return @new_job
   end
 
-  def self.get_new_jobs_count
+  def self.get_unassigned_jobs_count
     new_jobs = Job.where({confirmed: false, is_assigned: false, is_deleted: false}).all.count
 
-    if new_jobs == 0
-      return 0
-    else
-      return new_jobs
-    end
+  end
 
+  def self.get_assigned_jobs_count
+    new_jobs = Job.where({confirmed: true, is_assigned: true, is_deleted: false}).all.count
   end
 
   def self.get_all_jobs_count

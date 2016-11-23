@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
   get 'users/all_active' => 'messages#get_possible_recipients'
 
+  get 'sitter_dash/counts' => 'nanny_dashboard#get_all_counts'
+
   get 'api/v1/sitters' => 'sitters#index'
   get 'api/v1/sitters/available' => 'sitters#available'
   get 'api/v1/sitter/:id' => 'sitters#show'
@@ -56,8 +58,6 @@ Rails.application.routes.draw do
   get 'messages/new' => 'messages#new'
   patch 'message/delete/:id' => 'messages#toggle_deleted_message'
   post 'messages/new' => 'messages#create'
-
-  get 'twilio/send_job' => 'twilio#job_alert'
 
   resources :conversations do
     resources :messages
