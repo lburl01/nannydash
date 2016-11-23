@@ -24,7 +24,7 @@
             this.jobClicked = function(jobId) {
                 allJobsAPI.jobDetails(jobId).success(function(response) {
                   self.jobDetails = response;
-console.log(response);
+
                     $state.go('jobs-list-details', {
                         params: {
                             job: response

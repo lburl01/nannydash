@@ -1,16 +1,22 @@
 // erb file app/views/home/index.html.erb
 
 .landing-page {
+    font-weight: 100;
+
+    .italic {
+        font-style: italic;
+    }
+
     .header-bar {
         display: flex;
         align-items: center;
         width: 100%;
-        height: 70px;
+        height: 60px;
         background: #42282F;
-        font-family: Roboto;
+        font-family: Helvetica;
         color: white;
         letter-spacing: 2px;
-        justify-content: flex-end;
+        justify-content: center;
 
         h1 {
             margin-left: 10px;
@@ -20,75 +26,91 @@
             text-decoration: none;
             color: white;
         }
-
-        a:hover {
-            color: #74A588;
-        }
-
-        h2 {
-            flex-grow: 5;
-        }
     }
 
-    img {
-        width: 100%;
-    }
-
-    span.italic {
-        font-style: italic;
-        font-weight: 300;
-    }
-
-    .preview-image-container {
-        border: 2px solid #3d3d3d;
-        height: 250px;
-        margin: 30px auto 0;
-        overflow: hidden;
-        width: 90%;
-    }
-    //has to be precisely between .user-groups-container and   .header-bar
-    .slogan-mobile {
-        display: none;
-    }
-
-    .user-groups-container {
-        align-items: center;
-        background: transparent;
+    .topThreeHeader {
+        width: 80%;
+        margin: 3% auto;
         display: flex;
-        height: auto;
         justify-content: space-around;
-        text-align: center;
+        align-items: flex-start;
 
-        .user-groups {
-            align-self: baseline;
-            line-height: 2rem;
-            margin-top: 30px;
-            width: 31%;
+        .newAgencyTablet {
+            display: none;
+        }
 
-            p {
-                font-family: Times;
-            }
+        .newAgency,
+        .returningUser {
+            width: 20%;
+            line-height: 1.5rem;
+            color: #9B9B9B;
+        }
 
-            span {
-                color: #D8D8D8;
-                text-align: center;
-                font-family: Helvetica;
-                letter-spacing: 5px;
-            }
+        img {
+            height: 180px;
         }
     }
 
-    .icon-container {
+    .middleDivider {
+        background: #D6655A;
+        width: 95%;
+        margin: 3% auto;
+        border-radius: 5px;
+        height: 50px;
+        color: white;
         display: flex;
-        height: 100px;
-        justify-content: space-between;
-        padding: 20px;
+        justify-content: center;
+        align-items: center;
+        letter-spacing: 1px;
+        font-size: 1.2rem;
+        font-family: Helvetica;
+    }
 
-        .landing-page-icons {
-            background: transparent;
+    .main {
+        display: flex;
+        justify-content: space-between;
+        width: 95%;
+        margin: 3% auto;
+
+        .explanatoryGroup {
             display: flex;
-            width: 100%;
+            flex-direction: column;
+            justify-content: center;
+            width: 30%;
+            font-family: Helvetica;
+            color: rgba(82, 82, 82, 0.89);
+            padding: 0 3% 0 0;
+            font-weight: 200;
+            line-height: 1.2rem;
+            font-size: 0.9rem;
+
+            .explanatoryHeader {
+                display: flex;
+                text-align: center;
+                margin-bottom: 10px;
+                font-size: 1.5rem;
+                font-weight: 100;
+            }
+
+            .explanatoryParagraph {
+                .usersInParagraph {
+                    background: #93baa2;
+                    color: black;
+                }
+            }
+        }
+
+        .previewImageContainer {
+            display: flex;
+            width: 70%;
+
+            img {
+                height: 100%;
+                width: 100%;
+                box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.75);
+            }
         }
     }
+    @import 'landing-page-tablet';
     @import 'landing-page-mobile';
 }

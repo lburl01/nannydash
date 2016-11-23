@@ -57,13 +57,16 @@ input.pending-sitter {
   cursor: default;
 }
 span.pending-sitter-buttons {
+  align-items: flex-end;
+  bottom: 100px;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  float: right;
+  padding-right: 47px;
   position: relative;
-  bottom: 100px;
+  width: 22%;
   button.pending-sitter {
-    width: 18%;
+    width: 100%;
     padding: 0 40px;
     background: $grey;
     border-radius: 4px;
@@ -77,6 +80,7 @@ span.pending-sitter-buttons {
     margin-top: 15px;
     text-shadow: 1px 1px 1px darken($grey, 30%) !important;
     outline: none;
+    margin-right: 4%;
     &:first-child {
       &:hover {
         background: $yellow !important;
@@ -94,6 +98,7 @@ span.pending-sitter-buttons {
     }
   }
 }
+
 .envelope {
   display: flex;
   justify-content: flex-end;
