@@ -12,7 +12,15 @@
         component: 'newNannyJobsList',
         resolve: {
           newJob: ['nannyAppAPI', function(nannyAppAPI) {
-            console.log('app module nanny jobs');
+            return nannyAppAPI.list();
+          }]
+        }
+      }).state('newNannyJobInfo', {
+        url: '/new-jobs/info/:jobId',
+        component: 'newNannyJobInfo',
+        resolve: {
+          jobInfo: ['nannyAppAPI', '$stateParams', function(nannyAppAPI, $stateParams) {
+            return nannyAppAPI.info($stateParams.jobId);
           }]
         }
       }).state('upcomingJobs', {

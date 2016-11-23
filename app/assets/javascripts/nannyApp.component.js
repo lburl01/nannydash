@@ -4,14 +4,14 @@
     .module('nannyApp')
     .component('nannyApp', {
       templateUrl: 'nanny/nanny-app.html',
-      controller: ['nannyAppAPI', '$http', '$window', NannyAppController]
+      controller: ['nannyApp', '$http', '$window', NannyAppController]
   });
 
-  function NannyAppController(nannyAppAPI, $http, $window) {
+  function NannyAppController(nannyApp, $http, $window) {
     var ctrl = this;
 
     ctrl.signOut = function() {
-      nannyAppAPI.deleteUser();
+      nannyApp.deleteUser();
     };
 
   }

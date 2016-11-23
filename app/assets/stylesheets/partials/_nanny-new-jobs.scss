@@ -18,3 +18,50 @@
     margin: 10px 90px;
   }
 }
+
+#new-nanny-jobs {
+  ul {
+    display: flex;
+  }
+}
+
+.new-nanny-job-info {
+  padding: 0 8%;
+  div.list,
+  fieldset {
+    padding: 0 3em;
+  }
+
+  fieldset {
+    .key-info {
+      padding-right: 40px;
+      border-right: 1px solid #eee;
+    }
+  }
+  .request-button {
+    background: $grey;
+    border-radius: 4px;
+    border: transparent;
+    color: #fff;
+    cursor: pointer;
+    float: right;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 100;
+    margin: -50px 87px 40px 10px;
+    outline: none;
+    padding: 7px 10px;
+    text-shadow: 1px 1px 1px darken($grey, 30%);
+    width: 20%;
+    &:hover {
+      cursor: pointer;
+      background: $yellow !important;
+      text-shadow: 1px 1px 1px darken($yellow, 30%);
+    }
+    &.yellowRequest {
+      background: $yellow !important;
+      cursor: default;
+      text-shadow: 1px 1px 1px darken($yellow, 30%);
+    }
+  }
+}
