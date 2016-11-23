@@ -27,7 +27,6 @@
       },
       familyList: function() {
         return $http.get('api/v1/families').then(function(response) {
-          console.log(response.data.families);
           return response.data.families;
         }, function() {
           console.log("Failed to get families");
@@ -35,7 +34,6 @@
       },
       countyList: function() {
         return $http.get('api/v1/families').then(function(response) {
-          console.log(response.data.counties);
           return response.data.counties;
         }, function() {
           console.log("Failed to get counties");

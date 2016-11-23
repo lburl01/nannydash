@@ -48,6 +48,7 @@
 }
 
 .new-nanny-job-info {
+  padding: 0 10%;
   div.search {
     padding-right: 1em;
     padding-bottom: 30px;
@@ -73,11 +74,11 @@
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 100;
-    margin: -50px 87px 40px 10px;
+    margin: -50px 53px 40px 10px;;
     outline: none;
     padding: 7px 10px;
     text-shadow: 1px 1px 1px darken($grey, 30%);
-    width: 20%;
+    width: 22%;
     &:hover {
       cursor: pointer;
       background: $yellow !important;

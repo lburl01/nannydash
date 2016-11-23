@@ -1,1 +1,46 @@
-<h1>Nanny Dashboard</h1>
+<div id="nanny-dashboard-container">
+
+  <h1>Nanny Dashboard</h1>
+  <div class="dashboard-container">
+    <!-- ******************************
+     Scheduled Jobs Section
+    ******************************* -->
+    <section class="applications">
+      <div class="title-container">
+        <h2>Scheduled Jobs</h2>
+      </div>
+      <table>
+        <tr>
+          <th>From</th>
+          <th>Role</th>
+          <th>Sent</th>
+        </tr>
+        <tr ng-repeat="person in dashboard.application">
+          <td>{{person.name}}</td>
+          <td>{{person.role}}</td>
+          <td>{{person.submitted}}</td>
+        </tr>
+      </table>
+    </section>
+    <!-- ******************************
+     Messaging Section
+    ******************************* -->
+    <section class="messages">
+      <div class="title-container">
+        <h2>Messaging Center</h2>
+      </div>
+      <table>
+        <tr>
+          <th>From</th>
+          <th>Subject</th>
+          <th>Read?</th>
+        </tr>
+        <tr>
+          <td>{{person.from}}</td>
+          <td>{{person.subject}}</td>
+          <td>{{person.is_read}}</td>
+        </tr>
+      </table>
+    </section>
+  </div>
+</div>
