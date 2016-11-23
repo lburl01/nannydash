@@ -42,8 +42,8 @@
           <%= image_tag("job.svg", :alt => "Directories Icon") %>
           <h1>Jobs Center</h1>
         </div>
-        <button ui-sref="newJobs" type="button"><span>{{$ctrl.count.new_jobs}}</span> | New Jobs</button>
-        <button ui-sref="jobs" type="button"><span>{{$ctrl.count.all_jobs}}</span> | All Jobs</button>
+        <button ui-sref="newJobs" type="button"><span>{{$ctrl.count.new_jobs}} | </span>New Jobs</button>
+        <button ui-sref="jobs" type="button"><span>{{$ctrl.count.all_jobs}} | </span>All Jobs</button>
       </section>
       <!-- Messages Nav Section -->
       <section class="messages">
@@ -51,7 +51,7 @@
           <%= image_tag("messages.svg", :alt => "Directories Icon") %>
           <h1>Messaging Center</h1>
         </div>
-        <button ui-sref="conversations" type="button"><span>{{$ctrl.count.new_messages}}</span> | Messages</button>
+        <button ui-sref="conversations" type="button"><span>{{$ctrl.count.new_messages}} | </span>Messages</button>
       </section>
     </aside>
     <!-- ******************************

@@ -10,12 +10,12 @@ angular.module('app')
       }
 
       dashboardAPI.conversationMessages().success(function(response) {
+        self.convLength = response.length;
         self.conversation = response;
       });
 
       this.conversationClick = function(id) {
         dashboardAPI.allMessages(id).success(function(response) {
-          console.log(response);
           $state.go('messages', {
             messagesParam: {
               messages: response

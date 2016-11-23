@@ -2,7 +2,7 @@
   <!-- ******************************
    Header Section: Name Breadcrumbs and Search Field
   ******************************* -->
-  <div class="search">
+  <div class="search search-input">
     <h1 ui-sref="babysitters">Babysitters</h1>
     <span>></span>
     <h2>{{babysitter.user.first_name}}</h2>
@@ -24,10 +24,14 @@
    Name Fields and Photo Section
   ******************************* -->
   <section class="name">
-    <label for="phone">First Name:</label>
-    <input class="name-heading" type="text" ng-model="babysitter.user.first_name" ng-model-options="{ updateOn: 'blur' }" ng-change="babysitter.userInputClick('first_name', babysitter.user.first_name, babysitter.user.sitter_id)">
-    <label for="phone">Last Name:</label>
-    <input class="name-heading" type="text" ng-model="babysitter.user.last_name" ng-model-options="{ updateOn: 'blur' }" ng-change="babysitter.userInputClick('last_name', babysitter.user.last_name, babysitter.user.sitter_id)">
+    <div class="name-container">
+      <label for="phone">First Name:</label>
+      <input class="name-heading" type="text" ng-model="babysitter.user.first_name" ng-model-options="{ updateOn: 'blur' }" ng-change="babysitter.userInputClick('first_name', babysitter.user.first_name, babysitter.user.sitter_id)">
+    </div>
+    <div class="name-container">
+      <label for="phone">Last Name:</label>
+      <input class="name-heading" type="text" ng-model="babysitter.user.last_name" ng-model-options="{ updateOn: 'blur' }" ng-change="babysitter.userInputClick('last_name', babysitter.user.last_name, babysitter.user.sitter_id)">
+    </div>
     <img src="#" alt="">
   </section>
   <!-- ******************************
@@ -43,7 +47,7 @@
     <input id="email" type="text" ng-model="babysitter.user.email" ng-model-options="{ updateOn: 'blur' }" ng-change="babysitter.userInputClick('email', babysitter.user.email, babysitter.user.sitter_id)">
     <!-- Birthday Field -->
     <label for="birthday">Birthday:</label>
-    <input id="birthday" type="text" ng-model="babysitter.user.birthday" ng-model-options="{ updateOn: 'blur' }" ng-change="babysitter.userInputClick('birthday', babysitter.user.birthday, babysitter.user.sitter_id); babysitter.calculateAge();">
+    <input id="birthday" type="text" ng-model="babysitter.user.birthday" ng-model-options="{ updateOn: 'blur' }" ng-change="babysitter.userInputClick('birthday', babysitter.user.birthday, babysitter.user.sitter_id); babysitter.calculateAge(babysitter.user.birthday);">
     <!-- Street Field -->
     <label for="street">Street:</label>
     <input id="street" type="text" ng-model="babysitter.user.street" ng-model-options="{ updateOn: 'blur' }" ng-change="babysitter.userInputClick('street', babysitter.user.street, babysitter.user.sitter_id)">

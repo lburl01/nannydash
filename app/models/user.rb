@@ -212,7 +212,8 @@ class User < ApplicationRecord
 
     possible_recipients.each do |user|
       full_name = "#{user.first_name} #{user.last_name}"
-      @all_recipients << { "name" => full_name, "role" => user.role }
+      @all_recipients << { "id" => user.id,
+                           "name" => full_name, "role" => user.role }
     end
 
     return @all_recipients

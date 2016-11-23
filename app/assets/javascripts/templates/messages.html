@@ -1,28 +1,32 @@
 <div class="directory-container">
-  <div class="search">
+  <div class="search convo">
     <h1 ui-sref="conversations">Conversations</h1><span>></span><h1>Messages</h1>
     <input type="text">
   </div>
   <div class="list">
     <div class="title-container">
-      <h4>Total: 10</h4>
-      <div ng-click="messages.messageClick()" class="message">
+      <h4>Messages with {{messages.convoWith}}</h4>
+      <div ng-click="messages.messageClick()" class="message-row">
         <i class="fa fa-plus-circle"></i>
         <h4>New Message</h4>
       </div>
     </div>
-    <table>
+    <table class="messages-table">
       <tr>
         <th>From</th>
         <th>Subject</th>
         <th>Body</th>
         <th>Sent</th>
+        <th>Read?</th>
+        <th></th>
       </tr>
-      <tr ng-click="messages.messagesClick(messages.conversationMessage[key])" ng-repeat="(key, value) in messages.conversationMessage">
+      <tr ng-click="messages.messagesClick(messages.conversationMessage[key], key)" ng-repeat="(key, value) in messages.conversationMessage">
         <td>{{value.sender_name}}</td>
         <td>{{value.subject}}</td>
         <td>{{value.body}}</td>
         <td>{{value.created_at}}</td>
+        <td><h6 ng-class="{'readTrue': value.is_read === true, 'readFalse': value.is_read === false}" ng-init="messages.readValidate(value)">{{value.read}}</h6></td>
+        <td><h6 ng-click="messages.delete($event, value)"><i class="fa fa-trash" aria-hidden="true"></i></h6></td>
       </tr>
 
     </table>
