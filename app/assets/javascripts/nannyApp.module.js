@@ -12,7 +12,7 @@
         component: 'newNannyJobsList',
         resolve: {
           newJob: ['nannyAppAPI', function(nannyAppAPI) {
-            return nannyAppAPI.list();
+            return nannyAppAPI.jobList();
           }]
         }
       }).state('newNannyJobInfo', {
@@ -20,18 +20,27 @@
         component: 'newNannyJobInfo',
         resolve: {
           jobInfo: ['nannyAppAPI', '$stateParams', function(nannyAppAPI, $stateParams) {
-            return nannyAppAPI.info($stateParams.jobId);
+            return nannyAppAPI.jobInfo($stateParams.jobId);
           }]
         }
       }).state('upcomingJobs', {
         url: '/upcoming-jobs',
         component: 'upcomingJobsList'
-      }).state('parentDirectory', {
+      }).state('nannyParentDirectory', {
         url: '/parents',
         component: 'parentList',
         resolve: {
           families: ['nannyAppAPI', function(nannyAppAPI) {
             return nannyAppAPI.familyList();
+          }]
+        }
+      }).state('nannyParentInfo', {
+        url: '/parent/:parentId',
+        component: 'nannyParentInfo',
+        resolve: {
+          parent: ['nannyAppAPI', '$stateParams', function(nannyAppAPI, $stateParams) {
+            console.log($stateParams);
+            return nannyAppAPI.singleFamily($stateParams.parentId);
           }]
         }
       }).state('messaging', {

@@ -3,14 +3,14 @@
   angular.module('nannyApp').factory('nannyAppAPI', ['$http', function($http) {
     return {
 
-      list: function() {
+      jobList: function() {
         return $http.get("api/v1/jobs/new.json").then(function(response) {
           return response.data;
         }, function() {
           alert("Failed");
         });
       },
-      info: function(id) {
+      jobInfo: function(id) {
         return $http.get('api/v1/job/' + id + '.json').then(function(response) {
           console.log(response.data);
           return response.data;
@@ -25,6 +25,13 @@
           console.log("Assignment was unsuccessful");
         });
       },
+      countyList: function() {
+        return $http.get('api/v1/families').then(function(response) {
+          return response.data.counties;
+        }, function() {
+          console.log("Failed to get counties");
+        });
+      },
       familyList: function() {
         return $http.get('api/v1/families').then(function(response) {
           return response.data.families;
@@ -32,11 +39,12 @@
           console.log("Failed to get families");
         });
       },
-      countyList: function() {
-        return $http.get('api/v1/families').then(function(response) {
-          return response.data.counties;
+      singleFamily: function(id) {
+        return $http.get('api/v1/family/' + id + '.json').then(function(response) {
+          console.log(response.data);
+          return response.data;
         }, function() {
-          console.log("Failed to get counties");
+          console.log("Failed to return selected family");
         });
       }
 
