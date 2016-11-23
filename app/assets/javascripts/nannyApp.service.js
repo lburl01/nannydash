@@ -11,6 +11,15 @@
         }, function() {
           console.log('Failed to sign out');
         });
+      },
+
+      totalCount: function() {
+        return $http.get("/api/v1/agency/count_totals").then(function(response) {
+          console.log(response.data);
+          return response.data;
+        }, function() {
+          alert('Failed');
+        });
       }
 
     };

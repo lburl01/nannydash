@@ -11,7 +11,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 50px 80px;
+    margin: 50px 80px 15px;
     height: 50px;
   }
   .family-table {
@@ -22,6 +22,12 @@
 #new-nanny-jobs {
   ul {
     display: flex;
+    li:nth-child(3) {
+      width: 25%;
+    }
+    li:nth-child(5) {
+      width: 20%;
+    }
   }
 }
 

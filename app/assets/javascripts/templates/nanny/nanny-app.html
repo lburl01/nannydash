@@ -21,25 +21,25 @@
       <div class="title">
         <h2>List of scheduled jobs</h2>
       </div>
-      <button ui-sref="upcomingJobs" type="button" name="button">20 | Upcoming Jobs</button>
+      <button ui-sref="upcomingJobs" type="button" name="button">{{$ctrl.count.new_jobs}} | Upcoming Jobs</button>
     </section>
     <section class="nanny-directory">
       <div class="title">
         <h2>All available jobs</h2>
       </div>
-      <button ui-sref="newNannyJobs" type="button" name="button">17 | New Jobs</button>
+      <button ui-sref="newNannyJobs" type="button" name="button">{{$ctrl.count.all_jobs}} | All Jobs</button>
     </section>
     <section class="nanny-directory">
       <div class="title">
         <h2>List of families</h2>
       </div>
-      <button ui-sref="parentDirectory" type="button" name="button"> 11 | Parents</button>
+      <button ui-sref="parentDirectory" type="button" name="button">{{$ctrl.count.pending_parents}} | Parents</button>
     </section>
     <section class="nanny-directory">
       <div class="title">
         <h2>Messaging Center</h2>
       </div>
-      <button ui-sref="messaging" type="button" name="button">7 | Messages</button>
+      <button ui-sref="messaging" type="button" name="button">{{$ctrl.count.new_messages}} | Messages</button>
     </section>
   </nav>
 

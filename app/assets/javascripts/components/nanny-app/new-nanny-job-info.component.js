@@ -8,10 +8,10 @@
       jobInfo: '<'
     },
     templateUrl: 'nanny/new-nanny-job-info.html',
-    controller: ['nannyAppAPI', NewNannyJobInfo]
+    controller: ['nannyAppAPI', '$scope', NewNannyJobInfo]
   });
 
-  function NewNannyJobInfo(nannyAppAPI) {
+  function NewNannyJobInfo(nannyAppAPI, $scope) {
     var ctrl = this;
     ctrl.visibility = false;
 
@@ -21,8 +21,11 @@
     };
 
     ctrl.assign = function(id) {
-      nannyAppAPI.toggleAssign(id);
-      ctrl.visibility = false;
+      nannyAppAPI.toggleAssign(id).then(function() {
+        ctrl.visibility = false;
+        ctrl.jobInfo.is_assigned = true;
+        $scope.$emit('updateCount', {});
+      });
     };
 
   }
