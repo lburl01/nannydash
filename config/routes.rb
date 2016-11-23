@@ -44,6 +44,8 @@ Rails.application.routes.draw do
   patch 'api/v1/job/:id' => 'jobs#update'
   patch 'api/v1/job/assign/:id' => 'jobs#assign_sitter'
   patch 'api/v1/job/delete/:id' => 'jobs#toggle_deleted_job'
+  get 'job/new' => 'jobs#new'
+  post 'job/new' => 'jobs#create'
 
   get 'api/v1/agency/summary' => 'agency#index'
   get 'api/v1/agency/application/:id' => 'agency#application_show'
