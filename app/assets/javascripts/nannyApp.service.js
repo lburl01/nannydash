@@ -17,7 +17,7 @@
         return $http.get("sitter_dash/counts.json").then(function(response) {
           return response.data;
         }, function() {
-          alert('Failed');
+          console.log('Failed - Count Totals');
         });
       }
 

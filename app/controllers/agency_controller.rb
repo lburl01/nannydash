@@ -34,11 +34,15 @@ class AgencyController < ApplicationController
   end
 
   def count_totals
-    @new_jobs = Job.get_unasigned_jobs_count
+    @pending_families = User.get_pending_family_count
+    @pending_sitters = User.get_pending_sitter_count
+    @new_jobs = Job.get_unassigned_jobs_count
     @all_jobs = Job.get_all_jobs_count
     @new_messages = Message.get_new_messages_count(current_user)
 
-    @count_totals = { "new_jobs" => @new_jobs,
+    @count_totals = { "pending_families" => @pending_families,
+                      "pending_sitters" => @pending_sitters,
+                      "new_jobs" => @new_jobs,
                       "all_jobs" => @all_jobs,
                       "new_messages" => @new_messages
                     }
