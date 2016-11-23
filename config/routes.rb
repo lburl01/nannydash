@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get 'users/all_active' => 'messages#get_possible_recipients'
 
   get 'sitter_dash/counts' => 'nanny_dashboard#get_all_counts'
+  get 'sitter/scheduled_jobs' => 'nanny_dashboard#get_scheduled_jobs'
 
   get 'api/v1/sitters' => 'sitters#index'
   get 'api/v1/sitters/available' => 'sitters#available'

@@ -17,4 +17,12 @@ class NannyDashboardController < ApplicationController
 
     render json: @count_totals
   end
+
+  def get_scheduled_jobs
+    @user = current_user
+    @scheduled_jobs = Job.get_sitter_jobs(@user)
+
+    render json: @scheduled_jobs
+  end
+
 end
