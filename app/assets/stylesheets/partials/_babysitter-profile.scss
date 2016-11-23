@@ -12,11 +12,18 @@
     float: left;
     overflow: hidden;
     padding: 0 40px;
+    @include media(medMobile) {
+      width: 100%;
+      padding: 40px 0;
+    };
 
     &:nth-child(4) {
       width: 48%;
       @include media(largeDesktop) {
         width: 50%;
+      };
+      @include media(medMobile) {
+        width: 100%;
       };
     }
 
@@ -24,6 +31,9 @@
       width: 22%;
       @include media(largeDesktop) {
         width: 25%;
+      };
+      @include media(medMobile) {
+        width: 100%;
       };
     }
 
@@ -149,10 +159,38 @@
   .basic-info {
     border-left: #eee solid 1px;
     border-right: #eee solid 1px;
+    @include media(medMobile) {
+      border-left: transparent;
+      border-right: transparent;
+      border-top: #eee solid 1px;
+      border-bottom: #eee solid 1px;
+    };
   }
 
   .name {
     padding-left: 0;
+    @include media(medMobile) {
+      padding-top: 10px;
+    };
+
+    .name-container {
+      @include media(medMobile) {
+        float: left;
+      };
+
+
+      &:nth-child(1) {
+        @include media(medMobile) {
+          width: 33%;
+        };
+      }
+
+      &:nth-child(2) {
+        @include media(medMobile) {
+          width: 65%;
+        };  
+      }
+    }
 
     label {
       width: 100%;

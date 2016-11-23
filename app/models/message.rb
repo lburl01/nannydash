@@ -31,13 +31,6 @@ class Message < ApplicationRecord
   def self.get_messages(conversation)
     @messages = Message.where( { is_deleted: false, conversation_id: conversation.id } ).all
 
-    @message_details = {}
-
-    @messages.each do |message|
-      sender_name = "#{message.sent_message.first_name} #{message.sent_message.last_name}"
-      @message_details[message.conversation_id] = {
-                            "body" => message.body, "subject" => message.subject,
-
     @message_hash = {}
 
     @messages.each do |message|
@@ -52,14 +45,15 @@ class Message < ApplicationRecord
                             "sender_name" => sender_name }
     end
 
-    return @message_details
-
     return @message_hash
 
   end
 
   def self.show_message(options)
     message = Message.find(options)
+
+    message.update_attribute(:is_read, true)
+
     recipient_name = "#{message.received_message.first_name} #{message.received_message.last_name}"
     sender_name = "#{message.sent_message.first_name} #{message.sent_message.last_name}"
 

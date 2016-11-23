@@ -6,16 +6,17 @@
     <div class="message">
       <div class="subject">
         <label for="recipient">To:</label>
-        <i class="fa fa-plus-square" ng-click="newMessage.loadBabysitters()"></i>
-        <input id="subject" type="text" ng-model="recipient" disabled>
-        <div class="users">
-          <div class="users" ng-repeat="nanny in newMessage.nannys">
+        <i class="fa fa-plus-square" ng-click="newMessage.showUsers = !newMessage.showUsers" ng-click="newMessage.loadBabysitters()"></i>
+        <input id="subject" type="text" ng-model="newMessage.recipient" disabled>
+        <div class="arrow-left" ng-show="newMessage.showUsers"></div>
+        <div class="users" ng-show="newMessage.showUsers">
+          <div class="user-group">
             <h2>Babysitters</h2>
-            <p>{{nanny.name}}</p>
+            <p ng-click="newMessage.loadUser(nanny)" ng-repeat="nanny in newMessage.nannys">{{nanny.name}}</p>
           </div>
-          <div class="users" ng-repeat="parent in newMessage.parents">
+          <div class="user-group">
             <h2>Parents</h2>
-            <p>{{parent.name}}</p>
+            <p ng-click="newMessage.loadUser(parent)" ng-repeat="parent in newMessage.parents">{{parent.name}}</p>
           </div>
         </div>
       </div>
@@ -25,7 +26,7 @@
       </div>
       <label for="message">Message:</label>
       <textarea id="message" name="message" rows="8" cols="40" ng-model="body"></textarea>
-      <button type="button" ng-click="newMessage.sendMessage(recipient, subject, body)">Send</button>
+      <button type="button" ng-click="newMessage.sendMessage(newMessage.id, subject, body)">Send</button>
     </div>
   </div>
 </div>

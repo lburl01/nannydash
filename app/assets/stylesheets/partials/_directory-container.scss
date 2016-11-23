@@ -10,9 +10,16 @@
     overflow: hidden;
     padding-bottom: 40px;
     padding-top: 20px;
+    @include media(mobile) {
+      padding-bottom: 30px;
+    };
 
     h1 {
       cursor: pointer;
+      @include media(mobile) {
+        text-align: center;
+        width: 100%;
+      };
     }
 
     p {
@@ -63,6 +70,14 @@
         top: 357px;
         right: 246px;
       };
+      @include media(mobile) {
+        top: 405px;
+        right: 352px;
+      };
+      @include media(smallMobile) {
+        top: 640px;
+        right: 314px;
+      };
     }
 
     h1 {
@@ -86,6 +101,33 @@
       font-weight: 300;
       color: $purple;
       letter-spacing: .5px;
+      @include media(mobile) {
+        width: 100%;
+        margin-top: 20px;
+      };
+    }
+  }
+
+  .no-search {
+    &:before {
+      display: none;
+    }
+  }
+
+  .search-input {
+    &:before {
+      @include media(medMobile) {
+        top: 408px;
+        right: 0;
+        left: 58px;
+      };
+    }
+
+    input {
+      @include media(medMobile) {
+        width: 100%;
+        margin-top: 20px;
+      };
     }
   }
   .list {

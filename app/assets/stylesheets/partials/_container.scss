@@ -24,6 +24,9 @@ html, body {
       @include media(tablet) {
         padding: 330px 25px 25px;
       };
+      @include media(smallMobile) {
+        padding-top: 565px;
+      };
     }
   }
 }

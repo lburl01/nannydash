@@ -18,6 +18,12 @@
   @include media(tablet) {
     height: 305px;
   };
+  @include media(mobile) {
+    height: 290px;
+  };
+  @include media(smallMobile) {
+    height: 560px;
+  };
 
   section {
     width: 100%;
@@ -31,11 +37,17 @@
     @include media(tablet) {
       width: 50%;
     };
+    @include media(smallMobile) {
+      width: 100%;
+    };
 
     .title {
       margin-bottom: 25px;
       padding: 15px 0;
       background: $green;
+      @include media(mobile) {
+        margin-bottom: 15px;
+      };
 
       img {
         width: 17px;
@@ -48,6 +60,9 @@
         font-size: 20px;
         font-weight: 100;
         display: inline-block;
+        @include media(mobile) {
+          font-size: 17px;
+        };
       }
     }
 
@@ -71,6 +86,14 @@
       @include media(desktop) {
         font-size: 14px;
         width: 90px;
+      };
+      @include media(mobile) {
+        font-size: 13px;
+        width: 80px;
+      };
+      @include media(smallMobile) {
+        font-size: 17px;
+        width: 45%;
       };
 
       span {

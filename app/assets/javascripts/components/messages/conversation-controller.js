@@ -10,8 +10,7 @@ angular.module('app')
       }
 
       dashboardAPI.conversationMessages().success(function(response) {
-        console.log("Conversations");
-        console.log(response);
+        self.convLength = response.length;
         self.conversation = response;
       });
 
