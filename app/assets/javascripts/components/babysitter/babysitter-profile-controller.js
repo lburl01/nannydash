@@ -3,10 +3,9 @@ angular.module('app')
       /*************************
       Variables
       *************************/
-      console.log($stateParams.sitterId);
       var self = this;
-      this.user = $stateParams.sitterId;
-
+      this.userId = $stateParams.sitterId;
+      this.user;
       this.total = babysitterDirectoryAPI.totalBabysitters;
       this.cpr = "CPR Certified";
       this.firstAid = "First-Aid Certified";
@@ -15,6 +14,17 @@ angular.module('app')
       this.userInput = "";
       self.visibility = false;
       this.changed = true;
+      /*************************
+      Loads in current user on refresh
+      *************************/
+      function init() {
+        babysitterDirectoryAPI.userProfile(self.userId).success(function(response) {
+          self.user = response
+          self.calculateAge(self.user.birthday);
+          return self.user;
+        });
+      }
+      init();
       /*************************
       Verifying Certifications
       *************************/
@@ -56,14 +66,13 @@ angular.module('app')
       /*************************
       Calculating age
       *************************/
-      this.calculateAge = function() { // birthday is a date
-        var userBirthday = new Date($stateParams.sitterId.birthday);
+      this.calculateAge = function(birthday) { // birthday is a date
+        var userBirthday = new Date(birthday);
         var nowDate = Date.now();
         var ageDif = nowDate - userBirthday.getTime();
         var ageDate = new Date(ageDif); // miliseconds from epoch
         self.age = Math.abs(ageDate.getUTCFullYear() - 1970);
       };
-      this.calculateAge();
       /*************************
       Transforming full date/time string to just plain date
       *************************/

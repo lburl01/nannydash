@@ -5,12 +5,23 @@ Rails.application.routes.draw do
     root to: "dashboard#index", as: :manager_root
   end
 
-  # Angular entry point
-  get 'dashboard' => 'dashboard#index'
-  get 'nanny_dashboard' => 'nanny_dashboard#index'
-  get 'family_dashboard' => 'family_dashboard#index'
+  authenticated :user, ->(u) { u.family? } do
+    root to: "family_dashboard#index", as: :family_root
+  end
+
+  authenticated :user, ->(u) { u.nanny? } do
+    root to: "nanny_dashboard#index", as: :nanny_root
+  end
+
+  get 'users/all_active' => 'messages#get_possible_recipients'
+  get 'user/logged_in' => 'agency#show_current_user'
+
+  get 'sitter_dash/counts' => 'nanny_dashboard#get_all_counts'
+  get 'sitter/scheduled_jobs' => 'nanny_dashboard#get_scheduled_jobs'
+  get 'sitter/5_scheduled_jobs' => 'nanny_dashboard#get_five_scheduled_jobs'
 
   get 'api/v1/sitters' => 'sitters#index'
+  get 'api/v1/sitters/available' => 'sitters#available'
   get 'api/v1/sitter/:id' => 'sitters#show'
   get 'api/v1/sitters/pending' => 'sitters#pending'
   patch 'api/v1/sitter/cpr/:id' => 'sitter#set_cpr_true'
@@ -28,12 +39,18 @@ Rails.application.routes.draw do
   patch 'api/v1/family/:id' => 'families#toggle_active_family'
   patch '/api/v1/family/approved/:id' => 'families#toggle_approved_family'
   patch 'api/v1/family/delete/:id' => 'families#toggle_deleted_family'
+  get 'family/new' => 'families#new'
+  post 'family/new' => 'families#create'
 
   get 'api/v1/jobs' => 'jobs#index'
   get 'api/v1/jobs/new' => 'jobs#get_new_jobs'
   get 'api/v1/job/:id' => 'jobs#show'
+  get 'api/v1/jobs/five_unassigned' => 'jobs#five_unassigned_jobs'
   patch 'api/v1/job/:id' => 'jobs#update'
+  patch 'api/v1/job/assign/:id' => 'jobs#assign_sitter'
   patch 'api/v1/job/delete/:id' => 'jobs#toggle_deleted_job'
+  get 'job/new' => 'jobs#new'
+  post 'job/new' => 'jobs#create'
 
   get 'api/v1/agency/summary' => 'agency#index'
   get 'api/v1/agency/application/:id' => 'agency#application_show'
@@ -42,14 +59,14 @@ Rails.application.routes.draw do
   post 'agency' => 'agency#create'
 
   get 'messages/new' => 'messages#new'
+  patch 'message/delete/:id' => 'messages#toggle_deleted_message'
   post 'messages/new' => 'messages#create'
-
-  get 'twilio/send_job' => 'twilio#job_alert'
 
   resources :conversations do
     resources :messages
   end
 
+  get 'home' => 'home#index'
   root to: 'home#index'
 
 end

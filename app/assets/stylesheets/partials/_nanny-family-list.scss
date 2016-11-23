@@ -1,0 +1,43 @@
+#nanny-family-list {
+  padding: 0 80px;
+  .counties {
+    li {
+      width: 100%;
+    }
+  }
+  ul {
+    display: flex;
+    li {
+      &:nth-child(3) {
+        width: 25%;
+      }
+      &:nth-child(4) {
+        width: 20%;
+      }
+      &:nth-child(5) {
+        width: 30%;
+      }
+    }
+  }
+}
+
+#family-profile-wrapper.nanny-profile-wrapper {
+  padding: 30px 10%;
+  .directory-container {
+    padding: 0;
+  }
+  section.name {
+    padding: 40px;
+    border-left: 1px solid #eee;
+  }
+  section.basic-info {
+    padding-left: 50px !important;
+    label {
+      width: 20%;
+    }
+    input,
+    textarea {
+      width: 70%;
+    }
+  }
+}

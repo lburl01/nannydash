@@ -26,28 +26,35 @@ class AgencyController < ApplicationController
   def create
     @agency = User.new(agency_params)
     if @agency.save
-      flash[:info] = "Account successfully created."
-      redirect_to 'agency/index'
+      sign_in @agency
+      redirect_to manager_root_url
     else
       render 'new'
     end
   end
 
   def count_totals
+    
+    @pending_families = User.get_pending_family_count
     @pending_sitters = User.get_pending_sitter_count
-    @pending_parents = User.get_pending_family_count
-    @new_jobs = Job.get_new_jobs_count
-    @all_jobs = Job.get_all_jobs_count
+    @new_jobs = Job.get_unassigned_jobs_count
+    @all_jobs = Job.get_assigned_jobs_count
     @new_messages = Message.get_new_messages_count(current_user)
 
-    @count_totals = { "pending_sitters" => @pending_sitters,
-                      "pending_parents" => @pending_parents,
+    @count_totals = { "pending_families" => @pending_families,
+                      "pending_sitters" => @pending_sitters,
                       "new_jobs" => @new_jobs,
                       "all_jobs" => @all_jobs,
                       "new_messages" => @new_messages
                     }
 
     render json: @count_totals
+  end
+
+  def show_current_user
+    @user = User.find(current_user)
+
+    render json: @user
   end
 
   private

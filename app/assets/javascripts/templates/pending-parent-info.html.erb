@@ -11,7 +11,7 @@
 
     <div class="list">
       <div class="title-container">
-        <div class="message">
+        <div class="envelope">
           <h4>Message</h4>
           <span></span>
         </div>
@@ -21,7 +21,7 @@
     <div class="profile-container">
       <section class="name">
         <h1>{{$ctrl.info.first_name}} {{$ctrl.info.last_name}}</h1>
-        <%= image_tag("placeholder.jpeg", :alt => "Preview image on landing page") %>
+        <img src={{$ctrl.info.picture_url}} alt="Profile Photo">
       </section>
 
       <section class="basic-info">

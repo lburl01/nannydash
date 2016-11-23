@@ -2,6 +2,8 @@ class Job < ApplicationRecord
   belongs_to :posted_job, :foreign_key => :family_id, class_name: 'User'
   belongs_to :assignment, :foreign_key => :sitter_id, class_name: 'User', optional: true
 
+  validates_presence_of :family_id, :date, :start_time, :end_time
+
   def self.get_assigned_jobs
     response = Job.where( { is_deleted: false, is_assigned: true } ).all
 
@@ -50,10 +52,14 @@ class Job < ApplicationRecord
     @newest_jobs = []
 
     @response.each do |job|
-      name = "#{job.posted_job.first_name} #{job.posted_job.last_name}"
+      family_name = "#{job.posted_job.first_name} #{job.posted_job.last_name}"
       date_time = "#{job.date} #{job.start_time.strftime("%I:%M %p")}"
-      @newest_jobs << { "job_id" => job.id, "name" => name, "date_time" => date_time,
-                        "submitted" => job.created_at.strftime("%m/%d/%Y %I:%M %p") }
+      @newest_jobs << { "job_id" => job.id, "name" => family_name,
+                        "date_time" => date_time,
+                        "county" => job.posted_job.county,
+                        "start_time" => job.start_time.strftime("%I:%M %p"),
+                        "end_time" => job.end_time.strftime("%I:%M %p"),
+                        "submitted" => job.created_at.strftime("%m/%d/%Y %I:%M %p")}
     end
 
     return @newest_jobs
@@ -84,12 +90,16 @@ class Job < ApplicationRecord
 
     @new_job = { "name" => family_name, "family_id" => job.family_id,
                  "phone" => job.posted_job.phone_number,
-                 "email" => job.posted_job.email, "street" => job.posted_job.street,
+                 "county" => job.posted_job.county,
+                 "email" => job.posted_job.email,
+                 "street" => job.posted_job.street,
                  "city" => job.posted_job.city, "state" => job.posted_job.state,
                  "zip_code" => job.posted_job.zip_code, "date" => job.date,
+                 "start_time" => job.start_time.strftime("%I:%M %p"),
+                 "end_time" => job.end_time.strftime("%I:%M %p"),
                  "date_posted" => job.created_at.strftime("%m/%d/%Y %I:%M %p"),
-                 "notes" => job.notes
-               }
+                 "notes" => job.notes, "job_id" => job.id,
+                 "confirmed" => job.confirmed, "is_assigned" => job.is_assigned}
 
     if job.sitter_id
       @new_job["sitter_name"] = "#{job.assignment.first_name} #{job.assignment.last_name}"
@@ -99,26 +109,58 @@ class Job < ApplicationRecord
     return @new_job
   end
 
-  def self.get_new_jobs_count
+  def self.get_unassigned_jobs_count
     new_jobs = Job.where({confirmed: false, is_assigned: false, is_deleted: false}).all.count
 
-    if new_jobs == 0
-      return 0
-    else
-      return new_jobs
-    end
+  end
 
+  def self.get_assigned_jobs_count
+    new_jobs = Job.where({is_assigned: true, is_deleted: false}).all.count
   end
 
   def self.get_all_jobs_count
     all_jobs = Job.where(is_deleted: false).all.count
+  end
 
-    if all_jobs == 0
-      return 0
-    else
-      return all_jobs
+  def self.assign_sitter_job(current_user, options)
+    job = Job.find(options)
+
+    job.sitter_id = current_user.id
+    job.toggle!(:is_assigned)
+  end
+
+  def self.get_sitter_jobs(current_user)
+    jobs = Job.where({confirmed: true, is_assigned: true, sitter_id: current_user.id}).all
+
+    @job_details = []
+
+    jobs.each do |job|
+      family_name = "#{job.posted_job.first_name} #{job.posted_job.last_name}"
+      @job_details << { "family_id" => job.family_id, "family_name" => family_name,
+                        "date" => job.date,
+                        "start_time" => job.start_time.strftime("%I:%M %p"),
+                        "end_time" => job.end_time.strftime("%I:%M %p"),
+                        "notes" => job.notes}
     end
 
+    return @job_details
+  end
+
+  def self.get_five_sitter_jobs(current_user)
+    jobs = Job.where({confirmed: true, is_assigned: true, sitter_id: current_user.id}).limit(5)
+
+    @five_job_details = []
+
+    jobs.each do |job|
+      family_name = "#{job.posted_job.first_name} #{job.posted_job.last_name}"
+      @five_job_details << { "family_id" => job.family_id, "family_name" => family_name,
+                        "date" => job.date,
+                        "start_time" => job.start_time.strftime("%I:%M %p"),
+                        "end_time" => job.end_time.strftime("%I:%M %p"),
+                        "notes" => job.notes}
+    end
+
+    return @five_job_details
   end
 
 end

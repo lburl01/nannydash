@@ -1,6 +1,5 @@
 class FamiliesController < ApplicationController
   skip_before_action :verify_authenticity_token
-  # before_action :authenticate_user!
 
   def index
     @families_counties = User.get_approved_families
@@ -12,6 +11,21 @@ class FamiliesController < ApplicationController
     @family = User.get_family(params[:id])
 
     render json: @family
+  end
+
+  def new
+    @family = User.new
+  end
+
+  def create
+    @family = User.new(family_params)
+
+    if @family.save
+      sign_in @family
+      redirect_to family_root_url
+    else
+      render 'new'
+    end
   end
 
   def toggle_active_family
@@ -45,7 +59,7 @@ class FamiliesController < ApplicationController
     def family_params
       params.require(:user).permit(:first_name, :last_name, :email,
                                     :phone_number, :street, :city, :state, :zip_code,
-                                    :county, :about, :active)
+                                    :county, :about, :active, :password, :picture, :role)
     end
 
 end

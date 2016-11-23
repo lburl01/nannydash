@@ -4,12 +4,14 @@
 //= require angular-ui-router/release/angular-ui-router.js
 //= require angular-utils-pagination/dirPagination.js
 //= require jquery
+//= require jquery_ujs
 //= require app.module.js
 //= require nannyApp.module.js
 //= require familyApp.module.js
 //= require app.component.js
 //= require nannyApp.component.js
 //= require familyApp.component.js
+//= require nannyApp.service.js
 //= require app.service.js
 //= require_tree ./templates
 //= require_tree ./components

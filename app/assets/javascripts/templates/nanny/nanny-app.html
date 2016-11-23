@@ -1,1 +1,76 @@
-<h1>This is the Nanny Dashboard</h1>
+<div class="container" id="nanny-dashboard">
+  <!-- ******************************
+   Top Navigation
+  ******************************* -->
+  <header>
+    <nav>
+      <h4 ui-sref="nanny_dashboard"><i class="fa fa-home"></i>Dashboard</h4>
+      <h4>Nanny<span>Dash</span></h4>
+      <div class="user">
+        <i class="fa fa-user" aria-hidden="true"></i>
+        <h4>Hey, Nanny Fanny</h4>
+        <button class="logOutButton" ng-click="$ctrl.signOut()">Log Out</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- <h1>Welcome to the NannyDash Portal!</h1> -->
+  <nav id="nanny-nav">
+    <ul>
+      <li>
+        <div class="title">
+          <h2>List of scheduled jobs</h2>
+        </div>
+        <button ui-sref="upcomingJobs" type="button" name="button">{{$ctrl.count.assigned_jobs}} | Upcoming Jobs</button>
+      </li>
+      <li>
+        <div class="title">
+          <h2>All available jobs</h2>
+        </div>
+        <button ui-sref="newNannyJobs" type="button" name="button">{{$ctrl.count.unassigned_jobs}} | All Jobs</button>
+      </li>
+      <li>
+        <div class="title">
+          <h2>List of families</h2>
+        </div>
+        <button ui-sref="nannyParentDirectory" type="button" name="button">{{$ctrl.count.all_families}} | Parents</button>
+      </li>
+      <li>
+        <div class="title">
+          <h2>Messaging Center</h2>
+        </div>
+        <button ui-sref="messaging" type="button" name="button">{{$ctrl.count.new_messages}} | Messages</button>
+      </li>
+    </ul>
+  </nav>
+
+  <div id="nav-trigger">
+    <span>Menu</span>
+  </div>
+
+  <nav id="nav-mobile">
+    <ul>
+      <li>
+        <a href="#">Upcoming Jobs</a>
+      </li>
+      <li>
+        <a href="#">All Jobs</a>
+      </li>
+      <li>
+        <a href="#">Parents</a>
+      </li>
+      <li>
+        <a href="#">Messages</a>
+      </li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="main-container">
+
+      <ui-view>LOADING . . . </ui-view>
+
+    </div>
+  </main>
+
+</div>

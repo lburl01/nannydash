@@ -29,11 +29,65 @@ class JobsController < ApplicationController
     job.toggle!(:is_deleted)
   end
 
+  def five_unassigned_jobs
+    @unassigned_jobs = Job.get_five_newest_jobs
+
+    render json: @unassigned_jobs
+  end
+
+  def assign_sitter
+    job = Job.assign_sitter_job(current_user, params[:id])
+  end
+
+  def new
+    @job = Job.new
+  end
+
+  def create
+    @job = Job.new(family_id: params[:family_id], start_time: params[:start_time],
+                   end_time: params[:end_time], date: params[:date],
+                   notes: params[:notes])
+
+    @sitter = User.find(params[:sitter_id])
+
+    if @job.save
+      @text_message = %Q(You've been requested for a new babysitting gig on #{@job.date}
+        For more details or to claim this job, visit:
+        https://nannydash.herokuapp.com/#/new-job/info/#{@job.id})
+
+      @recipient = User.find(@sitter)
+      phone_number = ENV['SAMPLE_NUMBER']
+      send_message(phone_number, @text_message)
+    else
+      render 'new'
+    end
+
+  end
+
   private
 
-    def job_params
-      params.require(:job).permit(:sitter_id, :date, :start_time, :end_time, :notes,
-        :confirmed, :is_assigned, :is_deleted)
+    def sanitize(number)
+      "+1" + number.gsub(/^1|\D/, "")
     end
+
+    def send_message(phone_number, text_message)
+
+      @twilio_number = ENV['TWILIO_NUMBER']
+      @client = Twilio::REST::Client.new ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN']
+
+      message = @client.account.messages.create(
+        :from => @twilio_number,
+        :to => phone_number,
+        :body => text_message
+      )
+
+    end
+
+  # private
+  #
+  #   def job_params
+  #     params.require(:job).permit(:sitter_id, :date, :start_time, :end_time, :notes,
+  #       :confirmed, :is_assigned, :is_deleted)
+  #   end
 
 end

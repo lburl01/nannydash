@@ -9,11 +9,7 @@ class MessagesController < ApplicationController
   end
 
   def show
-    @message = Message.find(params[:id])
-
-    if @message.user_id != current_user.id
-      @message.update_attribute(:is_read, true)
-    end
+    @message = Message.show_message(params[:id])
 
     render json: @message
   end
@@ -23,10 +19,21 @@ class MessagesController < ApplicationController
   end
 
   def create
-    recipient = User.find(params[:recipient][:id])
+    recipient = User.find(params[:id])
     sender = current_user
-    conversation = sender.send_message(recipient, params[:message][:body],
-                                              params[:message][:subject])
+    conversation = sender.send_message(recipient, params[:body],
+                                       params[:subject])
+  end
+
+  def toggle_deleted_message
+    message = Message.find(params[:id])
+    message.toggle!(:is_deleted)
+  end
+
+  def get_possible_recipients
+    @recipients = User.get_recipients
+
+    render json: @recipients
   end
 
 end

@@ -2,11 +2,25 @@
   float: right;
   width: 100%;
   padding-right: 25px;
+  @include media(desktop) {
+    padding: 0 25px 25px;
+  };
 
   .search {
     overflow: hidden;
     padding-bottom: 40px;
     padding-top: 20px;
+    @include media(mobile) {
+      padding-bottom: 30px;
+    };
+
+    h1 {
+      cursor: pointer;
+      @include media(mobile) {
+        text-align: center;
+        width: 100%;
+      };
+    }
 
     p {
       position: absolute;
@@ -48,6 +62,22 @@
       color: $purple;
       right: 219px;
       top: 52px;
+      @include media(desktop) {
+        right: 257px;
+        top: 222px;
+      };
+      @include media(tablet) {
+        top: 357px;
+        right: 246px;
+      };
+      @include media(mobile) {
+        top: 405px;
+        right: 352px;
+      };
+      @include media(smallMobile) {
+        top: 640px;
+        right: 314px;
+      };
     }
 
     h1 {
@@ -71,6 +101,33 @@
       font-weight: 300;
       color: $purple;
       letter-spacing: .5px;
+      @include media(mobile) {
+        width: 100%;
+        margin-top: 20px;
+      };
+    }
+  }
+
+  .no-search {
+    &:before {
+      display: none;
+    }
+  }
+
+  .search-input {
+    &:before {
+      @include media(medMobile) {
+        top: 408px;
+        right: 0;
+        left: 58px;
+      };
+    }
+
+    input {
+      @include media(medMobile) {
+        width: 100%;
+        margin-top: 20px;
+      };
     }
   }
   .list {
@@ -84,13 +141,15 @@
       font-weight: 100;
       margin-bottom: 10px;
       position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
 
       &.dropdown-container {
-        height: 40px;
         overflow: visible;
       }
 
-      .message {
+      .message-row {
         position: absolute;
         background: #eea199;
         padding: 5px 8px;
@@ -186,10 +245,17 @@
 
       tr {
         border-bottom: #ddd solid .5px;
+        position: relative;
 
         &:not(:first-child):hover {
           background: $babyGreen;
           cursor: pointer;
+        }
+
+        th, td {
+          white-space: nowrap;
+          overflow: hidden !important;
+          text-overflow: ellipsis;
         }
 
         th {
@@ -213,6 +279,36 @@
           font-size: 14px;
           font-weight: 100;
           color: #888;
+          position: relative;
+        }
+
+        .readTrue {
+          background: $green;
+          color: #fff;
+          border-radius: 4px;
+          width: 50px;
+          position: absolute;
+          text-align: center;
+          padding: 5px;
+          bottom: 10px;
+
+          &:before {
+            font-family: fontawesome;
+            content: "\f0e0";
+            font-size: 12px;
+            margin-right: 3px;
+          }
+        }
+
+        .readFalse {
+          background: $red;
+          color: #fff;
+          border-radius: 4px;
+          width: 50px;
+          position: absolute;
+          text-align: center;
+          padding: 5px;
+          bottom: 10px;
         }
 
         .cpr {
@@ -220,6 +316,41 @@
           padding: 5px 10px;
           border-radius: 7px;
         }
+      }
+    }
+
+    .message-table {
+      td:nth-child(1), th:nth-child(1) {
+        width: 18%;
+        position: relative;
+
+        h6 {
+          background: #eee;
+          width: 30px;
+          padding: 7.5px;
+          text-align: center;
+          border-radius: 50%;
+          position: absolute;
+          bottom: 7px;
+        }
+      }
+
+      td:nth-child(3), th:nth-child(3) {
+        width: 38%;
+      }
+    }
+
+    .messages-table {
+      td:nth-child(3), th:nth-child(3) {
+        width: 40%;
+      }
+
+      td:nth-child(5), th:nth-child(5) {
+        width: 12%;
+      }
+
+      td:nth-child(6), th:nth-child(6) {
+        width: 6%;
       }
     }
 

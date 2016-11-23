@@ -16,9 +16,21 @@ RSpec.describe Job, :type => :model do
     expect(@job).to_not be_valid
   end
 
-  it 'is invalid without a user' do
-    @job.user_id = ""
+  it 'is invalid without a family' do
+    @job.family_id = ""
 
-    expect(@job).to_no be_valid
+    expect(@job).to_not be_valid
+  end
+
+  it 'is invalid without a start_time' do
+    @job.start_time = ''
+
+    expect(@job).to_not be_valid
+  end
+
+  it 'is invalid without an end_time' do
+    @job.end_time = ''
+
+    expect(@job).to_not be_valid
   end
 end

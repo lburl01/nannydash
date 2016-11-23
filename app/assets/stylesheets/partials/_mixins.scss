@@ -1,0 +1,37 @@
+@mixin media($bp) {
+  @if $bp == largeDesktop {
+    @media only screen and (max-width: 1035px) {
+      @content;
+    }
+  }
+  @if $bp == desktop {
+    @media only screen and (max-width: 990px) {
+      @content;
+    }
+  }
+  @if $bp == tablet {
+    @media only screen and (max-width: 839px) {
+      @content;
+    }
+  }
+  @if $bp == largeMobile {
+    @media only screen and (max-width: 575px) {
+      @content;
+    }
+  }
+  @if $bp == medMobile {
+    @media only screen and (max-width: 668px) {
+      @content;
+    }
+  }
+  @if $bp == mobile {
+    @media only screen and (max-width: 445px) {
+      @content;
+    }
+  }
+  @if $bp == smallMobile {
+    @media only screen and (max-width: 390px) {
+      @content;
+    }
+  }
+}

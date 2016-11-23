@@ -1,0 +1,21 @@
+#nanny-dashboard {
+  h1 {
+    font-size: 26px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    color: $grey;
+    padding: 20px 0;
+  }
+}
+
+#nanny-dashboard-container {
+  .dashboard-container {
+    display: flex;
+    justify-content: space-around;
+    section {
+      width: 48%;
+      padding: 0 3%;
+    }
+  }
+}

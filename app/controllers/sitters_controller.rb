@@ -21,8 +21,8 @@ class SittersController < ApplicationController
     @sitter = User.new(sitter_params)
 
     if @sitter.save
-      flash[:info] = "Account successfully created."
-      redirect_to 'dashboard'
+      sign_in @sitter
+      redirect_to nanny_root_url
     else
       render 'new'
     end
@@ -60,6 +60,12 @@ class SittersController < ApplicationController
     sitter.toggle!(:first_aid_certification)
   end
 
+  def available
+    @available_sitters = User.get_available_sitters
+
+    render json: @available_sitters
+  end
+
   private
 
     def sitter_params
@@ -71,7 +77,7 @@ class SittersController < ApplicationController
                                      :recommendation_one_name, :recommendation_one_email,
                                      :recommendation_two_name, :recommendation_two_email,
                                      :recommendation_three_name, :recommendation_three_email,
-                                     :password, :picture)
+                                     :password, :picture, :role)
     end
 
 end

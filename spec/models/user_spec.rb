@@ -76,11 +76,11 @@ RSpec.describe User, :type => :model do
     expect(@user).to_not be_valid
   end
 
-  it "with invalid hourly rate is invalid" do
-    @user.hourly_rate = "abcde"
-
-    expect(@user).to_not be_valid
-  end
+  # it "with invalid hourly rate is invalid" do
+  #   @user.hourly_rate = "abcde"
+  #
+  #   expect(@user).to_not be_valid
+  # end
 
   it "with whole number will be valid" do
     @user.hourly_rate = "25"

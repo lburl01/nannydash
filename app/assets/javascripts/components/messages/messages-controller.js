@@ -5,21 +5,58 @@ angular.module('app')
       *************************/
       var self = this;
       this.conversationMessage = $stateParams.messagesParam.messages;
+      this.convoId = this.conversationMessage.conversation_id
+
+      this.recipient = function() {
+        var count = 0;
+        var i;
+
+        for (i in self.conversationMessage) {
+            if (self.conversationMessage.hasOwnProperty(i)) {
+              if(self.conversationMessage[i].recipient_name != 'Agency Manager') {
+                return self.convoWith = self.conversationMessage[i].sender_name
+              } else if(self.conversationMessage[i].sender_name != 'Agency Manager') {
+                return self.convoWith = self.conversationMessage[i].recipient_name
+              }
+              count++;
+            }
+        }
+      }
+      this.recipient();
 
       this.messageClick = function() {
         $state.go('new-message');
       }
 
-      dashboardAPI.conversationMessages().success(function(response) {
-        self.conversation = response;
-      });
+      this.readValidate = function(value) {
+        if(value.is_read === true) {
+          value.read = 'Yes';
+        } else if(value.is_read === false) {
+          value.read = 'No';
+        }
+      }
 
-      this.messagesClick = function(object) {
-        console.log(object);
-        $state.go('message', {messageParam: {message: object}, conversationId: object.conversation_id}, {reload: true});
+      this.delete = function(e, message) {
+        e.stopPropagation();
+        dashboardAPI.deleteMessage(message.message_id, message);
+        //$state.go('babysitters',{reload: true});
+        dashboardAPI.allMessages(self.conversations.convo_id).success(function(response) {
+          $state.go('messages', {
+            messagesParam: {
+              messages: response
+            },
+              conversationId: id
+            },
+            {
+              reload: true
+            });
+        });
+      }
 
-        // dashboardAPI.allMessages(id).success(function(response) {
-        //   console.log(response);
-        // });
+      this.messagesClick = function(object, key) {
+        var conversationId = object.conversation_id;
+        dashboardAPI.message(conversationId, key).success(function(response) {
+          $state.go('message', {messageParam: {message: response}, conversationId: response.conversation_id}, {reload: true});
+        });
       }
     }]);

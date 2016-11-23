@@ -4,8 +4,17 @@
   color: #666;
 
   .search {
+
+    h1 {
+      cursor: pointer;
+    }
+
     &:before {
       display: none;
+    }
+
+    span {
+      margin-right: 15px;
     }
   }
 

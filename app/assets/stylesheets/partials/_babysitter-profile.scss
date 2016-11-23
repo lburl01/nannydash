@@ -3,21 +3,38 @@
   .list {
     .title-container {
       margin-bottom: 35px !important;
+      height: 40px;
     }
   }
 
   section {
-    width: 30%;
+    width: 25%;
     float: left;
     overflow: hidden;
     padding: 0 40px;
+    @include media(medMobile) {
+      width: 100%;
+      padding: 40px 0;
+    };
 
     &:nth-child(4) {
       width: 48%;
+      @include media(largeDesktop) {
+        width: 50%;
+      };
+      @include media(medMobile) {
+        width: 100%;
+      };
     }
 
     &:nth-child(5) {
       width: 22%;
+      @include media(largeDesktop) {
+        width: 25%;
+      };
+      @include media(medMobile) {
+        width: 100%;
+      };
     }
 
     label {
@@ -39,17 +56,13 @@
       padding: 3px 5px;
       border-radius: 4px;
       border: #aaa solid .5px;
-      background: #fff;
+      background: #fff !important;
       outline: none;
       color: #666;
 
       &:active, &:focus {
         border: $red solid .5px;
       }
-    }
-
-    .changed {
-      background: $red;
     }
 
     h1 {
@@ -71,6 +84,9 @@
     .rec {
       input {
         width: 45%;
+        @include media(largeDesktop) {
+          width: 100%;
+        };
 
         &:nth-child(2) {
           margin-right: 5px;
@@ -85,6 +101,12 @@
 
   .key-info {
     padding-right: 0;
+
+    h2 {
+      white-space: nowrap;
+      overflow: hidden !important;
+      text-overflow: ellipsis;
+    }
 
     #age {
       background: #f5f5f5;
@@ -133,38 +155,42 @@
         text-shadow: 1px 1px 1px darken($red, 30%);
       }
     }
-
-      &:nth-child(1n) {
-        background: $yellow;
-        text-shadow: 1px 1px 1px #a58741;
-      }
-
-      &:nth-child(2n) {
-        background: #aaa;
-        text-shadow: none;
-
-        &:hover {
-          background: $red;
-        }
-      }
-    }
-
-    .cert {
-
-      label {
-
-      }
-    }
-
   }
-
   .basic-info {
     border-left: #eee solid 1px;
     border-right: #eee solid 1px;
+    @include media(medMobile) {
+      border-left: transparent;
+      border-right: transparent;
+      border-top: #eee solid 1px;
+      border-bottom: #eee solid 1px;
+    };
   }
 
   .name {
     padding-left: 0;
+    @include media(medMobile) {
+      padding-top: 10px;
+    };
+
+    .name-container {
+      @include media(medMobile) {
+        float: left;
+      };
+
+
+      &:nth-child(1) {
+        @include media(medMobile) {
+          width: 33%;
+        };
+      }
+
+      &:nth-child(2) {
+        @include media(medMobile) {
+          width: 65%;
+        };  
+      }
+    }
 
     label {
       width: 100%;
@@ -190,3 +216,10 @@
       display: block;
     }
   }
+}
+.form-name {
+
+  input {
+    font-size: 11px;
+  }
+}
