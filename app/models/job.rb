@@ -130,7 +130,7 @@ class Job < ApplicationRecord
   end
 
   def self.get_sitter_jobs(current_user)
-    jobs = Job.where({confirmed: true, is_assigned: true, sitter_id: current_user.id}).all
+    jobs = Job.where( { is_assigned: true, sitter_id: current_user.id } ).all
 
     @job_details = []
 
