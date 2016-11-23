@@ -146,4 +146,21 @@ class Job < ApplicationRecord
     return @job_details
   end
 
+  def self.get_five_sitter_jobs(current_user)
+    jobs = Job.where({confirmed: true, is_assigned: true, sitter_id: current_user.id}).limit(5)
+
+    @five_job_details = []
+
+    jobs.each do |job|
+      family_name = "#{job.posted_job.first_name} #{job.posted_job.last_name}"
+      @five_job_details << { "family_id" => job.family_id, "family_name" => family_name,
+                        "date" => job.date,
+                        "start_time" => job.start_time.strftime("%I:%M %p"),
+                        "end_time" => job.end_time.strftime("%I:%M %p"),
+                        "notes" => job.notes}
+    end
+
+    return @five_job_details
+  end
+
 end
