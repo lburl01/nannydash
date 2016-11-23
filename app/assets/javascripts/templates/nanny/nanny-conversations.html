@@ -1,0 +1,31 @@
+<div class="directory-container" id="nanny-messages">
+  <div class="list">
+    <div class="title-container">
+      <h4>Total: {{$ctrl.conversation.length}}</h4>
+      <div class="message-row">
+        <i class="fa fa-plus-circle"></i>
+        <h4>New Message</h4>
+      </div>
+    </div>
+    <table class="message-table">
+      <tr>
+        <th>Messages</th>
+        <th>From</th>
+        <th>Subject</th>
+        <th>Sent</th>
+      </tr>
+      <tr ng-repeat="message in $ctrl.conversation">
+        <td><h6>{{message.messages_count}}</h6></td>
+        <td ng-if="message.sender_name != 'Sitter Example'">
+          {{message.sender_name}}
+        </td>
+        <td ng-if="message.recipient_name != 'Sitter Example'">
+          {{message.recipient_name}}
+        </td>
+        <td>{{message.subject}}</td>
+        <td>{{message.created_at}}</td>
+      </tr>
+
+    </table>
+  </div>
+</div>

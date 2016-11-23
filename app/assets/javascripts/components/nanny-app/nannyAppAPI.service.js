@@ -3,8 +3,9 @@
   angular.module('nannyApp').factory('nannyAppAPI', ['$http', function($http) {
     return {
 
-      jobList: function() {
-        return $http.get("api/v1/jobs/new.json").then(function(response) {
+      jobList: function(url) {
+        return $http.get(url).then(function(response) {
+          console.log(response.data);
           return response.data;
         }, function() {
           alert("Failed");
@@ -46,9 +47,15 @@
         }, function() {
           console.log("Failed to return selected family");
         });
+      },
+      conversationList: function() {
+        return $http.get('/conversations.json').then(function(response) {
+          console.log(response.data);
+          return response.data;
+        }, function() {
+          console.log('Failed to return list of conversations');
+        });
       }
-
-
     };
   }]);
 })();
