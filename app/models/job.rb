@@ -120,13 +120,6 @@ class Job < ApplicationRecord
 
   def self.get_all_jobs_count
     all_jobs = Job.where(is_deleted: false).all.count
-
-    if all_jobs == 0
-      return 0
-    else
-      return all_jobs
-    end
-
   end
 
   def self.assign_sitter_job(current_user, options)
@@ -134,6 +127,40 @@ class Job < ApplicationRecord
 
     job.sitter_id = current_user.id
     job.toggle!(:is_assigned)
+  end
+
+  def self.get_sitter_jobs(current_user)
+    jobs = Job.where({confirmed: true, is_assigned: true, sitter_id: current_user.id}).all
+
+    @job_details = []
+
+    jobs.each do |job|
+      family_name = "#{job.posted_job.first_name} #{job.posted_job.last_name}"
+      @job_details << { "family_id" => job.family_id, "family_name" => family_name,
+                        "date" => job.date,
+                        "start_time" => job.start_time.strftime("%I:%M %p"),
+                        "end_time" => job.end_time.strftime("%I:%M %p"),
+                        "notes" => job.notes}
+    end
+
+    return @job_details
+  end
+
+  def self.get_five_sitter_jobs(current_user)
+    jobs = Job.where({confirmed: true, is_assigned: true, sitter_id: current_user.id}).limit(5)
+
+    @five_job_details = []
+
+    jobs.each do |job|
+      family_name = "#{job.posted_job.first_name} #{job.posted_job.last_name}"
+      @five_job_details << { "family_id" => job.family_id, "family_name" => family_name,
+                        "date" => job.date,
+                        "start_time" => job.start_time.strftime("%I:%M %p"),
+                        "end_time" => job.end_time.strftime("%I:%M %p"),
+                        "notes" => job.notes}
+    end
+
+    return @five_job_details
   end
 
 end

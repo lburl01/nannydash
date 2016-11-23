@@ -6,5 +6,4 @@ class DashboardController < ApplicationController
     render :index, layout: false
   end
 
-
 end

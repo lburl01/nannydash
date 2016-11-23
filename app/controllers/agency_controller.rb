@@ -46,6 +46,12 @@ class AgencyController < ApplicationController
     render json: @count_totals
   end
 
+  def show_current_user
+    @user = User.find(current_user)
+
+    render json: @user
+  end
+
   private
 
     def agency_params
