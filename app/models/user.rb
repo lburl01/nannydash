@@ -121,6 +121,12 @@ class User < ApplicationRecord
                     "zip_code" => family.zip_code, "county" => family.county,
                     "about" => family.about, "active" => family.active
                   }
+
+    if family.picture.model["picture"]
+      @family["picture_url"] = "#{family.picture}"
+    end
+
+    return @family
   end
 
   def self.get_new_applicants
@@ -193,6 +199,34 @@ class User < ApplicationRecord
     @counties = @all_counties.uniq
 
     @data = { "families" => pending_families, "counties" => @counties}
+  end
+
+  def self.get_recipients
+    possible_recipients = User.where(is_deleted: false).all
+
+    @all_recipients = []
+
+    possible_recipients.each do |user|
+      full_name = "#{user.first_name} #{user.last_name}"
+      @all_recipients << { "name" => full_name, "role" => user.role }
+    end
+
+    return @all_recipients
+
+  end
+
+  def self.get_available_sitters
+    sitters = User.where( { is_deleted: false, active: true, approved: true, role: "nanny"  }).all
+
+    @available_sitters = []
+
+    sitters.each do |sitter|
+      full_name = "#{sitter.first_name} #{sitter.last_name}"
+      @available_sitters << { "name" => full_name }
+    end
+
+    return @available_sitters
+
   end
 
   private

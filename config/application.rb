@@ -23,5 +23,8 @@ module Nannydash
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     config.assets.paths << Rails.root.join('node_modules')
+    config.to_prepare do
+      DeviseController.respond_to :html, :json
+    end
   end
 end

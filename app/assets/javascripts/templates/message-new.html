@@ -9,8 +9,14 @@
         <i class="fa fa-plus-square" ng-click="newMessage.loadBabysitters()"></i>
         <input id="subject" type="text" ng-model="recipient" disabled>
         <div class="users">
-          <p>Mary Jane</p>
-          <p>Chloe Collier</p>
+          <div class="users" ng-repeat="nanny in newMessage.nannys">
+            <h2>Babysitters</h2>
+            <p>{{nanny.name}}</p>
+          </div>
+          <div class="users" ng-repeat="parent in newMessage.parents">
+            <h2>Parents</h2>
+            <p>{{parent.name}}</p>
+          </div>
         </div>
       </div>
       <div class="subject">
