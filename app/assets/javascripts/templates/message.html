@@ -16,9 +16,12 @@
       <textarea class="text-body" ng-model="body" name="reply" rows="8" cols="40">
       </textarea>
       <div class="buttons">
-        <button type="button"><i class="fa fa-trash" aria-hidden="true"></i>Delete</button>
+        <button type="button" ng-click="message.deleteBtn()"><i class="fa fa-trash" aria-hidden="true"></i>Delete</button>
         <button ng-click="message.replyMessage(body, message.message.subject)" type="button"><i class="fa fa-share"></i>Send</button>
       </div>
+    </div>
+    <div class="sentMsg" ng-show="message.sentMsg">
+      <h1>Sent!</h1>
     </div>
   </div>
 </div>

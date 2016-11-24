@@ -12,7 +12,6 @@ angular.module('app')
         self.application = response.applications
         self.assignments = response.assignments
         self.messages = response.messages;
-        console.log(self.messages);
         self.openJobs = response.open_jobs;
       }, function(response) {
         alert('Failed');
@@ -64,7 +63,7 @@ angular.module('app')
         var minutes = date.getMinutes();
         var ampm = hours >= 12 ? 'PM' : 'AM';
         hours = hours % 12;
-        hours = hours ? hours : 12; // the hour '0' should be '12'
+        hours = hours ? hours : 12;
         minutes = minutes < 10 ? '0'+minutes : minutes;
         var strTime = hours + ':' + minutes + ampm;
         var fullDate;

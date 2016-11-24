@@ -1,1 +1,75 @@
-<h1>This is the Family Dashboard</h1>
+<div class="container" id="nanny-dashboard">
+  <!-- ******************************
+   Top Navigation
+  ******************************* -->
+  <header>
+    <nav>
+      <h4 ui-sref="nanny_dashboard"><i class="fa fa-home"></i>Dashboard</h4>
+      <h4>Nanny<span>Dash</span></h4>
+      <div class="user">
+        <i class="fa fa-user" aria-hidden="true"></i>
+        <h4>Hey, Meg Smith</h4>
+        <button class="logOutButton" ng-click="$ctrl.signOut()">Log Out</button>
+      </div>
+    </nav>
+  </header>
+
+  <nav id="nanny-nav">
+    <ul>
+      <li>
+        <div class="title">
+          <h2>New Job Form</h2>
+        </div>
+        <button ui-sref="new_job_form" type="button" name="button">New Job</button>
+      </li>
+      <li>
+        <div class="title">
+          <h2>All upcoming jobs</h2>
+        </div>
+        <button ui-sref="newNannyJobs" type="button" name="button">{{$ctrl.count.unassigned_jobs}} | All Jobs</button>
+      </li>
+      <li>
+        <div class="title">
+          <h2>List of babysitters</h2>
+        </div>
+        <button ui-sref="nannyParentDirectory" type="button" name="button">{{$ctrl.count.all_families}} | Babysitters</button>
+      </li>
+      <li>
+        <div class="title">
+          <h2>Messaging Center</h2>
+        </div>
+        <button ui-sref="messaging" type="button" name="button">{{$ctrl.count.new_messages}} | Messages</button>
+      </li>
+    </ul>
+  </nav>
+
+  <div id="nav-trigger">
+    <span>Menu</span>
+  </div>
+
+  <nav id="nav-mobile">
+    <ul>
+      <li>
+        <a href="#">Upcoming Jobs</a>
+      </li>
+      <li>
+        <a href="#">All Jobs</a>
+      </li>
+      <li>
+        <a href="#">Babysitters</a>
+      </li>
+      <li>
+        <a href="#">Messages</a>
+      </li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="main-container">
+
+      <ui-view>LOADING . . . </ui-view>
+
+    </div>
+  </main>
+
+</div>

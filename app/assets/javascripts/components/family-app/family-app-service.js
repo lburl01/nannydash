@@ -1,18 +1,6 @@
-angular.module('app').service('dashboardAPI', ['$http', function($http) {
+angular.module('familyApp').service('familyAppAPI', ['$http', function($http) {
 
     return {
-      list: function() {
-        return $http({
-          url: "/api/v1/agency/summary",
-          method: "GET"
-        });
-      },
-      pendingApps: function(id) {
-        return $http({
-          url: "/api/v1/agency/application/" + id,
-          method: "GET"
-        });
-      },
       jobDetails: function(id) {
         return $http({
           url: "/api/v1/job/" + id,
@@ -49,6 +37,13 @@ angular.module('app').service('dashboardAPI', ['$http', function($http) {
         return $http({
           url: "/message/delete/" + id,
           method: "PATCH",
+          data: data
+        });
+      },
+      newJob: function(data) {
+        return $http({
+          url: "/job/new",
+          method: "POST",
           data: data
         });
       },

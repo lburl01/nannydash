@@ -1,0 +1,52 @@
+<div class="nanny-directory-container family-app-container" id="new-nanny-jobs">
+  <div class="list-wrapper">
+
+    <div class="list">
+      <div class="title-container dropdown-container">
+        <h4>New Job Form</h4>
+      </div>
+      <aside class="sitters">
+        <h2>All Babysitters</h2>
+        <h6 ng-click="jobForm.loadUser(nanny)" ng-repeat="nanny in jobForm.nannys">{{nanny.name}}</h6>
+      </aside>
+    <!-- New Job Form -->
+    <div class="form" ng-show="jobForm.toggleShow">
+      <!-- Date Section -->
+      <section class="date">
+        <div class="date">
+          <label>For</label>
+          <input type="date" ng-model="date">
+        </div>
+      </section>
+      <!-- Time Section -->
+      <section class="time">
+        <div class="start">
+          <label>Start Time</label>
+          <input type="time" ng-model="startTime">
+        </div>
+        <div class="end">
+          <label>End Time</label>
+          <input type="time" ng-model="endTime">
+        </div>
+      </section>
+      <!-- Details Section -->
+      <section class="details">
+        <div class="notes">
+          <label>Notes</label>
+          <textarea ng-model="body" rows="6" cols="80"></textarea>
+        </div>
+      </section>
+      <!-- Requested Sitter Section -->
+      <section class="details">
+        <div class="notes">
+          <label>Requested Sitter</label>
+          <input type="text" ng-model="jobForm.recipient" disabled>
+        </div>
+      </section>
+      <button ng-click="jobForm.sendMessage(jobForm.id, date, startTime, endTime, body)" type="button">Submit</button>
+    </div>
+    <div class="sent" ng-show="!jobForm.toggleShow">
+      <h2>Sent!</h2>
+    </div>
+  </div>
+</div>
