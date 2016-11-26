@@ -21,15 +21,21 @@ class FamilyDashboardController < ApplicationController
   end
 
   def get_confirmed_jobs
+    @confirmed_jobs = Job.get_confirmed_family_jobs(current_user)
 
+    render json: @confirmed_jobs
   end
 
   def get_pending_jobs
+    @pending_jobs = Job.get_pending_family_jobs(current_user)
 
+    render json: @pending_jobs
   end
 
   def get_five_confirmed_jobs
+    @five_family_jobs = Job.get_five_family_jobs(current_user)
 
+    render json: @five_family_jobs
   end
 
 end

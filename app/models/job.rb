@@ -163,8 +163,26 @@ class Job < ApplicationRecord
     return @five_job_details
   end
 
-  def self.get_family_jobs(current_user)
-    jobs = Job.where( { is_assigned: true, family_id: current_user.id } ).all
+  def self.get_confirmed_family_jobs(current_user)
+    jobs = Job.where( { confirmed: true, is_assigned: true, family_id: current_user.id } ).all
+
+    @job_details = []
+
+    jobs.each do |job|
+      sitter_name = "#{job.assignment.first_name} #{job.assignment.last_name}"
+      @job_details << { "family_id" => job.family_id, "sitter_id" => job.sitter_id,
+                        "sitter_name" => sitter_name,
+                        "date" => job.date,
+                        "start_time" => job.start_time.strftime("%I:%M %p"),
+                        "end_time" => job.end_time.strftime("%I:%M %p"),
+                        "notes" => job.notes}
+    end
+
+    return @job_details
+  end
+
+  def self.get_pending_family_jobs(current_user)
+    jobs = Job.where( { confirmed: false, is_assigned: true, family_id: current_user.id } ).all
 
     @job_details = []
 
