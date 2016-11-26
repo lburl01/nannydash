@@ -93,7 +93,6 @@
 
       .save,
       button.delete {
-        background: #9E9E9E;
         border-radius: 4px;
         border: transparent;
         color: #fff;
@@ -107,8 +106,9 @@
         width: 65%;
       }
       .save {
+        background-color: $yellow !important;
         &.saved {
-          background: $yellow;
+          background-color: $yellow;
         }
         &.disabled {
           background: #9E9E9E !important;
@@ -122,6 +122,7 @@
         }
       }
       .delete {
+        background: $grey;
         &:hover {
           background: $red;
         }

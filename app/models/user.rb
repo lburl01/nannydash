@@ -90,7 +90,7 @@ class User < ApplicationRecord
   end
 
   def self.get_approved_families
-    response = User.family.where( { is_deleted: false, approved: true } ).all
+    response = User.family.where( { is_deleted: false, approved: true, active: true } ).all
 
     @families = []
     @all_counties = []
