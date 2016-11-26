@@ -2,13 +2,15 @@ require 'rails_helper'
 
 RSpec.describe DashboardController, type: :controller do
 
+context 'when user not logged in' do
   describe "GET #index" do
-    it "renders index view" do
+    it "redirects to login page view" do
 
       get :index
 
-      expect(response).to render_template("index")
+      expect(response).to redirect_to("/users/sign_in")
     end
   end
+end
 
 end
