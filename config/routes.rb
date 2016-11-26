@@ -17,8 +17,13 @@ Rails.application.routes.draw do
   get 'user/logged_in' => 'agency#show_current_user'
 
   get 'sitter_dash/counts' => 'nanny_dashboard#get_all_counts'
-  get 'sitter/scheduled_jobs' => 'nanny_dashboard#get_scheduled_jobs'
-  get 'sitter/5_scheduled_jobs' => 'nanny_dashboard#get_five_scheduled_jobs'
+  get 'sitter_dash/scheduled_jobs' => 'nanny_dashboard#get_scheduled_jobs'
+  get 'sitter_dash/5_scheduled_jobs' => 'nanny_dashboard#get_five_scheduled_jobs'
+
+  get 'family_dash/counts' => 'family_dashboard#get_all_counts'
+  get 'family_dash/confirmed_jobs' => 'family_dashboard#get_confirmed_jobs'
+  get 'family_dash/pending_jobs' => 'family_dashboard#get_pending_jobs'
+  get 'family_dash/5_confirmed_jobs' => 'family_dashboard#get_five_confirmed_jobs'
 
   get 'api/v1/sitters' => 'sitters#index'
   get 'api/v1/sitters/available' => 'sitters#available'
