@@ -20,7 +20,7 @@
         });
       },
       toggleAssign: function(id) {
-        return $http.patch('api/v1/job/assign/' + id + '.json').then(function(response) {
+        return $http.patch('api/v1/job/assign.json', {id: id}).then(function(response) {
           return response.data;
         }, function() {
           console.log("Assignment was unsuccessful");

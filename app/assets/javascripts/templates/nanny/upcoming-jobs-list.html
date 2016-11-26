@@ -16,6 +16,7 @@
         <li>Job Date</li>
         <li>Time</li>
         <li>Notes</li>
+        <li>Confirmed By Parent</li>
       </ul>
 
       <div class="table-body">
@@ -23,7 +24,8 @@
           <li>{{job.family_name}}</li>
           <li>{{job.date}}</li>
           <li>{{job.start_time}}-{{job.end_time}}</li>
-          <li>{{job.notes | limitTo: 50}}</li>
+          <li>{{job.notes === "" ? "No Notes" : job.notes | limitTo: 50}}</li>
+          <li>{{job.confirmed ? "Confirmed" : "Unconfirmed"}}</li>
         </ul>
 
       </div>
