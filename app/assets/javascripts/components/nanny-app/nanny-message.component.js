@@ -5,14 +5,28 @@
     bindings: {
       message: '<'
     },
+    require: {
+      parent: "^nannyApp"
+    },
     controller: ['nannyAppAPI', NannyMessage]
   });
   function NannyMessage(nannyAppAPI) {
     var ctrl = this;
 
-    ctrl.reply = function(id, body, subject) {
-      console.log(id + ' ' + body + ' ' + subject);
-      // nannyAppAPI.sendMessage(id, body, subject);
+    ctrl.$onInit = function() {
+      ctrl.userId = ctrl.parent.userId;
     };
+
+    ctrl.reply = function(recipientId, senderId, body, subject) {
+      var id = "";
+      console.log(recipientId + ' ' + senderId + ' ' + body + ' ' + subject);
+      if (ctrl.userId === recipientId) {
+        id = senderId;
+      } else {
+        id = recipientId;
+      }
+      nannyAppAPI.sendMessage(id, body, subject);
+    };
+
   }
 })();

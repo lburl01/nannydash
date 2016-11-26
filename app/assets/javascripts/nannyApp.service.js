@@ -4,6 +4,13 @@
 
     return {
 
+      user: function() {
+        return $http.get("/user/logged_in.json").then(function(response) {
+          console.log(response.data);
+          return response.data;
+        });
+      },
+
       deleteUser: function() {
         return $http.delete("/users/sign_out").then(function() {
           $window.location.href = '/home';

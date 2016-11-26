@@ -12,10 +12,15 @@
 
   function NannyAppController(nannyApp, $http, $scope, $window) {
     var ctrl = this;
+    ctrl.userId = "";
 
     ctrl.$onInit = function() {
       nannyApp.totalCount().then(function(data) {
         ctrl.count = data;
+      });
+
+      nannyApp.user().then(function(data) {
+        ctrl.userId = data.id;
       });
     };
 

@@ -17,7 +17,7 @@
       </textarea>
       <div class="buttons">
         <button type="button"><i class="fa fa-trash" aria-hidden="true"></i>Delete</button>
-        <button ng-click="$ctrl.reply(id, body, $ctrl.message.subject)" type="button"><i class="fa fa-share"></i>Send</button>
+        <button ng-click="$ctrl.reply($ctrl.message.recipient_id, $ctrl.message.sender_id, body, $ctrl.message.subject)" type="button"><i class="fa fa-share"></i>Send</button>
       </div>
     </div>
   </div>
