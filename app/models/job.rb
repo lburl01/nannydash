@@ -182,7 +182,7 @@ class Job < ApplicationRecord
   end
 
   def self.get_pending_family_jobs(current_user)
-    jobs = Job.where( { confirmed: false, is_assigned: true, family_id: current_user.id } ).all
+    jobs = Job.where( { confirmed: false, family_id: current_user.id } ).all
 
     @job_details = []
 
