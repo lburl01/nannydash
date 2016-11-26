@@ -141,7 +141,7 @@ class Job < ApplicationRecord
     jobs.each do |job|
       family_name = "#{job.posted_job.first_name} #{job.posted_job.last_name}"
       @job_details << { "family_id" => job.family_id, "family_name" => family_name,
-                        "date" => job.date,
+                        "date" => job.date, "confirmed" => job.confirmed,
                         "start_time" => job.start_time.strftime("%I:%M %p"),
                         "end_time" => job.end_time.strftime("%I:%M %p"),
                         "notes" => job.notes}
