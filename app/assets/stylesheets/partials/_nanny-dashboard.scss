@@ -1,11 +1,10 @@
 #nanny-dashboard {
   h1 {
-    font-size: 26px;
-    text-align: center;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 100;
+    float: left;
     color: $grey;
-    padding: 20px 0;
+    padding-top: 7px;
+    font-size: 21px;
+    //padding: 20px 0;
   }
 }
 

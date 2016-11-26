@@ -1,0 +1,33 @@
+<div class="nanny-directory-container upcoming-jobs" id="new-nanny-jobs">
+  <div class="list-wrapper">
+
+    <div class="search">
+      <h2>All Upcoming Jobs</h2>
+      <input type="text" ng-model="searchBox" placeholder="Search">
+    </div>
+
+    <div class="list">
+      <div class="title-container dropdown-container">
+        <h4>Total: {{$ctrl.newJob.length}}</h4>
+      </div>
+
+    <div class="family-table">
+      <ul class="table-head" id="new-jobs-header">
+        <li>Job Date</li>
+        <li>Time</li>
+        <li>Notes</li>
+        <li>Posted</li>
+      </ul>
+
+      <div class="table-body">
+        <ul ui-sref="newNannyJobInfo({jobId: job.job_id})">
+          <li>Dec. 20, 2016</li>
+          <li>6:00PM-10:00PM</li>
+          <li>Notes...</li>
+          <li>10/23/2016</li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+</div>

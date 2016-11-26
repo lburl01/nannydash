@@ -1,15 +1,14 @@
 .directory-container {
   float: right;
   width: 100%;
-  padding-right: 25px;
+  padding: 0 80px;
   @include media(desktop) {
     padding: 0 25px 25px;
   };
 
   .search {
     overflow: hidden;
-    padding-bottom: 40px;
-    padding-top: 20px;
+    padding: 40px 0;
     @include media(mobile) {
       padding-bottom: 30px;
     };
@@ -44,10 +43,10 @@
       padding: 3px 15px 0;
     }
     h2 {
-      font-size: 22px;
-      font-weight: 100;
-      color: $purple;
-      padding-top: 4px;
+      float: left;
+      color: $grey;
+      padding-top: 7px;
+      font-size: 21px;
 
       &:nth-child(3) {
         padding-right: 7px;
@@ -184,7 +183,7 @@
         position: relative;
         z-index: 999999;
 
-        .fa-angle-down {
+        .fa {
           cursor: pointer;
           font-size: 21px;
           border: #fff solid 1px;

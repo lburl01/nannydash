@@ -1,14 +1,32 @@
-angular.module('familyApp').service('familyAppAPI', ['$http', function($http) {
+angular.module('familyApp').service('familyAppAPI', ['$http', '$window', function($http, $window) {
 
     return {
+      list: function() {
+        return $http({
+          url: "/api/v1/agency/summary",
+          method: "GET"
+        });
+      },
+      deleteUser: function() {
+        return $http.delete("/users/sign_out").then(function() {
+          $window.location.href = '/home';
+        }, function() {
+          console.log('Failed to sign out');
+        });
+      },
       jobDetails: function(id) {
         return $http({
           url: "/api/v1/job/" + id,
           method: "GET"
         });
       },
+      userProfile: function(id) {
+        return $http({
+          url: "/api/v1/sitter/" + id,
+          method: "GET"
+        });
+      },
       message: function(conversationId, messageId) {
-        console.log(conversationId, parseInt(messageId));
         return $http({
           url: "/conversations/" + conversationId + "/messages/" + parseInt(messageId),
           method: "GET"
@@ -51,6 +69,24 @@ angular.module('familyApp').service('familyAppAPI', ['$http', function($http) {
         return $http({
           url: "/users/all_active",
           method: "GET"
+        });
+      },
+      babysitters: function() {
+        return $http({
+          url: "/api/v1/sitters",
+          method: "GET"
+        });
+      },
+      cpr: function(id) {
+        return $http({
+          url: "api/v1/sitter/cpr/" + id,
+          method: "PATCH"
+        });
+      },
+      first_aid: function(id) {
+        return $http({
+          url: "api/v1/sitter/first_aid/" + id,
+          method: "PATCH"
         });
       }
     };

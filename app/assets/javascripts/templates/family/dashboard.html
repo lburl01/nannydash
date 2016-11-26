@@ -1,0 +1,43 @@
+<div class="dashboard-container family-dashboard">
+  <h1>Parent Dashboard Overview</h1>
+  <!-- ******************************
+   Jobs Section
+  ******************************* -->
+  <section class="jobs">
+    <div class="title-container" ng-click="dashboard.changeStates('jobs')">
+      <h2>Upcoming Jobs</h2>
+    </div>
+    <table>
+      <tr>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Babysitter</th>
+      </tr>
+      <tr ng-repeat="person in dashboard.openJobs" ng-click="dashboard.newJobs(person)">
+        <td>{{person.name}}</td>
+        <td>{{person.submitted}}</td>
+        <td>{{person.sitter}}</td>
+      </tr>
+    </table>
+  </section>
+  <!-- ******************************
+   Messaging Section
+  ******************************* -->
+  <section class="messages">
+    <div class="title-container" ng-click="dashboard.changeStates('conversations')">
+      <h2>Messaging Center</h2>
+    </div>
+    <table>
+      <tr>
+        <th>From</th>
+        <th>Subject</th>
+        <th>Read?</th>
+      </tr>
+      <tr ng-click="dashboard.message(dashboard.messages[key], key)" ng-repeat="(key, value) in dashboard.messages">
+        <td>{{value.from}}</td>
+        <td>{{value.subject}}</td>
+        <td>{{value.is_read}}</td>
+      </tr>
+    </table>
+  </section>
+</div>

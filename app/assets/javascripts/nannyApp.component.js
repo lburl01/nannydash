@@ -30,7 +30,6 @@
       nannyApp.deleteUser();
     };
 
-
   }
 })();
 

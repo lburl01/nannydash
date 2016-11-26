@@ -1,15 +1,15 @@
-<div class="container" id="nanny-dashboard">
+<div class="container" id="nanny-dashboard" ng-controller="familyAppController as family">
   <!-- ******************************
    Top Navigation
   ******************************* -->
   <header>
     <nav>
-      <h4 ui-sref="nanny_dashboard"><i class="fa fa-home"></i>Dashboard</h4>
+      <h4 ui-sref="family_dashboard"><i class="fa fa-home"></i>Dashboard</h4>
       <h4>Nanny<span>Dash</span></h4>
       <div class="user">
         <i class="fa fa-user" aria-hidden="true"></i>
         <h4>Hey, Meg Smith</h4>
-        <button class="logOutButton" ng-click="$ctrl.signOut()">Log Out</button>
+        <button class="logOutButton" ng-click="family.signOut()">Log Out</button>
       </div>
     </nav>
   </header>
@@ -26,23 +26,22 @@
         <div class="title">
           <h2>All upcoming jobs</h2>
         </div>
-        <button ui-sref="newNannyJobs" type="button" name="button">{{$ctrl.count.unassigned_jobs}} | All Jobs</button>
+        <button ui-sref="upcoming_jobs" type="button" name="button">{{$ctrl.count.unassigned_jobs}} | All Jobs</button>
       </li>
       <li>
         <div class="title">
-          <h2>List of babysitters</h2>
+          <h2>List of Babysitters</h2>
         </div>
-        <button ui-sref="nannyParentDirectory" type="button" name="button">{{$ctrl.count.all_families}} | Babysitters</button>
+        <button ui-sref="babysitter_list" type="button" name="button">{{$ctrl.count.all_families}} | Babysitters</button>
       </li>
       <li>
         <div class="title">
           <h2>Messaging Center</h2>
         </div>
-        <button ui-sref="messaging" type="button" name="button">{{$ctrl.count.new_messages}} | Messages</button>
+        <button ui-sref="conversations" type="button" name="button">{{$ctrl.count.new_messages}} | Messages</button>
       </li>
     </ul>
   </nav>
-
   <div id="nav-trigger">
     <span>Menu</span>
   </div>
