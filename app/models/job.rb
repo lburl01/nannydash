@@ -118,6 +118,10 @@ class Job < ApplicationRecord
     new_jobs = Job.where({is_assigned: true, is_deleted: false}).all.count
   end
 
+  def self.get_sitter_assigned_jobs_count(current_user)
+    @sitter_assigned_jobs_count = Job.where( { is_assigned: true, sitter_id: current_user.id } ).all.count
+  end
+
   def self.get_all_jobs_count
     all_jobs = Job.where(is_deleted: false).all.count
   end
