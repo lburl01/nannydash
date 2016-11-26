@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   get 'sitter_dash/counts' => 'nanny_dashboard#get_all_counts'
   get 'sitter_dash/scheduled_jobs' => 'nanny_dashboard#get_scheduled_jobs'
+  get 'sitter_dash/pending_jobs' => 'nanny_dashboard#get_pending_jobs'
   get 'sitter_dash/5_scheduled_jobs' => 'nanny_dashboard#get_five_scheduled_jobs'
 
   get 'family_dash/counts' => 'family_dashboard#get_all_counts'
