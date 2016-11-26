@@ -35,10 +35,4 @@ class NannyDashboardController < ApplicationController
     render json: @five_scheduled_jobs
   end
 
-  def get_pending_jobs
-    @pending_jobs = Job.get_pending_sitter_jobs(current_user)
-
-    render json: @pending_jobs
-  end
-
 end
