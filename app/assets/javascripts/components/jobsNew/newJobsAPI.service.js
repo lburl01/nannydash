@@ -13,6 +13,7 @@
 
       jobInfo: function(id) {
         return $http.get("/api/v1/job/" + id + ".json").then(function(response) {
+          console.log(response.data);
           return response.data;
         }, function() {
           alert('Failed');
