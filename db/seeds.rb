@@ -31,8 +31,7 @@ User.create!(first_name: "Lori",
               recommendation_two_email: Faker::Internet.email,
               recommendation_three_name: Faker::Name.name,
               recommendation_three_email: Faker::Internet.email,
-              phone_number: ENV['SAMPLE_NUMBER'],
-              picture: "lori-500x500.jpg")
+              phone_number: '7049950579')
 
 User.create!(first_name: "Family",
               last_name: "Example",
