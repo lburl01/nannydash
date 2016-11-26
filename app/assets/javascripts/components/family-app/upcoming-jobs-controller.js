@@ -4,6 +4,9 @@ angular.module('familyApp')
       Variables
       *************************/
       var self = this;
-      
+
+      familyAppAPI.pendingJobs().success(function(response) {
+        console.log(response);
+      });
 
   }]);

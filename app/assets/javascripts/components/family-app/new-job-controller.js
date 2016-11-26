@@ -47,7 +47,7 @@ angular.module('familyApp')
         var start = startHours + ':' + startMins;
 
         var newMsg = {};
-        newMsg['id'] = id;
+        newMsg['sitter_id'] = id;
         newMsg['date'] = fullDate;
         newMsg['start_time'] = start;
         newMsg['end_time'] = end;

@@ -60,9 +60,15 @@ angular.module('familyApp').service('familyAppAPI', ['$http', '$window', functio
       },
       newJob: function(data) {
         return $http({
-          url: "/job/new",
+          url: "/job/new.json",
           method: "POST",
           data: data
+        });
+      },
+      pendingJobs: function() {
+        return $http({
+          url: "/family_dash/pending_jobs",
+          method: "GET"
         });
       },
       activeBabysitters: function() {

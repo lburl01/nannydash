@@ -44,22 +44,22 @@ class JobsController < ApplicationController
   end
 
   def create
-    @job = Job.new(family_id: params[:family_id], start_time: params[:start_time],
+    @family = current_user
+    @sitter = User.find(params[:sitter_id])
+
+    @job = Job.new(family_id: @family.id, sitter_id: @sitter.id,
+                   start_time: params[:start_time],
                    end_time: params[:end_time], date: params[:date],
                    notes: params[:notes])
-
-    @sitter = User.find(params[:sitter_id])
 
     if @job.save
       @text_message = %Q(You've been requested for a new babysitting gig on #{@job.date}
         For more details or to claim this job, visit:
         https://nannydash.herokuapp.com/#/new-job/info/#{@job.id})
 
-      @recipient = User.find(@sitter)
+      @recipient = User.find(@sitter.id)
       phone_number = ENV['SAMPLE_NUMBER']
       send_message(phone_number, @text_message)
-    else
-      render 'new'
     end
 
   end
