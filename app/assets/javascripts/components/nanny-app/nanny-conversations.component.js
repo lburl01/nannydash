@@ -8,10 +8,14 @@
     bindings: {
       conversation: '<'
     },
+    require: {
+      parent: '^nannyApp'
+    },
     controller: ['nannyAppAPI', NannyConversations]
   });
 
   function NannyConversations() {
-
+    var ctrl = this;
+    
   }
 })();
