@@ -91,7 +91,7 @@ class Job < ApplicationRecord
     @new_job = { "name" => family_name, "family_id" => job.family_id,
                  "phone" => job.posted_job.phone_number,
                  "county" => job.posted_job.county,
-                 "email" => job.posted_job.email,
+                 "email" => job.posted_job.email, "job_id" => job.id,
                  "street" => job.posted_job.street,
                  "city" => job.posted_job.city, "state" => job.posted_job.state,
                  "zip_code" => job.posted_job.zip_code, "date" => job.date,
@@ -144,7 +144,7 @@ class Job < ApplicationRecord
                         "date" => job.date, "confirmed" => job.confirmed,
                         "start_time" => job.start_time.strftime("%I:%M %p"),
                         "end_time" => job.end_time.strftime("%I:%M %p"),
-                        "notes" => job.notes}
+                        "notes" => job.notes, "job_id" => job.id}
     end
 
     return @job_details
@@ -158,7 +158,7 @@ class Job < ApplicationRecord
     jobs.each do |job|
       family_name = "#{job.posted_job.first_name} #{job.posted_job.last_name}"
       @five_job_details << { "family_id" => job.family_id, "family_name" => family_name,
-                        "date" => job.date,
+                        "date" => job.date, "job_id" => job.id,
                         "start_time" => job.start_time.strftime("%I:%M %p"),
                         "end_time" => job.end_time.strftime("%I:%M %p"),
                         "notes" => job.notes}
@@ -176,7 +176,7 @@ class Job < ApplicationRecord
       sitter_name = "#{job.assignment.first_name} #{job.assignment.last_name}"
       @job_details << { "family_id" => job.family_id, "sitter_id" => job.sitter_id,
                         "sitter_name" => sitter_name,
-                        "date" => job.date,
+                        "date" => job.date, "job_id" => job.id,
                         "start_time" => job.start_time.strftime("%I:%M %p"),
                         "end_time" => job.end_time.strftime("%I:%M %p"),
                         "notes" => job.notes}
@@ -194,7 +194,7 @@ class Job < ApplicationRecord
       sitter_name = "#{job.assignment.first_name} #{job.assignment.last_name}"
       @job_details << { "family_id" => job.family_id, "sitter_id" => job.sitter_id,
                         "sitter_name" => sitter_name,
-                        "date" => job.date,
+                        "date" => job.date, "job_id" => job.id,
                         "start_time" => job.start_time.strftime("%I:%M %p"),
                         "end_time" => job.end_time.strftime("%I:%M %p"),
                         "notes" => job.notes}
@@ -214,7 +214,7 @@ class Job < ApplicationRecord
                         "date" => job.date, "confirmed" => job.confirmed,
                         "start_time" => job.start_time.strftime("%I:%M %p"),
                         "end_time" => job.end_time.strftime("%I:%M %p"),
-                        "notes" => job.notes}
+                        "notes" => job.notes, "job_id" => job.id}
     end
 
     return @job_details
@@ -234,7 +234,7 @@ class Job < ApplicationRecord
       sitter_name = "#{job.assignment.first_name} #{job.assignment.last_name}"
       @five_job_details << { "family_id" => job.family_id, "family_name" => family_name,
                         "sitter_id" => job.sitter_id, "sitter_name" => sitter_name,
-                        "date" => job.date,
+                        "date" => job.date, "job_id" => job.id,
                         "start_time" => job.start_time.strftime("%I:%M %p"),
                         "end_time" => job.end_time.strftime("%I:%M %p"),
                         "notes" => job.notes}

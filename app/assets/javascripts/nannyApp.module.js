@@ -31,6 +31,14 @@
             return nannyAppAPI.jobList("sitter_dash/scheduled_jobs.json");
           }]
         }
+      }).state('upcomingJobInfo', {
+        url: '/upcoming-job/:jobId',
+        component: 'upcomingJobInfo',
+        resolve: {
+          jobInfo: ['nannyAppAPI', '$stateParams', function(nannyAppAPI, $stateParams) {
+            return nannyAppAPI.jobInfo($stateParams.jobId);
+          }]
+        }
       }).state('nannyParentDirectory', {
         url: '/parents',
         component: 'parentList',
