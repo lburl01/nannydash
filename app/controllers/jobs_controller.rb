@@ -24,6 +24,11 @@ class JobsController < ApplicationController
     @job.update_attributes(job_params)
   end
 
+  def toggle_confirmation
+    @job = Job.find(params[:id])
+    @job.toggle!(:confirmed)
+  end
+
   def toggle_deleted_job
     job = Job.find(params[:id])
     job.toggle!(:is_deleted)
