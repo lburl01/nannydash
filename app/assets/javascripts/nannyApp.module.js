@@ -28,7 +28,7 @@
         component: 'upcomingJobsList',
         resolve: {
           newJob: ['nannyAppAPI', function(nannyAppAPI) {
-            return nannyAppAPI.jobList("api/v1/jobs/new.json");
+            return nannyAppAPI.jobList("sitter/scheduled_jobs.json");
           }]
         }
       }).state('nannyParentDirectory', {
@@ -54,6 +54,15 @@
         resolve: {
           conversation: ['nannyAppAPI', function(nannyAppAPI) {
             return nannyAppAPI.conversationList();
+          }]
+        }
+      }).state('conversation', {
+        url: '/conversation/:convoId',
+        component: 'conversation',
+        resolve: {
+          messages: ['nannyAppAPI', '$stateParams', function(nannyAppAPI, $stateParams) {
+            console.log($stateParams);
+            return nannyAppAPI.messagesList($stateParams.convoId);
           }]
         }
       });
