@@ -16,6 +16,12 @@ Rails.application.routes.draw do
   get 'users/all_active' => 'messages#get_possible_recipients'
   get 'user/logged_in' => 'agency#show_current_user'
 
+  get 'api/v1/agency/summary' => 'agency#index'
+  get 'api/v1/agency/application/:id' => 'agency#application_show'
+  get 'api/v1/agency/count_totals' => 'agency#count_totals'
+  get 'agency/new' => 'agency#new'
+  post 'agency' => 'agency#create'
+
   get 'sitter_dash/counts' => 'nanny_dashboard#get_all_counts'
   get 'sitter_dash/scheduled_jobs' => 'nanny_dashboard#get_scheduled_jobs'
   get 'sitter_dash/pending_jobs' => 'nanny_dashboard#get_pending_jobs'
@@ -58,12 +64,6 @@ Rails.application.routes.draw do
   patch 'api/v1/job/delete' => 'jobs#toggle_deleted_job'
   get 'job/new' => 'jobs#new'
   post 'job/new' => 'jobs#create'
-
-  get 'api/v1/agency/summary' => 'agency#index'
-  get 'api/v1/agency/application/:id' => 'agency#application_show'
-  get 'api/v1/agency/count_totals' => 'agency#count_totals'
-  get 'agency/new' => 'agency#new'
-  post 'agency' => 'agency#create'
 
   get 'messages/new' => 'messages#new'
   patch 'message/delete' => 'messages#toggle_deleted_message'
