@@ -13,21 +13,4 @@ RSpec.describe NannyDashboardController, type: :controller do
     end
   end
 
-  context 'when nanny logged in' do
-    describe "GET #get_all_counts" do
-      it 'returns json object with 5 correct keys' do
-        @nanny = create(:recipient)
-
-        wanted_keys = ["all_families", "unassigned_jobs",
-                       "assigned_jobs", "new_messages", "pending_jobs"]
-
-        login(@nanny)
-        get :get_all_counts
-
-        expect(json_body.keys).to contain_exactly(wanted_keys)
-
-      end
-    end
-  end
-
 end
