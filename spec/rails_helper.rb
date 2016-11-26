@@ -7,14 +7,14 @@ require 'spec_helper'
 require 'rspec/rails'
 require 'capybara/rails'
 require 'support/factory_girl'
-require 'helpers/spec_test_helper'
+require 'support/spec_test_helper'
+require 'support/api_helpers'
 
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.include Devise::Test::ControllerHelpers
-  config.include SpecTestHelper, :type => :controller
 
   config.use_transactional_fixtures = true
 

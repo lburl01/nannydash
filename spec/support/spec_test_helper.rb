@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 module SpecTestHelper
   def login_admin
     login(:user)
@@ -13,4 +11,8 @@ module SpecTestHelper
   def current_user
     User.find(request.session[:user])
   end
+end
+
+RSpec.configure do |config|
+  config.include SpecTestHelper
 end

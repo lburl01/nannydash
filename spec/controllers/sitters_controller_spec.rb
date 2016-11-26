@@ -8,9 +8,7 @@ RSpec.describe SittersController, type: :controller do
 
       get :index
 
-      json = JSON.parse(response.body)
-
-      expect(json.length).to eq 2
+      expect(json_body.length).to eq 2
     end
 
     it 'will not return deleted sitters' do
@@ -18,9 +16,7 @@ RSpec.describe SittersController, type: :controller do
 
       get :index
 
-      json = JSON.parse(response.body)
-
-      expect(json["sitters"].length).to eq 0
+      expect(json_body["sitters"].length).to eq 0
     end
   end
 

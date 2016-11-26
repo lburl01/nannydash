@@ -9,9 +9,7 @@ RSpec.describe AgencyController, type: :controller do
 
       get :index
 
-      json = JSON.parse(response.body)
-
-      expect(json.keys).to contain_exactly(wanted_keys)
+      expect(json_body.keys).to contain_exactly(wanted_keys)
     end
   end
 end

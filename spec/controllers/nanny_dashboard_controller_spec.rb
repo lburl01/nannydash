@@ -24,9 +24,7 @@ RSpec.describe NannyDashboardController, type: :controller do
         login(@nanny)
         get :get_all_counts
 
-        json = JSON.parse(response.body)
-
-        expect(json.keys).to contain_exactly(wanted_keys)
+        expect(json_body.keys).to contain_exactly(wanted_keys)
 
       end
     end
