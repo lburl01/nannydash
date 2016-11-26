@@ -11,6 +11,28 @@ User.create!(first_name: "Agency",
               role: 0,
               phone_number: Faker::PhoneNumber.phone_number)
 
+User.create!(first_name: "Lori",
+              last_name: "Baumgartner",
+              email: "loribbaumgartner@gmail.com",
+              password: "password",
+              street: Faker::Address.street_address,
+              city: Faker::Address.city,
+              state: Faker::Address.state_abbr,
+              zip_code: Faker::Address.zip_code,
+              county: "Wake",
+              role: 2,
+              birthday: "04/29/1990",
+              hourly_rate: 12.50,
+              cpr_certification: true,
+              first_aid_certification: false,
+              recommendation_one_name: Faker::Name.name,
+              recommendation_one_email: Faker::Internet.email,
+              recommendation_two_name: Faker::Name.name,
+              recommendation_two_email: Faker::Internet.email,
+              recommendation_three_name: Faker::Name.name,
+              recommendation_three_email: Faker::Internet.email,
+              phone_number: '7049950579')
+
 User.create!(first_name: "Family",
               last_name: "Example",
               email: "family@example.com",
@@ -182,50 +204,50 @@ end
                     approved: true)
   end
 
-Job.create!(family_id: 6,
-              sitter_id: 25,
-              date: Date.today,
-              start_time: Time.now,
-              end_time: 3.hours.from_now,
-              notes: Faker::Hipster.sentence(3, true, 4),
+Job.create!(family_id: 2,
+              sitter_id: 3,
+              date: "2016-12-4",
+              start_time: "12:00",
+              end_time: "17:00",
+              notes: "Charlie and Violet love when you craft with them!",
               confirmed: false,
               is_deleted: false,
               is_assigned: true)
 
 Job.create!(family_id: 7,
               sitter_id: 24,
-              date: Date.today,
-              start_time: Time.now,
-              end_time: 3.hours.from_now,
-              notes: Faker::Hipster.sentence(3, true, 4),
+              date: "2016-12-15",
+              start_time: "17:00",
+              end_time: "23:00",
+              notes: "None",
               confirmed: false,
               is_deleted: false,
               is_assigned: true)
 
 Job.create!(family_id: 8,
               sitter_id: 23,
-              date: Date.today,
+              date: '2017-1-03',
               start_time: Time.now,
               end_time: 3.hours.from_now,
-              notes: Faker::Hipster.sentence(3, true, 4),
+              notes: "",
               confirmed: true,
               is_deleted: false,
               is_assigned: true)
 
 Job.create!(family_id: 9,
-              date: Date.today,
+              date: '2016-12-04',
               start_time: Time.now,
               end_time: 3.hours.from_now,
-              notes: Faker::Hipster.sentence(3, true, 4),
+              notes: "",
               confirmed: false,
               is_deleted: false,
               is_assigned: false)
 
 Job.create!(family_id: 10,
-              date: Date.today,
+              date: "2016-12-03",
               start_time: Time.now,
               end_time: 3.hours.from_now,
-              notes: Faker::Hipster.sentence(3, true, 4),
+              notes: "",
               confirmed: false,
               is_deleted: false,
               is_assigned: false)
@@ -237,16 +259,16 @@ Conversation.create!(subject: "Inquiry",
 
 Conversation.create!(subject: "Question about tonight",
                     sender_id: 25,
-                    recipient_id: 2,
+                    recipient_id: 3,
                     is_deleted: false)
 
-Conversation.create!(subject: "The kids were great!",
+Conversation.create!(subject: "The kids though you were great!",
                      sender_id: 3,
                      recipient_id: 2,
                      is_deleted: false)
 
 Conversation.create!(subject: "Going on family vacation",
-                    sender_id: 3,
+                    sender_id: 2,
                     recipient_id: 1,
                     is_deleted: false)
 
@@ -267,7 +289,7 @@ Message.create!(body: "My response to that thing.",
                 is_deleted: false)
 
 Message.create!(body: "Here is my question.",
-                recipient_id: 2,
+                recipient_id: 3,
                 subject: "Question about tonight",
                 user_id: 25,
                 conversation_id: 2,
@@ -275,23 +297,23 @@ Message.create!(body: "Here is my question.",
                 is_deleted: false)
 
 Message.create!(subject: "The kids were great!",
-                user_id: 3,
-                recipient_id: 2,
+                user_id: 2,
+                recipient_id: 3,
                 body: "Had such a good time hanging out with Violet and Charlie last night. Look forward to working with your family again soon!",
                 conversation_id: 3,
                 is_read: false,
                 is_deleted: false)
 
 Message.create!(subject: "Thanks",
-                user_id: 2,
-                recipient_id: 3,
+                user_id: 3,
+                recipient_id: 2,
                 body: "The kids couldn't stop talking about the game you taught them. See you soon.",
                 conversation_id: 3,
                 is_read: false,
                 is_deleted: false)
 
 Message.create!(subject: "Going on family vacation",
-                user_id: 3,
+                user_id: 2,
                 recipient_id: 1,
                 body: "Just FYI that I will be out of town Dec. 20-Jan. 5.",
                 conversation_id: 4,

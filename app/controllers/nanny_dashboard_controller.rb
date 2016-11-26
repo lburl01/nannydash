@@ -9,7 +9,7 @@ class NannyDashboardController < ApplicationController
   def get_all_counts
     @all_families = User.get_approved_families_count
     @unassigned_jobs = Job.get_unassigned_jobs_count
-    @assigned_jobs = Job.get_assigned_jobs_count
+    @assigned_jobs = Job.get_sitter_assigned_jobs_count(current_user)
     @new_messages = Message.get_new_messages_count(current_user)
     @pending_jobs = Job.get_pending_sitter_jobs_count(current_user)
 

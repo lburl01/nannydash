@@ -11,7 +11,7 @@ class Conversation < ApplicationRecord
                       length: { maximum: 255 }
 
   def self.get_user_conversations(current_user)
-    data = Conversation.where(sender_id: current_user.id).or(Conversation.where(recipient_id: current_user.id)).all
+    data = Conversation.where({sender_id: current_user.id, is_deleted: false}).or(Conversation.where({recipient_id: current_user.id, is_deleted: false})).all
 
     @conversations = []
 
@@ -22,7 +22,7 @@ class Conversation < ApplicationRecord
       @conversations << { "sender_id" => convo.sender_id, "convo_id" => convo.id,
         "subject" => convo.subject, "recipient_id" => convo.recipient_id,
         "created_at" => convo.created_at.strftime("%m/%d/%Y %I:%M %p"),
-        "sender_name" => sender_name, 
+        "sender_name" => sender_name,
         "recipient_name" => recipient_name, "messages_count" => convo.messages.where(is_deleted: false).count}
     end
 
