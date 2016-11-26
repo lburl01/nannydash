@@ -19,12 +19,8 @@
         });
       },
 
-      saveJob: function(id, data) {
-        return $http.patch("/api/v1/job/" + id + ".json", {job: data});
-      },
-
       deleteJob: function(id) {
-        return $http.patch("/api/v1/job/delete/" + id + ".json");
+        return $http.patch("/api/v1/job/delete.json", {id: id});
       }
 
     };

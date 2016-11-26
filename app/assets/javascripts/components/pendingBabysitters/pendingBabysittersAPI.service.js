@@ -26,13 +26,13 @@
       },
 
       deleteSitter: function(id) {
-        return $http.patch("/api/v1/sitter/delete/" + id + ".json").then(function(response) {
+        return $http.patch("/api/v1/sitter/delete.json", {id: id}).then(function(response) {
           return response.data;
         });
       },
 
       approveSitter: function(id) {
-        return $http.patch("/api/v1/sitter/approve/" + id + ".json").then (function(response) {
+        return $http.patch("/api/v1/sitter/approve.json", {id: id}).then (function(response) {
           return response.data;
         });
       }

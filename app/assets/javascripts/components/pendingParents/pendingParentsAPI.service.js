@@ -29,11 +29,11 @@
       },
 
       toggleApprove: function(id) {
-        return $http.patch("/api/v1/family/approved/" + id + ".json");
+        return $http.patch("/api/v1/family/approved.json", {id: id});
       },
 
       deleteParent: function(id) {
-        return $http.patch("/api/v1/family/delete/" + id + ".json");
+        return $http.patch("/api/v1/family/delete.json", {id: id});
       }
     };
   }]);
