@@ -15,6 +15,7 @@
 
       totalCount: function() {
         return $http.get("sitter_dash/counts.json").then(function(response) {
+          console.log(response.data);
           return response.data;
         }, function() {
           console.log('Failed - Count Totals');

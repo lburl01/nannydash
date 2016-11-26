@@ -21,7 +21,7 @@
 
       <div class="table-body">
         <ul dir-paginate="job in $ctrl.newJob | filter: searchBox | itemsPerPage: 5" ui-sref="newNannyJobInfo({jobId: job.job_id})">
-          <li>{{job.family_first_name}} {{job.family_last_name}}</li>
+          <li>{{job.family_name}}</li>
           <li>{{job.date}}</li>
           <li>{{job.start_time}}-{{job.end_time}}</li>
           <li>{{job.notes | limitTo: 20}}</li>

@@ -12,7 +12,7 @@
         component: 'newNannyJobsList',
         resolve: {
           newJob: ['nannyAppAPI', function(nannyAppAPI) {
-            return nannyAppAPI.jobList("api/v1/jobs/new.json");
+            return nannyAppAPI.jobList("sitter_dash/pending_jobs.json");
           }]
         }
       }).state('newNannyJobInfo', {
@@ -28,7 +28,7 @@
         component: 'upcomingJobsList',
         resolve: {
           newJob: ['nannyAppAPI', function(nannyAppAPI) {
-            return nannyAppAPI.jobList("sitter/scheduled_jobs.json");
+            return nannyAppAPI.jobList("sitter_dash/scheduled_jobs.json");
           }]
         }
       }).state('nannyParentDirectory', {
