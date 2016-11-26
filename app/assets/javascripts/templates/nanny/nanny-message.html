@@ -1,0 +1,24 @@
+<div class="directory-container message">
+  <div class="search">
+    <h1 ui-sref="conversations">Conversations</h1><span>></span>{{$ctrl.message.sender_name}}</h1>
+  </div>
+  <div class="list">
+    <div class="message-bar">
+      <h4><span>From:</span> {{$ctrl.message.sender_name}}</h4>
+      <h4><span>Sent:</span> {{$ctrl.message.created_at}}</h4>
+    </div>
+    <div class="message-container">
+      <button type="button" ng-click="message.replyShow = !message.replyShow"><i class="fa fa-share" aria-hidden="true"></i>Reply</button>
+      <h4>{{$ctrl.message.subject}}</h4>
+      <p>{{$ctrl.message.body}}</p>
+    </div>
+    <div class="reply" ng-show="message.replyShow">
+      <textarea class="text-body" ng-model="body" name="reply" rows="8" cols="40">
+      </textarea>
+      <div class="buttons">
+        <button type="button"><i class="fa fa-trash" aria-hidden="true"></i>Delete</button>
+        <button ng-click="$ctrl.reply(id, body, $ctrl.message.subject)" type="button"><i class="fa fa-share"></i>Send</button>
+      </div>
+    </div>
+  </div>
+</div>

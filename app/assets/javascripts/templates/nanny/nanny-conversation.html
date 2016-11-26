@@ -5,7 +5,7 @@
   </div>
   <div class="list">
     <div class="title-container">
-      <h4>Messages with {{$ctrl.messages.length}}</h4>
+      <h4>Messages with {{$ctrl.length}}</h4>
       <div class="message-row">
         <i class="fa fa-plus-circle"></i>
         <h4>New Message</h4>
@@ -20,7 +20,7 @@
         <th>Read?</th>
         <th></th>
       </tr>
-      <tr ng-repeat="(key, value) in messages.conversationMessage">
+      <tr ng-repeat="(key, value) in $ctrl.messages" ui-sref="message({convoId: value.conversation_id, messageId: key})">
         <td>{{value.sender_name}}</td>
         <td>{{value.subject}}</td>
         <td>{{value.body}}</td>

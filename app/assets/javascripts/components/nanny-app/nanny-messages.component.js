@@ -9,6 +9,7 @@
     controller: ['nannyAppAPI', NannyConversation]
   });
   function NannyConversation(nannyAppAPI) {
-
+    var ctrl = this;
+    ctrl.length = Object.keys(ctrl.messages).length;
   }
 })();

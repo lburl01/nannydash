@@ -56,13 +56,32 @@
           console.log('Failed to return list of conversations');
         });
       },
-      messagesList: function(id) {
+      messageList: function(id) {
         return $http.get('/conversations/' + id + '/messages.json').then(function(response) {
           console.log(response.data);
           return response.data;
         }, function() {
           console.log('Failed to return the messages inside of conversation');
         });
+      },
+      messageDetails: function(convoId, messageId) {
+        return $http.get('/conversations/' + convoId + '/messages/' + messageId + '.json').then(function(response) {
+          console.log(response.data);
+          return response.data;
+        }, function() {
+          console.log('Failed to return message details');
+        });
+      },
+      sendMessage: function(id, body, subject) {
+        console.log(id + ' ' + body + ' ' + subject);
+        return $http.post('messages/new.json',
+      {
+        id: id,
+        body: body,
+        subject: subject
+      }, function() {
+        console.log("Failed to post message");
+      });
       }
     };
   }]);

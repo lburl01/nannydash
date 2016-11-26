@@ -61,8 +61,16 @@
         component: 'conversation',
         resolve: {
           messages: ['nannyAppAPI', '$stateParams', function(nannyAppAPI, $stateParams) {
+            return nannyAppAPI.messageList($stateParams.convoId);
+          }]
+        }
+      }).state('message', {
+        url: '/conversation/:convoId/messages/:messageId',
+        component: 'message',
+        resolve: {
+          message: ['nannyAppAPI', '$stateParams', function(nannyAppAPI, $stateParams) {
             console.log($stateParams);
-            return nannyAppAPI.messagesList($stateParams.convoId);
+            return nannyAppAPI.messageDetails($stateParams.convoId, $stateParams.messageId);
           }]
         }
       });
