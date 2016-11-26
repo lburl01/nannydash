@@ -13,18 +13,15 @@
 
       jobInfo: function(id) {
         return $http.get("/api/v1/job/" + id + ".json").then(function(response) {
+          console.log(response.data);
           return response.data;
         }, function() {
           alert('Failed');
         });
       },
 
-      saveJob: function(id, data) {
-        return $http.patch("/api/v1/job/" + id + ".json", {job: data});
-      },
-
       deleteJob: function(id) {
-        return $http.patch("/api/v1/job/delete/" + id + ".json");
+        return $http.patch("/api/v1/job/delete.json", {id: id});
       }
 
     };
