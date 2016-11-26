@@ -41,7 +41,7 @@ Rails.application.routes.draw do
   get 'api/v1/families' => 'families#index'
   get 'api/v1/family/:id' => 'families#show'
   get 'api/v1/families/pending' => 'families#pending'
-  patch 'api/v1/family/update/:id' => 'families#update'
+  patch 'api/v1/family/update' => 'families#update'
   patch 'api/v1/family' => 'families#toggle_active_family'
   patch '/api/v1/family/approved' => 'families#toggle_approved_family'
   patch 'api/v1/family/delete' => 'families#toggle_deleted_family'
