@@ -10,14 +10,16 @@
       </div>
       <table>
         <tr>
-          <th>From</th>
-          <th>Role</th>
-          <th>Sent</th>
+          <th>Family</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Status</th>
         </tr>
-        <tr>
-          <td>Jane Lane</td>
-          <td>Dunno</td>
-          <td>12/12/2012</td>
+        <tr ng-repeat="job in $ctrl.scheduledJob">
+          <td>{{job.family_name}}</td>
+          <td>{{job.date}}</td>
+          <td>{{job.start_time}} - {{job.end_time}}</td>
+          <td>{{job.confirmed}}</td>
         </tr>
       </table>
     </section>
@@ -30,14 +32,16 @@
       </div>
       <table>
         <tr>
-          <th>From</th>
-          <th>Role</th>
-          <th>Sent</th>
+          <th>Family</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Confirmed</th>
         </tr>
-        <tr ng-repeat="person in dashboard.application">
-          <td>{{person.name}}</td>
-          <td>{{person.role}}</td>
-          <td>{{person.submitted}}</td>
+        <tr ng-repeat="job in $ctrl.requestedJob">
+          <td>{{job.family_name}}</td>
+          <td>{{job.date}}</td>
+          <td>{{job.start_time}} - {{job.end_time}}</td>
+          <td>{{job.confirmed}}</td>
         </tr>
       </table>
     </section>
