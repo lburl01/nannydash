@@ -72,6 +72,13 @@
           console.log('Failed to return message details');
         });
       },
+      deleteMessage: function(id) {
+        return $http.patch('message/delete.json', {id: id}).then(function() {
+          console.log("Message deleted successfully!");
+        }, function() {
+          console.log("Failed to delete message");
+        });
+      },
       sendMessage: function(id, body, subject) {
         console.log(id + ' ' + body + ' ' + subject);
         return $http.post('messages/new.json',
