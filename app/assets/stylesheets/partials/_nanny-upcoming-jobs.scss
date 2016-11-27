@@ -17,3 +17,17 @@ upcoming-job-info {
     background: $green;
   }
 }
+
+@media (max-width: 800px) {
+  #new-nanny-jobs {
+    padding: 0 5px
+  }
+  .family-table {
+    li {
+      width: 25% !important;
+    }
+    .notes {
+      display: none;
+    }
+  }
+}

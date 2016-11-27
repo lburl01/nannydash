@@ -1,13 +1,12 @@
 <div id="nanny-dashboard-container">
 
-  <h1>Nanny Dashboard</h1>
   <div class="dashboard-container">
     <!-- ******************************
-     Parent Requests Jobs Section
+     Scheduled Jobs Section
     ******************************* -->
     <section class="applications">
       <div class="title-container">
-        <h2>Requested Jobs</h2>
+        <h2>Scheduled Jobs</h2>
       </div>
       <table>
         <tr>
@@ -15,19 +14,19 @@
           <th>Role</th>
           <th>Sent</th>
         </tr>
-        <tr ng-repeat="person in dashboard.application">
-          <td>{{person.name}}</td>
-          <td>{{person.role}}</td>
-          <td>{{person.submitted}}</td>
+        <tr>
+          <td>Jane Lane</td>
+          <td>Dunno</td>
+          <td>12/12/2012</td>
         </tr>
       </table>
     </section>
     <!-- ******************************
-     Scheduled Jobs Section
+    Parent Requests Jobs Section
     ******************************* -->
     <section class="applications">
       <div class="title-container">
-        <h2>Scheduled Jobs</h2>
+        <h2>Requested Jobs</h2>
       </div>
       <table>
         <tr>

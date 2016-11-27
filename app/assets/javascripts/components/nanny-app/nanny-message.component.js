@@ -14,6 +14,7 @@
     var ctrl = this;
 
     ctrl.$onInit = function() {
+      ctrl.replyShow = false;
       ctrl.userId = ctrl.parent.userId;
       ctrl.recipientName = "";
       ctrl.recipientId = "";
@@ -34,7 +35,7 @@
 
     ctrl.clearText = function() {
       ctrl.body = "";
-      console.log('cleared');
+      ctrl.replyShow = false;
     };
 
   }

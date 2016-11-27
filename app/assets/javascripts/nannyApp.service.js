@@ -25,6 +25,24 @@
         }, function() {
           console.log('Failed - Count Totals');
         });
+      },
+
+      dashScheduledJobList: function() {
+        return $http.get("sitter_dash/scheduled_jobs.json").then(function(response) {
+          console.log(response.data);
+          return response.data;
+        }, function() {
+          console.log('Failed - 5 Scheduled Jobs');
+        });
+      },
+
+      dashRequestedJobList: function() {
+        return $http.get("sitter_dash/requested_jobs.json").then(function(response) {
+          console.log(response.data);
+          return response.data;
+        }, function() {
+          console.log('Failed - Requested Job List');
+        });
       }
 
     };

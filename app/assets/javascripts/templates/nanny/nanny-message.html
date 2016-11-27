@@ -8,11 +8,12 @@
       <h4><span>Sent:</span> {{$ctrl.message.created_at}}</h4>
     </div>
     <div class="message-container">
-      <button type="button" ng-click="message.replyShow = !message.replyShow"><i class="fa fa-share" aria-hidden="true"></i>Reply</button>
+      <button type="button" ng-click="$ctrl.replyShow = !$ctrl.replyShow"><i class="fa fa-share" aria-hidden="true"></i>Reply</button>
       <h4>{{$ctrl.message.subject}}</h4>
       <p>{{$ctrl.message.body}}</p>
     </div>
-    <div class="reply" ng-show="message.replyShow">
+
+    <div class="reply" ng-show="$ctrl.replyShow">
       <textarea class="text-body" ng-model="$ctrl.body" name="reply" rows="8" cols="40">
       </textarea>
       <div class="buttons">
