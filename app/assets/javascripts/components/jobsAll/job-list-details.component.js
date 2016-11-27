@@ -21,7 +21,6 @@
 
     ctrl.updateCurrent = function(key, value) {
       ctrl.updateNewJob[key] = value;
-      console.log(ctrl.updateNewJob);
     };
 
     ctrl.save = function(id) {

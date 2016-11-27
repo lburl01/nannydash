@@ -10,7 +10,6 @@
             },
             jobDetails: function(id) {
                 return $http.get('/api/v1/job/' + id).then(function(response) {
-                  console.log(response.data);
                     return response.data;
 
                 }, function() {
@@ -18,8 +17,7 @@
                 });
             },
             saveJob: function(id, data) {
-              console.log(id, data);
-              return $http.patch("/api/v1/job/" + id + ".json", {job: data});
+              return $http.patch("/api/v1/job.json", {id, job: data});
             },
         };
     }]);

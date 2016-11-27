@@ -98,8 +98,6 @@ class JobsController < ApplicationController
 
     end
 
-  private
-
     def job_params
       params.require(:job).permit(:sitter_id, :date, :start_time, :end_time, :notes,
         :confirmed, :is_assigned, :is_deleted)
