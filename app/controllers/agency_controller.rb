@@ -34,7 +34,7 @@ class AgencyController < ApplicationController
   end
 
   def count_totals
-    
+
     @pending_families = User.get_pending_family_count
     @pending_sitters = User.get_pending_sitter_count
     @new_jobs = Job.get_unassigned_jobs_count
@@ -52,7 +52,7 @@ class AgencyController < ApplicationController
   end
 
   def show_current_user
-    @user = User.find(current_user)
+    @user = User.find(current_user.id)
 
     render json: @user
   end

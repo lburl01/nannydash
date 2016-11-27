@@ -39,7 +39,7 @@ class FamiliesController < ApplicationController
   end
 
   def update
-    @family = User.find(params[:id])
+    @family = User.find(params[:user_id])
     @family.update_attributes(family_params)
   end
 

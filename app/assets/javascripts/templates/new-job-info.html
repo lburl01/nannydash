@@ -50,7 +50,8 @@
       <section class="key-info">
         <h2>Key Information</h2>
         <label for="name">Job Needed For:</label>
-        <input type="text" name="dateNeeded" value="" ng-model="$ctrl.job.date" ng-change="$ctrl.updateCurrent( 'date', $ctrl.job.date)">
+        <input type="text" name="dateNeeded" value="" ng-model="$ctrl.job.date">
+        <input type="text" name="dateNeeded" value="{{$ctrl.job.start_time}} - {{$ctrl.job.end_time}}"}} >
         <label for="name">Date Posted:</label>
         <input type="text" name="posted" value="" ng-model="$ctrl.job.date_posted" ng-change="$ctrl.updateCurrent( 'date_posted', $ctrl.job.date_posted)">
 

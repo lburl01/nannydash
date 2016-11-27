@@ -28,12 +28,6 @@
       ctrl.updateNewJob[key] = value;
     };
 
-    ctrl.save = function(id) {
-      newJobsAPI.saveJob(id, ctrl.updateNewJob).then(function() {
-        console.log("Saved: " + ctrl.updateNewJob);
-      });
-    };
-
     ctrl.delete = function(id) {
       newJobsAPI.deleteJob(id).then(function() {
         console.log("Deleted: Job ID " + id);

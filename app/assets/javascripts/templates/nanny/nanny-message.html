@@ -1,0 +1,25 @@
+<div class="directory-container message view-nanny-message">
+  <div class="messages-header">
+    <h1 ui-sref="conversations">Conversations</h1><span>></span><h1 ui-sref="conversation({convoId: $ctrl.message.conversation_id})" >Messages with {{$ctrl.recipientName}}</h1><span>></span><h1>{{$ctrl.message.subject}}</h1>
+  </div>
+  <div class="list">
+    <div class="message-bar">
+      <h4><span>From:</span> {{$ctrl.message.sender_name}}</h4>
+      <h4><span>Sent:</span> {{$ctrl.message.created_at}}</h4>
+    </div>
+    <div class="message-container">
+      <button type="button" ng-click="$ctrl.replyShow = !$ctrl.replyShow"><i class="fa fa-share" aria-hidden="true"></i>Reply</button>
+      <h4>{{$ctrl.message.subject}}</h4>
+      <p>{{$ctrl.message.body}}</p>
+    </div>
+
+    <div class="reply" ng-show="$ctrl.replyShow">
+      <textarea class="text-body" ng-model="$ctrl.body" name="reply" rows="8" cols="40">
+      </textarea>
+      <div class="buttons">
+        <button ng-click="$ctrl.clearText()" type="button"><i class="fa fa-trash" aria-hidden="true"></i>Delete</button>
+        <button ng-click="$ctrl.reply($ctrl.body, $ctrl.message.subject)" type="button"><i class="fa fa-share"></i>Send</button>
+      </div>
+    </div>
+  </div>
+</div>
