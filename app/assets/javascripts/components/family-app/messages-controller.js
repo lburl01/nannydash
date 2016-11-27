@@ -51,7 +51,7 @@ angular.module('familyApp')
       this.messagesClick = function(object, key) {
         var conversationId = object.conversation_id;
         familyAppAPI.message(conversationId, key).success(function(response) {
-          $state.go('message', {messageParam: {message: response}, conversationId: response.conversation_id}, {reload: true});
+          $state.go('message', {messageId: response.message_id, conversationMessId: response.conversation_id}, {reload: true});
         });
       }
 

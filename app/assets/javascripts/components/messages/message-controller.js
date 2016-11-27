@@ -42,7 +42,7 @@ angular.module('app')
         self.replyShow = false;
         self.sentMsg = !self.sentMsg;
       }
-      
+
       this.deleteBtn = function() {
         $('.reply').find('.text-body').text('');
         this.replyShow = false;
