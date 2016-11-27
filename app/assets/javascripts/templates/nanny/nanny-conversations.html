@@ -1,8 +1,8 @@
 <div class="directory-container" id="nanny-messages">
   <div class="list">
     <div class="title-container">
-      <h4>Total: {{$ctrl.conversation.length}} Conversations</h4>
-      <div class="message-row">
+      <h4>{{$ctrl.conversation.length}} Conversations</h4>
+      <div  ui-sref="newMessage" class="message-row">
         <i class="fa fa-plus-circle"></i>
         <h4>New Message</h4>
       </div>
@@ -14,10 +14,10 @@
         <th>Subject</th>
         <th>Sent</th>
       </tr>
-      <tr ui-sref="conversation({convoId: message.convo_id})" ng-repeat="message in $ctrl.conversation">
+      <tr ui-sref="conversation({convoId: message.convo_id, recipient: $ctrl.recipient(message)})" ng-repeat="message in $ctrl.conversation">
         <td><h6>{{message.messages_count}}</h6></td>
         <td>
-          {{message.sender_id === $ctrl.parent.user.id ? message.recipient_name : message.sender_name}}
+          {{$ctrl.recipient(message)}}
         </td>
         <td>{{message.subject}}</td>
         <td>{{message.created_at}}</td>

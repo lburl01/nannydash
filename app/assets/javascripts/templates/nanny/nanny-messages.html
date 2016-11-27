@@ -1,12 +1,11 @@
-<div class="directory-container">
-  <div class="search convo">
-    <h1 ui-sref="conversations">Conversations</h1><span>></span><h1>Messages</h1>
-    <input type="text">
+<div class="directory-container" id="nanny-family-list">
+  <div class="messages-header">
+    <h2 ui-sref="conversations">Conversations</h2> <span>></span> <h2>Messages</h2>
   </div>
   <div class="list">
     <div class="title-container">
-      <h4>Messages with {{$ctrl.length}}</h4>
-      <div class="message-row">
+      <h4>Messages with {{$ctrl.recipient}}</h4>
+      <div ui-sref="newMessage" class="message-row">
         <i class="fa fa-plus-circle"></i>
         <h4>New Message</h4>
       </div>
@@ -18,14 +17,14 @@
         <th>Body</th>
         <th>Sent</th>
         <th>Read?</th>
-        <th></th>
+        <th>Trash</th>
       </tr>
       <tr ng-repeat="(key, value) in $ctrl.messages" ui-sref="message({convoId: value.conversation_id, messageId: key})">
         <td>{{value.sender_name}}</td>
         <td>{{value.subject}}</td>
         <td>{{value.body}}</td>
         <td>{{value.created_at}}</td>
-        <td><h6 ng-class="{'readTrue': value.is_read === true, 'readFalse': value.is_read === false}" ng-init="messages.readValidate(value)">{{value.read}}</h6></td>
+        <td><h6 ng-class="{'readTrue': value.is_read === true, 'readFalse': value.is_read === false}">{{value.is_read ? '' : 'No'}}</h6></td>
         <td><h6 ng-click="$ctrl.delete(key, $event)"><i class="fa fa-trash" aria-hidden="true"></i></h6></td>
       </tr>
 
