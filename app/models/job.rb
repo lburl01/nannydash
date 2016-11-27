@@ -150,8 +150,8 @@ class Job < ApplicationRecord
     return @job_details
   end
 
-  def self.get_five_sitter_jobs(current_user)
-    jobs = Job.where({confirmed: true, is_assigned: true, sitter_id: current_user.id}).limit(5)
+  def self.get_confirmed_sitter_jobs(current_user)
+    jobs = Job.where({confirmed: true, is_assigned: true, sitter_id: current_user.id})
 
     @five_job_details = []
 
