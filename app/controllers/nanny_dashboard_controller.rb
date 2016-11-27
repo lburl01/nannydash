@@ -29,10 +29,10 @@ class NannyDashboardController < ApplicationController
     render json: @scheduled_jobs
   end
 
-  def get_five_scheduled_jobs
-    @five_scheduled_jobs = Job.get_five_sitter_jobs(current_user)
+  def get_confirmed_jobs
+    @confirmed_jobs = Job.get_confirmed_sitter_jobs(current_user)
 
-    render json: @five_scheduled_jobs
+    render json: @confirmed_jobs
   end
 
   def get_requested_jobs
