@@ -49,13 +49,15 @@
   }
 }
 @media (max-width: 600px) {
-  nav {
-    .mobile-hide {
-      display: none !important;
-    }
-    .user {
-      button {
-        margin: 0 !important;
+  #nanny-dashboard {
+    nav {
+      .mobile-hide {
+        display: none !important;
+      }
+      .user {
+        button {
+          margin: 0 !important;
+        }
       }
     }
   }

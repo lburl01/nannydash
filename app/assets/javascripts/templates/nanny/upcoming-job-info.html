@@ -43,10 +43,10 @@
       <section class="key-info scheduled-jobs">
         <h2>Key Information</h2>
         <label for="name">Job Needed For:</label>
-        <input type="text" value="{{$ctrl.jobInfo.date}}">
-        <input type="text" value="{{$ctrl.jobInfo.start_time + ' - ' + $ctrl.jobInfo.end_time}}">
+        <input class="upcoming-job" type="text" value="{{$ctrl.jobInfo.date}}">
+        <input class="upcoming-job" type="text" value="{{$ctrl.jobInfo.start_time + ' - ' + $ctrl.jobInfo.end_time}}">
         <label for="name">Date Posted:</label>
-        <input type="text" name="posted" value="" ng-model="$ctrl.jobInfo.date_posted">
+        <input class="upcoming-job" type="text" name="posted" value="" ng-model="$ctrl.jobInfo.date_posted">
         <button  class="request-button confirmation-status" ng-class="{'confirmation-button': $ctrl.jobInfo.confirmed}" type="button">{{$ctrl.jobInfo.confirmed ? "Confirmed" : "Unconfirmed"}}</button>
         <button  class="request-button" ng-class="{'yellowRequest': $ctrl.jobInfo.is_assigned}" type="button">{{$ctrl.jobInfo.is_assigned ? "Assigned" : "Request Job"}}</button>
       </section>
