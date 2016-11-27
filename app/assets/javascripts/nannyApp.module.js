@@ -47,7 +47,7 @@
             return nannyAppAPI.jobInfo($stateParams.jobId);
           }]
         }
-      }).state('nannyParentDirectory', {
+      }).state('parentDirectory', {
         url: '/parents',
         component: 'parentList',
         resolve: {

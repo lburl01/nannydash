@@ -74,25 +74,29 @@
 @media (max-width: 900px) {
   #nanny-family-list {
     padding: 0 5px;
-    li {
-      width: 25% !important;
-    }
-    .notes {
-      display: none;
+    .family-table {
+      li {
+        width: 25% !important;
+      }
+      .notes {
+        display: none;
+      }
     }
   }
 }
 @media (max-width: 700px) {
   #nanny-family-list {
     padding: 0 5px;
-    li {
-      width: 33% !important;
-    }
-    .notes {
-      display: none;
-    }
-    .email {
-      display: none;
+    .family-table {
+      li {
+        width: 33% !important;
+      }
+      .notes {
+        display: none;
+      }
+      .email {
+        display: none;
+      }
     }
   }
 }
