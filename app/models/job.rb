@@ -252,7 +252,7 @@ class Job < ApplicationRecord
   end
 
   def self.get_sitter_requested_jobs(current_user)
-    requested_jobs = Job.where( { sitter_id: current_user.id, is_deleted: false } ).all
+    requested_jobs = Job.where( { sitter_id: current_user.id, is_deleted: false, confirmed: false } ).all
 
     @jobs_details = []
 
