@@ -16,6 +16,10 @@
 
   function NannyConversations() {
     var ctrl = this;
-    
+
+    ctrl.recipient = function(message) {
+      return message.sender_id === ctrl.parent.user.id ? message.recipient_name : message.sender_name;
+    };
+
   }
 })();

@@ -65,11 +65,14 @@
           }]
         }
       }).state('conversation', {
-        url: '/conversation/:convoId',
+        url: '/conversation/:convoId?recipient',
         component: 'conversation',
         resolve: {
           messages: ['nannyAppAPI', '$stateParams', function(nannyAppAPI, $stateParams) {
             return nannyAppAPI.messageList($stateParams.convoId);
+          }],
+          recipient: ['$stateParams', function($stateParams) {
+            return $stateParams.recipient;
           }]
         }
       }).state('message', {
@@ -81,6 +84,9 @@
             return nannyAppAPI.messageDetails($stateParams.convoId, $stateParams.messageId);
           }]
         }
+      }).state('newMessage', {
+        url: '/message/new',
+        component: 'newMessage'
       });
     }]);
 })();

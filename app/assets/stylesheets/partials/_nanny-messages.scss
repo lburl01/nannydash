@@ -3,3 +3,55 @@
     margin: 2% 5%;
   }
 }
+.messages-header {
+  display: flex;
+  font-size: 24px;
+  color: $purple;
+  font-weight: 100;
+  padding: 40px 0px;
+  h2 {
+    cursor: pointer;
+    transition: all .5s ease;
+    &:hover {
+      transform: translateY(-5px);
+      color: lighten($purple, 20%);
+    }
+  }
+  span {
+    padding: 0px 15px;
+  }
+}
+#nanny-family-list {
+
+  .messages-table {
+    tr {
+      width: 100%;
+
+      th:nth-child(1) {
+        width: 13%;
+      }
+      th:nth-child(2) {
+        width: 18%;
+      }
+      th:nth-child(3) {
+        width: 32%;
+      }
+      th:nth-child(4) {
+        width: 20%;
+      }
+      th:nth-child(5) {
+        width: 10%;
+      }
+      th:nth-child(6) {
+        width: 7%;
+        text-align: center;
+      }
+      td:nth-child(6) {
+        h6 {
+          display: flex;
+          justify-content: center;
+        }
+      }
+    }
+  }
+}
