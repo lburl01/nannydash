@@ -15,17 +15,26 @@
 
     ctrl.$onInit = function() {
       ctrl.userId = ctrl.parent.userId;
+      ctrl.recipientName = "";
+      ctrl.recipientId = "";
+
+      if (ctrl.userId === ctrl.message.recipient_id) {
+        ctrl.recipientName = ctrl.message.sender_name;
+        ctrl.recipientId = ctrl.message.sender_id;
+      } else {
+        ctrl.recipientName = ctrl.message.recipient_name;
+        ctrl.recipientId= ctrl.message.recipient_id;
+      }
+
     };
 
-    ctrl.reply = function(recipientId, senderId, body, subject) {
-      var id = "";
-      console.log(recipientId + ' ' + senderId + ' ' + body + ' ' + subject);
-      if (ctrl.userId === recipientId) {
-        id = senderId;
-      } else {
-        id = recipientId;
-      }
-      nannyAppAPI.sendMessage(id, body, subject);
+    ctrl.reply = function(body, subject) {
+      nannyAppAPI.sendMessage(ctrl.recipientId, subject, body);
+    };
+
+    ctrl.clearText = function() {
+      ctrl.body = "";
+      console.log('cleared');
     };
 
   }

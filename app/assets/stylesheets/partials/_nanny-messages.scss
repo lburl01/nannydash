@@ -4,17 +4,23 @@
   }
 }
 .messages-header {
+  cursor: default;
   display: flex;
   font-size: 24px;
-  color: $purple;
   font-weight: 100;
   padding: 40px 0px;
-  h2 {
+  h1 {
     cursor: pointer;
     transition: all .5s ease;
     &:hover {
+      color: lighten($purple, 20%) !important;
       transform: translateY(-5px);
-      color: lighten($purple, 20%);
+    }
+    &:last-of-type {
+      cursor: default;
+      &:hover {
+        transform: none;
+      }
     }
   }
   span {
@@ -52,6 +58,14 @@
           justify-content: center;
         }
       }
+    }
+  }
+}
+.view-nanny-message {
+  padding: 20px 80px;
+  .search {
+    span {
+      margin: 0;
     }
   }
 }
