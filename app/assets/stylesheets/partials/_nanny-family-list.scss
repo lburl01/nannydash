@@ -87,6 +87,11 @@
 @media (max-width: 700px) {
   #nanny-family-list {
     padding: 0 5px;
+    .search {
+      input {
+        margin-top: 0;
+      }
+    }
     .family-table {
       li {
         width: 33% !important;
