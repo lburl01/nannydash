@@ -5,10 +5,12 @@ angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPag
             url: '/',
             controller: 'dashboardController as dashboard',
             templateUrl: 'dashboard.html'
+            
         }).state('jobs', {
             url: '/jobs',
             controller: 'allJobsController as allJobs',
             templateUrl: 'jobs-list.html'
+
         }).state('jobs-list-details', {
             url: '/jobs-details/:jobId',
             component: 'jobDetails',

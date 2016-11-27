@@ -20,6 +20,7 @@
 
         h1 {
             margin-left: 10px;
+            font-size: 1.5rem;
         }
 
         a {
@@ -34,16 +35,74 @@
         display: flex;
         justify-content: space-around;
         align-items: flex-start;
+        font-size: 1.2rem;
+        margin: 5% auto;
+        flex-direction: row-reverse;
+        align-items: center;
+
+        h4 {
+            font-size: 1.5rem;
+            line-height: 2.3rem;
+            letter-spacing: 1px;
+            text-align: right;
+        }
 
         .newAgencyTablet {
             display: none;
         }
 
+        .returningUser {
+            box-shadow: 2px 2px 20px -3px #bbb;
+            padding: 9px;
+        }
+
         .newAgency,
         .returningUser {
-            width: 20%;
+            width: 30%;
             line-height: 1.5rem;
             color: #9B9B9B;
+
+            h2 {
+                padding: 5px 0 5px 12px;
+                margin-bottom: 6px;
+                background: #D6655A;
+                color: white;
+                width: 108%;
+                position: relative;
+                right: 4%;
+                bottom: 9px;
+            }
+
+            .actions {
+                display: flex;
+                justify-content: center;
+            }
+
+            .actions input {
+                background: #efba59;
+                border: none;
+                border-radius: 3px;
+                width: 40%;
+                padding: 2.5%;
+                color: white;
+                font-family: Roboto, sans-serif;
+                font-size: 1rem;
+                margin-top: 7px;
+                text-shadow: 1px 1px 1px #a58741;
+            }
+        }
+
+        #user_email,
+        #user_password {
+            width: 100%;
+            flex-grow: 1;
+            height: 30px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin: 3px 0 10px;
+            padding-left: 10px;
+            color: #8a8a8a;
+            outline: none;
         }
 
         img {
@@ -70,29 +129,33 @@
         display: flex;
         justify-content: space-between;
         width: 95%;
-        margin: 3% auto;
+        margin: 3% auto 6%;
 
         .explanatoryGroup {
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: space-between;
             width: 30%;
             font-family: Helvetica;
             color: rgba(82, 82, 82, 0.89);
-            padding: 0 3% 0 0;
+            padding: 0 2%;
             font-weight: 200;
             line-height: 1.2rem;
             font-size: 0.9rem;
+            align-items: baseline;
 
             .explanatoryHeader {
                 display: flex;
                 text-align: center;
-                margin-bottom: 10px;
+                margin: 10px 0;
                 font-size: 1.5rem;
                 font-weight: 100;
             }
 
             .explanatoryParagraph {
+                line-height: 1.4rem;
+                margin-top: -40px;
+
                 .usersInParagraph {
                     background: #93baa2;
                     color: black;
