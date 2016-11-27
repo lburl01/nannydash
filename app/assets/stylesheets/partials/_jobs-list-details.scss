@@ -1,11 +1,33 @@
 .jobs-list-details-page {
+    .directory-container {
+        .title-container {
+            justify-content: center;
+
+            h2,
+            label {
+                margin: 0 5px;
+            }
+
+            .basic-info {
+                width: 70%;
+            }
+        }
+
+        .name {
+            width: 30%;
+
+            input {
+                font-size: 1rem;
+            }
+        }
+    }
+
     .save.saveButton {
         width: 100%;
     }
 
     .save.saveButton:hover {
-      background: #93baa2;
-      color:white;
+        background-color: #93baa2;
     }
 
     section.basic-info {

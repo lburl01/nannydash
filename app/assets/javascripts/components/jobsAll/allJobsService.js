@@ -11,12 +11,13 @@
             jobDetails: function(id) {
                 return $http.get('/api/v1/job/' + id).then(function(response) {
                     return response.data;
+
                 }, function() {
                     alert('Failed');
                 });
             },
             saveJob: function(id, data) {
-              return $http.patch("/api/v1/job/" + id + ".json", {job: data});
+              return $http.patch("/api/v1/job.json", {id, job: data});
             },
         };
     }]);

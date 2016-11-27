@@ -281,4 +281,30 @@ class Job < ApplicationRecord
     return @jobs_details
   end
 
+  def self.get_all_family_jobs(current_user)
+    jobs = Job.where( { is_deleted: false, family_id: current_user.id } ).all
+
+    @job_details = []
+    all_info = {}
+
+    jobs.each do |job|
+      all_info = { "family_id" => job.family_id,
+                        "date" => job.date, "job_id" => job.id,
+                        "start_time" => job.start_time.strftime("%I:%M %p"),
+                        "end_time" => job.end_time.strftime("%I:%M %p"),
+                        "notes" => job.notes, "confirmed" => job.confirmed,
+                        "is_assigned" => job.is_assigned}
+
+      if job.sitter_id
+        sitter_name = "#{job.assignment.first_name} #{job.assignment.last_name}"
+        all_info["sitter_name"] = sitter_name
+        all_info["sitter_id"] = job.sitter_id
+      end
+
+      @job_details << all_info
+    end
+
+    return @job_details
+  end
+
 end

@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   get 'family_dash/confirmed_jobs' => 'family_dashboard#get_confirmed_jobs'
   get 'family_dash/pending_jobs' => 'family_dashboard#get_pending_jobs'
   get 'family_dash/5_confirmed_jobs' => 'family_dashboard#get_five_confirmed_jobs'
+  get 'family_dash/all_family_jobs' => 'family_dashboard#get_all_family_jobs'
 
   get 'api/v1/sitters' => 'sitters#index'
   get 'api/v1/sitters/available' => 'sitters#available'
