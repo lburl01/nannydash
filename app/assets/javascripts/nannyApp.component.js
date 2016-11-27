@@ -21,6 +21,7 @@
 
       nannyApp.user().then(function(data) {
         ctrl.userId = data.id;
+        ctrl.user = data;
       });
     };
 
