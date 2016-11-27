@@ -130,7 +130,7 @@ class Job < ApplicationRecord
     job = Job.find(options)
 
     job.sitter_id = current_user.id
-    job.toggle!(:is_assigned)
+    job.update_attribute(:is_assigned, true)
   end
 
   def self.get_sitter_jobs(current_user)
@@ -249,6 +249,26 @@ class Job < ApplicationRecord
 
   def self.get_family_confirmed_jobs_count(current_user)
     @confirmed_jobs_count = Job.where( { family_id: current_user.id, is_assigned: true, confirmed: true } ).all.count
+  end
+
+  def self.get_sitter_requested_jobs(current_user)
+    requested_jobs = Job.where( { sitter_id: current_user.id, is_deleted: false } ).all
+
+    @jobs_details = []
+
+    requested_jobs.each do |job|
+      family_name = "#{job.posted_job.first_name} #{job.posted_job.last_name}"
+      @jobs_details << { "job_id" => job.id, "family_id" => job.family_id,
+                         "family_name" => family_name,
+                         "sitter_id" => job.sitter_id, "date" => job.date,
+                         "start_time" => job.start_time.strftime("%I:%M %p"),
+                         "end_time" => job.end_time.strftime("%I:%M %p"),
+                         "notes" => job.notes, "confirmed" => job.confirmed,
+                         "is_assigned" => job.is_assigned,
+                         "posted_on" => job.created_at.strftime("%m/%d/%Y %I:%M %p")}
+    end
+
+    return @jobs_details
   end
 
 end
