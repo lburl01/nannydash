@@ -14,10 +14,10 @@
         <th>Subject</th>
         <th>Sent</th>
       </tr>
-      <tr ui-sref="conversation({convoId: message.convo_id})" ng-repeat="message in $ctrl.conversation">
+      <tr ui-sref="conversation({convoId: message.convo_id, recipient: $ctrl.recipient(message)})" ng-repeat="message in $ctrl.conversation">
         <td><h6>{{message.messages_count}}</h6></td>
         <td>
-          {{message.sender_id === $ctrl.parent.user.id ? message.recipient_name : message.sender_name}}
+          {{$ctrl.recipient(message)}}
         </td>
         <td>{{message.subject}}</td>
         <td>{{message.created_at}}</td>

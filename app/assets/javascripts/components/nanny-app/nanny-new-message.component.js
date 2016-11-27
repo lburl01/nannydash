@@ -5,6 +5,7 @@
     templateUrl: 'nanny/nanny-new-message.html',
     controller: ['nannyAppAPI', NannyNewMessageController]
   });
+  
   function NannyNewMessageController(nannyAppAPI) {
     var ctrl = this;
     ctrl.showUsers = false;
@@ -28,7 +29,6 @@
     ctrl.selectRecipient = function(user) {
       ctrl.showUsers = false;
       ctrl.recipient = user;
-      console.log(ctrl.recipient);
     };
 
     ctrl.send = function(id, subject, body) {
