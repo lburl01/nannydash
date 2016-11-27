@@ -204,8 +204,8 @@ end
                     approved: true)
   end
 
-Job.create!(family_id: 2,
-              sitter_id: 3,
+Job.create!(family_id: 3,
+              sitter_id: 2,
               date: "2016-12-4",
               start_time: "12:00",
               end_time: "17:00",
@@ -215,7 +215,7 @@ Job.create!(family_id: 2,
               is_assigned: true)
 
 Job.create!(family_id: 7,
-              sitter_id: 24,
+              sitter_id: 2,
               date: "2016-12-15",
               start_time: "17:00",
               end_time: "23:00",
