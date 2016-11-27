@@ -14,7 +14,7 @@
           <th>Date</th>
           <th>Time</th>
         </tr>
-        <tr ng-repeat="job in $ctrl.scheduledJob">
+        <tr ng-repeat="job in $ctrl.scheduledJob" ui-sref="upcomingJobInfo({jobId: job.job_id})">
           <td>{{job.family_name}}</td>
           <td>{{job.date}}</td>
           <td>{{job.start_time}} - {{job.end_time}}</td>
@@ -34,7 +34,7 @@
           <th>Date</th>
           <th>Time</th>
         </tr>
-        <tr ng-repeat="job in $ctrl.requestedJob">
+        <tr ng-repeat="job in $ctrl.requestedJob" ui-sref="upcomingJobInfo({jobId: job.job_id})">
           <td>{{job.family_name}}</td>
           <td>{{job.date}}</td>
           <td>{{job.start_time}} - {{job.end_time}}</td>
