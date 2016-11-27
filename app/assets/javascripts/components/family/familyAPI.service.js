@@ -18,10 +18,6 @@
         });
       },
 
-      toggleActiveState: function(id) {
-        return $http.patch("/api/v1/family/" + id + ".json");
-      },
-
       profileInfo: function(id) {
         return $http.get("/api/v1/family/" + id + ".json").then(function(response) {
           return response.data;
@@ -30,12 +26,16 @@
         });
       },
 
+      toggleActiveState: function(id) {
+        return $http.patch("/api/v1/family.json", {id: id});
+      },
+
       saveProfile: function(id, data) {
-        return $http.patch("/api/v1/family/update/" + id + ".json", {user: data});
+        return $http.patch("/api/v1/family/update.json", {user: data, user_id: id});
       },
 
       deleteProfile: function(id) {
-        return $http.patch("/api/v1/family/delete/" + id + ".json");
+        return $http.patch("/api/v1/family/delete.json", {id: id});
       }
     };
   }]);

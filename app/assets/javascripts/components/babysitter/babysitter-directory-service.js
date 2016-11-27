@@ -14,10 +14,10 @@ angular.module('app').service('babysitterDirectoryAPI', ['$http', function($http
           method: "GET"
         });
       },
-      updateUser: function(id, data) {
+      updateUser: function(data) {
         return $http({
           method: 'PATCH',
-          url: "/api/v1/sitter/" + id,
+          url: "/api/v1/sitter",
           data: {user: data}
         });
       },
@@ -28,11 +28,11 @@ angular.module('app').service('babysitterDirectoryAPI', ['$http', function($http
           alert('Failed');
         });
       },
-      deleteUser: function(id, data) {
+      deleteUser: function(data) {
         return $http({
           method: 'PATCH',
-          url: "/api/v1/sitter/delete/" + id,
-          data: {user: data}
+          url: "/api/v1/sitter/delete",
+          data: data
         });
       }
     };

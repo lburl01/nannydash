@@ -7,10 +7,10 @@
         count: '<'
       },
       templateUrl: 'app.html',
-      controller: ['appAPI', '$scope', '$http', '$location', '$window', AppController]
+      controller: ['appAPI', '$scope', '$http', '$location', '$window', 'dashboardAPI', AppController]
     });
 
-  function AppController (appAPI, $scope, $http, $location, $window) {
+  function AppController (appAPI, $scope, $http, $location, $window, dashboardAPI) {
     var ctrl = this;
 
     ctrl.$onInit = function() {
@@ -35,6 +35,10 @@
         alert("Failed to sign out");
       });
     };
+
+    dashboardAPI.user().success(function(response) {
+      ctrl.firstName = response.first_name;
+    });
 
   }
 })();

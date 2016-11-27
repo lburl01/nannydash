@@ -1,4 +1,4 @@
-<div class="container" id="nanny-dashboard">
+<div class="container" id="nanny-dashboard" ng-cloak>
   <!-- ******************************
    Top Navigation
   ******************************* -->
@@ -8,7 +8,7 @@
       <h4>Nanny<span>Dash</span></h4>
       <div class="user">
         <i class="fa fa-user" aria-hidden="true"></i>
-        <h4>Hey, Nanny Fanny</h4>
+        <h4>Hey, {{$ctrl.user.first_name}}</h4>
         <button class="logOutButton" ng-click="$ctrl.signOut()">Log Out</button>
       </div>
     </nav>
@@ -19,27 +19,27 @@
     <ul>
       <li>
         <div class="title">
-          <h2>List of scheduled jobs</h2>
+          <h2>Needs parent confirmation</h2>
         </div>
-        <button ui-sref="upcomingJobs" type="button" name="button">{{$ctrl.count.assigned_jobs}} | Upcoming Jobs</button>
+        <button ui-sref="upcomingJobs" type="button" name="button">{{$ctrl.count.assigned_jobs}} | Pending Jobs</button>
       </li>
       <li>
         <div class="title">
-          <h2>All available jobs</h2>
+          <h2>Needs nanny</h2>
         </div>
         <button ui-sref="newNannyJobs" type="button" name="button">{{$ctrl.count.unassigned_jobs}} | All Jobs</button>
       </li>
       <li>
         <div class="title">
-          <h2>List of families</h2>
+          <h2>Family directory</h2>
         </div>
-        <button ui-sref="nannyParentDirectory" type="button" name="button">{{$ctrl.count.all_families}} | Parents</button>
+        <button ui-sref="parentDirectory" type="button" name="button">{{$ctrl.count.all_families}} | Parents</button>
       </li>
       <li>
         <div class="title">
           <h2>Messaging Center</h2>
         </div>
-        <button ui-sref="messaging" type="button" name="button">{{$ctrl.count.new_messages}} | Messages</button>
+        <button ui-sref="conversations" type="button" name="button">{{$ctrl.count.new_messages}} | Unread Messages</button>
       </li>
     </ul>
   </nav>
@@ -51,16 +51,16 @@
   <nav id="nav-mobile">
     <ul>
       <li>
-        <a href="#">Upcoming Jobs</a>
+        <a ui-sref="upcomingJobs">Scheduled Jobs</a>
       </li>
       <li>
-        <a href="#">All Jobs</a>
+        <a ui-sref="newNannyJobs">All Jobs</a>
       </li>
       <li>
-        <a href="#">Parents</a>
+        <a ui-sref="parentDirectory">Parents</a>
       </li>
       <li>
-        <a href="#">Messages</a>
+        <a ui-sref="conversations">Messages</a>
       </li>
     </ul>
   </nav>

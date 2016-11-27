@@ -7,7 +7,7 @@
       <div class="subject">
         <label for="recipient">To:</label>
         <i class="fa fa-plus-square" ng-click="newMessage.showUsers = !newMessage.showUsers" ng-click="newMessage.loadBabysitters()"></i>
-        <input id="subject" type="text" ng-model="newMessage.recipient" disabled>
+        <input id="subject" type="text" ng-model="newMessage.recipient.name" disabled>
         <div class="arrow-left" ng-show="newMessage.showUsers"></div>
         <div class="users" ng-show="newMessage.showUsers">
           <div class="user-group">

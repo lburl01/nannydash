@@ -1,7 +1,7 @@
 module Messageable
 
   def send_message(recipient, msg_body, subject)
-      convo = Conversation.where({recipient_id: self, sender_id: recipient}).or(Conversation.where({recipient_id: self, sender_id: recipient})).first
+      convo = Conversation.where({recipient_id: self.id, sender_id: recipient.id}).or(Conversation.where({recipient_id: recipient.id, sender_id: self.id})).first
 
       if convo.nil?
         convo = Conversation.create!(

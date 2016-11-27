@@ -1,1 +1,35 @@
-<h1>Upcoming Jobs List</h1>
+<div class="nanny-directory-container" id="new-nanny-jobs">
+  <div class="list-wrapper">
+
+    <div class="search">
+      <input type="text" ng-model="searchBox" placeholder="Search">
+    </div>
+
+    <div class="list">
+      <div class="title-container dropdown-container">
+        <h4>Total: {{$ctrl.newJob.length}}</h4>
+      </div>
+
+    <div class="family-table">
+      <ul class="table-head" id="new-jobs-header">
+        <li>Parent</li>
+        <li>Job Date</li>
+        <li>Time</li>
+        <li class="notes">Notes</li>
+        <li>Confirmed By Parent</li>
+      </ul>
+
+      <div class="table-body">
+        <ul dir-paginate="job in $ctrl.newJob | filter: searchBox | itemsPerPage: 5" ui-sref="upcomingJobInfo({jobId: job.job_id})">
+          <li>{{job.family_name}}</li>
+          <li>{{job.date}}</li>
+          <li>{{job.start_time}}-{{job.end_time}}</li>
+          <li class="notes">{{job.notes === "" ? "None" : job.notes | limitTo: 50}}</li>
+          <li>{{job.confirmed ? "Confirmed" : "Unconfirmed"}}</li>
+        </ul>
+
+      </div>
+    </div>
+    <dir-pagination-controls max-size="5"></dir-pagination-controls>
+  </div>
+</div>

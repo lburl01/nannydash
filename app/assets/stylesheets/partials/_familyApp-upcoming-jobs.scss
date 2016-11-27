@@ -1,0 +1,76 @@
+.upcoming-jobs {
+
+  h2 {
+    float: left;
+    color: $grey;
+    padding-top: 7px;
+    font-size: 21px;
+  }
+
+  .search {
+    padding-top: 15px !important;
+  }
+
+  .family-table {
+
+    li {
+
+      &:nth-child(2) {
+        width: 20% !important;
+      }
+
+      &:nth-child(4) {
+        width: 48% !important;
+      }
+
+      p {
+        width: 33.3%;
+        float: left;
+        text-align: center;
+        font-size: 13px;
+        background: #eee;
+        border-radius: 4px;
+        padding: 7px;
+        margin: 0 5px;
+
+        &:nth-child(3) {
+          width: 25%;
+        }
+      }
+    }
+  }
+
+  .pagination {
+    margin: 0 auto;
+    display: table;
+    padding-top: 30px;
+
+    .active {
+      background-color: #eee;
+      padding: 6px 8px;
+      border-radius: 5px;
+      position: relative;
+      top: -5px;
+    }
+
+    li {
+      display: inline-block;
+      padding: 0 8px;
+      display: flex;
+      width: 25px !important;
+
+      &:first-child {
+        margin-right: 5px;
+      }
+
+      &:last-child {
+        margin-left: 5px;
+      }
+
+      a {
+        text-decoration: none;
+        color: #888;
+      }
+    }
+  }
+}

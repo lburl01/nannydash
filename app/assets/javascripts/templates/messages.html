@@ -1,7 +1,6 @@
 <div class="directory-container">
-  <div class="search convo">
+  <div class="search convo no-search">
     <h1 ui-sref="conversations">Conversations</h1><span>></span><h1>Messages</h1>
-    <input type="text">
   </div>
   <div class="list">
     <div class="title-container">
@@ -26,7 +25,7 @@
         <td>{{value.body}}</td>
         <td>{{value.created_at}}</td>
         <td><h6 ng-class="{'readTrue': value.is_read === true, 'readFalse': value.is_read === false}" ng-init="messages.readValidate(value)">{{value.read}}</h6></td>
-        <td><h6 ng-click="messages.delete($event, value)"><i class="fa fa-trash" aria-hidden="true"></i></h6></td>
+        <td><h6 ng-click="messages.delete($event, value, key)"><i class="fa fa-trash" aria-hidden="true"></i></h6></td>
       </tr>
 
     </table>

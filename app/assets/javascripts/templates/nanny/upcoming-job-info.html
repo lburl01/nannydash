@@ -1,0 +1,68 @@
+<div class="new-jobs-info-wrapper" ng-cloak>
+  <div class="directory-container new-nanny-job-info">
+
+    <div class="list">
+      <div class="title-container">
+        <div class="envelope">
+          <h4>Scheduled Job Details</h4>
+        </div>
+      </div>
+    </div>
+
+    <fieldset ng-disabled=true;>
+      <section class="basic-info">
+        <form>
+        <h2>Basic Information</h2>
+        <!-- Family -->
+        <label for="name">Name:</label>
+        <input type="text" name="name" ng-model="$ctrl.jobInfo.name">
+        <!-- Phone Field -->
+        <label for="phone">Phone:</label>
+        <input id="phone" type="text" ng-model="$ctrl.jobInfo.phone">
+        <!-- Email Field -->
+        <label for="email">Email:</label>
+        <input id="email" type="text" ng-model="$ctrl.jobInfo.email">
+        <!-- Street Field -->
+        <label for="street">Street:</label>
+        <input id="street" type="text" ng-model="$ctrl.jobInfo.street">
+        <!-- City Field -->
+        <label for="city">City:</label>
+        <input id="city" type="text" ng-model="$ctrl.jobInfo.city">
+        <!-- State Field -->
+        <label for="state">State:</label>
+        <input id="state" type="text" ng-model="$ctrl.jobInfo.state">
+        <!-- Zip Field -->
+        <label for="zip">Zip Code:</label>
+        <input id="zip" type="text" ng-model="$ctrl.jobInfo.zip_code">
+        <!-- Notes Field -->
+        <label for="name">Notes:</label>
+        <textarea type="text" name="posted" value="">{{$ctrl.jobInfo.notes ? "" : "No Notes"}}</textarea>
+
+      </section>
+
+      <section class="key-info scheduled-jobs">
+        <h2>Key Information</h2>
+        <label for="name">Job Needed For:</label>
+        <input type="text" value="{{$ctrl.jobInfo.date}}">
+        <input type="text" value="{{$ctrl.jobInfo.start_time + ' - ' + $ctrl.jobInfo.end_time}}">
+        <label for="name">Date Posted:</label>
+        <input type="text" name="posted" value="" ng-model="$ctrl.jobInfo.date_posted">
+        <button  class="request-button confirmation-status" ng-class="{'confirmation-button': $ctrl.jobInfo.confirmed}" type="button">{{$ctrl.jobInfo.confirmed ? "Confirmed" : "Unconfirmed"}}</button>
+        <button  class="request-button" ng-class="{'yellowRequest': $ctrl.jobInfo.is_assigned}" type="button">{{$ctrl.jobInfo.is_assigned ? "Assigned" : "Request Job"}}</button>
+      </section>
+      </fieldset>
+    </form>
+
+    <div ng-class="{'visible': $ctrl.visibility}" class="popup" role="alert">
+    	<div class="popup-container">
+        <a ng-click="$ctrl.popup()" class="close img-replace"></a>
+    		<p>Are you sure you want to request this job?</p>
+    		<ul class="popup-buttons">
+    			<li ng-click="$ctrl.assign($ctrl.jobInfo.job_id)">Yes</li>
+    			<li ng-click="$ctrl.popup()">No</li>
+    		</ul>
+    	</div>
+    </div>
+
+  </div>
+</div>

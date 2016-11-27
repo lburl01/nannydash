@@ -17,14 +17,11 @@ angular.module('app')
       /*************************
       Loads in current user on refresh
       *************************/
-      function init() {
-        babysitterDirectoryAPI.userProfile(self.userId).success(function(response) {
-          self.user = response
-          self.calculateAge(self.user.birthday);
-          return self.user;
-        });
-      }
-      init();
+      babysitterDirectoryAPI.userProfile(self.userId).success(function(response) {
+        self.user = response
+        self.calculateAge(self.user.birthday);
+        return self.user;
+      });
       /*************************
       Verifying Certifications
       *************************/
@@ -33,25 +30,24 @@ angular.module('app')
       /*************************
       If user edits input fields, data will be saved in object
       *************************/
-      this.updateBabysitter = function(id) {
+      this.updateBabysitter = function() {
         self.changed = true;
-        babysitterDirectoryAPI.updateUser(id, self.updatedBabysitters);
+        babysitterDirectoryAPI.updateUser(self.updatedBabysitters);
       };
       /*************************
       If user deletes babysitter, sitter will be removed from database
       *************************/
       this.deleteBabysitter = function(id) {
-        var result = confirm("Are you sure you want to delete user?");
-        if (result) {
-          babysitterDirectoryAPI.deleteUser(id, self.updatedBabysitters);
-          $state.go('babysitters',{reload: true});
-        }
+        var idObj = {};
+        idObj["id"] = id;
+
+        babysitterDirectoryAPI.deleteUser(idObj);
+        $state.go('babysitters',{reload: true});
       }
       /*************************
       Convert Strings
       *************************/
       this.convertRate = function(rate) {
-        console.log(Number(rate).toFixed(2));
         return Number(rate).toFixed(2);
       }
       /*************************

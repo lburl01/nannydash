@@ -4,6 +4,12 @@
 
     return {
 
+      user: function() {
+        return $http.get("/user/logged_in.json").then(function(response) {
+          return response.data;
+        });
+      },
+
       deleteUser: function() {
         return $http.delete("/users/sign_out").then(function() {
           $window.location.href = '/home';
@@ -18,6 +24,24 @@
           return response.data;
         }, function() {
           console.log('Failed - Count Totals');
+        });
+      },
+
+      dashScheduledJobList: function() {
+        return $http.get("sitter_dash/confirmed_jobs.json").then(function(response) {
+          console.log(response.data);
+          return response.data;
+        }, function() {
+          console.log('Failed - 5 Scheduled Jobs');
+        });
+      },
+
+      dashRequestedJobList: function() {
+        return $http.get("sitter_dash/requested_jobs.json").then(function(response) {
+          console.log(response.data);
+          return response.data;
+        }, function() {
+          console.log('Failed - Requested Job List');
         });
       }
 

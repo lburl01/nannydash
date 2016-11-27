@@ -37,13 +37,22 @@
       };
     }
 
+    p {
+      padding-bottom: 15px;
+      font-size: 15px;
+      font-weight: 100;
+      color: #777;
+      float: left;
+      width: 75%;
+    }
+
     label {
       width: 25%;
       display: inline-block;
       padding-bottom: 10px;
       font-weight: 100;
       font-size: 15px;
-
+      float: left;
     }
 
     input, textarea {
@@ -123,6 +132,32 @@
       padding-top: 10px;
     }
 
+    .toggleGreen {
+      background: $green;
+      color: #fff;
+
+      &:before {
+        font-family: fontawesome;
+        content: "\f00c";
+        font-size: 14px;
+        color: #9ad2b1;
+        margin-right: 5px;
+      }
+    }
+
+    .toggleRed {
+      background: $red;
+      color: #fff;
+
+      &:before {
+        font-family: fontawesome;
+        content: "\f05e";
+        font-size: 14px;
+        color: #fd8c81;
+        margin-right: 5px;
+      }
+    }
+
     button {
       background: $grey;
       border-radius: 4px;
@@ -153,6 +188,13 @@
       &.redDelete {
         background: $red !important;
         text-shadow: 1px 1px 1px darken($red, 30%);
+      }
+    }
+
+    .cert {
+
+      button {
+        text-shadow: none;
       }
     }
   }
@@ -188,7 +230,7 @@
       &:nth-child(2) {
         @include media(medMobile) {
           width: 65%;
-        };  
+        };
       }
     }
 

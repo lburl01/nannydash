@@ -26,18 +26,18 @@
       <ul class="table-head">
         <li ng-click=$ctrl.sortBy('first_name')>First Name</li>
         <li ng-click=$ctrl.sortBy('last_name')>Last Name</li>
-        <li ng-click=$ctrl.sortBy('email')>Email</li>
+        <li class="email" ng-click=$ctrl.sortBy('email')>Email</li>
         <li ng-click=$ctrl.sortBy('phone')>Phone</li>
-        <li ng-click=$ctrl.sortBy('about')>About</li>
+        <li class="notes"ng-click=$ctrl.sortBy('about')>About</li>
       </ul>
 
       <div class="table-body">
         <ul dir-paginate="family in $ctrl.families | filter: searchBox | filter: $ctrl.selectedCounty |itemsPerPage: 5" ui-sref="nannyParentInfo({parentId: family.family_id})">
             <li>{{family.first_name}}</li>
             <li>{{family.last_name}}</li>
-            <li>{{family.email}}</li>
+            <li class="email">{{family.email}}</li>
             <li>{{family.phone}}</li>
-            <li>{{family.about | limitTo: 35}}</li>
+            <li class="notes">{{family.about | limitTo: 35}}</li>
         </ul>
       </div>
     </div>

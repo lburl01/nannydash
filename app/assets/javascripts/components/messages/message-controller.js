@@ -1,5 +1,5 @@
 angular.module('app')
-    .controller('messageController', ["$scope", "$http", "$state", "$stateParams", "dashboardAPI", function ($scope, $http, $state, $stateParams, dashboardAPI) {
+    .controller('messageController', ['$http', '$state', '$stateParams', 'dashboardAPI', function ($http, $state, $stateParams, dashboardAPI) {
       /*************************
       Variables
       *************************/
@@ -8,15 +8,11 @@ angular.module('app')
       this.messageConvoId = $stateParams.messageParam.message.conversation_id;
       this.replyShow = false;
       this.message;
-      console.log(this.messageId);
-      console.log(this.messageConvoId);
+      this.sentMsg = false;
 
-      function init() {
-        dashboardAPI.message(self.messageConvoId, self.messageId).success(function(response) {
-            return self.message = response;
-        });
-      }
-      init();
+      dashboardAPI.message(self.messageConvoId, self.messageId).success(function(response) {
+          return self.message = response;
+      });
 
       this.backToMessages = function(id) {
         dashboardAPI.allMessages(id).success(function(response) {
@@ -44,6 +40,12 @@ angular.module('app')
         $('.text-body').html('');
         dashboardAPI.reply(replyObject);
         self.replyShow = false;
-
+        self.sentMsg = !self.sentMsg;
       }
+      
+      this.deleteBtn = function() {
+        $('.reply').find('.text-body').text('');
+        this.replyShow = false;
+      }
+
     }]);

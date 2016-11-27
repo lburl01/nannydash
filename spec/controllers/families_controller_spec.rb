@@ -24,9 +24,7 @@ RSpec.describe FamiliesController, type: :controller do
 
       get :index
 
-      json = JSON.parse(response.body)
-
-      expect(json.length).to eq 2
+      expect(json_body.length).to eq 2
     end
 
     it 'will not return deleted families' do
@@ -34,9 +32,7 @@ RSpec.describe FamiliesController, type: :controller do
 
       get :index
 
-      json = JSON.parse(response.body)
-
-      expect(json["families"].length).to eq 0
+      expect(json_body["families"].length).to eq 0
     end
   end
 
@@ -46,9 +42,7 @@ RSpec.describe FamiliesController, type: :controller do
 
       process :show, method: :get, params: { id: @user.id }
 
-      json = JSON.parse(response.body)
-
-      expect(json["family_id"]).to eq 1
+      expect(json_body["family_id"]).to eq 1
     end
   end
 

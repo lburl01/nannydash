@@ -1,0 +1,33 @@
+upcoming-job-info {
+  .scheduled-jobs {
+    button {
+      margin: 10px 0 10px 0 !important;
+    }
+  }
+  button.confirmation-status.request-button {
+    cursor: default !important;
+    background-color: $red !important;
+    &:hover {
+      cursor: default !important;
+      background-color: $red !important;
+      text-shadow: 1px 1px 1px darken($red, 30%);
+    }
+  }
+  button.confirmation-button {
+    background: $green;
+  }
+}
+
+@media (max-width: 800px) {
+  #new-nanny-jobs {
+    padding: 0 5px
+  }
+  .family-table {
+    li {
+      width: 25% !important;
+    }
+    .notes {
+      display: none;
+    }
+  }
+}

@@ -4,8 +4,17 @@ angular.module('app')
       Variables
       *************************/
       var self = this;
-      this.conversationMessage = $stateParams.messagesParam.messages;
-      this.convoId = this.conversationMessage.conversation_id
+      this.conversationMessage;
+      this.convoId = $stateParams.conversationId;
+      console.log(this.convoId);
+
+      this.init = function() {
+        dashboardAPI.allMessages(self.convoId).success(function(response) {
+          self.conversationMessage = response
+          self.conversationMessage;
+        });
+      }
+      this.init();
 
       this.recipient = function() {
         var count = 0;
@@ -36,27 +45,30 @@ angular.module('app')
         }
       }
 
-      this.delete = function(e, message) {
+      this.delete = function(e, message, key) {
         e.stopPropagation();
-        dashboardAPI.deleteMessage(message.message_id, message);
-        //$state.go('babysitters',{reload: true});
-        dashboardAPI.allMessages(self.conversations.convo_id).success(function(response) {
-          $state.go('messages', {
-            messagesParam: {
-              messages: response
-            },
-              conversationId: id
-            },
-            {
-              reload: true
-            });
-        });
+        //console.log(message);
+        dashboardAPI.deleteMessage(key, message);
+        self.init();
+        // dashboardAPI.allMessages(self.convoId).success(function(response) {
+        //   $state.go('messages', {
+        //     messagesParam: {
+        //       messages: response
+        //     },
+        //       conversationId: message.conversation_id
+        //     },
+        //     {
+        //       reload: true
+        //     });
+        // });
       }
 
       this.messagesClick = function(object, key) {
         var conversationId = object.conversation_id;
         dashboardAPI.message(conversationId, key).success(function(response) {
+          console.log(response);
           $state.go('message', {messageParam: {message: response}, conversationId: response.conversation_id}, {reload: true});
         });
       }
+
     }]);

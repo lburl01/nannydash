@@ -1,0 +1,35 @@
+<div class="directory-container newMessage">
+  <div class="search">
+    <h1>New Message</h1>
+  </div>
+  <div class="list">
+    <div class="message">
+      <div class="subject">
+        <label for="recipient">To:</label>
+        <i class="fa fa-plus-square" ng-click="$ctrl.showUsers = !$ctrl.showUsers"></i>
+        <input id="subject" type="text" ng-model="$ctrl.recipient.name" >
+        <div class="arrow-left" ng-show="$ctrl.showUsers"></div>
+
+        <div class="users" ng-show="$ctrl.showUsers">
+          <div class="user-group">
+            <h2>Babysitters</h2>
+            <p ng-click="$ctrl.selectRecipient(nanny)" ng-repeat="nanny in $ctrl.nannyList">{{nanny.name}}</p>
+          </div>
+          <div class="user-group">
+            <h2>Parents</h2>
+            <p ng-click="$ctrl.selectRecipient(parent)" ng-repeat="parent in $ctrl.parentList">{{parent.name}}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="subject">
+        <label for="subject">Subject:</label>
+        <input id="subject" type="text" ng-model="subject">
+      </div>
+
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="8" cols="40" ng-model="body"></textarea>
+      <button type="button" ng-click="$ctrl.send($ctrl.recipient.id, subject, body)">Send</button>
+    </div>
+  </div>
+</div>

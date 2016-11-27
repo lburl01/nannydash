@@ -1,0 +1,81 @@
+<div class="directory-container">
+  <!-- ******************************
+   Header Section: Name Breadcrumbs and Search Field
+  ******************************* -->
+  <div class="search search-input no-search">
+    <h1 ui-sref="babysitters">Babysitters</h1>
+    <span>></span>
+    <h2>{{babysitter.user.first_name}}</h2>
+    <h2>{{babysitter.user.last_name}}</h2>
+  </div>
+  <!-- ******************************
+   Drop Down County Field
+  ******************************* -->
+  <div class="list">
+    <div class="title-container">
+      <div class="county">
+        <h4>Message</h4>
+        <i ng-click="babysitter.newMessage(babysitter.user.sitter_id)" class="fa fa-envelope"></i>
+      </div>
+    </div>
+  </div>
+  <!-- ******************************
+   Name Fields and Photo Section
+  ******************************* -->
+  <section class="name">
+    <div class="name-container">
+      <label for="phone">First Name:</label>
+      <h1 class="name-heading">{{babysitter.user.first_name}}</h1>
+    </div>
+    <div class="name-container">
+      <label for="phone">Last Name:</label>
+      <h1 class="name-heading">{{babysitter.user.last_name}}</h1>
+    </div>
+    <img src="#" alt="">
+  </section>
+  <!-- ******************************
+   Basic Information Section
+  ******************************* -->
+  <section class="basic-info">
+    <h2>Basic Information</h2>
+    <!-- Phone Field -->
+    <label for="phone">Phone:</label>
+    <p>{{babysitter.user.phone}}</p>
+    <!-- Email Field -->
+    <label for="email">Email:</label>
+    <p>{{babysitter.user.email}}</p>
+    <!-- Birthday Field -->
+    <label for="birthday">Birthday:</label>
+    <p>{{babysitter.user.birthday}}</p>
+    <!-- Street Field -->
+    <label for="street">Street:</label>
+    <p>{{babysitter.user.street}}</p>
+    <!-- City Field -->
+    <label for="city">City:</label>
+    <p>{{babysitter.user.city}}</p>
+    <!-- State Field -->
+    <label for="state">State:</label>
+    <p>{{babysitter.user.state}}</p>
+    <!-- zip Field -->
+    <label for="zip">zip:</label>
+    <p>{{babysitter.user.zip_code}}</p>
+  </section>
+  <!-- ******************************
+   Key Information Section
+  ******************************* -->
+  <section class="key-info">
+    <h2>Key Information</h2>
+    <!-- Certifications Field -->
+    <div class="cert">
+      <label>Certifications</label>
+      <button ng-class="babysitter.user.cpr_certification ? 'toggleGreen' : 'toggleRed'" type="button" ng-click="babysitter.toggleCPR(babysitter.user.sitter_id, babysitter.user.cpr_certification)">{{babysitter.cpr}}</button>
+      <button ng-class="babysitter.user.first_aid_certification ? 'toggleGreen' : 'toggleRed'" type="button" ng-click="babysitter.toggleFirstAid(babysitter.user.sitter_id, babysitter.user.first_aid_certification)">{{babysitter.firstAid}}</button>
+    </div>
+    <!-- Hourly Rate Field -->
+    <label for="rate">Hourly Rate:</label>
+    <p>${{babysitter.user.hourly_rate}}</p>
+    <!-- Age Field -->
+    <label for="age">Age:</label>
+    <p>{{babysitter.age}}</p>
+  </section>
+</div>

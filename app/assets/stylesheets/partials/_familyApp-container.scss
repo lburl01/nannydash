@@ -1,0 +1,24 @@
+.familyApp-container {
+  padding: 25px 40px !important;
+
+  h2 {
+    float: left;
+    padding-top: 7px;
+    font-size: 24px;
+    color: $purple !important;
+    font-weight: 100;
+  }
+
+  .search {
+    width: 100% !important;
+
+    &:before {
+      right: -481px !important;
+      top: 7px !important;
+    }
+
+    input {
+      width: 220px !important;
+    }
+  }
+}

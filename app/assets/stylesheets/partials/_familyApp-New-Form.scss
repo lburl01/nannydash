@@ -1,0 +1,106 @@
+.family-app-container {
+  padding: 25px 40px !important;
+
+  .title-container {
+    margin: 15px 0 40px;
+  }
+
+  label {
+    color: #777;
+    padding-right: 5px;
+  }
+
+  input, textarea {
+    padding: 3px 5px;
+    font-size: 13px;
+    color: #888;
+    border-radius: 4px;
+    border: #ddd solid 1px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    outline: none;
+  }
+
+  aside {
+    float: left;
+    width: 25%;
+    padding: 25px 20px;
+    background: #eee;
+    color: #777;
+    border-radius: 7px;
+
+    h2 {
+      font-size: 18px;
+      padding-bottom: 12px;
+      border-bottom: #fff solid 1px;
+    }
+
+    h6:nth-child(1n) {
+      padding-top: 20px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+  }
+
+  .time {
+    overflow: hidden;
+
+    .start {
+      float: left;
+      margin-right: 20px;
+    }
+
+    .end {
+      float: left;
+    }
+  }
+
+  .form {
+    float: left;
+    width: 75%;
+    padding: 20px;
+
+    section {
+      padding-bottom: 25px;
+    }
+
+    .details {
+      textarea {
+        width: 100%;
+        margin-top: 15px;
+        padding: 15px;
+      }
+
+      input {
+        background: #eee;
+      }
+    }
+
+    button {
+      padding: 8px 13px;
+      background: #efba59;
+      border: transparent;
+      border-radius: 4px;
+      color: #fff;
+      font-size: 15px;
+    }
+  }
+
+  .sent {
+    float: left;
+    width: 75%;
+
+    h2 {
+      background: $green;
+      color: #fff;
+      padding: 13px;
+      border: transparent;
+      border-radius: 4px;
+      font-size: 23px;
+      margin: 0 auto;
+      width: 100px;
+      margin-top: 80px;
+      text-align: center;
+    }
+  }
+}

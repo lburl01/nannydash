@@ -9,7 +9,7 @@ FactoryGirl.define do
     city "Raleigh"
     state "NC"
     zip_code "27617"
-    role 2
+    role 0
     birthday "04/29/2001"
     hourly_rate 10.01
     cpr_certification false
