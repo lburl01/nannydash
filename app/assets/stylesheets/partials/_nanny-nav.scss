@@ -76,28 +76,33 @@ nav#nav-mobile {
   position: relative;
   display: none;
   ul {
+    background-color: $lightGreen;
     display: none;
-    list-style-type: none;
-    position: absolute;
     left: 0;
-    right: 0;
+    list-style-type: none;
     margin-left: auto;
     margin-right: auto;
+    position: absolute;
+    right: 0;
     text-align: center;
-    background-color: $lightGreen;
+    z-index: 99999;
+    li:first-child {
+      border-top: solid 1px $green;
+    }
     li:last-child {
       border-bottom: none;
     }
     li {
       display: block;
-      padding: 5px 0;
       margin: 0 5px;
       border-bottom: solid 1px $green;
       a {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 100;
         text-decoration: none;
         display: block;
         color: white;
-        padding: 10px 30px;
+        padding: 15px 30px;
         &:hover {
           background-color: $green;
           color: #fff;
