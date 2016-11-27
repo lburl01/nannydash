@@ -27,20 +27,22 @@ class Job < ApplicationRecord
   end
 
   def self.get_new_jobs
-    response = Job.where( { is_deleted: false, is_assigned: false } ).all
+    response = Job.where( { is_deleted: false, is_assigned: false, confirmed: false } ).all
 
     @new_jobs = []
 
     response.each do |job|
-      @new_jobs << { "job_id" => job.id, "family_id" => job.family_id,
-                 "family_first_name" => job.posted_job.first_name,
-                 "family_last_name" => job.posted_job.last_name,
-                 "date" => job.date,
-                 "start_time" => job.start_time.strftime("%I:%M %p"),
-                 "end_time" => job.end_time.strftime("%I:%M %p"),
-                 "notes" => job.notes,
-                 "created" => job.created_at.strftime("%m/%d/%Y %I:%M %p")
-               }
+      if !job.sitter_id
+        @new_jobs << { "job_id" => job.id, "family_id" => job.family_id,
+                   "family_first_name" => job.posted_job.first_name,
+                   "family_last_name" => job.posted_job.last_name,
+                   "date" => job.date,
+                   "start_time" => job.start_time.strftime("%I:%M %p"),
+                   "end_time" => job.end_time.strftime("%I:%M %p"),
+                   "notes" => job.notes,
+                   "created" => job.created_at.strftime("%m/%d/%Y %I:%M %p")
+                 }
+      end
     end
 
     return @new_jobs
@@ -252,7 +254,7 @@ class Job < ApplicationRecord
   end
 
   def self.get_sitter_requested_jobs(current_user)
-    requested_jobs = Job.where( { sitter_id: current_user.id, is_deleted: false, confirmed: false } ).all
+    requested_jobs = Job.where( { sitter_id: current_user.id, is_deleted: false, confirmed: false, is_assigned: false } ).all
 
     @jobs_details = []
 

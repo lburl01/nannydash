@@ -6,20 +6,18 @@
     ******************************* -->
     <section class="applications">
       <div class="title-container">
-        <h2>Scheduled Jobs</h2>
+        <h2>Your Scheduled Jobs</h2>
       </div>
       <table>
         <tr>
           <th>Family</th>
           <th>Date</th>
           <th>Time</th>
-          <th>Status</th>
         </tr>
         <tr ng-repeat="job in $ctrl.scheduledJob">
           <td>{{job.family_name}}</td>
           <td>{{job.date}}</td>
           <td>{{job.start_time}} - {{job.end_time}}</td>
-          <td>{{job.confirmed}}</td>
         </tr>
       </table>
     </section>
@@ -28,20 +26,18 @@
     ******************************* -->
     <section class="applications">
       <div class="title-container">
-        <h2>Requested Jobs</h2>
+        <h2>Needs Your Confirmation</h2>
       </div>
       <table>
         <tr>
           <th>Family</th>
           <th>Date</th>
           <th>Time</th>
-          <th>Confirmed</th>
         </tr>
         <tr ng-repeat="job in $ctrl.requestedJob">
           <td>{{job.family_name}}</td>
           <td>{{job.date}}</td>
           <td>{{job.start_time}} - {{job.end_time}}</td>
-          <td>{{job.confirmed}}</td>
         </tr>
       </table>
     </section>

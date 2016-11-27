@@ -28,7 +28,7 @@
       },
 
       dashScheduledJobList: function() {
-        return $http.get("sitter_dash/scheduled_jobs.json").then(function(response) {
+        return $http.get("sitter_dash/confirmed_jobs.json").then(function(response) {
           console.log(response.data);
           return response.data;
         }, function() {

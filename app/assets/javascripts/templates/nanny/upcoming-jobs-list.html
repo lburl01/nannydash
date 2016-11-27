@@ -24,7 +24,7 @@
           <li>{{job.family_name}}</li>
           <li>{{job.date}}</li>
           <li>{{job.start_time}}-{{job.end_time}}</li>
-          <li class="notes">{{job.notes === "" ? "No Notes" : job.notes | limitTo: 50}}</li>
+          <li class="notes">{{job.notes === "" ? "None" : job.notes | limitTo: 50}}</li>
           <li>{{job.confirmed ? "Confirmed" : "Unconfirmed"}}</li>
         </ul>
 
