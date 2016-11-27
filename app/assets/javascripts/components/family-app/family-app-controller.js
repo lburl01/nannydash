@@ -16,7 +16,6 @@ angular.module('familyApp').controller('familyAppController', ['$http', 'familyA
     familyAppAPI.counts().success(function(response) {
       self.jobs = response.confirmed_jobs + response.pending_jobs;
       self.newMessages = response.new_messages;
-      console.log(response);
     });
 
   }]);
