@@ -224,6 +224,16 @@ Job.create!(family_id: 7,
               is_deleted: false,
               is_assigned: true)
 
+Job.create!(family_id: 10,
+              sitter_id: 2,
+              date: "2017-01-15",
+              start_time: "17:00",
+              end_time: "23:00",
+              notes: "None",
+              confirmed: false,
+              is_deleted: false,
+              is_assigned: false)
+
 Job.create!(family_id: 8,
               sitter_id: 23,
               date: '2017-1-03',
