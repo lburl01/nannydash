@@ -19,19 +19,19 @@
     <ul>
       <li>
         <div class="title">
-          <h2>List of scheduled jobs</h2>
+          <h2>Needs parent confirmation</h2>
         </div>
-        <button ui-sref="upcomingJobs" type="button" name="button">{{$ctrl.count.assigned_jobs}} | Upcoming Jobs</button>
+        <button ui-sref="upcomingJobs" type="button" name="button">{{$ctrl.count.assigned_jobs}} | Pending Jobs</button>
       </li>
       <li>
         <div class="title">
-          <h2>All available jobs</h2>
+          <h2>Needs nanny</h2>
         </div>
         <button ui-sref="newNannyJobs" type="button" name="button">{{$ctrl.count.unassigned_jobs}} | All Jobs</button>
       </li>
       <li>
         <div class="title">
-          <h2>List of families</h2>
+          <h2>Family directory</h2>
         </div>
         <button ui-sref="parentDirectory" type="button" name="button">{{$ctrl.count.all_families}} | Parents</button>
       </li>
@@ -51,7 +51,7 @@
   <nav id="nav-mobile">
     <ul>
       <li>
-        <a ui-sref="upcomingJobs">Upcoming Jobs</a>
+        <a ui-sref="upcomingJobs">Scheduled Jobs</a>
       </li>
       <li>
         <a ui-sref="newNannyJobs">All Jobs</a>
