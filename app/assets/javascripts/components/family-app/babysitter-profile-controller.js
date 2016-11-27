@@ -1,12 +1,11 @@
-angular.module('app')
-    .controller('babysitterProfileController', ["$scope", "$http", "$state", "$stateParams", "babysitterDirectoryAPI", function ($scope, $http, $state, $stateParams, babysitterDirectoryAPI) {
+angular.module('familyApp')
+    .controller('familyAppBabysitterProfileController', ["familyAppAPI", "$http", "$state", "$stateParams", function (familyAppAPI, $http, $state, $stateParams) {
       /*************************
       Variables
       *************************/
       var self = this;
-      this.userId = $stateParams.sitterId;
-      this.user;
-      this.total = babysitterDirectoryAPI.totalBabysitters;
+      this.user = $stateParams.sitterId;
+      this.total = familyAppAPI.totalBabysitters;
       this.cpr = "CPR Certified";
       this.firstAid = "First-Aid Certified";
       this.userInput = false;
@@ -17,32 +16,41 @@ angular.module('app')
       /*************************
       Loads in current user on refresh
       *************************/
-      babysitterDirectoryAPI.userProfile(self.userId).success(function(response) {
+      familyAppAPI.userProfile(self.user).success(function(response) {
         self.user = response
         self.calculateAge(self.user.birthday);
         return self.user;
       });
+
       /*************************
       Verifying Certifications
       *************************/
-      this.addCerts = function() {
+      this.toggleFirstAid = function(id, cert) {
+        // cert = !cert;
+        // var data = {};
+        // data['first_aid_certification'] = cert;
+        // console.log(data, id);
+        familyAppAPI.first_aid(id);
+      }
+      this.toggleCPR = function(id, cert) {
+
       }
       /*************************
       If user edits input fields, data will be saved in object
       *************************/
-      this.updateBabysitter = function() {
+      this.updateBabysitter = function(id) {
         self.changed = true;
-        babysitterDirectoryAPI.updateUser(self.updatedBabysitters);
+        familyAppAPI.updateUser(id, self.updatedBabysitters);
       };
       /*************************
       If user deletes babysitter, sitter will be removed from database
       *************************/
       this.deleteBabysitter = function(id) {
-        var idObj = {};
-        idObj["id"] = id;
-
-        babysitterDirectoryAPI.deleteUser(idObj);
-        $state.go('babysitters',{reload: true});
+        var result = confirm("Are you sure you want to delete user?");
+        if (result) {
+          familyAppAPI.deleteUser(id, self.updatedBabysitters);
+          $state.go('babysitters',{reload: true});
+        }
       }
       /*************************
       Convert Strings
@@ -57,7 +65,6 @@ angular.module('app')
         self.convertRate(value);
         self.updatedBabysitters['id'] = sitter_id;
         var updatedUser = self.updatedBabysitters[key] = value;
-        console.log(self.updatedBabysitters);
       }
       /*************************
       Calculating age
@@ -82,11 +89,11 @@ angular.module('app')
       Search user in input search field
       *************************/
       this.searchUser = function(user) {
-        babysitterDirectoryAPI.list().success(function(response) {
+        familyAppAPI.list().success(function(response) {
           var found = false;
           for(var i= 0; i < response.sitters.length; i++) {
             if(response.sitters[i].first_name.toLowerCase() === user.toLowerCase() || response.sitters[i].last_name.toLowerCase() === user.toLowerCase()) {
-              babysitterDirectoryAPI.userProfile(response.sitters[i].sitter_id).success(function(newResponse) {
+              familyAppAPI.userProfile(response.sitters[i].sitter_id).success(function(newResponse) {
                 found = true;
                 $state.go('babysitter-profile', {babysitterParam: {sitter: newResponse}, sitterId: newResponse.sitter_id}, {reload: true,  notify: true});
               });
@@ -98,9 +105,19 @@ angular.module('app')
         });
       }
       /*************************
+      When user clicks message icon, page will re-direct to new message
+      *************************/
+      this.newMessage = function(id) {
+        console.log(id);
+        $state.go('new-message', {
+          messageSitterId: id
+        });
+      };
+      /*************************
       Delete Popup
       *************************/
       this.popup = function() {
         self.visibility = !self.visibility;
       };
+
   }]);

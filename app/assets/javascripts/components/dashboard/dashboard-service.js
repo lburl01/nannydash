@@ -1,6 +1,12 @@
 angular.module('app').service('dashboardAPI', ['$http', function($http) {
 
     return {
+      user: function() {
+        return $http({
+          url: "/user/logged_in",
+          method: "GET"
+        });
+      },
       list: function() {
         return $http({
           url: "/api/v1/agency/summary",
@@ -20,8 +26,9 @@ angular.module('app').service('dashboardAPI', ['$http', function($http) {
         });
       },
       message: function(conversationId, messageId) {
+        console.log(conversationId, parseInt(messageId));
         return $http({
-          url: "/conversations/" + conversationId + "/messages/" + messageId,
+          url: "/conversations/" + conversationId + "/messages/" + parseInt(messageId),
           method: "GET"
         });
       },

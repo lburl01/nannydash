@@ -1,5 +1,5 @@
-angular.module('app')
-    .controller('conversationController', ["$scope", "$http", "$state", "$stateParams", "dashboardAPI", function ($scope, $http, $state, $stateParams, dashboardAPI) {
+angular.module('familyApp')
+    .controller('familyAppConversationController', ["$scope", "$http", "$state", "familyAppAPI", function ($scope, $http, $state, familyAppAPI) {
       /*************************
       Variables
       *************************/
@@ -9,14 +9,14 @@ angular.module('app')
         $state.go('new-message');
       }
 
-      dashboardAPI.conversationMessages().success(function(response) {
+      familyAppAPI.conversationMessages().success(function(response) {
         console.log(response);
         self.convLength = response.length;
         self.conversation = response;
       });
 
       this.conversationClick = function(id) {
-        dashboardAPI.allMessages(id).success(function(response) {
+        familyAppAPI.allMessages(id).success(function(response) {
           $state.go('messages', {
             messagesParam: {
               messages: response
@@ -28,4 +28,5 @@ angular.module('app')
             });
         });
       }
+      
     }]);

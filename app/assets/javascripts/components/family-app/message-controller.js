@@ -1,5 +1,5 @@
-angular.module('app')
-    .controller('messageController', ['$http', '$state', '$stateParams', 'dashboardAPI', function ($http, $state, $stateParams, dashboardAPI) {
+angular.module('familyApp')
+    .controller('messageController', ['$http', '$state', '$stateParams', 'familyAppAPI', function ($http, $state, $stateParams, familyAppAPI) {
       /*************************
       Variables
       *************************/
@@ -10,12 +10,13 @@ angular.module('app')
       this.message;
       this.sentMsg = false;
 
-      dashboardAPI.message(self.messageConvoId, self.messageId).success(function(response) {
+      familyAppAPI.message(self.messageConvoId, self.messageId).success(function(response) {
+        console.log(response);
           return self.message = response;
       });
 
       this.backToMessages = function(id) {
-        dashboardAPI.allMessages(id).success(function(response) {
+        familyAppAPI.allMessages(id).success(function(response) {
           console.log(response);
           $state.go('messages', {
             messagesParam: {
@@ -38,11 +39,11 @@ angular.module('app')
         replyObject['body'] = body;
 
         $('.text-body').html('');
-        dashboardAPI.reply(replyObject);
+        familyAppAPI.reply(replyObject);
         self.replyShow = false;
         self.sentMsg = !self.sentMsg;
       }
-      
+      //
       this.deleteBtn = function() {
         $('.reply').find('.text-body').text('');
         this.replyShow = false;

@@ -143,6 +143,7 @@ class Job < ApplicationRecord
     jobs.each do |job|
       family_name = "#{job.posted_job.first_name} #{job.posted_job.last_name}"
       @job_details << { "family_id" => job.family_id, "family_name" => family_name,
+                        "date" => job.date, "job_id" => job.id,
                         "date" => job.date, "confirmed" => job.confirmed,
                         "start_time" => job.start_time.strftime("%I:%M %p"),
                         "end_time" => job.end_time.strftime("%I:%M %p"),
@@ -191,15 +192,23 @@ class Job < ApplicationRecord
     jobs = Job.where( { confirmed: false, family_id: current_user.id } ).all
 
     @job_details = []
+    all_info = {}
 
     jobs.each do |job|
-      sitter_name = "#{job.assignment.first_name} #{job.assignment.last_name}"
-      @job_details << { "family_id" => job.family_id, "sitter_id" => job.sitter_id,
-                        "sitter_name" => sitter_name,
+      all_info = { "family_id" => job.family_id,
                         "date" => job.date, "job_id" => job.id,
                         "start_time" => job.start_time.strftime("%I:%M %p"),
                         "end_time" => job.end_time.strftime("%I:%M %p"),
-                        "notes" => job.notes}
+                        "notes" => job.notes, "confirmed" => job.confirmed,
+                        "is_assigned" => job.is_assigned}
+
+      if job.sitter_id
+        sitter_name = "#{job.assignment.first_name} #{job.assignment.last_name}"
+        all_info["sitter_name"] = sitter_name
+        all_info["sitter_id"] = job.sitter_id
+      end
+
+      @job_details << all_info
     end
 
     return @job_details

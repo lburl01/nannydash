@@ -18,6 +18,21 @@
     }
   }
 
+  .sentMsg {
+    width: 100%;
+    padding-top: 30px;
+
+    h1 {
+      text-align: center;
+      width: 60px;
+      padding: 8px;
+      background: $green;
+      color: #fff;
+      border-radius: 4px;
+      margin: 0 auto;
+    }
+  }
+
   .message-bar {
     overflow: hidden;
     padding: 10px 0 40px;

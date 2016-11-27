@@ -1,5 +1,5 @@
-angular.module('app')
-    .controller('dashboardController', ["dashboardAPI", "$http", "$state", "$stateParams", "newJobsAPI", function (dashboardAPI, $http, $state, $stateParams, newJobsAPI) {
+angular.module('familyApp')
+    .controller('familyDashboard', ["familyAppAPI", "$http", "$state", "$stateParams", function (familyAppAPI, $http, $state, $stateParams) {
       /*************************
       Variables
       *************************/
@@ -8,7 +8,7 @@ angular.module('app')
       /*************************
       Loading in dashboard endpoints
       *************************/
-      dashboardAPI.list().success(function(response) {
+      familyAppAPI.list().success(function(response) {
         self.application = response.applications
         self.assignments = response.assignments
         self.messages = response.messages;
@@ -26,11 +26,11 @@ angular.module('app')
       *************************/
       this.pendingApplication = function(person) {
         if(person.role === "nanny") {
-          dashboardAPI.pendingApps(person.application_id).success(function(response) {
+          familyAppAPI.pendingApps(person.application_id).success(function(response) {
             $state.go("pendingBabysitterInfo", {sitterId: response.id});
           });
         } else {
-          dashboardAPI.pendingApps(person.application_id).success(function(response) {
+          familyAppAPI.pendingApps(person.application_id).success(function(response) {
             $state.go("pendingParentInfo", {parentId: response.id});
           });
         }
@@ -39,16 +39,18 @@ angular.module('app')
       When user clicks on new/current jobs
       *************************/
       this.newJobs = function(job) {
-        dashboardAPI.jobDetails(job.job_id).success(function(response) {
+        familyAppAPI.jobDetails(job.job_id).success(function(response) {
           $state.go("newJobInfo", {jobId: job.job_id});
         });
       }
       /*************************
       When user clicks on message
       *************************/
-      this.message = function(conversationId, messageId) {
-        dashboardAPI.message(conversationId, messageId).success(function(response) {
-          console.log(response);
+      this.message = function(object, key) {
+        console.log(object, key);
+        var messageId = object.message_id;
+        familyAppAPI.message(object.conversation_id, messageId).success(function(response) {
+          $state.go('message', {messageParam: {message: response}, conversationId: response.conversation_id}, {reload: true});
         });
       }
       /*************************

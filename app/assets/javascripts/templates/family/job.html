@@ -1,0 +1,55 @@
+<div class="new-jobs-info-wrapper familyApp-job">
+  <div class="directory-container new-nanny-job-info">
+
+    <div class="list">
+      <div class="title-container">
+        <div class="envelope">
+          <h4>Job Details</h4>
+          <h4>Posted: {{job.familyJob.date_posted}}</h4>
+        </div>
+      </div>
+    </div>
+
+    <section class="basic-info">
+      <!-- Family -->
+      <label for="name">Date:</label>
+      <input type="date" ng-init="date = job.date(job.familyJob.date)" ng-model="date" ng-model-options="{ updateOn: 'blur' }" ng-change="$ctrl.updateCurrent( 'email', $ctrl.job.email)">
+      <!-- Phone Field -->
+      <label for="phone">Start Time:</label>
+      <input type="time" value="07:30">
+      <!-- Email Field -->
+      <label for="email">End Time:</label>
+      <input type="time" value="14:30">
+      <!-- Street Field -->
+      <label for="street">Requested Babysitter</label>
+      <input type="text" ng-model="job.familyJob.sitter_name" ng-model-options="{ updateOn: 'blur' }" ng-change="$ctrl.updateCurrent( 'street', $ctrl.job.street)">
+      <!-- City Field -->
+      <label for="city">Confirmed Babysitter</label>
+      <input type="text" ng-model="job.familyJob.sitter_name" ng-model-options="{ updateOn: 'blur' }" ng-change="$ctrl.updateCurrent( 'city', $ctrl.job.city)">
+      <!-- State Field -->
+      <label for="state">Notes:</label>
+      <textarea type="text" ng-model="job.familyJob.notes" ng-change="$ctrl.updateCurrent( 'notes', $ctrl.job.notes)"></textarea>
+    </section>
+
+    <section class="key-info">
+      <label for="name">Stage</label>
+      <p>Waiting for Babysitter</p>
+      <p>Waiting for Parent</p>
+      <p>Confirmed</p>
+
+      <button class="request-button" ng-class="{'yellowRequest': $ctrl.visibility || $ctrl.jobInfo.is_assigned}" type="button">{{$ctrl.jobInfo.is_assigned ? "Save Job" : "Saved!"}}</button>
+      <button ng-click="$ctrl.popup()" class="request-button" ng-class="{'yellowRequest': $ctrl.visibility || $ctrl.jobInfo.is_assigned}" type="button">Delete Job</button>
+    </section>
+    <div ng-class="{'visible': $ctrl.visibility}" class="popup" role="alert">
+    	<div class="popup-container">
+        <a ng-click="$ctrl.popup()" class="close img-replace"></a>
+    		<p>Are you sure you want to delete this job?</p>
+    		<ul class="popup-buttons">
+    			<li ng-click="$ctrl.assign($ctrl.jobInfo.job_id)">Yes</li>
+    			<li ng-click="$ctrl.popup()">No</li>
+    		</ul>
+    	</div>
+    </div>
+
+  </div>
+</div>
