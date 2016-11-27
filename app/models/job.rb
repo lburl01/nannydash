@@ -93,7 +93,7 @@ class Job < ApplicationRecord
     @new_job = { "name" => family_name, "family_id" => job.family_id,
                  "phone" => job.posted_job.phone_number,
                  "county" => job.posted_job.county,
-                 "email" => job.posted_job.email, "job_id" => job.id,
+                 "email" => job.posted_job.email,
                  "street" => job.posted_job.street,
                  "city" => job.posted_job.city, "state" => job.posted_job.state,
                  "zip_code" => job.posted_job.zip_code, "date" => job.date,
@@ -143,7 +143,6 @@ class Job < ApplicationRecord
     jobs.each do |job|
       family_name = "#{job.posted_job.first_name} #{job.posted_job.last_name}"
       @job_details << { "family_id" => job.family_id, "family_name" => family_name,
-                        "date" => job.date, "job_id" => job.id,
                         "date" => job.date, "confirmed" => job.confirmed,
                         "start_time" => job.start_time.strftime("%I:%M %p"),
                         "end_time" => job.end_time.strftime("%I:%M %p"),

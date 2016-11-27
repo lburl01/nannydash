@@ -7,7 +7,7 @@
       <h4 ui-sref="nanny_dashboard"><i class="fa fa-home"></i>Dashboard</h4>
       <h4 class="mobile-hide">Nanny<span>Dash</span></h4>
       <div class="user">
-        <i class="fa fa-user mobile-hide" aria-hidden="true"></i>
+        <i ui-sref="nannyProfile({nannyId: $ctrl.user.id})" class="fa fa-user mobile-hide" aria-hidden="true"></i>
         <h4 class="mobile-hide">Hey, {{$ctrl.user.first_name}}</h4>
         <button class="logOutButton" ng-click="$ctrl.signOut()">Log Out</button>
       </div>
