@@ -81,6 +81,9 @@
             return nannyAppAPI.messageDetails($stateParams.convoId, $stateParams.messageId);
           }]
         }
+      }).state('newMessage', {
+        url: '/message/new',
+        component: 'newMessage'
       });
     }]);
 })();

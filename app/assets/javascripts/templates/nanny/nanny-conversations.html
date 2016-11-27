@@ -1,8 +1,8 @@
 <div class="directory-container" id="nanny-messages">
   <div class="list">
     <div class="title-container">
-      <h4>Total: {{$ctrl.conversation.length}} Conversations</h4>
-      <div class="message-row">
+      <h4>{{$ctrl.conversation.length}} Conversations</h4>
+      <div  ui-sref="newMessage" class="message-row">
         <i class="fa fa-plus-circle"></i>
         <h4>New Message</h4>
       </div>
