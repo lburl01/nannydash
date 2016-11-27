@@ -8,7 +8,7 @@
       <h4>Nanny<span>Dash</span></h4>
       <div class="user">
         <i class="fa fa-user" aria-hidden="true"></i>
-        <h4>Hey, Meg Smith</h4>
+        <h4>Hey, {{family.firstName}}</h4>
         <button class="logOutButton" ng-click="family.signOut()">Log Out</button>
       </div>
     </nav>
@@ -26,19 +26,19 @@
         <div class="title">
           <h2>All upcoming jobs</h2>
         </div>
-        <button ui-sref="upcoming_jobs" type="button" name="button">{{$ctrl.count.unassigned_jobs}} | All Jobs</button>
+        <button ui-sref="upcoming_jobs" type="button" name="button">{{family.jobs}} | All Jobs</button>
       </li>
       <li>
         <div class="title">
           <h2>List of Babysitters</h2>
         </div>
-        <button ui-sref="babysitter_list" type="button" name="button">{{$ctrl.count.all_families}} | Babysitters</button>
+        <button ui-sref="babysitter_list" type="button" name="button">{{family.babysitters}} | Babysitters</button>
       </li>
       <li>
         <div class="title">
           <h2>Messaging Center</h2>
         </div>
-        <button ui-sref="conversations" type="button" name="button">{{$ctrl.count.new_messages}} | Messages</button>
+        <button ui-sref="conversations" type="button" name="button">{{family.newMessages}} | Messages</button>
       </li>
     </ul>
   </nav>

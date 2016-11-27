@@ -21,6 +21,7 @@ header {
       }
 
       h4 {
+
         &:nth-child(2) {
           @include media(largeMobile) {
             padding-top: 3px;
@@ -67,6 +68,14 @@ header {
     h4 {
       font-size: 18px;
       color: #fff;
+      position: relative;
+
+      img {
+        width: 20px;
+        position: absolute;
+        left: -20px;
+        top: -2px;
+      }
 
 
       .fa {

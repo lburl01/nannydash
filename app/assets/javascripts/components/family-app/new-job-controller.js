@@ -15,7 +15,6 @@ angular.module('familyApp')
           }
         };
         self.nannys = nannysArray;
-
       });
 
       this.loadUser = function(user) {
@@ -47,13 +46,16 @@ angular.module('familyApp')
         var start = startHours + ':' + startMins;
 
         var newMsg = {};
-        newMsg['sitter_id'] = id;
+
+        if(id != null || '') {
+          newMsg['sitter_id'] = id;
+        }
+
         newMsg['date'] = fullDate;
         newMsg['start_time'] = start;
         newMsg['end_time'] = end;
         newMsg['notes'] = body;
 
-        console.log(newMsg);
         self.toggleShow = !self.toggleShow
         familyAppAPI.newJob(newMsg);
       }

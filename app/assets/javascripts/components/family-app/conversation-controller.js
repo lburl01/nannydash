@@ -10,6 +10,7 @@ angular.module('familyApp')
       }
 
       familyAppAPI.conversationMessages().success(function(response) {
+        console.log(response);
         self.convLength = response.length;
         self.conversation = response;
       });

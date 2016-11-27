@@ -42,9 +42,9 @@ angular.module('familyApp')
         }
       }
 
-      this.delete = function(e, message, key) {
+      this.delete = function(e, message) {
         e.stopPropagation();
-        familyAppAPI.deleteMessage(key, message);
+        familyAppAPI.deleteMessage(message);
         $state.go('messages', {reload:true});
       }
 

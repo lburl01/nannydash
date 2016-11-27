@@ -16,6 +16,13 @@
           url: '/upcoming-jobs',
           controller: 'upcomingJobsController as upcomingJobs',
           templateUrl: 'family/upcoming-jobs.html'
+      }).state('job', {
+          url: '/job/:jobId',
+          params: {
+              jobId: null
+          },
+          controller: 'jobController as job',
+          templateUrl: 'family/job.html'
       }).state('babysitter_list', {
           url: '/babysitter-list',
           controller: 'babysitterListController as babysitters',

@@ -54,7 +54,7 @@ angular.module('familyApp')
         });
       }
       /*************************
-
+      Reformating Date
       *************************/
       this.getDate = function(data) {
         var myDays = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug", "Sept", "Oct", "Nov", "Dec"];

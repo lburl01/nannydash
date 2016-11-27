@@ -3,7 +3,6 @@
 
     <div class="search">
       <h2>All Upcoming Jobs</h2>
-      <input type="text" ng-model="searchBox" placeholder="Search">
     </div>
 
     <div class="list">
@@ -15,19 +14,22 @@
       <ul class="table-head" id="new-jobs-header">
         <li>Job Date</li>
         <li>Time</li>
-        <li>Notes</li>
-        <li>Posted</li>
+        <li>Requested Babysitter</li>
+        <li>Stage</li>
       </ul>
-
       <div class="table-body">
-        <ul ui-sref="newNannyJobInfo({jobId: job.job_id})">
-          <li>Dec. 20, 2016</li>
-          <li>6:00PM-10:00PM</li>
-          <li>Notes...</li>
-          <li>10/23/2016</li>
+        <ul ng-click="upcomingJobs.jobClick(job.job_id)" dir-paginate="job in upcomingJobs.jobs | itemsPerPage: 5">
+          <li>{{upcomingJobs.getDate(job.date)}}</li>
+          <li>{{job.start_time}} - {{job.end_time}}</li>
+          <li>{{job.sitter_name}}</li>
+          <li>
+            <p>Waiting on Sitter</p>
+            <p>Waiting on Parent</p>
+            <p>Confirmed</p>
+          </li>
         </ul>
-
       </div>
     </div>
+    <dir-pagination-controls max-size="5"></dir-pagination-controls>
   </div>
 </div>

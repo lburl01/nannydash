@@ -1,6 +1,12 @@
 angular.module('app').service('dashboardAPI', ['$http', function($http) {
 
     return {
+      user: function() {
+        return $http({
+          url: "/user/logged_in",
+          method: "GET"
+        });
+      },
       list: function() {
         return $http({
           url: "/api/v1/agency/summary",

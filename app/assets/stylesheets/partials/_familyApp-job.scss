@@ -1,0 +1,41 @@
+.familyApp-job {
+
+  .basic-info {
+    width: 70%;
+
+    label:last-of-type {
+      position: inherit;
+    }
+    textarea {
+      width: 70%;
+    }
+  }
+
+  section {
+    label {
+      width: 30%;
+      padding-top: 5px;
+    }
+
+    input, textarea {
+      width: 70%;
+    }
+
+    p {
+      padding: 6px 0;
+      font-size: 14px;
+      color: #777;
+      width: 75%;
+      background: #eee;
+      margin: 3px 0;
+      border-radius: 4px;
+      text-align: center;
+    }
+
+  }
+
+  .request-button {
+    margin: 0;
+  }
+
+}

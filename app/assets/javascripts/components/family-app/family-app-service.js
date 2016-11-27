@@ -20,6 +20,18 @@ angular.module('familyApp').service('familyAppAPI', ['$http', '$window', functio
           method: "GET"
         });
       },
+      user: function() {
+        return $http({
+          url: "/user/logged_in",
+          method: "GET"
+        });
+      },
+      counts: function() {
+        return $http({
+          url: "/family_dash/counts",
+          method: "GET"
+        });
+      },
       userProfile: function(id) {
         return $http({
           url: "/api/v1/sitter/" + id,
@@ -51,9 +63,9 @@ angular.module('familyApp').service('familyAppAPI', ['$http', '$window', functio
           data: data
         });
       },
-      deleteMessage: function(id, data) {
+      deleteMessage: function(data) {
         return $http({
-          url: "/message/delete/" + id,
+          url: "/message/delete",
           method: "PATCH",
           data: data
         });

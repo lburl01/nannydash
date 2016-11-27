@@ -111,8 +111,8 @@ class User < ApplicationRecord
     return @data
   end
 
-  def self.get_all_families_count
-    @all_families = User.family.where( { is_deleted: false, approved: true, active: true } ).all.count
+  def self.get_approved_families_count
+    @approved_families = User.family.where( { is_deleted: false, approved: true, active: true } ).all.count
   end
 
   def self.get_family(options)
