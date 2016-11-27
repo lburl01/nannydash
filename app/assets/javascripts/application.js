@@ -3,6 +3,8 @@
 //= require angular-rails-templates
 //= require angular-ui-router/release/angular-ui-router.js
 //= require angular-utils-pagination/dirPagination.js
+//= require ng-file-upload/dist/ng-file-upload.js
+//= require ng-file-upload/dist/ng-file-upload-all.js
 //= require jquery
 //= require jquery_ujs
 //= require app.module.js

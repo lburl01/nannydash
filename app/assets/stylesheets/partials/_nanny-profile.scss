@@ -1,0 +1,29 @@
+#nanny-profile {
+  .title-container {
+    margin-top: 2%;
+    h1 {
+      color: white;
+    }
+  }
+  .basic-info {
+    width: 50%;
+  }
+  .key-info {
+    width: 25%;
+  }
+  .cert {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10%;
+    span {
+      color: white;
+      background: $grey;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 100;
+      margin: 1%;
+      width: 150px;
+      border-radius: 4px;
+      padding: 7px 10px;
+    }
+  }
+}

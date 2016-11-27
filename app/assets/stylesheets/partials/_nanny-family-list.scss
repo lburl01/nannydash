@@ -105,3 +105,42 @@
     }
   }
 }
+
+@media (max-width: 900px) {
+  #nanny-dashboard {
+    div.new-nanny-job-info {
+      padding: 30px 2%;
+      fieldset {
+        display: flex;
+        align-content: center;
+        section {
+          width: 100% !important;
+          margin-right: 0;
+          label {
+            display: inline-block;
+            width: 25%;
+          }
+        }
+      }
+      section.scheduled-jobs {
+        border-left: 1px solid #eee;
+        input.upcoming-job {
+          float: right !important;
+          display: inline-block !important;
+          width: 73% !important;
+        }
+        button {
+          width: 73%;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 668px) {
+  div.new-nanny-job-info {
+    section.scheduled-jobs {
+      border: none;
+      border-left-style: none !important;
+    }
+  }
+}

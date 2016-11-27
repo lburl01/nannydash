@@ -1,5 +1,5 @@
 (function() {
-  angular.module('nannyApp', ['ui.router', 'templates', 'angularUtils.directives.dirPagination'])
+  angular.module('nannyApp', ['ui.router', 'templates', 'ngFileUpload', 'angularUtils.directives.dirPagination'])
     .config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $urlRouterProvider) {
 
       $urlRouterProvider.otherwise('/');
@@ -13,6 +13,14 @@
           }],
           requestedJob: ['nannyApp', function(nannyApp) {
             return nannyApp.dashRequestedJobList();
+          }]
+        }
+      }).state('nannyProfile', {
+        url: '/profile/:nannyId',
+        component: 'nannyProfile',
+        resolve: {
+          nanny: ['nannyApp', '$stateParams', function(nannyApp, $stateParams) {
+            return nannyApp.user($stateParams.nannyId);
           }]
         }
       }).state('newNannyJobs', {
