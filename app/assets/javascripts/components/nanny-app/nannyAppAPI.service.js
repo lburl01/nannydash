@@ -61,6 +61,7 @@
       },
       messageDetails: function(convoId, messageId) {
         return $http.get('/conversations/' + convoId + '/messages/' + messageId + '.json').then(function(response) {
+          console.log(response.data);
           return response.data;
         }, function() {
           console.log('Failed to return message details');

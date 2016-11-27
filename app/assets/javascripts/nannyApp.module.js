@@ -6,7 +6,15 @@
 
       $stateProvider.state("nanny_dashboard", {
         url: '/',
-        component: 'nannyDashboard'
+        component: 'nannyDashboard',
+        resolve: {
+          scheduledJob: ['nannyApp', function(nannyApp) {
+            return nannyApp.dashScheduledJobList();
+          }],
+          requestedJob: ['nannyApp', function(nannyApp) {
+            return nannyApp.dashRequestedJobList();
+          }]
+        }
       }).state('newNannyJobs', {
         url: '/new-jobs',
         component: 'newNannyJobsList',
@@ -39,7 +47,7 @@
             return nannyAppAPI.jobInfo($stateParams.jobId);
           }]
         }
-      }).state('nannyParentDirectory', {
+      }).state('parentDirectory', {
         url: '/parents',
         component: 'parentList',
         resolve: {

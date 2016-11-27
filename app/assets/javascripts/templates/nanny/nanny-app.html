@@ -33,7 +33,7 @@
         <div class="title">
           <h2>List of families</h2>
         </div>
-        <button ui-sref="nannyParentDirectory" type="button" name="button">{{$ctrl.count.all_families}} | Parents</button>
+        <button ui-sref="parentDirectory" type="button" name="button">{{$ctrl.count.all_families}} | Parents</button>
       </li>
       <li>
         <div class="title">
@@ -51,16 +51,16 @@
   <nav id="nav-mobile">
     <ul>
       <li>
-        <a href="#">Upcoming Jobs</a>
+        <a ui-sref="upcomingJobs">Upcoming Jobs</a>
       </li>
       <li>
-        <a href="#">All Jobs</a>
+        <a ui-sref="newNannyJobs">All Jobs</a>
       </li>
       <li>
-        <a href="#">Parents</a>
+        <a ui-sref="parentDirectory">Parents</a>
       </li>
       <li>
-        <a href="#">Messages</a>
+        <a ui-sref="conversations">Messages</a>
       </li>
     </ul>
   </nav>
