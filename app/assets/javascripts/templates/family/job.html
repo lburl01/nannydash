@@ -10,10 +10,15 @@
       </div>
     </div>
 
+    <div ng-show="job.familyJob.is_assigned === true && job.familyJob.confirmed === false" class="confirmation">
+      <h4>Please confirm your job with {{job.familyJob.sitter_name}}.</h4>
+      <button ng-click="job.confirm(job.familyJob.job_id)" type="button">Confirm!</button>
+    </div>
+
     <section class="basic-info">
       <!-- Family -->
       <label for="name">Date:</label>
-      <input type="date" ng-init="date = job.date(job.familyJob.date)" ng-model="date" ng-model-options="{ updateOn: 'blur' }" ng-change="$ctrl.updateCurrent( 'email', $ctrl.job.email)">
+      <input type="date" ng-init="jobDate = job.date(job.familyJob.date)" ng-model="jobDate" ng-model-options="{ updateOn: 'blur' }" ng-change="$ctrl.updateCurrent( 'email', $ctrl.job.email)">
       <!-- Phone Field -->
       <label for="phone">Start Time:</label>
       <input type="time" value="07:30">
@@ -24,8 +29,8 @@
       <label for="street">Requested Babysitter</label>
       <input type="text" ng-model="job.familyJob.sitter_name" ng-model-options="{ updateOn: 'blur' }" ng-change="$ctrl.updateCurrent( 'street', $ctrl.job.street)">
       <!-- City Field -->
-      <label for="city">Confirmed Babysitter</label>
-      <input type="text" ng-model="job.familyJob.sitter_name" ng-model-options="{ updateOn: 'blur' }" ng-change="$ctrl.updateCurrent( 'city', $ctrl.job.city)">
+      <label ng-show="job.familyJob.sitter_name" for="city">Confirmed Babysitter</label>
+      <input ng-show="job.familyJob.sitter_name" type="text" ng-model="job.familyJob.sitter_name" ng-model-options="{ updateOn: 'blur' }" ng-change="$ctrl.updateCurrent( 'city', $ctrl.job.city)">
       <!-- State Field -->
       <label for="state">Notes:</label>
       <textarea type="text" ng-model="job.familyJob.notes" ng-change="$ctrl.updateCurrent( 'notes', $ctrl.job.notes)"></textarea>
@@ -33,9 +38,9 @@
 
     <section class="key-info">
       <label for="name">Stage</label>
-      <p>Waiting for Babysitter</p>
-      <p>Waiting for Parent</p>
-      <p>Confirmed</p>
+      <p ng-class="{sitter: job.familyJob.is_assigned === false}">Waiting on Sitter</p>
+      <p ng-class="{parent: job.familyJob.is_assigned === true && job.familyJob.confirmed === false}">Waiting on Parent</p>
+      <p ng-class="{confirmed: job.familyJob.confirmed === true}">Confirmed</p>
 
       <button class="request-button" ng-class="{'yellowRequest': $ctrl.visibility || $ctrl.jobInfo.is_assigned}" type="button">{{$ctrl.jobInfo.is_assigned ? "Save Job" : "Saved!"}}</button>
       <button ng-click="$ctrl.popup()" class="request-button" ng-class="{'yellowRequest': $ctrl.visibility || $ctrl.jobInfo.is_assigned}" type="button">Delete Job</button>

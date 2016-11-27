@@ -4,10 +4,18 @@ angular.module('familyApp')
       Variables
       *************************/
       var self = this;
+      this.jobs = [];
 
       familyAppAPI.pendingJobs().success(function(response) {
+        console.log(response);
         self.jobs = response;
       });
+
+      familyAppAPI.confirmedJobs().success(function(response) {
+        self.jobs = response;
+        console.log(self.jobs);
+      });
+
 
       this.getDate = function(data) {
         var myMonth = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug", "Sept", "Oct", "Nov", "Dec"];
@@ -28,5 +36,4 @@ angular.module('familyApp')
       this.jobClick = function(id) {
         $state.go('job', {jobId: id});
       }
-
   }]);

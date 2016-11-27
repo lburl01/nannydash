@@ -10,14 +10,8 @@ angular.module('familyApp')
       this.message;
       this.sentMsg = false;
 
-      console.log($stateParams);
-
-      console.log(this.messageId);
-      console.log(this.messageConvoId);
-
       familyAppAPI.message(self.messageConvoId, self.messageId).success(function(response) {
-        console.log(response);
-          return self.message = response;
+        return self.message = response;
       });
 
       this.backToMessages = function(id) {
@@ -46,7 +40,7 @@ angular.module('familyApp')
         self.replyShow = false;
         self.sentMsg = !self.sentMsg;
       }
-      //
+      
       this.deleteBtn = function() {
         $('.reply').find('.text-body').text('');
         this.replyShow = false;

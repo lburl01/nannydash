@@ -1,5 +1,41 @@
 .familyApp-job {
 
+  .confirmation {
+    padding: 0 40px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    position: relative;
+    height: 50px;
+    background: $green;
+    margin: 0 16px;
+    border-radius: 7px;
+    margin-bottom: 40px;
+
+    h4 {
+      float: left;
+      padding-top: 14px;
+      font-size: 20px;
+      font-weight: 100;
+      color: #fff;
+    }
+
+    button {
+      float: right;
+      padding: 7px 13px;
+      background: $yellow;
+      border: transparent;
+      border-radius: 4px;
+      color: #fff;
+      margin-left: 10px;
+      font-size: 18px;
+      position: absolute;
+      right: 30px;
+      top: 8px;
+      outline: none;
+      cursor: pointer;
+    }
+  }
+
   .basic-info {
     width: 70%;
 
@@ -21,6 +57,21 @@
       width: 70%;
     }
 
+    .sitter {
+      background: $red;
+      color: #fff;
+    }
+
+    .parent {
+      background: $green;
+      color: #fff;
+    }
+
+    .confirmed {
+      background: $yellow;
+      color: #fff;
+    }
+
     p {
       padding: 6px 0;
       font-size: 14px;
@@ -30,12 +81,18 @@
       margin: 3px 0;
       border-radius: 4px;
       text-align: center;
+
+      &:nth-child(4) {
+        margin-bottom: 15px !important;
+      }
     }
 
   }
 
   .request-button {
-    margin: 0;
+    margin: 5px 0 !important;
+
+
   }
 
 }

@@ -9,8 +9,6 @@ angular.module('familyApp')
 
       familyAppAPI.allMessages(self.convoId).success(function(response) {
         self.conversationMessage = response
-        console.log(self.conversationMessage);
-
       });
 
       this.recipient = function() {
@@ -43,6 +41,7 @@ angular.module('familyApp')
       }
 
       this.delete = function(e, message) {
+        console.log(message);
         e.stopPropagation();
         familyAppAPI.deleteMessage(message);
         $state.go('messages', {reload:true});

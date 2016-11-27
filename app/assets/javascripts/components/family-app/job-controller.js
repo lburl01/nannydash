@@ -22,4 +22,27 @@ angular.module('familyApp')
         return self.newTime;
       }
 
+      this.confirm = function(id) {
+        var confirmObj = {};
+        confirmObj['id'] = id
+
+        familyAppAPI.confirmJob(confirmObj);
+      }
+      /*************************
+      If user edits input fields, data will be saved in object
+      *************************/
+      this.updateUser = function() {
+        self.changed = true;
+        babysitterDirectoryAPI.updateUser(self.updatedBabysitters);
+      };
+      /*************************
+      When user hits 'submit' object will be patched to database
+      *************************/
+      this.userInputClick = function(key, value, sitter_id) {
+        self.convertRate(value);
+        self.updatedBabysitters['id'] = sitter_id;
+        var updatedUser = self.updatedBabysitters[key] = value;
+        console.log(self.updatedBabysitters);
+      }
+
     }]);

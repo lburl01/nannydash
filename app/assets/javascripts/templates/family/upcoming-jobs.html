@@ -14,7 +14,7 @@
       <ul class="table-head" id="new-jobs-header">
         <li>Job Date</li>
         <li>Time</li>
-        <li>Requested Babysitter</li>
+        <li>Confirmed Babysitter</li>
         <li>Stage</li>
       </ul>
       <div class="table-body">
@@ -23,9 +23,9 @@
           <li>{{job.start_time}} - {{job.end_time}}</li>
           <li>{{job.sitter_name}}</li>
           <li>
-            <p>Waiting on Sitter</p>
-            <p>Waiting on Parent</p>
-            <p>Confirmed</p>
+            <p ng-class="{sitter: job.is_assigned === false}">Waiting on Sitter</p>
+            <p ng-class="{parent: job.is_assigned === true}">Waiting on Parent</p>
+            <p ng-class="{confirmed: job.confirmed === true}">Confirmed</p>
           </li>
         </ul>
       </div>
