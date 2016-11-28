@@ -41,9 +41,10 @@ angular.module('familyApp')
       }
 
       this.delete = function(e, message) {
-        console.log(message);
         e.stopPropagation();
-        familyAppAPI.deleteMessage(message);
+        var deleteObj = {};
+        deleteObj['id'] = message.message_id;
+        familyAppAPI.deleteMessage(deleteObj);
         $state.go('messages', {reload:true});
       }
 
@@ -53,5 +54,6 @@ angular.module('familyApp')
           $state.go('message', {messageId: response.message_id, conversationMessId: response.conversation_id}, {reload: true});
         });
       }
+
 
     }]);

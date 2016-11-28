@@ -4,7 +4,6 @@ angular.module('app')
       Variables
       *************************/
       var self = this;
-
       /*************************
       Loading in dashboard endpoints
       *************************/
@@ -55,7 +54,7 @@ angular.module('app')
       Reformating Date
       *************************/
       this.getDate = function(data) {
-        var myDays = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug", "Sept", "Oct", "Nov", "Dec"];
+        var myMonth = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug", "Sept", "Oct", "Nov", "Dec"];
         var date = new Date(data);
         var month = date.getMonth();
         var day = date.getDate();
@@ -71,11 +70,12 @@ angular.module('app')
         var now = new Date();
         var nowDay = now.getDate();
 
-        for(var i = 0; i <= myDays.length; i++) {
-          if(myDays[i] === myDays[month]) {
+        for(var i = 0; i <= myMonth.length; i++) {
+          if(myMonth[i] === myMonth[month]) {
+            console.log(day);
             if(day === nowDay) {
               console.log('working');
-              return fullDate = myDays[month] + ' ' + day + ' at ' + strTime;
+              return fullDate = myMonth[month] + ' ' + day + ' at ' + strTime;
             }
           }
         }
