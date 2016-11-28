@@ -11,9 +11,10 @@
    Name Fields and Photo Section
   ******************************* -->
   <section class="name">
-    <form name="form">
-      <div class="button" ngf-select ng-model="$ctrl.file" name="file">Upload Image</div>
-      <button type="submit" ng-click="$ctrl.upload()">Submit</button>
+    <form>
+      <label for="picture">Upload Profile Picture</label>
+      <input ngf-select ng-model="$ctrl.file" name="file" type="file" value="picture" accept: 'image/jpeg,image/gif,image/png,image/jpg'>
+      <button type="submit" ng-click="$ctrl.upload()">Upload</button>
     </form>
   </section>
   <!-- ******************************

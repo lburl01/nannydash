@@ -22,10 +22,7 @@
 
     ctrl.upload = function() {
       ctrl.image = ctrl.file.name;
-      console.log(ctrl.file.name);
       $http.patch("/api/v1/sitter.json", ({user: {picture: ctrl.image}, id: ctrl.id})).then(function() {
-        console.log(ctrl.image);
-        console.log({user: {id: ctrl.id, picture: ctrl.image}});
         console.log('successful image update');
       }, function() {
         console.log('Failed to update image');

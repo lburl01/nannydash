@@ -31,7 +31,7 @@ class SittersController < ApplicationController
 
   def update
     @sitter = User.find(params[:id])
-    @sitter.update_attributes(sitter_params)
+    @sitter.update_attribute(:picture, params[:user][:id])
   end
 
   def toggle_deleted_sitter
