@@ -26,9 +26,8 @@ angular.module('app').service('dashboardAPI', ['$http', function($http) {
         });
       },
       message: function(conversationId, messageId) {
-        console.log(conversationId, parseInt(messageId));
         return $http({
-          url: "/conversations/" + conversationId + "/messages/" + parseInt(messageId),
+          url: "/conversations/" + conversationId + "/messages/" + messageId,
           method: "GET"
         });
       },
@@ -51,9 +50,9 @@ angular.module('app').service('dashboardAPI', ['$http', function($http) {
           data: data
         });
       },
-      deleteMessage: function(id, data) {
+      deleteMessage: function(data) {
         return $http({
-          url: "/message/delete/" + id,
+          url: "/message/delete",
           method: "PATCH",
           data: data
         });

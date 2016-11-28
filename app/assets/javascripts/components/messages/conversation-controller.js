@@ -16,11 +16,10 @@ angular.module('app')
       });
 
       this.conversationClick = function(id) {
+        console.log(id);
         dashboardAPI.allMessages(id).success(function(response) {
+          console.log(response);
           $state.go('messages', {
-            messagesParam: {
-              messages: response
-            },
               conversationId: id
             },
             {
@@ -28,4 +27,5 @@ angular.module('app')
             });
         });
       }
+
     }]);

@@ -9,8 +9,6 @@ angular.module('familyApp')
 
       familyAppAPI.allMessages(self.convoId).success(function(response) {
         self.conversationMessage = response
-        console.log(self.conversationMessage);
-
       });
 
       this.recipient = function() {
@@ -44,15 +42,18 @@ angular.module('familyApp')
 
       this.delete = function(e, message) {
         e.stopPropagation();
-        familyAppAPI.deleteMessage(message);
+        var deleteObj = {};
+        deleteObj['id'] = message.message_id;
+        familyAppAPI.deleteMessage(deleteObj);
         $state.go('messages', {reload:true});
       }
 
       this.messagesClick = function(object, key) {
         var conversationId = object.conversation_id;
         familyAppAPI.message(conversationId, key).success(function(response) {
-          $state.go('message', {messageParam: {message: response}, conversationId: response.conversation_id}, {reload: true});
+          $state.go('message', {messageId: response.message_id, conversationMessId: response.conversation_id}, {reload: true});
         });
       }
+
 
     }]);
