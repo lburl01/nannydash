@@ -23,28 +23,40 @@
     }
 
     .save.saveButton {
+        background-color: $yellow !important;
+        border: none;
+        color: white;
+        cursor: pointer;
+        font-family: Roboto;
+        font-size: 1.1rem;
+        padding: 3px;
+        text-shadow: 1px 1px 1px #a06d0f;
         width: 100%;
     }
 
     .save.saveButton:hover {
-        background-color: #93baa2;
+        background-color: $green !important;
     }
 
     section.basic-info {
         width: 70%;
-    }
 
-    #jobDetailsNotes {
-        resize: none;
-        width: 73%;
-    }
-
-    label.jobsListDetailsNotes {
-        position: relative;
-        bottom: 50px;
+        input {
+          background: #d8d8d8 !important;
+        }
+        label.jobsListDetailsNotes {
+            position: relative;
+            background: white;
+        }
+        #jobDetailsNotes {
+            resize: none;
+            width: 73%;
+            background: white;
+        }
     }
 
     div.search::before {
         display: none;
     }
+    @import 'jobs-list-details-mobile'
 }
