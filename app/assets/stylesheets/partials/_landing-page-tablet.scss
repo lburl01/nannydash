@@ -1,4 +1,4 @@
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 960px) {
     .header-bar {
         justify-content: space-around;
         font-size: 1.3rem;
@@ -6,6 +6,7 @@
 
     .topThreeHeader {
         width: 90%;
+        flex-direction: row-reverse;
 
         .newAgency {
             display: none;
@@ -23,7 +24,7 @@
         .newAgencyTablet {
             display: block;
             width: 30%;
-            line-height: 1.5rem;
+            line-height: 2rem;
             color: #9B9B9B;
         }
     }
@@ -35,12 +36,18 @@
         .explanatoryGroup {
             display: flex;
             width: 100%;
-            padding: 0;
-        }
+            padding: 0 2%;
 
-        .explanatoryParagraph {
-            margin-bottom: 3%;
-            line-height: 1.5rem;
+            .explanatoryHeader {
+                margin: 0;
+                font-size: 1.3rem;
+            }
+
+            .explanatoryParagraph {
+                margin-bottom: 3%;
+                line-height: 1.5rem;
+                margin-top: 0;
+            }
         }
 
         .previewImageContainer {

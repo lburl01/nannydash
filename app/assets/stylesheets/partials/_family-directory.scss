@@ -102,3 +102,37 @@ div.list-wrapper {
     }
   }
 }
+
+@include media(tablet) {
+  #families .family-table {
+    .tablet-hide {
+      display: none;
+    }
+    li:nth-child(1) {
+      width: 20%;
+    }
+    li:nth-child(2) {
+      width: 20%;
+    }
+    li:nth-child(3) {
+      width: 50%;
+    }
+  }
+}
+@include media(mobile) {
+  #families.directory-container {
+    padding: 0 0 20px 0;
+    .search:before {
+      top: 377px;
+    }
+  }
+  #families .family-table {
+    .mobile-hide {
+      display: none;
+    }
+    li {
+      width: 33% !important;
+    }
+
+  }
+}

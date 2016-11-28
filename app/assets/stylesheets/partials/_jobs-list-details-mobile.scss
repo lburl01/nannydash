@@ -1,0 +1,9 @@
+@media only screen and (max-width: 550px) {
+  .directory-container {
+    display: flex;
+    flex-direction: column;
+    .name, .basic-info {
+      width: 90%;
+    }
+  }
+}

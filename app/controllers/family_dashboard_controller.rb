@@ -38,7 +38,7 @@ class FamilyDashboardController < ApplicationController
     render json: @five_family_jobs
   end
 
-  def get_all_family_jobs(current_user)
+  def get_all_family_jobs
     @all_family_jobs = Job.get_all_family_jobs(current_user)
 
     render json: @all_family_jobs

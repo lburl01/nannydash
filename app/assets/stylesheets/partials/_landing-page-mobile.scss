@@ -1,21 +1,40 @@
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 600px) {
     .topThreeHeader {
-        flex-direction: column;
-        align-items: center;
+        flex-wrap: wrap-reverse;
+        justify-content: center;
+
+        img {
+            margin-bottom: 20%;
+        }
 
         .newAgencyTablet {
             width: 100%;
+            padding: 1% 0 5%;
+            text-align: center;
         }
 
         .returningUser {
             text-align: center;
-            width: 33%;
+            width: 90%;
+
+            h2 {
+                width: 105%;
+                right: 2.5%;
+            }
         }
     }
 
-    .explanatoryHeader {
-        width: 50%;
-        text-align: center;
-        align-self: center;
+    .explanatoryGroup {
+        .explanatoryHeader {
+            width: 100%;
+            justify-content: center;
+            align-self: center;
+        }
+
+        .explanatoryParagraph {
+            margin-bottom: 3%;
+            line-height: 1.7rem;
+            margin-top: 0.5%;
+        }
     }
 }

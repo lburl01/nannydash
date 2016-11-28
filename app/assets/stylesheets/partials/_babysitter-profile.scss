@@ -143,6 +143,11 @@
         color: #9ad2b1;
         margin-right: 5px;
       }
+
+      &:hover {
+        background: darken($green, 25%) !important;
+        text-shadow: 1px 1px 1px darken($green, 20%) !important;
+      }
     }
 
     .toggleRed {
@@ -155,6 +160,11 @@
         font-size: 14px;
         color: #fd8c81;
         margin-right: 5px;
+      }
+
+      &:hover {
+        background: darken($red, 25%) !important;
+        text-shadow: 1px 1px 1px darken($red, 20%) !important;
       }
     }
 

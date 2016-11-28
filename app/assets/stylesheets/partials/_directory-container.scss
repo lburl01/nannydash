@@ -46,9 +46,10 @@
     }
     h2 {
       float: left;
-      color: $grey;
-      padding-top: 7px;
-      font-size: 21px;
+      color: $purple;
+      font-size: 25px;
+      font-weight: 100;
+      padding-top: 4px;
 
       &:nth-child(3) {
         padding-right: 7px;

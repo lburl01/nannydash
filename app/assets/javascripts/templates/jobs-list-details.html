@@ -41,7 +41,7 @@
         <section class="basic-info">
             <h2>Job Details</h2>
             <label for="sitter_name">Sitter:</label>
-            <input id="sitter_name" type="text" ng-model="$ctrl.job.sitter_name" ng-model-options="{ updateOn: 'blur' }" ng-change="$ctrl.updateCurrent( 'sitter_name', $ctrl.job.sitter_name)">
+            <input id="sitter_name" type="text" ng-model="$ctrl.job.sitter_name" readonly ng-model-options="{ updateOn: 'blur' }" ng-change="$ctrl.updateCurrent( 'sitter_name', $ctrl.job.sitter_name)">
 
             <label for="phone">Phone:</label>
             <input id="phone" type="text" ng-model="$ctrl.job.phone" readonly ng-change="$ctrl.updateCurrent( 'phone', $ctrl.job.phone)">

@@ -11,7 +11,7 @@
    Name Fields and Photo Section
   ******************************* -->
   <section class="name">
-    <img src="{{$ctrl.nanny.picture.url}}" alt="">
+    <img src="{{$ctrl.nanny.picture.url}}" alt="Nanny Photo">
 
     <form action="/api/v1/sitter" enctype="multipart/form-data" accept-charset="UTF-8" method="post">
       <input type="hidden" name="id" value="{{$ctrl.nanny.id}}">

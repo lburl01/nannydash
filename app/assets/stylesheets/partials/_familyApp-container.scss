@@ -9,6 +9,12 @@
     font-weight: 100;
   }
 
+  .no-search {
+    &:before {
+      display: none;
+    }
+  }
+
   .search {
     width: 100% !important;
 
@@ -19,6 +25,15 @@
 
     input {
       width: 220px !important;
+    }
+  }
+
+  .sentMsg {
+    padding: 5px 10px !important;
+
+    h1 {
+      color: #fff !important;
+      padding: 0 !important;
     }
   }
 }
