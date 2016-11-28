@@ -29,7 +29,16 @@ angular.module('app')
       this.toggleCPR = function(id) {
         var certArray = {};
         certArray['id'] = id;
-        babysitterDirectoryAPI.cpr(id);
+        babysitterDirectoryAPI.cpr(certArray).then( function() {
+          return self.user.cpr_certification = !self.user.cpr_certification;
+        });;
+      }
+      this.toggleCert = function(id) {
+        var certArray = {};
+        certArray['id'] = id;
+        babysitterDirectoryAPI.first_aid(certArray).then( function() {
+          return self.user.first_aid_certification = !self.user.first_aid_certification;
+        });;
       }
       /*************************
       If user edits input fields, data will be saved in object
