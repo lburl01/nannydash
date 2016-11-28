@@ -112,7 +112,19 @@ class Job < ApplicationRecord
   end
 
   def self.get_unassigned_jobs_count
-    new_jobs = Job.where("date >= ?", Time.zone.now.beginning_of_day).where({confirmed: false, is_assigned: false, is_deleted: false}).all.count
+    new_jobs = Job.where("date >= ?", Time.zone.now.beginning_of_day).where({confirmed: false, is_assigned: false, is_deleted: false}).all
+
+    @jobs_no_sitter = []
+
+    new_jobs.each do |job|
+      if !job.sitter_id
+        @jobs_no_sitter << job
+      end
+    end
+
+    @jobs_count = @jobs_no_sitter.count
+
+    return @jobs_count
 
   end
 

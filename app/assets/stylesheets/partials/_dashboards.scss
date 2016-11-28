@@ -82,3 +82,13 @@
     padding-top: 35px;
   }
 }
+
+#agency-dashboard {
+  nav button {
+    cursor: pointer;
+    outline: none;
+    &:hover {
+      background: #ecab35;
+    }
+  }
+}
