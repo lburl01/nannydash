@@ -31,7 +31,25 @@ class SittersController < ApplicationController
 
   def update
     @sitter = User.find(params[:id])
-    @sitter.update_attribute(:picture, params[:user][:id])
+
+    @sitter.update_attribute(:picture, params[:user][:picture])
+
+    ## From new form:
+    # Parameters: {"utf8"=>"✓",
+    # "authenticity_token"=>"n4NpirnivKY4QpNa5ezOM7HWOVRn9TRzSV0PGdgxPomgunPHXqHz17IXGG7vboHsg+ODaH6Sm35cfbl28sbpAA==",
+    # "user"=>{"first_name"=>"Testy", "last_name"=>"Testerson",
+    #   "email"=>"testy@testerson.com", "street"=>"1234 Something",
+    #   "city"=>"Raleigh", "state"=>"NC", "zip_code"=>"27704",
+    #   "county"=>"Durham", "phone_number"=>"1234561234", "password"=>"[FILTERED]",
+    #   "role"=>"manager",
+    #   "picture"=>#<ActionDispatch::Http::UploadedFile:0x007fef353695a8 @tempfile=#<Tempfile:/var/folders/z4/xwkw6gj54ps9nwdt2x153k3c0000gn/T/RackMultipart20161127-67596-fn1r3h.JPG>,
+    #   @original_filename="sloppy joes.JPG", @content_type="image/jpeg",
+    #   @headers="Content-Disposition: form-data; name=\"user[picture]\"; filename=\"sloppy joes.JPG\"\r\nContent-Type: image/jpeg\r\n">},
+    #   "commit"=>"Join"}
+
+    ## From update:
+    # Parameters: {"user"=>{"picture"=>"NW trip - foggy forest2.jpg"}, "id"=>2, 
+    # "sitter"=>{"user"=>{"picture"=>"NW trip - foggy forest2.jpg"}, "id"=>2}}
   end
 
   def toggle_deleted_sitter
