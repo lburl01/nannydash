@@ -10,12 +10,12 @@
         <h4>Total: {{$ctrl.jobs.length}} </h4>
       </div>
 
-    <div class="family-table">
+    <div class="family-table new-jobs-table">
       <ul class="table-head" id="new-jobs-header">
         <li ng-click=$ctrl.sortBy('last_name')>Parent</li>
         <li ng-click=$ctrl.sortBy('date')>Job Date</li>
-        <li ng-click=$ctrl.sortBy('start_time')>Posted</li>
-        <li ng-click=$ctrl.sortBy('notes')>Notes</li>
+        <li class="tablet-hide" ng-click=$ctrl.sortBy('start_time')>Posted</li>
+        <li class="tablet-hide" ng-click=$ctrl.sortBy('notes')>Notes</li>
         <li>View Job</li>
       </ul>
 

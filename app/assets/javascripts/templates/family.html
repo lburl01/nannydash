@@ -1,8 +1,8 @@
 <div class="panel-heading" ng-click="$ctrl.select()" ng-blur="alert('blur')">
   <li>{{$ctrl.family.first_name}}</li>
   <li>{{$ctrl.family.last_name}}</li>
-  <li>{{$ctrl.family.email}}</li>
-  <li>{{$ctrl.family.about | limitTo: 20}}</li>
+  <li class="mobile-hide">{{$ctrl.family.email}}</li>
+  <li class="tablet-hide">{{$ctrl.family.about | limitTo: 20}}</li>
   <li>
     <span ng-click="$ctrl.handleToggle($ctrl.family.family_id)"
       ng-class="{'active': $ctrl.family.active, 'inactive': !$ctrl.family.active}">
