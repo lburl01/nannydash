@@ -20,6 +20,10 @@
       ctrl.id = ctrl.nanny.id;
     };
 
+    ctrl.getSitter = function() {
+      ctrl.nanny = nannyApp.user(ctrl.id);
+    };
+
     ctrl.updateCurrent = function(key, value) {
       ctrl.updateNanny[key] = value;
       ctrl.savedText = false;

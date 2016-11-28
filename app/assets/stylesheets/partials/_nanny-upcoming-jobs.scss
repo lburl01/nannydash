@@ -26,7 +26,7 @@ upcoming-job-info {
 
 @media (max-width: 800px) {
   #new-nanny-jobs {
-    padding: 0 5px
+    padding: 0 5px;
   }
   .family-table {
     li {
@@ -34,6 +34,14 @@ upcoming-job-info {
     }
     .notes {
       display: none;
+    }
+  }
+}
+@media (max-width: 900px) {
+  #nanny-dashboard {
+    button.claim-job {
+      margin-top: 17px !important;
+      width: 65% !important;
     }
   }
 }

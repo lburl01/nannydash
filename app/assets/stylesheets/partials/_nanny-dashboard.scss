@@ -6,6 +6,12 @@
     color: $purple;
     font-weight: 100;
   }
+  .user {
+    i,
+    h4 {
+      cursor: pointer;
+    }
+  }
 }
 
 #nanny-dashboard-container {
