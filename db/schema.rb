@@ -28,8 +28,8 @@ ActiveRecord::Schema.define(version: 20161115185150) do
     t.integer  "family_id",                                   null: false
     t.integer  "sitter_id"
     t.date     "date",        default: '2016-11-28',          null: false
-    t.time     "start_time",  default: '2000-01-01 14:10:53', null: false
-    t.time     "end_time",    default: '2000-01-01 17:10:53', null: false
+    t.time     "start_time",  default: '2000-01-01 14:13:32', null: false
+    t.time     "end_time",    default: '2000-01-01 17:13:32', null: false
     t.text     "notes"
     t.boolean  "confirmed",   default: false,                 null: false
     t.boolean  "is_assigned", default: false,                 null: false
