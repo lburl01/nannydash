@@ -36,7 +36,7 @@
         <input id="zip" type="text" ng-model="$ctrl.jobInfo.zip_code">
         <!-- Notes Field -->
         <label for="name">Notes:</label>
-        <textarea type="text" name="posted" value="">{{$ctrl.jobInfo.notes ? "" : "No Notes"}}</textarea>
+        <textarea type="text" name="posted" value="">{{$ctrl.jobInfo.notes === "" ? "None" : $ctrl.jobInfo.notes}}</textarea>
 
       </section>
 

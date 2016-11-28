@@ -6,7 +6,6 @@
 
       user: function() {
         return $http.get("/user/logged_in.json").then(function(response) {
-          console.log(response.data);
           return response.data;
         });
       },

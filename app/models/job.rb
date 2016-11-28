@@ -146,7 +146,7 @@ class Job < ApplicationRecord
                         "date" => job.date, "confirmed" => job.confirmed,
                         "start_time" => job.start_time.strftime("%I:%M %p"),
                         "end_time" => job.end_time.strftime("%I:%M %p"),
-                        "notes" => job.notes}
+                        "notes" => job.notes, "job_id" => job.id}
     end
 
     return @job_details
