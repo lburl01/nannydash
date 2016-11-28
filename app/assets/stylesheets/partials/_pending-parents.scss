@@ -1,12 +1,10 @@
 .pending-parents {
-
   .table-head li {
     cursor: pointer !important;
     &:nth-child(5) {
       cursor: default !important;
     }
   }
-
   li {
     cursor: default !important;
     width: 15%;
@@ -20,7 +18,6 @@
   li:nth-child(5) {
     width: 15% !important;
   }
-
   div.panel-heading {
     display: flex;
   }
@@ -72,5 +69,47 @@ pending-parent-info-form {
   .redDelete {
     background-color: $red !important;
     text-shadow: 1px 1px 1px darken($red, 30%);
+  }
+}
+
+@include media(tablet) {
+  .pending-parents {
+    li.tablet-hide {
+      display: none;
+    }
+    .table-head {
+      li {
+        width: 25% !important;
+      }
+    }
+    .panel-heading {
+      li {
+        width: 25% !important;
+      }
+    }
+  }
+
+}
+
+@include media(mobile) {
+  .pending-sitter-wrapper {
+    padding: 0 0 20px 0;
+    li.mobile-hide {
+      display: none;
+    }
+    .table-head {
+      li {
+        width: 33% !important;
+      }
+    }
+    .panel-heading {
+      li {
+        width: 33% !important;
+      }
+    }
+    .search:before {
+      top: 377px;
+      left: 37px;
+    }
   }
 }
