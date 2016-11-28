@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe FamiliesController, type: :controller do
   include Devise::Test::ControllerHelpers
-  
+
   describe "PATCH #toggle_active_family" do
     it 'toggles the active column value' do
       @user = create(:user)
@@ -51,7 +51,7 @@ RSpec.describe FamiliesController, type: :controller do
     it 'updates a record' do
       @user = create(:user)
 
-      process :update, method: :patch, params: { id: @user.id, user: { "first_name" => "Lori" } }
+      process :update, method: :patch, params: { user_id: @user.id, user: { "first_name" => "Lori" } }
 
       @user.reload
 
