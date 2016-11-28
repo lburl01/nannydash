@@ -4,14 +4,15 @@ angular.module('app')
       Variables
       *************************/
       var self = this;
-      this.messageId = $stateParams.messageParam.message.message_id;
-      this.messageConvoId = $stateParams.messageParam.message.conversation_id;
+      this.messageId = $stateParams.messageId;
+      this.messageConvoId = $stateParams.conversationMessId;
       this.replyShow = false;
-      this.message;
       this.sentMsg = false;
+      console.log($stateParams);
 
       dashboardAPI.message(self.messageConvoId, self.messageId).success(function(response) {
-          return self.message = response;
+        console.log(response);
+        return self.message = response;
       });
 
       this.backToMessages = function(id) {

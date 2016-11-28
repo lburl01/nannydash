@@ -72,11 +72,7 @@ angular.module('app')
 
         for(var i = 0; i <= myMonth.length; i++) {
           if(myMonth[i] === myMonth[month]) {
-            console.log(day);
-            if(day === nowDay) {
-              console.log('working');
-              return fullDate = myMonth[month] + ' ' + day + ' at ' + strTime;
-            }
+            return fullDate = myMonth[month] + ' ' + day + ' at ' + strTime;
           }
         }
       }

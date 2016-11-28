@@ -11,10 +11,10 @@ angular.module('app')
       this.init = function() {
         dashboardAPI.allMessages(self.convoId).success(function(response) {
           self.conversationMessage = response
-          self.conversationMessage;
         });
       }
       this.init();
+
 
       this.recipient = function() {
         var count = 0;
@@ -45,30 +45,20 @@ angular.module('app')
         }
       }
 
-      this.delete = function(e, message, key) {
+      this.delete = function(e, message) {
         e.stopPropagation();
-        //console.log(message);
-        dashboardAPI.deleteMessage(key, message);
-        self.init();
-        // dashboardAPI.allMessages(self.convoId).success(function(response) {
-        //   $state.go('messages', {
-        //     messagesParam: {
-        //       messages: response
-        //     },
-        //       conversationId: message.conversation_id
-        //     },
-        //     {
-        //       reload: true
-        //     });
-        // });
+        var deleteObj = {};
+        deleteObj['id'] = message.message_id;
+        dashboardAPI.deleteMessage(deleteObj).success(function(response) {
+          self.init();
+        });
       }
 
       this.messagesClick = function(object, key) {
         var conversationId = object.conversation_id;
         dashboardAPI.message(conversationId, key).success(function(response) {
           console.log(response);
-          $state.go('message', {messageParam: {message: response}, conversationId: response.conversation_id}, {reload: true});
+          $state.go('message', {messageId: response.message_id, conversationMessId: response.conversation_id});
         });
       }
-
     }]);

@@ -1,0 +1,89 @@
+<div class="directory-container" id="nanny-profile">
+  <!-- ******************************
+   Drop Down County Field
+  ******************************* -->
+  <div class="list">
+    <div class="title-container">
+      <h1>{{$ctrl.nanny.first_name}} {{$ctrl.nanny.last_name}}</h1>
+    </div>
+  </div>
+  <!-- ******************************
+   Name Fields and Photo Section
+  ******************************* -->
+  <section class="name">
+    <img src="{{$ctrl.nanny.picture.url}}" alt="">
+
+    <form action="/api/v1/sitter" enctype="multipart/form-data" accept-charset="UTF-8" method="post">
+      <input type="hidden" name="id" value="{{$ctrl.nanny.id}}">
+
+      <%= image_tag("upload.svg", :alt => "Upload image")%>
+      <input upload-watcher id="image-upload" class="upload" accept="image/jpeg,image/gif,image/png,image/jpg" type="file" name="user[picture]">
+      <label for="image-upload"><span>Choose a file</span></label>
+      <input class="submit-photo" type="submit" value="Submit">
+    </form>
+  </section>
+  <!-- ******************************
+   Basic Information <Section></Section>
+  ******************************* -->
+  <section class="basic-info">
+    <h2>Basic Information</h2>
+    <!-- Phone Field -->
+    <label for="phone">Phone:</label>
+    <input id="phone" type="text"  ng-model="$ctrl.nanny.phone_number" ng-model-options="{updateOn: 'blur'}" ng-change="$ctrl.updateCurrent( 'phone_number', $ctrl.nanny.phone_number)">
+    <!-- Email Field -->
+    <label for="email">Email:</label>
+    <input id="email" type="text" ng-model="$ctrl.nanny.email" ng-model-options="{updateOn: 'blur'}" ng-change="$ctrl.updateCurrent( 'email', $ctrl.nanny.email)">
+    <!-- Birthday Field -->
+    <label for="birthday">Birthday:</label>
+    <input id="birthday" type="text" ng-model="$ctrl.nanny.birthday" ng-model-options="{updateOn: 'blur'}" ng-change="$ctrl.updateCurrent( 'street', $ctrl.nanny.birthday)">
+    <!-- Street Field -->
+    <label for="street">Street:</label>
+    <input id="street" type="text" ng-model="$ctrl.nanny.street" ng-model-options="{updateOn: 'blur'}" ng-change="$ctrl.updateCurrent( 'city', $ctrl.nanny.street)">
+    <!-- City Field -->
+    <label for="city">City:</label>
+    <input id="city" type="text" ng-model="$ctrl.nanny.city" ng-model-options="{updateOn: 'blur'}" ng-change="$ctrl.updateCurrent( 'county', $ctrl.nanny.city)">
+    <!-- State Field -->
+    <label for="state">State:</label>
+    <input id="state" type="text" ng-model="$ctrl.nanny.state" ng-model-options="{updateOn: 'blur'}" ng-change="$ctrl.updateCurrent( 'state', $ctrl.nanny.state)">
+    <!-- zip Field -->
+    <label for="zip">zip:</label>
+    <input id="zip" type="text" ng-model="$ctrl.nanny.zip_code" ng-model-options="{updateOn: 'blur'}" ng-change="$ctrl.updateCurrent( 'zip_code', $ctrl.nanny.zip_code)">
+    <h2 class="rec-title">Recommendations</h2>
+    <!-- Recommendation 1 Field -->
+    <div class="rec">
+      <label>1.</label>
+      <input id="rec-name-1" type="text" ng-model="$ctrl.nanny.recommendation_one_name" ng-model-options="{updateOn: 'blur'}" ng-change="$ctrl.updateCurrent( 'recommendation_one_name', $ctrl.nanny.recommendation_one_name)">
+      <input id="rec-phone-1" type="text" ng-model="$ctrl.nanny.recommendation_one_email" ng-model-options="{updateOn: 'blur'}" ng-change="$ctrl.updateCurrent( 'recommendation_one_email', $ctrl.nanny.recommendation_one_email)">
+    </div>
+    <!-- Recommendation 2 Field -->
+    <div class="rec">
+      <label>2.</label>
+      <input id="rec-name-2" type="text" ng-model="$ctrl.nanny.recommendation_two_name" ng-model-options="{updateOn: 'blur'}" ng-change="$ctrl.updateCurrent( 'recommendation_two_name', $ctrl.nanny.recommendation_two_name)">
+      <input id="rec-phone-2" type="text" ng-model="$ctrl.nanny.recommendation_two_email" ng-model-options="{updateOn: 'blur'}" ng-change="$ctrl.updateCurrent( 'recommendation_two_email', $ctrl.nanny.recommendation_two_email)">
+    </div>
+    <!-- Recommendation 3 Field -->
+    <div class="rec">
+      <label>3.</label>
+      <input id="rec-name-3" type="text" ng-model="$ctrl.nanny.recommendation_three_name" ng-model-options="{ updateOn: 'blur' }" ng-change="$ctrl.updateCurrent('recommendation_three_name', $ctrl.nanny.recommendation_three_name)">
+      <input id="rec-phone-3" type="text" ng-model="$ctrl.nanny.recommendation_three_email" ng-model-options="{ updateOn: 'blur' }" ng-change="$ctrl.updateCurrent('recommendation_three_email', $ctrl.nanny.recommendation_three_email)">
+    </div>
+  </section>
+  <!-- ******************************
+   Key Information Section
+  ******************************* -->
+  <section class="key-info">
+    <h2>Key Information</h2>
+    <!-- Certifications Field -->
+    <div class="cert">
+      <label>Certifications</label>
+      <span ng-show="$ctrl.nanny.cpr_certification">CPR Certified</span>
+      <span ng-show="$ctrl.nanny.first_aid_certification">First-Aid Certified</span>
+    </div>
+    <!-- Hourly Rate Field -->
+    <label for="rate">Hourly Rate:</label>
+    <input id="rate" type="text" ng-model="$ctrl.nanny.hourly_rate" ng-model-options="{updateOn: 'blur'}" ng-change="$ctrl.updateCurrent('hourly_rate', $ctrl.nanny.hourly_rate)">
+
+    <input ng-click="$ctrl.save()" name="save" class="save" type="submit" ng-class="{'saved': $ctrl.savedText, 'disabled': $ctrl.deletedText}"  value="{{$ctrl.savedText ? 'Saved!' : 'Update Account'}}" type="button"></input>
+  </section>
+
+</div>

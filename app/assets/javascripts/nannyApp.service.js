@@ -6,7 +6,17 @@
 
       user: function() {
         return $http.get("/user/logged_in.json").then(function(response) {
+          console.log(response.data);
           return response.data;
+        });
+      },
+
+      updateUser: function(id, data) {
+        return $http.patch("api/v1/sitter.json", {user: data, id: id}).then(function(response) {
+          console.log(data);
+          return response.data;
+        }, function() {
+          console.log('Failed to update sitter profile');
         });
       },
 

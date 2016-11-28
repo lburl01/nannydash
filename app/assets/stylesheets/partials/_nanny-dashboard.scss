@@ -16,6 +16,51 @@
     section {
       width: 48%;
       padding: 0 3%;
+
+      th {
+        &:nth-child(1) {
+          width: 30%;
+        }
+        &:nth-child(2) {
+          width: 30%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  #nanny-dashboard-container {
+    padding: 2%;
+    section {
+      width: 50% !important;
+      padding: 0 1% !important;
+    }
+  }
+}
+@media (max-width: 800px) {
+  #nanny-dashboard-container {
+    .dashboard-container {
+      flex-direction: column;
+      align-items: center;
+      section {
+        width: 100% !important;
+        padding: 5% 3% !important;
+      }
+    }
+  }
+}
+@media (max-width: 600px) {
+  #nanny-dashboard {
+    nav {
+      .mobile-hide {
+        display: none !important;
+      }
+      .user {
+        button {
+          margin: 0 !important;
+        }
+      }
     }
   }
 }

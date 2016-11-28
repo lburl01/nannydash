@@ -41,7 +41,11 @@ angular.module('familyApp').service('familyAppAPI', ['$http', '$window', functio
       message: function(conversationId, messageId) {
         return $http({
           url: "/conversations/" + conversationId + "/messages/" + parseInt(messageId),
-          method: "GET"
+          method: "GET",
+          params: {
+            messageId: messageId,
+            conversationId: conversationId
+          }
         });
       },
       conversationMessages: function() {
@@ -53,7 +57,10 @@ angular.module('familyApp').service('familyAppAPI', ['$http', '$window', functio
       allMessages: function(id) {
         return $http({
           url: "/conversations/"+ id +"/messages",
-          method: "GET"
+          method: "GET",
+          params: {
+            conversationId: id,
+          }
         });
       },
       reply: function(data) {
