@@ -15,8 +15,11 @@
 
     <form action="/api/v1/sitter" enctype="multipart/form-data" accept-charset="UTF-8" method="post">
       <input type="hidden" name="id" value="{{$ctrl.nanny.id}}">
-      <input accept="image/jpeg,image/gif,image/png,image/jpg" type="file" name="user[picture]">
-      <input type="submit" value="Submit">
+
+      <%= image_tag("upload.svg", :alt => "Upload image")%>
+      <input upload-watcher id="image-upload" class="upload" accept="image/jpeg,image/gif,image/png,image/jpg" type="file" name="user[picture]">
+      <label for="image-upload"><span>Choose a file</span></label>
+      <input class="submit-photo" type="submit" value="Submit">
     </form>
   </section>
   <!-- ******************************
