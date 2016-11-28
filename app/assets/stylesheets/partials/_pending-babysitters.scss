@@ -112,13 +112,61 @@ span.pending-sitter-buttons {
   }
 }
 
-input.searchBa::before {
-  font-family: fontawesome;
-  position: absolute;
-  content: "\f002";
-  font-size: 16px;
-  color: #42282F;
-  right: 0px;
-  top: 0;
-
+<<<<<<< HEAD
+@media (max-width: 800px) {
+  .search h1 {
+    display: none;
+  }
+  #pending-sitter-list {
+    li:nth-child(1) {
+      width: 30% !important;
+    }
+    li:nth-child(2) {
+      display: none;
+    }
+    li:nth-child(3) {
+      width: 40% !important;
+    }
+    li:nth-child(4) {
+      width: 15% !important;
+    }
+    li:nth-child(5) {
+      display: none;
+    }
+    li:nth-child(6) {
+      width: 15% !important;
+    }
+  }
 }
+@include media(largeMobile) {
+  .pending-sitters {
+    padding: 0 0 20px 0;
+    .search:before {
+      right: 220px;
+    }
+  }
+
+  #pending-sitter-list {
+    li:nth-child(4) {
+      display: none;
+    }
+    li:nth-child(1) {
+      width: 30% !important;
+    }
+    li:nth-child(3) {
+      width: 50% !important;
+    }
+    li:nth-child(6) {
+      width: 20% !important;
+    }
+  }
+}
+
+@include media(mobile) {
+  .pending-sitters {
+    padding: 0 0 20px 0;
+    .search:before {
+      left: 35px;
+      top: 377px;
+    }
+  }

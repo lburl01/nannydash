@@ -43,3 +43,34 @@ new-job {
     }
   }
 }
+
+@include media(tablet) {
+  #new-jobs {
+    #new-jobs-header {
+      li.tablet-hide {
+        display: none;
+      }
+      li {
+        width: 33% !important;
+      }
+    }
+    .family-table .table-body {
+      li.tablet-hide {
+        display: none;
+      }
+      li {
+        width: 33% !important;
+      }
+    }
+  }
+}
+
+@include media(mobile) {
+  #new-jobs.directory-container {
+    padding: 0 0 20px 0;
+    .search:before {
+      top: 377px;
+      left: 37px;
+    }
+  }
+}

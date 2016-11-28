@@ -1,4 +1,4 @@
-<div class="directory-container">
+<div class="directory-container pending-sitter-wrapper">
   <div class="list-wrapper">
 
     <div class="search">
@@ -26,8 +26,8 @@
       <ul class="table-head">
         <li ng-click=$ctrl.sortBy('first_name')>First Name</li>
         <li ng-click=$ctrl.sortBy('last_name')>Last Name</li>
-        <li ng-click=$ctrl.sortBy('phone_number')>Phone</li>
-        <li ng-click=$ctrl.sortBy('about')>About</li>
+        <li class="mobile-hide" ng-click=$ctrl.sortBy('phone_number')>Phone</li>
+        <li class="tablet-hide" ng-click=$ctrl.sortBy('about')>About</li>
         <li>Application</li>
       </ul>
 
