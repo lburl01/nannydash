@@ -24,7 +24,7 @@ class Message < ApplicationRecord
   end
 
   def self.get_new_messages_count(current_user)
-    
+
     new_messages = Message.where( { recipient_id: current_user.id, is_deleted: false, is_read: false } ).all.count
 
   end
@@ -37,7 +37,7 @@ class Message < ApplicationRecord
     @messages.each do |message|
       sender_name = "#{message.sent_message.first_name} #{message.sent_message.last_name}"
       @message_hash[message.id] = { "body" => message.body,
-                            "subject" => message.subject,
+                            "subject" => message.subject, "message_id" => message.id,
                             "created_at" => message.created_at.strftime("%m/%d/%Y %I:%M %p"),
                             "conversation_id" => message.conversation_id,
                             "is_read" => message.is_read,

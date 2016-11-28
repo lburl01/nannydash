@@ -48,12 +48,12 @@
               conversationId: null
           }
       }).state('message', {
-          url: '/message/:conversationId',
+          url: '/message/:messageId',
           templateUrl: 'family/message.html',
           controller: 'messageController as message',
           params: {
-              messageParam: null,
-              conversationId: null
+              messageId: null,
+              conversationMessId: null
           }
       }).state('new-message', {
           url: '/new-message',

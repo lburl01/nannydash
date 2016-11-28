@@ -4,24 +4,21 @@ angular.module('familyApp')
       Variables
       *************************/
       var self = this;
-      this.messageId = $stateParams.messageParam.message.message_id;
-      this.messageConvoId = $stateParams.messageParam.message.conversation_id;
+      this.messageId = $stateParams.messageId;
+      this.messageConvoId = $stateParams.conversationMessId;
       this.replyShow = false;
       this.message;
       this.sentMsg = false;
 
       familyAppAPI.message(self.messageConvoId, self.messageId).success(function(response) {
-        console.log(response);
-          return self.message = response;
+        return self.message = response;
       });
 
       this.backToMessages = function(id) {
         familyAppAPI.allMessages(id).success(function(response) {
           console.log(response);
           $state.go('messages', {
-            messagesParam: {
-              messages: response
-            },
+              messagesParam: response,
               conversationId: id
             },
             {
@@ -43,7 +40,7 @@ angular.module('familyApp')
         self.replyShow = false;
         self.sentMsg = !self.sentMsg;
       }
-      //
+      
       this.deleteBtn = function() {
         $('.reply').find('.text-body').text('');
         this.replyShow = false;

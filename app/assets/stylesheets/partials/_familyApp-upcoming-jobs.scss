@@ -23,6 +23,21 @@
         width: 48% !important;
       }
 
+      .sitter {
+        background: $red;
+        color: #fff;
+      }
+
+      .parent {
+        background: $green;
+        color: #fff;
+      }
+
+      .confirmed {
+        background: $yellow;
+        color: #fff;
+      }
+
       p {
         width: 33.3%;
         float: left;
@@ -32,6 +47,7 @@
         border-radius: 4px;
         padding: 7px;
         margin: 0 5px;
+        color: #aaa;
 
         &:nth-child(3) {
           width: 25%;

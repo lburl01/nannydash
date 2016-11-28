@@ -41,7 +41,11 @@ angular.module('familyApp').service('familyAppAPI', ['$http', '$window', functio
       message: function(conversationId, messageId) {
         return $http({
           url: "/conversations/" + conversationId + "/messages/" + parseInt(messageId),
-          method: "GET"
+          method: "GET",
+          params: {
+            messageId: messageId,
+            conversationId: conversationId
+          }
         });
       },
       conversationMessages: function() {
@@ -53,7 +57,10 @@ angular.module('familyApp').service('familyAppAPI', ['$http', '$window', functio
       allMessages: function(id) {
         return $http({
           url: "/conversations/"+ id +"/messages",
-          method: "GET"
+          method: "GET",
+          params: {
+            conversationId: id,
+          }
         });
       },
       reply: function(data) {
@@ -83,6 +90,18 @@ angular.module('familyApp').service('familyAppAPI', ['$http', '$window', functio
           method: "GET"
         });
       },
+      confirmedJobs: function() {
+        return $http({
+          url: "/family_dash/confirmed_jobs",
+          method: "GET"
+        });
+      },
+      allJobs: function() {
+        return $http({
+          url: "/family_dash/all_family_jobs",
+          method: "GET"
+        });
+      },
       activeBabysitters: function() {
         return $http({
           url: "/users/all_active",
@@ -97,14 +116,22 @@ angular.module('familyApp').service('familyAppAPI', ['$http', '$window', functio
       },
       cpr: function(id) {
         return $http({
-          url: "api/v1/sitter/cpr/" + id,
+          url: "/api/v1/sitter/cpr/" + id,
           method: "PATCH"
         });
       },
       first_aid: function(id) {
         return $http({
-          url: "api/v1/sitter/first_aid/" + id,
+          url: "/api/v1/sitter/first_aid/" + id,
           method: "PATCH"
+        });
+      },
+      confirmJob: function(id) {
+        console.log(id);
+        return $http({
+          url: "api/v1/job/confirm",
+          method: "PATCH",
+          data: id
         });
       }
     };

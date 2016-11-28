@@ -5,7 +5,7 @@ angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPag
             url: '/',
             controller: 'dashboardController as dashboard',
             templateUrl: 'dashboard.html'
-            
+
         }).state('jobs', {
             url: '/jobs',
             controller: 'allJobsController as allJobs',
@@ -61,12 +61,12 @@ angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPag
             templateUrl: 'conversations.html',
             controller: 'conversationController as conversations'
         }).state('message', {
-            url: '/message/:conversationId',
+            url: '/message/:messageId',
             templateUrl: 'message.html',
             controller: 'messageController as message',
             params: {
-                messageParam: null,
-                conversationId: null
+                messageId: null,
+                conversationMessId: null
             },
         }).state('messages', {
             url: '/messages/:conversationId',
