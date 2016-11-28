@@ -17,13 +17,15 @@
 
 #new-nanny-jobs {
   padding: 0 80px;
-  ul {
-    display: flex;
-    li:nth-child(3) {
-      width: 25%;
-    }
-    li:nth-child(5) {
-      width: 20%;
+  .family-table {
+    ul {
+      display: flex;
+      li:nth-child(3) {
+        width: 25%;
+      }
+      li:nth-child(5) {
+        width: 20%;
+      }
     }
   }
   div.title-container {
