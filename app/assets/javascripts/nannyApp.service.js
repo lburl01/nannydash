@@ -11,8 +11,8 @@
         });
       },
 
-      updateUser: function(data) {
-        return $http.patch("api/v1/sitter.json", {user: data}).then(function(response) {
+      updateUser: function(id, data) {
+        return $http.patch("api/v1/sitter.json", {user: data, id: id}).then(function(response) {
           console.log(data);
           return response.data;
         }, function() {

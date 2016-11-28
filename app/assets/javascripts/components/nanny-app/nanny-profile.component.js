@@ -8,29 +8,28 @@
       nanny: '<'
     },
     templateUrl: 'nanny/nanny-profile.html',
-    controller: ['nannyApp', 'Upload', '$http', NannyProfile]
+    controller: ['nannyApp', '$http', NannyProfile]
   });
 
-  function NannyProfile(nannyApp, Upload, $http) {
+  function NannyProfile(nannyApp, $http) {
     var ctrl = this;
     ctrl.file = "";
+    ctrl.updateNanny = {};
 
     ctrl.$onInit = function() {
       ctrl.id = ctrl.nanny.id;
-      console.log(ctrl.id);
     };
 
-    ctrl.upload = function() {
-      ctrl.image = ctrl.file.name;
-      console.log(ctrl.file.name);
-      $http.patch("/api/v1/sitter.json", ({user: {picture: ctrl.image}, id: ctrl.id})).then(function() {
-        console.log(ctrl.image);
-        console.log({user: {id: ctrl.id, picture: ctrl.image}});
-        console.log('successful image update');
-      }, function() {
-        console.log('Failed to update image');
+    ctrl.updateCurrent = function(key, value) {
+      ctrl.updateNanny[key] = value;
+      ctrl.savedText = false;
+    };
+
+    ctrl.save = function() {
+      nannyApp.updateUser(ctrl.id, ctrl.updateNanny).then(function() {
+        ctrl.savedText = true;
+        console.log('profile info saved');
       });
     };
-
   }
 })();
