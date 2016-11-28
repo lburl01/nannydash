@@ -89,6 +89,12 @@ angular.module('familyApp').service('familyAppAPI', ['$http', '$window', functio
           method: "GET"
         });
       },
+      allJobs: function() {
+        return $http({
+          url: "/family_dash/all_family_jobs",
+          method: "GET"
+        });
+      },
       activeBabysitters: function() {
         return $http({
           url: "/users/all_active",

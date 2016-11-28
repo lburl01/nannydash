@@ -4,22 +4,29 @@ angular.module('familyApp')
       Variables
       *************************/
       var self = this;
-      this.id = $stateParams.jobId
+      this.id = $stateParams.jobId;
+      this.updatedJob = {};
 
-      familyAppAPI.jobDetails(this.id).success(function(response) {
-        console.log(response);
-        return self.familyJob = response;
-      });
-
-      this.date = function(date) {
-        console.log(date);
-        return new Date(date);
+      this.init = function() {
+        familyAppAPI.jobDetails(this.id).success(function(response) {
+          console.log(response);
+          self.date(response.date);
+          self.startTime(response.start_time);
+          self.endTime(response.end_time);
+          self.familyJob = response;
+        });
       }
 
-      this.time = function(time) {
-        self.newTime = time.slice(-2);
+      this.date = function(date) {
+        self.jobDate = date;
+      }
 
-        return self.newTime;
+      this.startTime = function(time) {
+        self.newStartTime = time.slice(0, 5);
+      }
+
+      this.endTime = function(time) {
+        self.newEndTime = time.slice(0, 5);
       }
 
       this.confirm = function(id) {
@@ -29,20 +36,33 @@ angular.module('familyApp')
         familyAppAPI.confirmJob(confirmObj);
       }
       /*************************
-      If user edits input fields, data will be saved in object
+      When user hits 'submit' object will be patched to database
       *************************/
       this.updateUser = function() {
         self.changed = true;
         babysitterDirectoryAPI.updateUser(self.updatedBabysitters);
       };
       /*************************
-      When user hits 'submit' object will be patched to database
+      If user edits input fields, data will be saved in object
       *************************/
-      this.userInputClick = function(key, value, sitter_id) {
-        self.convertRate(value);
-        self.updatedBabysitters['id'] = sitter_id;
-        var updatedUser = self.updatedBabysitters[key] = value;
-        console.log(self.updatedBabysitters);
+      this.convertTime = function(key, value) {
+        //var jobId = self.familyJob.job_id;
+
+        /// start hour format
+        var hours = value.getHours();
+        hours = ("0" + hours).slice(-2);
+        // start minutes format
+        var mins = value.getMinutes();
+        mins = ("0" + mins).slice(-2);
+        var time = hours + ':' + mins;
+        console.log(time);
+      }
+
+      this.convertDate = function(key, value) {
+        var date = new Date(value);
+        var fullDate = date.getFullYear()+'-' + (date.getMonth()+1) + '-'+date.getDate();
+        self.updatedJob['date'] = fullDate;
+        console.log(self.updatedJob);
       }
 
     }]);

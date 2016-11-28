@@ -14,6 +14,7 @@ angular.module('app')
       this.userInput = "";
       self.visibility = false;
       this.changed = true;
+
       /*************************
       Loads in current user on refresh
       *************************/
@@ -25,7 +26,10 @@ angular.module('app')
       /*************************
       Verifying Certifications
       *************************/
-      this.addCerts = function() {
+      this.toggleCPR = function(id) {
+        var certArray = {};
+        certArray['id'] = id;
+        babysitterDirectoryAPI.cpr(id);
       }
       /*************************
       If user edits input fields, data will be saved in object

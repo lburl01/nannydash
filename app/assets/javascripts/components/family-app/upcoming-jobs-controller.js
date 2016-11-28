@@ -4,16 +4,10 @@ angular.module('familyApp')
       Variables
       *************************/
       var self = this;
-      this.jobs = [];
 
-      familyAppAPI.pendingJobs().success(function(response) {
+      familyAppAPI.allJobs().success(function(response) {
         console.log(response);
         self.jobs = response;
-      });
-
-      familyAppAPI.confirmedJobs().success(function(response) {
-        self.jobs = response;
-        console.log(self.jobs);
       });
 
 

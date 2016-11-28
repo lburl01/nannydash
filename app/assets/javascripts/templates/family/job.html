@@ -1,4 +1,4 @@
-<div class="new-jobs-info-wrapper familyApp-job">
+<div class="new-jobs-info-wrapper familyApp-job" ng-init="job.init()">
   <div class="directory-container new-nanny-job-info">
 
     <div class="list">
@@ -18,19 +18,19 @@
     <section class="basic-info">
       <!-- Family -->
       <label for="name">Date:</label>
-      <input type="date" ng-init="jobDate = job.date(job.familyJob.date)" ng-model="jobDate" ng-model-options="{ updateOn: 'blur' }" ng-change="$ctrl.updateCurrent( 'email', $ctrl.job.email)">
+      <input type="date" ng-model="job.jobDate" value="{{job.jobDate}}" ng-model-options="{ updateOn: 'blur' }" ng-change="job.convertDate('date', job.jobDate)">
       <!-- Phone Field -->
       <label for="phone">Start Time:</label>
-      <input type="time" value="07:30">
+      <input type="time" ng-model="job.newStartTime" value="{{job.newStartTime}}" ng-model-options="{ updateOn: 'blur' }" ng-change="job.convertTime('start_time', job.newStartTime)">
       <!-- Email Field -->
       <label for="email">End Time:</label>
-      <input type="time" value="14:30">
+      <input type="time" ng-model="job.newEndTime" value="{{job.newEndTime}}" ng-model-options="{ updateOn: 'blur' }" ng-change="job.convertTime('end_time', job.newEndTime)">
       <!-- Street Field -->
       <label for="street">Requested Babysitter</label>
       <input type="text" ng-model="job.familyJob.sitter_name" ng-model-options="{ updateOn: 'blur' }" ng-change="$ctrl.updateCurrent( 'street', $ctrl.job.street)">
       <!-- City Field -->
-      <label ng-show="job.familyJob.sitter_name" for="city">Confirmed Babysitter</label>
-      <input ng-show="job.familyJob.sitter_name" type="text" ng-model="job.familyJob.sitter_name" ng-model-options="{ updateOn: 'blur' }" ng-change="$ctrl.updateCurrent( 'city', $ctrl.job.city)">
+      <label ng-show="job.familyJob.confirmed" for="city">Confirmed Babysitter</label>
+      <input ng-show="job.familyJob.confirmed" type="text" ng-model="job.familyJob.sitter_name" ng-model-options="{ updateOn: 'blur' }" ng-change="$ctrl.updateCurrent( 'city', $ctrl.job.city)">
       <!-- State Field -->
       <label for="state">Notes:</label>
       <textarea type="text" ng-model="job.familyJob.notes" ng-change="$ctrl.updateCurrent( 'notes', $ctrl.job.notes)"></textarea>
