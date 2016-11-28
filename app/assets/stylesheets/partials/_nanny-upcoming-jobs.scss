@@ -16,6 +16,12 @@ upcoming-job-info {
   button.confirmation-button {
     background: $green;
   }
+  button.claim-job {
+    width: 21% !important;
+    &:hover {
+      text-shadow: 1px 1px 1px darken($yellow, 30%) !important;
+    }
+  }
 }
 
 @media (max-width: 800px) {

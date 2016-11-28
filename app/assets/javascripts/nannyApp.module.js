@@ -15,6 +15,14 @@
             return nannyApp.dashRequestedJobList();
           }]
         }
+      }).state('nannyProfile', {
+        url: '/profile/:nannyId',
+        component: 'nannyProfile',
+        resolve: {
+          nanny: ['nannyApp', '$stateParams', function(nannyApp, $stateParams) {
+            return nannyApp.user($stateParams.nannyId);
+          }]
+        }
       }).state('newNannyJobs', {
         url: '/new-jobs',
         component: 'newNannyJobsList',

@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   get 'family_dash/confirmed_jobs' => 'family_dashboard#get_confirmed_jobs'
   get 'family_dash/pending_jobs' => 'family_dashboard#get_pending_jobs'
   get 'family_dash/5_confirmed_jobs' => 'family_dashboard#get_five_confirmed_jobs'
+  get 'family_dash/all_family_jobs' => 'family_dashboard#get_all_family_jobs'
 
   get 'api/v1/sitters' => 'sitters#index'
   get 'api/v1/sitters/available' => 'sitters#available'
@@ -38,7 +39,7 @@ Rails.application.routes.draw do
   get 'api/v1/sitters/pending' => 'sitters#pending'
   patch 'api/v1/sitter/cpr' => 'sitters#set_cpr_true'
   patch 'api/v1/sitter/first_aid' => 'sitters#set_first_aid_true'
-  patch 'api/v1/sitter' => 'sitters#update'
+  match 'api/v1/sitter' => 'sitters#update', via: [:post, :patch]
   patch 'api/v1/sitter/delete' => 'sitters#toggle_deleted_sitter'
   patch 'api/v1/sitter/approve' => 'sitters#toggle_approved_sitter'
   get 'sitter/new' => 'sitters#new'

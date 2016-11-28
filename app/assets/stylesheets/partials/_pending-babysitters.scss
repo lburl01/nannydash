@@ -111,3 +111,14 @@ span.pending-sitter-buttons {
     color: white;
   }
 }
+
+input.searchBa::before {
+  font-family: fontawesome;
+  position: absolute;
+  content: "\f002";
+  font-size: 16px;
+  color: #42282F;
+  right: 0px;
+  top: 0;
+
+}
