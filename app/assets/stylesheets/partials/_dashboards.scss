@@ -12,6 +12,12 @@
     float: left;
     font-weight: 100;
     padding: 0 15px;
+    @include media(smallTablet) {
+      width: 100%;
+    };
+    @include media(smallMobile) {
+      padding: 0;
+    };
 
     .title-container {
       background: $red;
@@ -24,6 +30,9 @@
         float: right;
         position: relative;
         top: -20px;
+        @include media(smallMobile) {
+          display: none;
+        };
 
         button {
           background: #eea199;
@@ -63,6 +72,44 @@
             outline: none;
             color: #444;
           }
+
+          &:nth-child(3) {
+            @include media(smallMobile) {
+              display: none;
+            };
+          }
+        }
+
+        .dateRed, .dateGreen, .readTrue {
+          white-space: nowrap;
+          overflow:hidden !important;
+          text-overflow: ellipsis;
+          position: absolute;
+          top: 5px;
+          border-radius: 4px;
+          width: 90%;
+          padding: 5px;
+        }
+
+        .dateRed {
+          background: $red;
+          color: #fff;
+        }
+
+        .dateGreen, .readTrue {
+          background: $green;
+          color: #fff;
+        }
+
+        .readTrue {
+          width: 52%;
+
+          &:before {
+            font-family: fontawesome;
+            content: "\f0e0";
+            font-size: 14px;
+            margin-right: 3px;
+          }
         }
 
         td {
@@ -73,6 +120,13 @@
           white-space: nowrap;
           overflow:hidden !important;
           text-overflow: ellipsis;
+          position: relative;
+
+          &:nth-child(3) {
+            @include media(smallMobile) {
+              display: none;
+            };
+          }
         }
       }
     }
@@ -80,6 +134,18 @@
 
   .applications, .messages {
     padding-top: 35px;
+  }
+
+  .new-jobs {
+    @include media(smallTablet) {
+      padding-top: 35px;
+    };
+  }
+
+  .messages {
+    @include media(smallTablet) {
+      padding-bottom: 35px;
+    };
   }
 }
 

@@ -11,7 +11,7 @@
       <tr>
         <th>Parent</th>
         <th>Babysitter</th>
-        <th>Time</th>
+        <th>Stage</th>
       </tr>
       <tr ng-repeat="person in dashboard.openJobs" ng-click="dashboard.newJobs(person)">
         <td>{{person.name}}</td>
@@ -31,15 +31,16 @@
       <tr>
         <th>Parent</th>
         <th>Job For</th>
-        <th>Sent</th>
+        <th>Submitted</th>
       </tr>
       <tr ng-repeat="person in dashboard.assignments" ng-click="dashboard.newJobs(person)">
         <td>{{person.name}}</td>
-        <td>{{dashboard.getDate(person.date_time)}}</td>
+        <td><h6 ng-class="{dateGreen: person.dateGreen === true, dateRed: person.dateRed === true}">{{dashboard.getDate(person.date_time, person)}}</h6></td>
         <td>{{person.submitted}}</td>
       </tr>
     </table>
   </section>
+
   <!-- ******************************
    Pending Applications Section
   ******************************* -->
@@ -80,7 +81,7 @@
       <tr ng-click="dashboard.message(person.conversation_id, person.message_id)" ng-repeat="person in dashboard.messages">
         <td>{{person.from}}</td>
         <td>{{person.subject}}</td>
-        <td>{{person.is_read}}</td>
+        <td><h6 ng-class="{'readTrue': person.is_read === true, 'dateRed': person.is_read === false}">{{dashboard.readValidate(person.is_read)}}</h6></td>
       </tr>
     </table>
   </section>
