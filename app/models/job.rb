@@ -15,7 +15,7 @@ class Job < ApplicationRecord
                  "family_last_name" => job.posted_job.last_name,
                  "sitter_first_name" => job.assignment.first_name,
                  "sitter_last_name" => job.assignment.last_name,
-                 "date" => job.date,
+                 "date" => job.date, "is_assigned" => job.is_assigned,
                  "start_time" => job.start_time.strftime("%I:%M %p"),
                  "end_time" => job.end_time.strftime("%I:%M %p"),
                  "confirmed" => job.confirmed,
@@ -36,10 +36,10 @@ class Job < ApplicationRecord
         @new_jobs << { "job_id" => job.id, "family_id" => job.family_id,
                    "family_first_name" => job.posted_job.first_name,
                    "family_last_name" => job.posted_job.last_name,
-                   "date" => job.date,
+                   "date" => job.date, "is_assigned" => job.is_assigned,
                    "start_time" => job.start_time.strftime("%I:%M %p"),
                    "end_time" => job.end_time.strftime("%I:%M %p"),
-                   "notes" => job.notes,
+                   "notes" => job.notes, "confirmed" => job.confirmed,
                    "created" => job.created_at.strftime("%m/%d/%Y %I:%M %p")
                  }
       end
@@ -57,8 +57,8 @@ class Job < ApplicationRecord
       family_name = "#{job.posted_job.first_name} #{job.posted_job.last_name}"
       date_time = "#{job.date} #{job.start_time.strftime("%I:%M %p")}"
       @newest_jobs << { "job_id" => job.id, "name" => family_name,
-                        "date_time" => date_time,
-                        "county" => job.posted_job.county,
+                        "date_time" => date_time, "is_assigned" => job.is_assigned,
+                        "county" => job.posted_job.county, "confirmed" => job.confirmed,
                         "start_time" => job.start_time.strftime("%I:%M %p"),
                         "end_time" => job.end_time.strftime("%I:%M %p"),
                         "submitted" => job.created_at.strftime("%m/%d/%Y %I:%M %p")}
@@ -78,7 +78,8 @@ class Job < ApplicationRecord
       date_time = "#{job.date} #{job.start_time.strftime("%I:%M %p")}"
 
       @upcoming_jobs << { "job_id" => job.id, "name" => family_name,
-                          "sitter" => sitter_name,
+                          "sitter" => sitter_name, "confirmed" => job.confirmed,
+                          "is_assigned" => job.is_assigned,
                           "submitted" => job.created_at.strftime("%m/%d/%Y %I:%M %p") }
     end
 
@@ -156,6 +157,7 @@ class Job < ApplicationRecord
       family_name = "#{job.posted_job.first_name} #{job.posted_job.last_name}"
       @job_details << { "family_id" => job.family_id, "family_name" => family_name,
                         "date" => job.date, "confirmed" => job.confirmed,
+                        "is_assigned" => job.is_assigned, "sitter_id" => job.sitter_id,
                         "start_time" => job.start_time.strftime("%I:%M %p"),
                         "end_time" => job.end_time.strftime("%I:%M %p"),
                         "notes" => job.notes, "job_id" => job.id}
@@ -173,6 +175,8 @@ class Job < ApplicationRecord
       family_name = "#{job.posted_job.first_name} #{job.posted_job.last_name}"
       @five_job_details << { "family_id" => job.family_id, "family_name" => family_name,
                         "date" => job.date, "job_id" => job.id,
+                        "confirmed" => job.confirmed, "sitter_id" => job.sitter_id,
+                        "is_assigned" => job.is_assigned,
                         "start_time" => job.start_time.strftime("%I:%M %p"),
                         "end_time" => job.end_time.strftime("%I:%M %p"),
                         "notes" => job.notes}
@@ -190,6 +194,8 @@ class Job < ApplicationRecord
       sitter_name = "#{job.assignment.first_name} #{job.assignment.last_name}"
       @job_details << { "family_id" => job.family_id, "sitter_id" => job.sitter_id,
                         "sitter_name" => sitter_name,
+                        "confirmed" => job.confirmed,
+                        "is_assigned" => job.is_assigned,
                         "date" => job.date, "job_id" => job.id,
                         "start_time" => job.start_time.strftime("%I:%M %p"),
                         "end_time" => job.end_time.strftime("%I:%M %p"),
@@ -207,11 +213,11 @@ class Job < ApplicationRecord
 
     jobs.each do |job|
       all_info = { "family_id" => job.family_id,
-                        "date" => job.date, "job_id" => job.id,
-                        "start_time" => job.start_time.strftime("%I:%M %p"),
-                        "end_time" => job.end_time.strftime("%I:%M %p"),
-                        "notes" => job.notes, "confirmed" => job.confirmed,
-                        "is_assigned" => job.is_assigned}
+                   "date" => job.date, "job_id" => job.id,
+                   "start_time" => job.start_time.strftime("%I:%M %p"),
+                   "end_time" => job.end_time.strftime("%I:%M %p"),
+                   "notes" => job.notes, "confirmed" => job.confirmed,
+                   "is_assigned" => job.is_assigned}
 
       if job.sitter_id
         sitter_name = "#{job.assignment.first_name} #{job.assignment.last_name}"
@@ -234,6 +240,7 @@ class Job < ApplicationRecord
       family_name = "#{job.posted_job.first_name} #{job.posted_job.last_name}"
       @job_details << { "family_id" => job.family_id, "family_name" => family_name,
                         "date" => job.date, "confirmed" => job.confirmed,
+                        "is_assigned" => job.is_assigned,
                         "start_time" => job.start_time.strftime("%I:%M %p"),
                         "end_time" => job.end_time.strftime("%I:%M %p"),
                         "notes" => job.notes, "job_id" => job.id}
@@ -257,6 +264,8 @@ class Job < ApplicationRecord
       @five_job_details << { "family_id" => job.family_id, "family_name" => family_name,
                         "sitter_id" => job.sitter_id, "sitter_name" => sitter_name,
                         "date" => job.date, "job_id" => job.id,
+                        "confirmed" => job.confirmed,
+                        "is_assigned" => job.is_assigned,
                         "start_time" => job.start_time.strftime("%I:%M %p"),
                         "end_time" => job.end_time.strftime("%I:%M %p"),
                         "notes" => job.notes}
