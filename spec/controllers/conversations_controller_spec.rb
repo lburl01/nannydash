@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe ConversationsController, type: :controller do
-
+  include Devise::Test::ControllerHelpers
+  
   before do
     @user = create(:user)
     login_as @user

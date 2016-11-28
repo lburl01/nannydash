@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe FamiliesController, type: :controller do
-
+  include Devise::Test::ControllerHelpers
+  
   describe "PATCH #toggle_active_family" do
     it 'toggles the active column value' do
       @user = create(:user)
