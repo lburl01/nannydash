@@ -24,16 +24,8 @@
           <%= image_tag("messages.svg", :alt => "Directories Icon") %>
           <h1>Messaging Center</h1>
         </div>
-        <button id="messagesBtn" ui-sref="conversations" type="button"><span>{{$ctrl.count.new_messages}} | </span>Messages</button>
-      </section>
-      <!-- Directories Nav Section -->
-      <section class="directories">
-        <div class="title">
-          <%= image_tag("list.svg", :alt => "Directories Icon") %>
-          <h1>Directories</h1>
-        </div>
-        <button ui-sref="babysitters" type="button">Babysitters</button>
-        <button ui-sref="family" type="button">Parents</button>
+        <button ui-sref="conversations" type="button"><span>{{$ctrl.count.new_messages}} | </span>Messages</button>
+        <button ui-sref="new-message" type="button">New Message</button>
       </section>
       <!-- Pending Applications Nav Section -->
       <section class="pending-apps">
@@ -52,6 +44,15 @@
         </div>
         <button ui-sref="newJobs" type="button"><span>{{$ctrl.count.new_jobs}} | </span>New Jobs</button>
         <button ui-sref="jobs" type="button"><span>{{$ctrl.count.all_jobs}} | </span>All Jobs</button>
+      </section>
+      <!-- Directories Nav Section -->
+      <section class="directories">
+        <div class="title">
+          <%= image_tag("list.svg", :alt => "Directories Icon") %>
+          <h1>Directories</h1>
+        </div>
+        <button ui-sref="babysitters" type="button">Babysitters</button>
+        <button ui-sref="family" type="button">Parents</button>
       </section>
     </aside>
     <!-- ******************************

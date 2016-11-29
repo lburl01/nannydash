@@ -11,7 +11,7 @@ angular.module('app')
       dashboardAPI.list().success(function(response) {
         self.application = response.applications
         self.assignments = response.assignments
-        console.log(response.open_jobs);
+        console.log(response.assignments);
         self.messages = response.messages;
         self.openJobs = response.open_jobs;
       }, function(response) {
@@ -40,9 +40,7 @@ angular.module('app')
       Checking if message was read
       *************************/
       this.readValidate = function(value) {
-        console.log();
         if(value === true) {
-          console.log('true');
           return 'Yes';
         } else if(value === false) {
           return 'No';

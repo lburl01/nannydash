@@ -9,7 +9,6 @@ angular.module('app')
       dashboardAPI.activeBabysitters().success(function(response) {
         var nannysArray = [];
         var parentsArray = [];
-        console.log(response);
         for(var i = 0; i < response.length; i++) {
           if(response[i].role === 'nanny') {
             nannysArray.push(response[i]);

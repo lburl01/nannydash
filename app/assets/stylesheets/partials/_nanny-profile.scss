@@ -13,22 +13,23 @@
     form {
       padding: 20px;
       #image-upload {
-        width: 0.1px;
         height: 0.1px;
         opacity: 0;
         overflow: hidden;
         position: absolute;
+        width: 0.1px;
         z-index: -1;
       }
       label {
-        cursor: pointer;
         background: $yellow;
-        color: white;
         border-radius: 4px;
-        padding: 9px 10px;
-        margin-bottom: 10px;
-        text-align: center;
+        color: white;
+        cursor: pointer;
         font-size: 18px;
+        height: 40px;
+        margin-bottom: 10px;
+        padding: 9px 10px;
+        text-align: center;
         &:hover {
           background: #e2a338;
         }
@@ -41,11 +42,13 @@
       }
       input {
         &.submit-photo {
-          cursor: pointer;
-          padding: 7px 10px;
-          font-size: 18px;
           background: $green !important;
+          border: transparent;
           color: white;
+          cursor: pointer;
+          font-size: 18px;
+          height: 40px;
+          padding: 7px 10px;
           &:hover {
             background: rgb(87, 138, 111) !important;
           }
