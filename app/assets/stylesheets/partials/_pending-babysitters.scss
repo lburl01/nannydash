@@ -103,6 +103,7 @@ span.pending-sitter-buttons {
   display: flex;
   justify-content: flex-end;
   padding-right: 10px;
+  cursor: pointer;
   span {
     background: url(asset_path('messages.svg'));
     background-size: cover;
