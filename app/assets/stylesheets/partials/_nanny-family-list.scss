@@ -48,6 +48,9 @@
   section.name {
     padding: 40px;
     border-left: 1px solid #eee;
+    span {
+      cursor: default;
+    }
   }
   section.basic-info {
     padding-left: 50px !important;

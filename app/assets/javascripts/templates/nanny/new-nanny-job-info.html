@@ -18,25 +18,25 @@
         <input type="text" name="name" ng-model="$ctrl.jobInfo.name">
         <!-- Phone Field -->
         <label for="phone">Phone:</label>
-        <input id="phone" type="text" ng-model="$ctrl.jobInfo.phone" ng-model-options="{ updateOn: 'blur' }" ng-change="$ctrl.updateCurrent( 'phone', $ctrl.job.phone)">
+        <input id="phone" type="text" ng-model="$ctrl.jobInfo.phone">
         <!-- Email Field -->
         <label for="email">Email:</label>
-        <input id="email" type="text" ng-model="$ctrl.jobInfo.email" ng-model-options="{ updateOn: 'blur' }" ng-change="$ctrl.updateCurrent( 'email', $ctrl.job.email)">
+        <input id="email" type="text" ng-model="$ctrl.jobInfo.email">
         <!-- Street Field -->
         <label for="street">Street:</label>
-        <input id="street" type="text" ng-model="$ctrl.jobInfo.street" ng-model-options="{ updateOn: 'blur' }" ng-change="$ctrl.updateCurrent( 'street', $ctrl.job.street)">
+        <input id="street" type="text" ng-model="$ctrl.jobInfo.street">
         <!-- City Field -->
         <label for="city">City:</label>
-        <input id="city" type="text" ng-model="$ctrl.jobInfo.city" ng-model-options="{ updateOn: 'blur' }" ng-change="$ctrl.updateCurrent( 'city', $ctrl.job.city)">
+        <input id="city" type="text" ng-model="$ctrl.jobInfo.city">
         <!-- State Field -->
         <label for="state">State:</label>
-        <input id="state" type="text" ng-model="$ctrl.jobInfo.state" ng-model-options="{ updateOn: 'blur' }" ng-change="$ctrl.updateCurrent( 'state', $ctrl.job.state)">
+        <input id="state" type="text" ng-model="$ctrl.jobInfo.state">
         <!-- Zip Field -->
         <label for="zip">Zip Code:</label>
-        <input id="zip" type="text" ng-model="$ctrl.jobInfo.zip_code" ng-model-options="{ updateOn: 'blur' }" ng-change="$ctrl.updateCurrent( 'zip_code', $ctrl.job.zip_code)">
+        <input id="zip" type="text" ng-model="$ctrl.jobInfo.zip_code">
         <!-- Notes Field -->
         <label for="name">Notes:</label>
-        <textarea type="text" name="posted" value="" ng-model="$ctrl.jobInfo.notes" ng-change="$ctrl.updateCurrent( 'notes', $ctrl.job.notes)"></textarea>
+        <textarea type="text" name="posted" value="">{{$ctrl.jobInfo.notes === "" ? "None" : $ctrl.jobInfo.notes}}</textarea>
 
       </section>
 
