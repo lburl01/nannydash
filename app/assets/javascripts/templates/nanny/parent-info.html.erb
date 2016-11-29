@@ -12,7 +12,7 @@
     <div class="profile-container">
       <section class="name">
         <h1>{{$ctrl.parent.first_name}} {{$ctrl.parent.last_name}}</h1>
-        <%= image_tag("placeholder.jpeg", :alt => "Preview image on landing page") %>
+        <img src="{{$ctrl.parent.picture_url}}" alt="" />
         <span ng-class="{'active': $ctrl.parent.active, 'inactive': !$ctrl.parent.active}">
         {{$ctrl.parent.active ? 'active' : 'inactive'}}
         </span>

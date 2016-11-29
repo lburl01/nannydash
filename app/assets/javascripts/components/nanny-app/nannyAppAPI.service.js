@@ -43,6 +43,7 @@
       },
       singleFamily: function(id) {
         return $http.get('/api/v1/family/' + id + '.json').then(function(response) {
+          console.log(response.data);
           return response.data;
         }, function() {
           console.log("Failed to return selected family");
