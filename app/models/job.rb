@@ -315,6 +315,7 @@ class Job < ApplicationRecord
                         "start_time" => job.start_time.strftime("%I:%M %p"),
                         "end_time" => job.end_time.strftime("%I:%M %p"),
                         "notes" => job.notes, "confirmed" => job.confirmed,
+                        "is_deleted" => job.is_deleted,
                         "is_assigned" => job.is_assigned}
 
       if job.sitter_id
