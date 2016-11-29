@@ -1,7 +1,7 @@
 
-User.create!(first_name: "Agency",
-              last_name: "Manager",
-              email: "testing@example.com",
+User.create!(first_name: "Lori",
+              last_name: "Baumgartner",
+              email: "lorib@example.com",
               password: "password",
               street: Faker::Address.street_address,
               city: Faker::Address.city,
@@ -9,11 +9,11 @@ User.create!(first_name: "Agency",
               zip_code: Faker::Address.zip_code,
               county: "Wake",
               role: 0,
-              phone_number: Faker::PhoneNumber.phone_number)
+              phone_number: '555-555-5555')
 
-User.create!(first_name: "Lori",
-              last_name: "Baumgartner",
-              email: "loribbaumgartner@gmail.com",
+User.create!(first_name: "Chloe",
+              last_name: "Collier",
+              email: "chloec@example.com",
               password: "password",
               street: Faker::Address.street_address,
               city: Faker::Address.city,
@@ -33,9 +33,9 @@ User.create!(first_name: "Lori",
               recommendation_three_email: Faker::Internet.email,
               phone_number: '7049950579')
 
-User.create!(first_name: "Family",
-              last_name: "Example",
-              email: "family@example.com",
+User.create!(first_name: "Marliana",
+              last_name: "Lara",
+              email: "marlianal@example.com",
               password: "password",
               street: Faker::Address.street_address,
               city: Faker::Address.city,
@@ -44,10 +44,10 @@ User.create!(first_name: "Family",
               county: "Orange",
               role: 1,
               about: "I love my family!",
-              phone_number: Faker::PhoneNumber.phone_number)
+              phone_number: '555-555-5555')
 
-User.create!(first_name: "Sitter",
-              last_name: "Example",
+User.create!(first_name: Faker::Name.first_name,
+              last_name: Faker::Name.last_name,
               email: "sitter@example.com",
               password: "password",
               street: Faker::Address.street_address,
@@ -66,7 +66,7 @@ User.create!(first_name: "Sitter",
               recommendation_two_email: Faker::Internet.email,
               recommendation_three_name: Faker::Name.name,
               recommendation_three_email: Faker::Internet.email,
-              phone_number: Faker::PhoneNumber.phone_number)
+              phone_number: '555-555-5555')
 
 
 5.times do |index|
@@ -80,11 +80,10 @@ User.create!(first_name: "Sitter",
                   zip_code: Faker::Address.zip_code,
                   county: "Wake",
                   role: 1,
-                  phone_number: Faker::PhoneNumber.phone_number,
+                  phone_number: '555-555-5555',
                   is_deleted: false,
                   active: false,
-                  approved: false,
-                  about: Faker::ChuckNorris.fact)
+                  approved: false)
 end
 
 5.times do |index|
@@ -98,11 +97,10 @@ end
                   zip_code: Faker::Address.zip_code,
                   county: "Durham",
                   role: 1,
-                  phone_number: Faker::PhoneNumber.phone_number,
+                  phone_number: '555-555-5555',
                   is_deleted: false,
                   active: true,
-                  approved: false,
-                  about: Faker::ChuckNorris.fact)
+                  approved: false)
 end
 
 5.times do |index|
@@ -116,11 +114,10 @@ end
                   zip_code: Faker::Address.zip_code,
                   county: "Orange",
                   role: 1,
-                  phone_number: Faker::PhoneNumber.phone_number,
+                  phone_number: '555-555-5555',
                   is_deleted: false,
                   active: true,
-                  approved: true,
-                  about: Faker::ChuckNorris.fact)
+                  approved: true)
 end
 
 3.times do |index|
@@ -144,7 +141,7 @@ end
                     recommendation_two_email: Faker::Internet.email,
                     recommendation_three_name: Faker::Name.name,
                     recommendation_three_email: Faker::Internet.email,
-                    phone_number: Faker::PhoneNumber.phone_number,
+                    phone_number: '555-555-5555',
                     is_deleted: false,
                     active: false,
                     approved: false)
@@ -171,7 +168,7 @@ end
                     recommendation_two_email: Faker::Internet.email,
                     recommendation_three_name: Faker::Name.name,
                     recommendation_three_email: Faker::Internet.email,
-                    phone_number: Faker::PhoneNumber.phone_number,
+                    phone_number: '555-555-5555',
                     is_deleted: false,
                     active: true,
                     approved: false)
@@ -198,7 +195,7 @@ end
                     recommendation_two_email: Faker::Internet.email,
                     recommendation_three_name: Faker::Name.name,
                     recommendation_three_email: Faker::Internet.email,
-                    phone_number: Faker::PhoneNumber.phone_number,
+                    phone_number: '555-555-5555',
                     is_deleted: false,
                     active: true,
                     approved: true)
@@ -278,7 +275,7 @@ Conversation.create!(subject: "Going on family vacation",
                     sender_id: 2,
                     recipient_id: 1)
 
-Message.create!(body: "I'm wondering about this thing.",
+Message.create!(body: "Should I update my hourly rate?",
                 recipient_id: 1,
                 subject: "Inquiry",
                 user_id: 8,
@@ -286,7 +283,7 @@ Message.create!(body: "I'm wondering about this thing.",
                 is_read: false,
                 is_deleted: false)
 
-Message.create!(body: "My response to that thing.",
+Message.create!(body: "Maybe when you've built up a few more months of experience!",
                 recipient_id: 8,
                 subject: "Inquiry",
                 user_id: 1,
@@ -294,7 +291,7 @@ Message.create!(body: "My response to that thing.",
                 is_read: false,
                 is_deleted: false)
 
-Message.create!(body: "Here is my question.",
+Message.create!(body: "What will the kids need for dinner?",
                 recipient_id: 3,
                 subject: "Question about tonight",
                 user_id: 25,
