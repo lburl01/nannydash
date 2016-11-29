@@ -56,7 +56,9 @@ angular.module('familyApp')
         newMsg['notes'] = body;
 
         self.toggleShow = !self.toggleShow
+        console.log('Before New Job');
         familyAppAPI.newJob(newMsg);
       }
+
 
   }]);

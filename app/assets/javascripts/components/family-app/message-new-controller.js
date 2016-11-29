@@ -12,6 +12,7 @@ angular.module('familyApp')
           var userObj = {};
           userObj['name'] = response.first_name + ' ' + response.last_name;
           userObj['id'] = response.sitter_id;
+          console.log(response);
           self.loadUser(userObj);
         });
       }

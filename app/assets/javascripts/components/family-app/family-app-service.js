@@ -78,6 +78,7 @@ angular.module('familyApp').service('familyAppAPI', ['$http', '$window', functio
         });
       },
       newJob: function(data) {
+        console.log(data);
         return $http({
           url: "/job/new.json",
           method: "POST",

@@ -51,13 +51,6 @@ class JobsController < ApplicationController
   def create
     @family = current_user
 
-    @job = Job.new(family_id: @family.id,
-                   start_time: params[:start_time],
-                   end_time: params[:end_time], date: params[:date],
-                   notes: params[:notes])
-
-    @job.save!
-
     if params.has_key?("sitter_id")
       @sitter = User.find(params[:sitter_id])
 
@@ -75,6 +68,13 @@ class JobsController < ApplicationController
         phone_number = ENV['SAMPLE_NUMBER']
         send_message(phone_number, @text_message)
       end
+    else
+      @job = Job.new(family_id: @family.id,
+                     start_time: params[:start_time],
+                     end_time: params[:end_time], date: params[:date],
+                     notes: params[:notes])
+
+      @job.save!
     end
 
   end
