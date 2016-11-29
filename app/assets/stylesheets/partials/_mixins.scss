@@ -14,6 +14,11 @@
       @content;
     }
   }
+  @if $bp == smallTablet {
+    @media only screen and (max-width: 725px) {
+      @content;
+    }
+  }
   @if $bp == largeMobile {
     @media only screen and (max-width: 575px) {
       @content;

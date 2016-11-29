@@ -6,7 +6,6 @@ angular.module('app')
       var self = this;
       this.conversationMessage;
       this.convoId = $stateParams.conversationId;
-      console.log(this.convoId);
 
       this.init = function() {
         dashboardAPI.allMessages(self.convoId).success(function(response) {
