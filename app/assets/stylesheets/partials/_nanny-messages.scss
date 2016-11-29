@@ -1,6 +1,7 @@
 #nanny-messages{
+  padding: 0 80px;
   div.list {
-    margin: 2% 5%;
+    margin-top: 90px;
   }
 }
 .messages-header {
@@ -77,4 +78,12 @@
   @include media(mobile) {
     padding: 30px 0 45px 0 !important;
   };
+}
+
+@include media(mobile) {
+  #nanny-messages{
+    div.list {
+      margin: 20px 10px;
+    }
+  }
 }
