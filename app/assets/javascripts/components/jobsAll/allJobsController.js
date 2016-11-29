@@ -7,6 +7,9 @@
             allJobsAPI.jobsList().success(function(response) {
                 self.totalJobs = response;
             });
+            allJobsAPI.allJobs().success(function(familyResponse) {
+                self.jobs = familyResponse;
+            });
 
             this.name = function(firstName, lastName) {
                 return firstName + " " + lastName;
@@ -23,14 +26,16 @@
             };
             this.jobClicked = function(jobId) {
                 allJobsAPI.jobDetails(jobId).success(function(response) {
-                  self.jobDetails = response;
+                    self.jobDetails = response;
 
                     $state.go('jobs-list-details', {
                         params: {
                             job: response
                         },
                         jobDetail: jobId
-                    }, {reload: true});
+                    }, {
+                        reload: true
+                    });
                 });
             };
         }]);

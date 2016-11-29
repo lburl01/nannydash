@@ -62,7 +62,7 @@
             <input id="zip" type="text" readonly ng-model="$ctrl.job.zip_code" ng-change="$ctrl.updateCurrent( 'zip_code', $ctrl.job.zip_code)">
 
             <label for="name" class="jobsListDetailsNotes">Notes:</label>
-            <textarea id="jobDetailsNotes" readonly rows="5" name="posted" ng-model="$ctrl.job.notes" ng-model-options="{ updateOn: 'blur' }" ng-change="$ctrl.updateCurrent( 'notes', $ctrl.job.notes)"></textarea>
+            <textarea id="jobDetailsNotes" readonly rows="4" name="posted" ng-model="$ctrl.job.notes" ng-model-options="{ updateOn: 'blur' }" ng-change="$ctrl.updateCurrent( 'notes', $ctrl.job.notes)"></textarea>
 
             <button name="delete" ng-click="$ctrl.popup()" class="delete deleteButton new-job-delete" ng-class="{'redDelete': '$ctrl.visibility'}" type="button" value="Delete Job"></button>
         </section>

@@ -8,6 +8,12 @@
                     method: 'GET'
                 });
             },
+            allJobs: function() {
+              return $http({
+                url: "/family_dash/all_family_jobs",
+                method: "GET"
+              });
+            },
             jobDetails: function(id) {
                 return $http.get('/api/v1/job/' + id).then(function(response) {
                     return response.data;

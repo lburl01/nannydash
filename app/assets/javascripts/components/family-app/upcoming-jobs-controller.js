@@ -6,10 +6,9 @@ angular.module('familyApp')
       var self = this;
 
       familyAppAPI.allJobs().success(function(response) {
-        console.log(response);
         self.jobs = response;
+        console.log(response);
       });
-
 
       this.getDate = function(data) {
         var myMonth = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug", "Sept", "Oct", "Nov", "Dec"];
@@ -25,9 +24,9 @@ angular.module('familyApp')
             return myMonth[month] + ' ' + day;
           }
         }
-      }
+      };
 
       this.jobClick = function(id) {
         $state.go('job', {jobId: id});
-      }
+      };
   }]);
