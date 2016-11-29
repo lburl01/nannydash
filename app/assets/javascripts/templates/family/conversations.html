@@ -19,10 +19,10 @@
       </tr>
       <tr ng-click="conversations.conversationClick(message.convo_id)" ng-repeat="message in conversations.conversation">
         <td><h6>{{message.messages_count}}</h6></td>
-        <td ng-if="message.sender_name != 'Family Example'">
+        <td ng-if="message.sender_id != conversations.user">
           {{message.sender_name}}
         </td>
-        <td ng-if="message.recipient_name != 'Family Example'">
+        <td ng-if="message.recipient_id != conversations.user">
           {{message.recipient_name}}
         </td>
         <td>{{message.subject}}</td>

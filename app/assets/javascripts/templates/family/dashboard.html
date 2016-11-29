@@ -13,10 +13,10 @@
         <th>Time</th>
         <th>Babysitter</th>
       </tr>
-      <tr ng-repeat="person in dashboard.openJobs" ng-click="dashboard.newJobs(person)">
-        <td>{{person.name}}</td>
-        <td>{{person.submitted}}</td>
-        <td>{{person.sitter}}</td>
+      <tr ng-repeat="job in dashboard.confirmed" ng-click="dashboard.jobDetails(job)">
+        <td>{{job.date}}</td>
+        <td>{{job.start_time}}</td>
+        <td>{{job.sitter_name}}</td>
       </tr>
     </table>
   </section>

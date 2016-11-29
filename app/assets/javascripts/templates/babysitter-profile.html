@@ -32,7 +32,7 @@
       <label for="phone">Last Name:</label>
       <input class="name-heading" type="text" ng-model="babysitter.user.last_name" ng-model-options="{ updateOn: 'blur' }" ng-change="babysitter.userInputClick('last_name', babysitter.user.last_name, babysitter.user.sitter_id)">
     </div>
-    <img src="#" alt="">
+    <img src="{{babysitter.user.picture.url}}" alt="profile">
   </section>
   <!-- ******************************
    Basic Information Section
@@ -41,7 +41,7 @@
     <h2>Basic Information</h2>
     <!-- Phone Field -->
     <label for="phone">Phone:</label>
-    <input id="phone" type="text" ng-class="{changed: babysitter.changed}" ng-model="babysitter.user.phone" ng-model-options="{ updateOn: 'blur' }" ng-change="babysitter.userInputClick('phone', babysitter.user.phone, babysitter.user.sitter_id)">
+    <input id="phone" type="text" ng-class="{changed: babysitter.changed}" ng-model="babysitter.user.phone_number" ng-model-options="{ updateOn: 'blur' }" ng-change="babysitter.userInputClick('phone', babysitter.user.phone, babysitter.user.sitter_id)">
     <!-- Email Field -->
     <label for="email">Email:</label>
     <input id="email" type="text" ng-model="babysitter.user.email" ng-model-options="{ updateOn: 'blur' }" ng-change="babysitter.userInputClick('email', babysitter.user.email, babysitter.user.sitter_id)">
@@ -58,7 +58,7 @@
     <label for="state">State:</label>
     <input id="state" type="text" ng-model="babysitter.user.state" ng-model-options="{ updateOn: 'blur' }" ng-change="babysitter.userInputClick('state', babysitter.user.state, babysitter.user.sitter_id)">
     <!-- zip Field -->
-    <label for="zip">zip:</label>
+    <label for="zip">Zip:</label>
     <input id="zip" type="text" ng-model="babysitter.user.zip_code" ng-model-options="{ updateOn: 'blur' }" ng-change="babysitter.userInputClick('zip_code', babysitter.user.zip_code, babysitter.user.sitter_id)">
     <h2 class="rec-title">Recommendations</h2>
     <!-- Recommendation 1 Field -->
@@ -100,7 +100,7 @@
     <input id="age" type="text" ng-model="babysitter.age" disabled>
     <!-- Joined Field -->
     <label for="joined">Joined:</label>
-    <input id="joined" type="text" ng-model="babysitter.getDate(babysitter.user.joined)" ng-model-options="{ updateOn: 'blur' }" ng-change="babysitter.userInputClick('joined', babysitter.user.joined, babysitter.user.sitter_id)">
+    <input id="joined" type="text" ng-model="babysitter.getDate(babysitter.user.created_at)" ng-model-options="{ updateOn: 'blur' }" ng-change="babysitter.userInputClick('joined', babysitter.user.joined, babysitter.user.sitter_id)">
     <button ng-click="babysitter.updateBabysitter(babysitter.user.sitter_id)" type="button">Update Account</button>
     <button ng-click="babysitter.popup()" ng-class="{'redDelete': babysitter.visibility}" type="button">Delete Account</button>
   </section>
@@ -110,7 +110,7 @@
       <a ng-click="babysitter.popup()" class="close img-replace"></a>
       <p>Are you sure you want to delete this family?</p>
       <ul class="popup-buttons">
-        <li ng-click="babysitter.deleteBabysitter(babysitter.user.sitter_id)">Yes</li>
+        <li ng-click="babysitter.deleteBabysitter(babysitter.user.id)">Yes</li>
         <li ng-click="babysitter.popup()">No</li>
       </ul>
     </div>

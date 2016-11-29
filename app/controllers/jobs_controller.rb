@@ -44,6 +44,10 @@ class JobsController < ApplicationController
     job = Job.assign_sitter_job(current_user, params[:id])
   end
 
+  def agency_assign_sitter
+    job = Job.agency_assign_sitter(params[:id], params[:sitter_id])
+  end
+
   def new
     @job = Job.new
   end

@@ -19,7 +19,7 @@
       </div>
     </div>
   </div>
-  
+
   <!-- ******************************
    Name Fields and Photo Section
   ******************************* -->
@@ -32,7 +32,7 @@
       <label for="phone">Last Name:</label>
       <h1 class="name-heading">{{babysitter.user.last_name}}</h1>
     </div>
-    <img src="#" alt="">
+    <img src="{{babysitter.user.picture.url}}" alt="profile">
   </section>
   <!-- ******************************
    Basic Information Section
@@ -58,7 +58,7 @@
     <label for="state">State:</label>
     <p>{{babysitter.user.state}}</p>
     <!-- zip Field -->
-    <label for="zip">zip:</label>
+    <label for="zip">Zip:</label>
     <p>{{babysitter.user.zip_code}}</p>
   </section>
   <!-- ******************************

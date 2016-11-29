@@ -64,7 +64,7 @@
             <label for="name" class="jobsListDetailsNotes">Notes:</label>
             <textarea id="jobDetailsNotes" readonly rows="4" name="posted" ng-model="$ctrl.job.notes" ng-model-options="{ updateOn: 'blur' }" ng-change="$ctrl.updateCurrent( 'notes', $ctrl.job.notes)"></textarea>
 
-            <button name="delete" ng-click="$ctrl.popup()" class="delete deleteButton new-job-delete" ng-class="{'redDelete': '$ctrl.visibility'}" type="button" value="Delete Job"></button>
+            <button name="delete" ng-click="$ctrl.popup()" class="delete deleteButton new-job-delete" ng-class="{'redDelete': '$ctrl.visibility'}" type="button" value="Delete Job">Delete Job</button>
         </section>
 
     </div>

@@ -16,10 +16,15 @@ angular.module('app')
         self.conversation = response;
       });
 
+      this.ifRead = function(message, data) {
+        if(message.sender_name != "Agency Manager" && data === false) {
+          //dashboardAPI.set('true');
+          return message['star'] = true;
+        }
+      }
+
       this.conversationClick = function(id) {
-        console.log(id);
         dashboardAPI.allMessages(id).success(function(response) {
-          console.log(response);
           $state.go('messages', {
               conversationId: id
             },

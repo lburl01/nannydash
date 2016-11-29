@@ -23,7 +23,7 @@
                 });
             },
             saveJob: function(id, data) {
-              return $http.patch("/api/v1/job.json", {id: id, job: data});
+              return $http.patch("/api/v1/job/" + id + ".json", {id: id, job: data});
             },
             deleteJob: function(id) {
               return $http.patch("api/v1/job/delete.json", {id: id});
