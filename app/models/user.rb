@@ -222,13 +222,15 @@ class User < ApplicationRecord
   end
 
   def self.get_available_sitters
-    sitters = User.where( { is_deleted: false, active: true, approved: true, role: "nanny"  }).all
+    sitters = User.nanny.where( { is_deleted: false, active: true, approved: true  }).all
 
     @available_sitters = []
 
     sitters.each do |sitter|
       full_name = "#{sitter.first_name} #{sitter.last_name}"
-      @available_sitters << { "name" => full_name }
+      @available_sitters << { "name" => full_name, "active" => sitter.active,
+                              "is_deleted" => sitter.is_deleted,
+                              "approved" => sitter.approved}
     end
 
     return @available_sitters
