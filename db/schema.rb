@@ -10,26 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161115185150) do
+ActiveRecord::Schema.define(version: 20161129145327) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "conversations", force: :cascade do |t|
-    t.string   "subject",      default: "",    null: false
+    t.string   "subject",        default: "",    null: false
     t.integer  "sender_id"
     t.integer  "recipient_id"
-    t.boolean  "is_deleted",   default: false, null: false
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.boolean  "is_deleted",     default: false, null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.boolean  "sender_read",    default: false, null: false
+    t.boolean  "recipient_read", default: false, null: false
   end
 
   create_table "jobs", force: :cascade do |t|
     t.integer  "family_id",                                   null: false
     t.integer  "sitter_id"
-    t.date     "date",        default: '2016-11-28',          null: false
-    t.time     "start_time",  default: '2000-01-01 20:53:56', null: false
-    t.time     "end_time",    default: '2000-01-01 23:53:56', null: false
+    t.date     "date",        default: '2016-11-29',          null: false
+    t.time     "start_time",  default: '2000-01-01 14:55:36', null: false
+    t.time     "end_time",    default: '2000-01-01 17:55:36', null: false
     t.text     "notes"
     t.boolean  "confirmed",   default: false,                 null: false
     t.boolean  "is_assigned", default: false,                 null: false

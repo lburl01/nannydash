@@ -264,23 +264,19 @@ Job.create!(family_id: 10,
 
 Conversation.create!(subject: "Inquiry",
                      sender_id: 8,
-                     recipient_id: 1,
-                     is_deleted: false)
+                     recipient_id: 1)
 
 Conversation.create!(subject: "Question about tonight",
                     sender_id: 25,
-                    recipient_id: 3,
-                    is_deleted: false)
+                    recipient_id: 3)
 
 Conversation.create!(subject: "The kids though you were great!",
                      sender_id: 3,
-                     recipient_id: 2,
-                     is_deleted: false)
+                     recipient_id: 2)
 
 Conversation.create!(subject: "Going on family vacation",
                     sender_id: 2,
-                    recipient_id: 1,
-                    is_deleted: false)
+                    recipient_id: 1)
 
 Message.create!(body: "I'm wondering about this thing.",
                 recipient_id: 1,

@@ -3,6 +3,7 @@ class MessagesController < ApplicationController
 
   def index
     @conversation = Conversation.find(params[:conversation_id])
+    @convo_read = Conversation.get_conversation(params[:conversation_id], current_user)
     @messages = Message.get_messages(@conversation)
 
     render json: @messages
