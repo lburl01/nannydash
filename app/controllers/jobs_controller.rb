@@ -62,7 +62,7 @@ class JobsController < ApplicationController
       if @job.save
         @text_message = %Q(You've been requested for a new babysitting gig on #{@job.date}
           For more details or to claim this job, visit:
-          https://nannydash.herokuapp.com/#/new-job/info/#{@job.id})
+          https://nannydash.herokuapp.com/#/upcoming-job/#{@job.id})
 
         @recipient = User.find(@sitter.id)
         phone_number = ENV['SAMPLE_NUMBER']
