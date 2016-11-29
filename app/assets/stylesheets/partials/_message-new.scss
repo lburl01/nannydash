@@ -70,6 +70,10 @@
             font-size: 16px;
             font-weight: 400;
             padding-bottom: 15px;
+
+            &:nth-child(3) {
+              padding-top: 15px;
+            }
           }
 
           p {

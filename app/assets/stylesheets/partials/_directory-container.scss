@@ -324,6 +324,14 @@
           position: absolute;
           bottom: 7px;
         }
+
+        .fa-star {
+          color: $yellow;
+          position: absolute;
+          right: 38px;
+          font-size: 22px;
+          top: 10px;
+        }
       }
 
       td:nth-child(3), th:nth-child(3) {

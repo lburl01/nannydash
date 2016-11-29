@@ -11,6 +11,8 @@
         <div class="arrow-left" ng-show="newMessage.showUsers"></div>
         <div class="users" ng-show="newMessage.showUsers">
           <div class="user-group">
+            <h2>Manager</h2>
+            <p ng-click="newMessage.loadUser(manager)" ng-repeat="manager in newMessage.manager">{{manager.name}}</p>
             <h2>Babysitters</h2>
             <p ng-click="newMessage.loadUser(nanny)" ng-repeat="nanny in newMessage.nannys">{{nanny.name}}</p>
           </div>
