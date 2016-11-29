@@ -22,15 +22,22 @@ class Conversation < ApplicationRecord
       @conversations << { "sender_id" => convo.sender_id, "convo_id" => convo.id,
         "subject" => convo.subject, "recipient_id" => convo.recipient_id,
         "created_at" => convo.created_at.strftime("%m/%d/%Y %I:%M %p"),
-        "sender_name" => sender_name,
+        "sender_name" => sender_name, "sender_read" => convo.sender_read,
+        "recipient_read" => convo.recipient_read,
         "recipient_name" => recipient_name, "messages_count" => convo.messages.where(is_deleted: false).count}
     end
 
     return @conversations
   end
 
-  def self.get_conversation(options)
+  def self.get_conversation(options, current_user)
     convo = Conversation.find(options)
+
+    if convo.sender_id == current_user.id
+      convo.update_attribute(:sender_read, true)
+    elsif convo.recipient_id == current_user.id
+      convo.update_attribute(:recipient_read, true)
+    end
 
     sender_name = "#{convo.sender.first_name} #{convo.sender.last_name}"
     recipient_name = "#{convo.recipient.first_name} #{convo.recipient.last_name}"
@@ -38,7 +45,8 @@ class Conversation < ApplicationRecord
     @conversation = { "id" => convo.id, "subject" => convo.subject,
                       "sender_id" => convo.sender_id, "sender_name" => sender_name,
                       "recipient_id" => convo.recipient_id,
-                      "recipient_name" => recipient_name,
+                      "recipient_name" => recipient_name, "sender_read" => convo.sender_read,
+                      "recipient_read" => convo.recipient_read,
                       "created_at" => convo.created_at.strftime("%m/%d/%Y %I:%M %p")}
   end
 

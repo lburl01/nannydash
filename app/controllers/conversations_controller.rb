@@ -8,7 +8,7 @@ class ConversationsController < ApplicationController
   end
 
   def show
-    @conversation = Conversation.get_conversation(params[:id])
+    @conversation = Conversation.get_conversation(params[:id], current_user)
 
     render json: @conversation
   end
