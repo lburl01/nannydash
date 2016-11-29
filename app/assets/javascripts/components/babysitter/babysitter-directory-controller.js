@@ -1,5 +1,5 @@
 angular.module('app')
-    .controller('babysitterDirectoryController', ["$http", "$state", "babysitterDirectoryAPI", function ($http, $state, babysitterDirectoryAPI) {
+    .controller('babysitterDirectoryController', ["$state", "babysitterDirectoryAPI", function ($state, babysitterDirectoryAPI) {
       /*************************
       Variables
       *************************/
@@ -15,6 +15,7 @@ angular.module('app')
       this.dropdown = function() {
         self.dropIt = !self.dropIt;
       };
+
       /*************************
       When page first loads, load in babysitters
       *************************/

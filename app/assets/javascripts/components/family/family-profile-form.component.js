@@ -13,7 +13,7 @@
     function FamilyProfileForm(familyAPI, $filter, $state) {
       var ctrl = this;
       ctrl.savedText = false;
-      ctrl.deletedText = false;
+      ctrl.deleted = false;
       ctrl.id = ctrl.profile.family_id;
       ctrl.updateFamily = {};
       ctrl.visibility = false;
@@ -34,7 +34,7 @@
       };
 
       ctrl.delete = function(id) {
-        ctrl.deletedText = true;
+        ctrl.deleted = true;
         ctrl.visibility = false;
         familyAPI.deleteProfile(id).then(function() {
           $state.go('family');

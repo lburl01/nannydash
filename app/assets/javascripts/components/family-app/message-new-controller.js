@@ -19,7 +19,6 @@ angular.module('familyApp')
       familyAppAPI.activeBabysitters().success(function(response) {
         var nannysArray = [];
         var parentsArray = [];
-        console.log(response);
         for(var i = 0; i < response.length; i++) {
           if(response[i].role === 'nanny') {
             nannysArray.push(response[i]);
@@ -29,7 +28,6 @@ angular.module('familyApp')
         };
         self.nannys = nannysArray;
         self.parents = parentsArray;
-
       });
 
       this.sendMessage = function(id, subject, body) {
@@ -40,6 +38,7 @@ angular.module('familyApp')
         newMsg['conversation_id'] = null;
 
         familyAppAPI.reply(newMsg);
+        $state.go('messages')
       }
 
       this.loadUser = function(user) {
@@ -47,5 +46,4 @@ angular.module('familyApp')
         self.id = user.id
         return self.recipient = user.name;
       }
-
     }]);

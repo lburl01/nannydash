@@ -1,11 +1,10 @@
 <div class="new-jobs-info-wrapper">
   <div class="directory-container">
 
-    <div class="search">
+    <div class="search hide-title">
       <h1 ui-sref="newJobs">New Jobs</h1>
       <span>></span>
       <h2>{{$ctrl.job.name}}</h2>
-      <input type="text">
     </div>
 
     <div class="list">
@@ -55,7 +54,7 @@
         <label for="name">Date Posted:</label>
         <input type="text" name="posted" value="" ng-model="$ctrl.job.date_posted" ng-change="$ctrl.updateCurrent( 'date_posted', $ctrl.job.date_posted)">
 
-        <button ng-click="$ctrl.popup()" class="delete" ng-class="{'redDelete': $ctrl.visibility}" type="button">Delete Job</button>
+        <button class="new-job-delete" ng-click="$ctrl.popup()" class="delete" ng-class="{'redDelete': $ctrl.visibility}" type="button">Delete Job</button>
       </section>
       </form>
     </fieldset>

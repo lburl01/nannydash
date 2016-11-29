@@ -4,6 +4,7 @@ angular.module('app')
       Variables
       *************************/
       var self = this;
+      this.messageTrue = $stateParams.newMessage;
 
       this.messageClick = function() {
         $state.go('new-message');

@@ -34,7 +34,6 @@ class AgencyController < ApplicationController
   end
 
   def count_totals
-
     @pending_families = User.get_pending_family_count
     @pending_sitters = User.get_pending_sitter_count
     @new_jobs = Job.get_unassigned_jobs_count
@@ -62,7 +61,7 @@ class AgencyController < ApplicationController
     def agency_params
       params.require(:user).permit(:first_name, :last_name, :email, :password,
                                      :street, :city, :state, :zip_code, :role,
-                                     :county, :is_deleted, :picture, :phone_number)
+                                     :county, :is_deleted, :picture, :phone_number, :picture)
     end
 
 end

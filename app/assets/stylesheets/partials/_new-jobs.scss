@@ -43,7 +43,6 @@ new-job {
     }
   }
 }
-
 @include media(tablet) {
   #new-jobs {
     #new-jobs-header {
@@ -65,12 +64,22 @@ new-job {
   }
 }
 
-@include media(mobile) {
+@include media(largeMobile) {
   #new-jobs.directory-container {
     padding: 0 0 20px 0;
     .search:before {
       top: 377px;
       left: 37px;
+    }
+    #new-jobs-header {
+      li.mobile-hide {
+        display: none;
+      }
+    }
+    .table-body {
+      li.mobile-hide {
+        display: none;
+      }
     }
   }
 }

@@ -1,4 +1,4 @@
-angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPagination'])
+angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPagination', 'shared'])
     .config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise('/');
         $stateProvider.state('dashboard', {
@@ -59,7 +59,10 @@ angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPag
         }).state('conversations', {
             url: '/conversations',
             templateUrl: 'conversations.html',
-            controller: 'conversationController as conversations'
+            controller: 'conversationController as conversations',
+            params: {
+              newMessage: null
+            }
         }).state('message', {
             url: '/message/:messageId',
             templateUrl: 'message.html',
@@ -74,7 +77,7 @@ angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPag
             controller: 'messagesController as messages',
             params: {
                 messagesParam: null,
-                conversationId: null
+                conversationId: null,
             },
         }).state('new-message', {
             url: '/new-message',

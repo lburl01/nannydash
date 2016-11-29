@@ -104,6 +104,9 @@ div.list-wrapper {
 }
 
 @include media(tablet) {
+  #families.directory-container {
+    padding: 0 0 20px 0;
+  }
   #families .family-table {
     .tablet-hide {
       display: none;
@@ -122,9 +125,6 @@ div.list-wrapper {
 @include media(mobile) {
   #families.directory-container {
     padding: 0 0 20px 0;
-    .search:before {
-      top: 377px;
-    }
   }
   #families .family-table {
     .mobile-hide {

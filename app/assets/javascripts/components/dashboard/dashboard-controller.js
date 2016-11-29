@@ -4,12 +4,14 @@ angular.module('app')
       Variables
       *************************/
       var self = this;
+
       /*************************
       Loading in dashboard endpoints
       *************************/
       dashboardAPI.list().success(function(response) {
         self.application = response.applications
         self.assignments = response.assignments
+        console.log(response.open_jobs);
         self.messages = response.messages;
         self.openJobs = response.open_jobs;
       }, function(response) {
@@ -35,6 +37,18 @@ angular.module('app')
         }
       }
       /*************************
+      Checking if message was read
+      *************************/
+      this.readValidate = function(value) {
+        console.log();
+        if(value === true) {
+          console.log('true');
+          return 'Yes';
+        } else if(value === false) {
+          return 'No';
+        }
+      }
+      /*************************
       When user clicks on new/current jobs
       *************************/
       this.newJobs = function(job) {
@@ -53,7 +67,7 @@ angular.module('app')
       /*************************
       Reformating Date
       *************************/
-      this.getDate = function(data) {
+      this.getDate = function(data, person) {
         var myMonth = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug", "Sept", "Oct", "Nov", "Dec"];
         var date = new Date(data);
         var month = date.getMonth();
@@ -65,15 +79,26 @@ angular.module('app')
         hours = hours ? hours : 12;
         minutes = minutes < 10 ? '0'+minutes : minutes;
         var strTime = hours + ':' + minutes + ampm;
-        var fullDate;
 
-        var now = new Date();
-        var nowDay = now.getDate();
+        self.colorChange(date.getFullYear() + '-' + (month + 1) + '-' + (date.getDate() + 1), person);
 
         for(var i = 0; i <= myMonth.length; i++) {
           if(myMonth[i] === myMonth[month]) {
-            return fullDate = myMonth[month] + ' ' + day + ' at ' + strTime;
+            return myMonth[month] + ' ' + day + ' at ' + strTime;
           }
+        }
+      }
+
+      this.colorChange = function(date, person) {
+        var now = new Date();
+        var jobDate = new Date(date);
+
+        if(now.toDateString() === jobDate.toDateString()) {
+          return person['dateRed'] = true;
+        } else {
+          var timeDiff = Math.abs(now.getTime() - jobDate.getTime());
+          var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+          return person['dateGreen'] = true;
         }
       }
 

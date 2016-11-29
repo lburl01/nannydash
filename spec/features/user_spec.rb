@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.feature 'User Management' do
 
-  context 'manager sign in' do
-    it 'redirects to authenticated root' do
+  context 'manager signs in' do
+    it 'they see their name on the page' do
       @manager = create(:user)
 
       visit new_user_session_path
@@ -11,7 +11,7 @@ RSpec.feature 'User Management' do
       fill_in "Password", with: @manager.password
       click_on "Log in"
 
-      expect(page).to have_content("View and manage Babysitter applications and jobs completed")
+      expect(page).to have_text("Hey, #{@manager.first_name}")
     end
   end
 

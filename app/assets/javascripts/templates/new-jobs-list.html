@@ -3,7 +3,7 @@
 
     <div class="search">
       <h1>New Jobs</h1>
-      <input type="text" ng-model="searchBox" placeholder="Search">
+      <input type="text" search-image ng-model="searchBox" class="form-control" id="iconified" placeholder="&#xF002;"/>
     </div>
     <div class="list">
       <div class="title-container dropdown-container">
@@ -14,7 +14,7 @@
       <ul class="table-head" id="new-jobs-header">
         <li ng-click=$ctrl.sortBy('last_name')>Parent</li>
         <li ng-click=$ctrl.sortBy('date')>Job Date</li>
-        <li class="tablet-hide" ng-click=$ctrl.sortBy('start_time')>Posted</li>
+        <li class="mobile-hide" ng-click=$ctrl.sortBy('start_time')>Posted</li>
         <li class="tablet-hide" ng-click=$ctrl.sortBy('notes')>Notes</li>
         <li>View Job</li>
       </ul>

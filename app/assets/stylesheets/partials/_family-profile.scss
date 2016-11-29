@@ -2,6 +2,24 @@
   display: flex;
   font-style: 'Helvetica', sans-serif;
 
+  .envelope {
+    align-items: center;
+    border-radius: 5px;
+    color:white;
+    cursor: pointer !important;
+    display: flex;
+    font-weight: 100;
+    height: 35px;
+    justify-content: flex-end;
+    span {
+      cursor: pointer !important;
+      background: url(asset_path('messages.svg'));
+      background-size: cover;
+      height: 20px;
+      width: 20px;
+      color: white;
+    }
+  }
   .directory-container {
     width: 100%;
     .family-link {
@@ -9,23 +27,6 @@
       transition: all .5s ease;
       &:hover {
         transform: translateY(-5px);
-      }
-    }
-    .envelope {
-      align-items: center;
-      border-radius: 5px;
-      color:white;
-      cursor: pointer;
-      display: flex;
-      font-weight: 100;
-      height: 35px;
-      justify-content: flex-end;
-      span {
-        background: url(asset_path('messages.svg'));
-        background-size: cover;
-        height: 20px;
-        width: 20px;
-        color: white;
       }
     }
     .list {
@@ -115,19 +116,19 @@
           cursor: default;
         }
         &:hover {
-          background: $yellow;
+          background: $hoverYellow !important;
         }
         &.updated {
           content: "Saved!";
         }
       }
       .delete {
-        background: $grey;
+        background: $brick;
         &:hover {
           background: $red;
         }
         &.deleted {
-          background: $red;
+          background: $red !important;
           cursor: default;
         }
       }
@@ -207,6 +208,10 @@
   text-align: center;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   margin: 20% auto;
+  display: flex;
+  flex-direction: column;
+  height: 220px;
+  justify-content: flex-end;
   .close {
     cursor: pointer;
     height: 30px;
@@ -240,8 +245,11 @@
     }
   }
   p {
-    color: $grey;
-    padding: 3em 1em;
+    padding-bottom: 15% !important;
+    width: 100% !important;
+    font-weight: 100 !important;
+    font-size: 18px !important;
+    color: #777 !important;
   }
   ul {
     display: flex;
@@ -263,6 +271,29 @@
         &:hover {
           background: lighten($red, 10%);
         }
+      }
+    }
+  }
+}
+@include media(tablet) {
+  #family-profile-wrapper {
+    .search {
+      display: none;
+    }
+    .directory-container {
+      padding: 0;
+    }
+  }
+}
+@include media(mobile) {
+  #family-profile-wrapper {
+    .search {
+      display: none;
+    }
+    .profile-container {
+      flex-direction: column;
+      section {
+        width: 100% !important;
       }
     }
   }
