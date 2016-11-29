@@ -89,11 +89,11 @@
             outline: none;
             @include media(desktop) {
                 font-size: 14px;
-                width: 90px;
+                width: 104px;
             }
             @include media(mobile) {
                 font-size: 13px;
-                width: 80px;
+                width: 88px;
             }
             @include media(smallMobile) {
                 font-size: 17px;

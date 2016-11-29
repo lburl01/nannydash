@@ -1,5 +1,8 @@
 .newMessage {
   .search {
+    margin: 0 auto;
+    display: table;
+
     &:before {
       display: none;
     }
@@ -22,6 +25,9 @@
         left: 75px;
         z-index: 2;
         top: 38px;
+        @include media(largeMobile) {
+          display: none;
+        };
       }
 
       .users {
@@ -38,10 +44,27 @@
         border-radius: 7px;
         box-shadow: $green 1px 2px 1px 1px;
         box-shadow: #aaa 0px 1px 6px 0px;
+        @include media(largeMobile) {
+          width: 100%;
+          position: relative;
+          left: 0;
+          top: 0;
+        };
+
+        .user-group:nth-child(2) {
+          h2 {
+            @include media(mobile) {
+              padding-top: 15px;
+            };
+          }
+        }
 
         .user-group {
           width: 50%;
           float: left;
+          @include media(mobile) {
+            width: 100%;
+          };
 
           h2 {
             font-size: 16px;
