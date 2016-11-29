@@ -12,6 +12,7 @@
 //= require nannyApp.component.js
 //= require familyApp.component.js
 //= require nannyApp.service.js
+//= require searchImage.directive.js
 //= require app.service.js
 //= require_tree ./templates
 //= require_tree ./components

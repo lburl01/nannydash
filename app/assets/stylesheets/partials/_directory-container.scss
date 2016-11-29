@@ -1,7 +1,7 @@
+
 .directory-container {
   float: right;
   width: 100%;
-  //padding: 0 80px;
   padding: 0 30px 0 10px;
   @include media(desktop) {
     padding: 0 25px 25px;
@@ -9,7 +9,6 @@
 
   .search {
     overflow: hidden;
-    //padding: 40px 0;
     padding: 20px 0 40px;
     @include media(mobile) {
       padding-bottom: 30px;
@@ -56,32 +55,6 @@
       }
     }
 
-    &:before {
-      font-family: fontawesome;
-      position: absolute;
-      content: "\f002";
-      font-size: 16px;
-      color: $purple;
-      right: 219px;
-      top: 52px;
-      @include media(desktop) {
-        right: 257px;
-        top: 222px;
-      };
-      @include media(tablet) {
-        top: 357px;
-        right: 246px;
-      };
-      @include media(mobile) {
-        top: 405px;
-        right: 352px;
-      };
-      @include media(smallMobile) {
-        top: 640px;
-        right: 314px;
-      };
-    }
-
     h1 {
       float: left;
       font-size: 24px;
@@ -91,18 +64,19 @@
     }
 
     input {
-      float: right;
-      width: 220px;
       background: #f5f5f5;
-      border: $purple solid 1px;
       border-radius: 7px;
-      padding: 6px;
-      padding-left: 35px;
-      outline: none;
+      border: $purple solid 1px;
+      color: $purple;
+      float: right;
       font-size: 15px;
       font-weight: 300;
-      color: $purple;
+      height: 30px;
       letter-spacing: .5px;
+      outline: none;
+      padding-left: 35px;
+      padding: 6px;
+      width: 220px;
       @include media(mobile) {
         width: 100%;
         margin-top: 20px;
@@ -117,14 +91,6 @@
   }
 
   .search-input {
-    &:before {
-      @include media(medMobile) {
-        top: 408px;
-        right: 0;
-        left: 58px;
-      };
-    }
-
     input {
       @include media(medMobile) {
         width: 100%;
@@ -132,6 +98,7 @@
       };
     }
   }
+
   .list {
     .title-container {
       overflow: hidden;
@@ -387,4 +354,17 @@
       }
     }
   }
+}
+
+/*****
+* Search bar magnifying glass and text
+*****/
+input.empty {
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
+}
+input.sans-serif {
+  font-family: 'Roboto', sans-serif;
 }
