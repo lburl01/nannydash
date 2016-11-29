@@ -1,5 +1,5 @@
 (function() {
-  angular.module('nannyApp', ['ui.router', 'templates', 'angularUtils.directives.dirPagination'])
+  angular.module('nannyApp', ['ui.router', 'templates', 'angularUtils.directives.dirPagination', 'shared'])
     .config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $urlRouterProvider) {
 
       $urlRouterProvider.otherwise('/');

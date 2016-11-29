@@ -5,6 +5,7 @@
 //= require angular-utils-pagination/dirPagination.js
 //= require jquery
 //= require jquery_ujs
+//= require shared.module.js
 //= require app.module.js
 //= require nannyApp.module.js
 //= require familyApp.module.js
@@ -12,7 +13,6 @@
 //= require nannyApp.component.js
 //= require familyApp.component.js
 //= require nannyApp.service.js
-//= require searchImage.directive.js
 //= require app.service.js
 //= require_tree ./templates
 //= require_tree ./components

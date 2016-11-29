@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  angular.module('app').directive('searchImage', function() {
+  angular.module('shared').directive('searchImage', function() {
     return {
       restrict: 'A',
       require: 'ngModel',
