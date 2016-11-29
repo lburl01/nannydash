@@ -116,7 +116,7 @@
           cursor: default;
         }
         &:hover {
-          background: $yellow;
+          background: $hoverYellow !important;
         }
         &.updated {
           content: "Saved!";

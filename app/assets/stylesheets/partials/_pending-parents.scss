@@ -10,13 +10,13 @@
     width: 15%;
   }
   li:nth-child(3) {
-    width: 20% !important;
+    width: 25% !important;
   }
   li:nth-child(4) {
     width: 30% !important;
   }
   li:nth-child(5) {
-    width: 20% !important;
+    width: 15% !important;
   }
   div.panel-heading {
     display: flex;
@@ -46,12 +46,10 @@ pending-parent-info-form {
   }
   input.approve,
   button.delete {
-    background: $grey !important;
     border-radius: 4px;
     border: transparent;
     color: #fff;
     cursor: pointer;
-    text-shadow: 1px 1px 1px darken($grey, 30%);
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 100;
@@ -59,16 +57,20 @@ pending-parent-info-form {
     padding: 7px 10px;
     width: 65%;
   }
-  .approve {
+  input.approve {
+    background-color: $yellow !important;
+    text-shadow: 1px 1px 1px darken($yellow, 30%);
     &:hover {
       cursor: pointer;
-      background-color: $yellow !important;
-      text-shadow: 1px 1px 1px darken($yellow, 30%);
+      background-color: $hoverYellow !important;
     }
+  }
+  .delete {
+    background-color: $brick;
+    text-shadow: 1px 1px 1px darken($red, 30%);
   }
   .redDelete {
     background-color: $red !important;
-    text-shadow: 1px 1px 1px darken($red, 30%);
   }
 }
 
@@ -88,7 +90,15 @@ pending-parent-info-form {
       }
     }
   }
+}
 
+@include media(medMobile) {
+  .pending-family {
+    flex-direction: column;
+    section {
+      width: 100% !important;
+    }
+  }
 }
 
 @include media(mobile) {
