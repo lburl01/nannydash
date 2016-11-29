@@ -30,7 +30,7 @@ class Message < ApplicationRecord
   end
 
   def self.get_messages(conversation)
-    @messages = Message.where( { is_deleted: false, conversation_id: conversation.id } ).all
+    @messages = Message.where( { is_deleted: false, conversation_id: conversation.id } ).order(created_at: :desc).all
 
     @message_hash = {}
 
