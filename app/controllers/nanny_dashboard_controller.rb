@@ -37,7 +37,7 @@ class NannyDashboardController < ApplicationController
 
   def get_confirmed_jobs
     @confirmed_jobs = Job.get_confirmed_sitter_jobs(current_user)
-
+    
     render json: @confirmed_jobs
   end
 

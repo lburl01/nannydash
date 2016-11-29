@@ -34,13 +34,6 @@ RSpec.describe "GET sitter_dash/requested_jobs" do
     expect(json_body[0]["is_assigned"]).to eq false
   end
 
-  it 'only returns is_assigned: false jobs' do
-
-    get "/sitter_dash/requested_jobs"
-
-    expect(json_body[0]["is_assigned"]).to eq false
-  end
-
   it 'only returns confirmed: false jobs' do
 
     get "/sitter_dash/requested_jobs"
