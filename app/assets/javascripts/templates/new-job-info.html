@@ -54,11 +54,23 @@
         <label for="name">Date Posted:</label>
         <input type="text" name="posted" value="" ng-model="$ctrl.job.date_posted" ng-change="$ctrl.updateCurrent( 'date_posted', $ctrl.job.date_posted)" ng-disabled="true">
 
+        <input type="text" name="" value="{{$ctrl.nanny.name}}" ng-disabled="true">
+        <button class="new-job-assign" ng-click="$ctrl.assignPopup()" class="assign" ng-class="" type="button">Assign Nanny</button>
         <button class="new-job-delete" ng-click="$ctrl.popup()" class="delete" ng-class="{'redDelete': $ctrl.visibility}" type="button">Delete Job</button>
       </section>
       </form>
     </fieldset>
 
+
+    <div ng-class="{'visible': $ctrl.assignVisibility}" class="popup" role="alert">
+    	<div class="popup-container assign-container">
+        <a ng-click="$ctrl.assignPopup()" class="close img-replace"></a>
+        <div class="nanny-popup-list">
+          <h3>Assign a Nanny</h3>
+          <p ng-click="$ctrl.assign(nanny)" ng-repeat="nanny in $ctrl.nannyList">{{nanny.name}}</p>
+        </div>
+    	</div>
+    </div>
 
     <div ng-class="{'visible': $ctrl.visibility}" class="popup" role="alert">
     	<div class="popup-container">
