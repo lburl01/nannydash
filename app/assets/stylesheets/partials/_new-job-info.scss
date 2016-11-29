@@ -43,7 +43,6 @@
       font-weight: 100;
       padding: 7px 10px;
       width: 100%;
-      margin-top: 60px;
       text-shadow: 1px 1px 1px darken($red, 30%);
       outline: none;
       &:hover {
@@ -58,6 +57,38 @@
     }
   }
 }
+button.new-job-assign {
+  margin: 15px 0;
+}
+.popup-container.assign-container {
+  background: #eee;
+  border-radius: 7px;
+  box-shadow: #aaa 0px 1px 6px 0px;
+  color: #666;
+  height: 500px;
+  justify-content: flex-start;
+  margin-top: 7%;
+  overflow: scroll;
+  padding: 25px;
+  width: 370px;
+  z-index: 1;
+  .nanny-popup-list {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    h3 {
+      border-bottom: 1px solid #dfdfdf;
+      font-size: 20px;
+      padding-bottom: 5px;
+      width: 70%;
+    }
+    p {
+      padding: 0 !important ;
+      line-height: 30px;
+    }
+  }
+}
+
 @include media(tablet) {
   .new-jobs-info-wrapper {
     .hide-title {
