@@ -3,7 +3,7 @@ angular.module('familyApp').service('familyAppAPI', ['$http', '$window', functio
     return {
       list: function() {
         return $http({
-          url: "/api/v1/agency/summary",
+          url: "family_dash/5_confirmed_jobs",
           method: "GET"
         });
       },
@@ -128,9 +128,8 @@ angular.module('familyApp').service('familyAppAPI', ['$http', '$window', functio
         });
       },
       confirmJob: function(id) {
-        console.log(id);
         return $http({
-          url: "api/v1/job/confirm/" + id + ".json",
+          url: "api/v1/job/confirm/" + id.id + ".json",
           method: "PATCH",
           data: id
         });

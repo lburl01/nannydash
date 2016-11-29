@@ -34,8 +34,12 @@ class FamilyDashboardController < ApplicationController
 
   def get_five_confirmed_jobs
     @five_family_jobs = Job.get_five_family_jobs(current_user)
+    @messages = Message.get_latest_messages(current_user)
 
-    render json: @five_family_jobs
+    @dashboard = { "confirmed_jobs" => @five_family_jobs,
+                   "messages" => @messages}
+
+    render json: @dashboard
   end
 
   def get_all_family_jobs
