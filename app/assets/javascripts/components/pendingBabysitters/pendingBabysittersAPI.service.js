@@ -33,7 +33,8 @@
       },
 
       approveSitter: function(id) {
-        return $http.patch("/api/v1/sitter/approve.json", {id: id}).then (function(response) {
+        console.log(id);
+        return $http.patch("/api/v1/sitter/approve/" + id + ".json", {id: id}).then (function(response) {
           return response.data;
         });
       }

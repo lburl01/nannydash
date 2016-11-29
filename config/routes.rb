@@ -39,7 +39,7 @@ Rails.application.routes.draw do
   post 'sitter/new' => 'sitters#create'
   match 'api/v1/sitter' => 'sitters#update', via: [:post, :patch]
   patch 'api/v1/sitter/delete' => 'sitters#toggle_deleted_sitter'
-  patch 'api/v1/sitter/approve' => 'sitters#toggle_approved_sitter'
+  patch 'api/v1/sitter/approve/:id' => 'sitters#toggle_approved_sitter'
   get 'api/v1/sitters/pending' => 'sitters#pending'
   patch 'api/v1/sitter/cpr' => 'sitters#set_cpr_true'
   patch 'api/v1/sitter/first_aid' => 'sitters#set_first_aid_true'
