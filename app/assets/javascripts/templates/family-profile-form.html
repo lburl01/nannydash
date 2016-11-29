@@ -32,7 +32,7 @@
     <div ng-class="{'visible': $ctrl.visibility}" class="popup" role="alert">
     	<div class="popup-container">
         <a ng-click="$ctrl.popup()" class="close img-replace"></a>
-    		<p>Are you sure you want to delete this family?</p>
+    		<p class="popup-text">Are you sure you want to delete this family?</p>
     		<ul class="popup-buttons">
     			<li ng-click="$ctrl.delete($ctrl.profile.family_id)">Yes</li>
     			<li ng-click="$ctrl.popup()">No</li>

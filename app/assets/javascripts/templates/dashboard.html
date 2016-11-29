@@ -16,7 +16,9 @@
       <tr ng-repeat="person in dashboard.openJobs" ng-click="dashboard.newJobs(person)">
         <td>{{person.name}}</td>
         <td>{{person.sitter}}</td>
-        <td>{{person.submitted}}</td>
+        <td ng-show="person.is_assigned === false"><h6 class="sitter">Waiting Sitter</h6></td>
+        <td ng-show="person.is_assigned === true && person.confirmed === false"><h6 class="parent">Waiting Parent</h6></td>
+        <td ng-show="person.confirmed === true"><h6 class="confirmed">Confirmed</h6></td>
       </tr>
     </table>
   </section>
