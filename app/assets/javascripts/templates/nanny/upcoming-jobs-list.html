@@ -25,7 +25,7 @@
           <li>{{job.date}}</li>
           <li>{{job.start_time}}-{{job.end_time}}</li>
           <li class="notes">{{job.notes === "" ? "None" : job.notes | limitTo: 50}}</li>
-          <li>{{job.confirmed ? "Confirmed" : "Unconfirmed"}}</li>
+          <li><span ng-class="job.confirmed ? 'green' : 'red' ">{{job.confirmed ? "Confirmed" : "Unconfirmed"}}</span></li>
         </ul>
 
       </div>

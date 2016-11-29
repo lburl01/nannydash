@@ -48,6 +48,9 @@
   section.name {
     padding: 40px;
     border-left: 1px solid #eee;
+    span {
+      cursor: default;
+    }
   }
   section.basic-info {
     padding-left: 50px !important;
@@ -117,7 +120,6 @@
         input.upcoming-job {
           float: right !important;
           display: inline-block !important;
-          width: 73% !important;
         }
         button {
           width: 73%;

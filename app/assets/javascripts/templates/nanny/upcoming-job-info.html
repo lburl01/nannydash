@@ -9,9 +9,8 @@
       </div>
     </div>
 
-    <fieldset ng-disabled=true;>
+    <form>
       <section class="basic-info">
-        <form>
         <h2>Basic Information</h2>
         <!-- Family -->
         <label for="name">Name:</label>
@@ -48,9 +47,8 @@
         <label for="name">Date Posted:</label>
         <input class="upcoming-job" type="text" name="posted" value="" ng-model="$ctrl.jobInfo.date_posted">
         <button class="request-button confirmation-status" ng-class="{'confirmation-button': $ctrl.jobInfo.confirmed}" type="button">{{$ctrl.jobInfo.confirmed ? "Confirmed" : "Unconfirmed"}}</button>
+        <button ng-disabled="$ctrl.jobInfo.is_assigned" ng-click="$ctrl.popup()" class="request-button claim-job" ng-class="{'yellowRequest': $ctrl.jobInfo.is_assigned}" type="button">{{$ctrl.jobInfo.is_assigned ? "Assigned" : "Claim Job"}}</button>
       </section>
-      </fieldset>
-      <button ng-disabled="$ctrl.jobInfo.is_assigned" ng-click="$ctrl.popup()" class="request-button claim-job" ng-class="{'yellowRequest': $ctrl.jobInfo.is_assigned}" type="button">{{$ctrl.jobInfo.is_assigned ? "Assigned" : "Claim Job"}}</button>
     </form>
 
     <div ng-class="{'visible': $ctrl.visibility}" class="popup" role="alert">

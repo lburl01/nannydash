@@ -96,7 +96,7 @@
     <input class="pending-sitter" type="text" name="name" ng-value="$ctrl.info.joined | date: 'MM/dd/yyyy'" ng-disabled="true">
 
     <span class="pending-sitter-buttons">
-      <button class="pending-sitter" ng-click="$ctrl.approve($ctrl.info.sitter_id)" type="button">Approve</button>
+      <button class="pending-sitter" ng-click="$ctrl.approve($ctrl.info.id)" type="button">Approve</button>
       <button class="pending-sitter" ng-click="$ctrl.popup()" ng-class="{'redDelete': $ctrl.visibility}" type="button">Delete</button>
     </span>
   </section>
