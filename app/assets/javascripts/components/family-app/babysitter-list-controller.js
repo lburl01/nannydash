@@ -33,13 +33,13 @@ angular.module('familyApp')
       /*************************
       Calculating age
       *************************/
-      this.calculateAge = function(age) {
-        var userBirthday = new Date(age);
+      this.calculateAge = function(person) { // birthday is a date
+        var userBirthday = new Date(person.birthday);
         var nowDate = Date.now();
         var ageDif = nowDate - userBirthday.getTime();
-        var ageDate = new Date(ageDif);
-        return self.age = Math.abs(ageDate.getUTCFullYear() - 1970);
-      }
+        var ageDate = new Date(ageDif); // miliseconds from epoch
+        person["age"] = Math.abs(ageDate.getUTCFullYear() - 1970);
+      };
       /*************************
       When user clicks on profile, it will store data and post on new profile page
       *************************/
