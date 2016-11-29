@@ -1,5 +1,5 @@
 <div class="directory-container">
-  <div class="search">
+  <div class="search hide-title">
     <h1 ui-sref="babysitters">Pending Babysitter</h1>
     <span>></span>
     <h2>{{$ctrl.info.first_name}}</h2>
@@ -93,7 +93,7 @@
     <input class="pending-sitter" id="birthday" type="text" ng-value="$ctrl.calculateAge($ctrl.info.birthday)" ng-disabled="true">
     <!-- Joined Field -->
     <label for="joined">Joined:</label>
-    <input class="pending-sitter" type="text" name="name" ng-value="$ctrl.info.joined | date: 'MM/dd/yyyy'" ng-disabled="true"> 
+    <input class="pending-sitter" type="text" name="name" ng-value="$ctrl.info.joined | date: 'MM/dd/yyyy'" ng-disabled="true">
 
     <span class="pending-sitter-buttons">
       <button class="pending-sitter" ng-click="$ctrl.approve($ctrl.info.sitter_id)" type="button">Approve</button>
