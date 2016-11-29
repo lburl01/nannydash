@@ -11,14 +11,14 @@ angular.module('app').service('babysitterDirectoryAPI', ['$http', function($http
 
       cpr: function(id) {
         return $http({
-          url: "/api/v1/sitter/cpr",
+          url: "/api/v1/sitter/cpr" + id + ".json",
           method: "PATCH",
           data: id
         });
       },
       first_aid: function(id) {
         return $http({
-          url: "/api/v1/sitter/first_aid",
+          url: "/api/v1/sitter/first_aid/" + id + ".json",
           method: "PATCH",
           data: id
         });
@@ -32,7 +32,7 @@ angular.module('app').service('babysitterDirectoryAPI', ['$http', function($http
       updateUser: function(data) {
         return $http({
           method: 'PATCH',
-          url: "/api/v1/sitter",
+          url: "/api/v1/sitter.json",
           data: {user: data}
         });
       },
@@ -46,7 +46,7 @@ angular.module('app').service('babysitterDirectoryAPI', ['$http', function($http
       deleteUser: function(data) {
         return $http({
           method: 'PATCH',
-          url: "/api/v1/sitter/delete",
+          url: "/api/v1/sitter/delete/" + data.id + ".json",
           data: data
         });
       }

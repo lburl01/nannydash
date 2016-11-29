@@ -27,7 +27,7 @@
       },
 
       deleteSitter: function(id) {
-        return $http.patch("/api/v1/sitter/delete.json", {id: id}).then(function(response) {
+        return $http.patch("/api/v1/sitter/delete/" + id + ".json", {id: id}).then(function(response) {
           return response.data;
         });
       },
