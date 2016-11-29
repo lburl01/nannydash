@@ -26,13 +26,15 @@
     ctrl.save = function(id) {
       allJobsAPI.saveJob(id, ctrl.updateNewJob);
     };
-
     ctrl.delete = function(id) {
       allJobsAPI.deleteJob(id).then(function() {
+        console.log('success!');
         $scope.$emit('updateCount', {});
-
+          $state.go('allJobs');
       });
     };
-
+    ctrl.popup = function() {
+      ctrl.visibility = !ctrl.visibility;
+    };
   }
 })();
