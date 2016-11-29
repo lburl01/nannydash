@@ -13,8 +13,8 @@
   ******************************* -->
         <div class="list">
             <div class="title-container">
-              <h2>Family:</h2>
-              <label class="name-heading">{{ $ctrl.job.name }}</label>
+                <h2>Family:</h2>
+                <label class="name-heading">{{ $ctrl.job.name }}</label>
             </div>
         </div>
         <!-- ******************************
@@ -22,17 +22,17 @@
   ******************************* -->
         <section class="name">
 
-          <label>Job needed for: </label>
-          <input type="text" ng-model="$ctrl.job.date">
+            <label>Job needed for: </label>
+            <input type="text" readonly ng-model="$ctrl.job.date">
 
-          <label>Posted on: </label>
-          <input type="text" ng-model="$ctrl.job.date_posted">
+            <label>Posted on: </label>
+            <input type="text" readonly ng-model="$ctrl.job.date_posted">
 
-          <label>Start time: </label>
-          <input type="text" ng-model="$ctrl.job.start_time">
+            <label>Start time: </label>
+            <input type="text" readonly ng-model="$ctrl.job.start_time">
 
-          <label>End time: </label>
-          <input type="text" ng-model="$ctrl.job.end_time">
+            <label>End time: </label>
+            <input type="text" readonly ng-model="$ctrl.job.end_time">
 
         </section>
         <!-- ******************************
@@ -41,30 +41,41 @@
         <section class="basic-info">
             <h2>Job Details</h2>
             <label for="sitter_name">Sitter:</label>
-            <input id="sitter_name" type="text" ng-model="$ctrl.job.sitter_name" ng-model-options="{ updateOn: 'blur' }" ng-change="$ctrl.updateCurrent( 'sitter_name', $ctrl.job.sitter_name)">
+            <input id="sitter_name" readonly type="text" ng-model="$ctrl.job.sitter_name" ng-model-options="{ updateOn: 'blur' }" ng-change="$ctrl.updateCurrent( 'sitter_name', $ctrl.job.sitter_name)">
 
             <label for="phone">Phone:</label>
-            <input id="phone" type="text" ng-model="$ctrl.job.phone" ng-change="$ctrl.updateCurrent( 'phone', $ctrl.job.phone)">
+            <input id="phone" type="text" readonly ng-model="$ctrl.job.phone" ng-change="$ctrl.updateCurrent( 'phone', $ctrl.job.phone)">
 
             <label for="email">Email:</label>
-            <input id="email" type="text" ng-model="$ctrl.job.email" ng-change="$ctrl.updateCurrent( 'email', $ctrl.job.email)">
+            <input id="email" type="text" readonly ng-model="$ctrl.job.email" ng-change="$ctrl.updateCurrent( 'email', $ctrl.job.email)">
 
             <label for="street">Street:</label>
-            <input id="street" type="text" ng-model="$ctrl.job.street" ng-change="$ctrl.updateCurrent( 'street', $ctrl.job.street)">
+            <input id="street" type="text" readonly ng-model="$ctrl.job.street" ng-change="$ctrl.updateCurrent( 'street', $ctrl.job.street)">
 
             <label for="city">City:</label>
-            <input id="city" type="text" ng-model="$ctrl.job.city" ng-change="$ctrl.updateCurrent( 'city', $ctrl.job.city)">
+            <input id="city" type="text" readonly ng-model="$ctrl.job.city" ng-change="$ctrl.updateCurrent( 'city', $ctrl.job.city)">
 
             <label for="state">State:</label>
-            <input id="state" type="text" ng-model="$ctrl.job.state" ng-change="$ctrl.updateCurrent( 'state', $ctrl.job.state)">
+            <input id="state" type="text" readonly ng-model="$ctrl.job.state" ng-change="$ctrl.updateCurrent( 'state', $ctrl.job.state)">
 
             <label for="zip">Zip:</label>
-            <input id="zip" type="text" ng-model="$ctrl.job.zip_code" ng-change="$ctrl.updateCurrent( 'zip_code', $ctrl.job.zip_code)">
+            <input id="zip" type="text" readonly ng-model="$ctrl.job.zip_code" ng-change="$ctrl.updateCurrent( 'zip_code', $ctrl.job.zip_code)">
 
             <label for="name" class="jobsListDetailsNotes">Notes:</label>
-            <textarea id="jobDetailsNotes" rows="5" name="posted" ng-model="$ctrl.job.notes" ng-model-options="{ updateOn: 'blur' }" ng-change="$ctrl.updateCurrent( 'notes', $ctrl.job.notes)"></textarea>
+            <textarea id="jobDetailsNotes" readonly rows="5" name="posted" ng-model="$ctrl.job.notes" ng-model-options="{ updateOn: 'blur' }" ng-change="$ctrl.updateCurrent( 'notes', $ctrl.job.notes)"></textarea>
 
-            <input name="save" ng-click="$ctrl.save($ctrl.jobId)" class="save saveButton" type="submit" value="Save Changes" />
+            <button name="delete" ng-click="$ctrl.popup()" class="delete deleteButton new-job-delete" ng-class="{'redDelete': '$ctrl.visibility'}" type="button" value="Delete Job"></button>
         </section>
+
+    </div>
+    <div ng-class="{'visible': $ctrl.visibility}" class="popup" role="alert">
+        <div class="popup-container">
+            <a ng-click="$ctrl.popup()" class="close img-replace"></a>
+            <p>Are you sure you want to delete this job?</p>
+            <ul class="popup-buttons">
+                <li ng-click="$ctrl.delete($ctrl.jobId)">Yes</li>
+                <li ng-click="$ctrl.popup()">No</li>
+            </ul>
+        </div>
     </div>
 </div>
