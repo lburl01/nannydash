@@ -53,7 +53,7 @@ angular.module('app')
       this.deleteBabysitter = function(id) {
         var idObj = {};
         idObj["id"] = id;
-
+        console.log('delete');
         babysitterDirectoryAPI.deleteUser(idObj);
         $state.go('babysitters',{reload: true});
       }

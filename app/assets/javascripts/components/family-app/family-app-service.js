@@ -72,7 +72,7 @@ angular.module('familyApp').service('familyAppAPI', ['$http', '$window', functio
       },
       deleteMessage: function(data) {
         return $http({
-          url: "/message/delete",
+          url: "/message/delete.json",
           method: "PATCH",
           data: data
         });
@@ -117,20 +117,20 @@ angular.module('familyApp').service('familyAppAPI', ['$http', '$window', functio
       },
       cpr: function(id) {
         return $http({
-          url: "/api/v1/sitter/cpr/" + id,
+          url: "/api/v1/sitter/cpr/" + id + ".json",
           method: "PATCH"
         });
       },
       first_aid: function(id) {
         return $http({
-          url: "/api/v1/sitter/first_aid/" + id,
+          url: "/api/v1/sitter/first_aid/" + id + ".json",
           method: "PATCH"
         });
       },
       confirmJob: function(id) {
         console.log(id);
         return $http({
-          url: "api/v1/job/confirm",
+          url: "api/v1/job/confirm/" + id + ".json",
           method: "PATCH",
           data: id
         });

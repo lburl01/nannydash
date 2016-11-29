@@ -11,7 +11,7 @@ class Conversation < ApplicationRecord
                       length: { maximum: 255 }
 
   def self.get_user_conversations(current_user)
-    data = Conversation.where({sender_id: current_user.id, is_deleted: false}).or(Conversation.where({recipient_id: current_user.id, is_deleted: false})).all
+    data = Conversation.where({sender_id: current_user.id, is_deleted: false}).or(Conversation.where({recipient_id: current_user.id, is_deleted: false})).order(created_at: :desc).all
 
     @conversations = []
 

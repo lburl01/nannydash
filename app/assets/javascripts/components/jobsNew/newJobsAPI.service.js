@@ -21,7 +21,7 @@
       },
 
       deleteJob: function(id) {
-        return $http.patch("/api/v1/job/delete.json", {id: id});
+        return $http.patch("/api/v1/job/delete/" + id + ".json", {id: id});
       }
 
     };
