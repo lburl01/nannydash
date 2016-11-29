@@ -275,3 +275,26 @@
     }
   }
 }
+@include media(tablet) {
+  #family-profile-wrapper {
+    .search {
+      display: none;
+    }
+    .directory-container {
+      padding: 0;
+    }
+  }
+}
+@include media(mobile) {
+  #family-profile-wrapper {
+    .search {
+      display: none;
+    }
+    .profile-container {
+      flex-direction: column;
+      section {
+        width: 100% !important;
+      }
+    }
+  }
+}
