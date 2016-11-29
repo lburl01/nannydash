@@ -27,20 +27,28 @@
 
     .delete.deleteButton {
         background-color: $brick !important;
-        border: none;
+        border: transparent;
+        border-radius: 4px;
         color: white;
         cursor: pointer;
-        font-family: Roboto;
-        font-size: 1.1rem;
-        padding: 3px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 14px;
+        font-weight: 100;
+        padding: 7px 10px;
         text-shadow: 1px 1px 1px #a06d0f;
         width: 73%;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        text-shadow: 1px 1px 1px darken($red, 30%);
+        outline: none;
         position: relative;
         left: 25%;
     }
 
     .delete.deleteButton:hover {
-        background-color: $red !important;
+      cursor: pointer;
+      background: $red !important;
+      text-shadow: 1px 1px 1px darken($red, 30%);
     }
 
     section.basic-info {
