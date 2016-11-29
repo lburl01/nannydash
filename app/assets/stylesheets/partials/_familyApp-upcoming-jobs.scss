@@ -15,12 +15,21 @@
 
     li {
 
+      &:nth-child(1) {
+        @include media(smallDesktop) {
+          width: 18% !important;
+        };
+      }
+
       &:nth-child(2) {
         width: 20% !important;
       }
 
       &:nth-child(4) {
         width: 48% !important;
+        @include media(largeMobile) {
+          width: 35% !important;
+        };
       }
 
       .sitter {
@@ -48,9 +57,16 @@
         padding: 7px;
         margin: 0 5px;
         color: #aaa;
+        @include media(smallDesktop) {
+          width: 100%;
+          margin-top: 7px;
+        };
 
         &:nth-child(3) {
           width: 25%;
+          @include media(smallDesktop) {
+            width: 100%;
+          };
         }
       }
     }
