@@ -21,38 +21,38 @@
         <h2>Basic Information</h2>
         <!-- Family -->
         <label for="name">Name:</label>
-        <input type="text" name="name" ng-model="$ctrl.job.name">
+        <input type="text" name="name" ng-model="$ctrl.job.name" ng-disabled="true">
         <!-- Phone Field -->
         <label for="phone">Phone:</label>
-        <input id="phone" type="text" ng-model="$ctrl.job.phone" ng-model-options="{ updateOn: 'blur' }" ng-change="$ctrl.updateCurrent( 'phone', $ctrl.job.phone)">
+        <input id="phone" type="text" ng-model="$ctrl.job.phone" ng-disabled="true">
         <!-- Email Field -->
         <label for="email">Email:</label>
-        <input id="email" type="text" ng-model="$ctrl.job.email" ng-model-options="{ updateOn: 'blur' }" ng-change="$ctrl.updateCurrent( 'email', $ctrl.job.email)">
+        <input id="email" type="text" ng-model="$ctrl.job.email" ng-disabled="true">
         <!-- Street Field -->
         <label for="street">Street:</label>
-        <input id="street" type="text" ng-model="$ctrl.job.street" ng-model-options="{ updateOn: 'blur' }" ng-change="$ctrl.updateCurrent( 'street', $ctrl.job.street)">
+        <input id="street" type="text" ng-model="$ctrl.job.street" ng-disabled="true">
         <!-- City Field -->
         <label for="city">City:</label>
-        <input id="city" type="text" ng-model="$ctrl.job.city" ng-model-options="{ updateOn: 'blur' }" ng-change="$ctrl.updateCurrent( 'city', $ctrl.job.city)">
+        <input id="city" type="text" ng-model="$ctrl.job.city" ng-disabled="true">
         <!-- State Field -->
         <label for="state">State:</label>
-        <input id="state" type="text" ng-model="$ctrl.job.state" ng-model-options="{ updateOn: 'blur' }" ng-change="$ctrl.updateCurrent( 'state', $ctrl.job.state)">
+        <input id="state" type="text" ng-model="$ctrl.job.state" ng-disabled="true">
         <!-- Zip Field -->
         <label for="zip">Zip Code:</label>
-        <input id="zip" type="text" ng-model="$ctrl.job.zip_code" ng-model-options="{ updateOn: 'blur' }" ng-change="$ctrl.updateCurrent( 'zip_code', $ctrl.job.zip_code)">
+        <input id="zip" type="text" ng-model="$ctrl.job.zip_code" ng-disabled="true">
         <!-- Notes Field -->
         <label for="name">Notes:</label>
-        <textarea type="text" name="posted" value="" ng-model="$ctrl.job.notes" ng-change="$ctrl.updateCurrent( 'notes', $ctrl.job.notes)"></textarea>
+        <textarea type="text" name="posted" value="" ng-model="$ctrl.job.notes" ng-change="$ctrl.updateCurrent( 'notes', $ctrl.job.notes)" ng-disabled="true"></textarea>
 
       </section>
 
       <section class="key-info">
         <h2>Key Information</h2>
         <label for="name">Job Needed For:</label>
-        <input type="text" name="dateNeeded" value="" ng-model="$ctrl.job.date">
-        <input type="text" name="dateNeeded" value="{{$ctrl.job.start_time}} - {{$ctrl.job.end_time}}"}} >
+        <input type="text" name="dateNeeded" value="" ng-model="$ctrl.job.date" ng-disabled="true">
+        <input type="text" name="dateNeeded" value="{{$ctrl.job.start_time}} - {{$ctrl.job.end_time}}"}} ng-disabled="true">
         <label for="name">Date Posted:</label>
-        <input type="text" name="posted" value="" ng-model="$ctrl.job.date_posted" ng-change="$ctrl.updateCurrent( 'date_posted', $ctrl.job.date_posted)">
+        <input type="text" name="posted" value="" ng-model="$ctrl.job.date_posted" ng-change="$ctrl.updateCurrent( 'date_posted', $ctrl.job.date_posted)" ng-disabled="true">
 
         <button class="new-job-delete" ng-click="$ctrl.popup()" class="delete" ng-class="{'redDelete': $ctrl.visibility}" type="button">Delete Job</button>
       </section>
