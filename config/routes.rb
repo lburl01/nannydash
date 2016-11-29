@@ -62,6 +62,7 @@ Rails.application.routes.draw do
   patch 'api/v1/job/:id' => 'jobs#update'
   patch 'api/v1/job/confirm/:id' => 'jobs#toggle_confirmation'
   patch 'api/v1/job/assign/:id' => 'jobs#assign_sitter'
+  patch 'api/v1/job/agency_assign/:id' => 'jobs#agency_assign_sitter'
   patch 'api/v1/job/delete/:id' => 'jobs#toggle_deleted_job'
   get 'job/new' => 'jobs#new'
   post 'job/new' => 'jobs#create'

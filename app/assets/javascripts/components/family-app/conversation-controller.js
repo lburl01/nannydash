@@ -4,6 +4,9 @@ angular.module('familyApp')
       Variables
       *************************/
       var self = this;
+      familyAppAPI.user().success(function(response) {
+        self.user = response.id
+      })
 
       this.messageClick = function() {
         $state.go('new-message');
@@ -28,5 +31,5 @@ angular.module('familyApp')
             });
         });
       }
-      
+
     }]);

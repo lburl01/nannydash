@@ -144,8 +144,13 @@ class Job < ApplicationRecord
   def self.assign_sitter_job(current_user, options)
     job = Job.find(options)
 
-    job.sitter_id = current_user.id
-    job.update_attribute(:is_assigned, true)
+    job.update_attributes(sitter_id: current_user.id, is_assigned: true)
+  end
+
+  def self.agency_assign_sitter(job_id, sitter_id)
+    job = Job.find(job_id)
+
+    job.update_attributes(sitter_id: sitter_id, is_assigned: true)
   end
 
   def self.get_sitter_jobs(current_user)
