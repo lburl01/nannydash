@@ -2,6 +2,24 @@
   display: flex;
   font-style: 'Helvetica', sans-serif;
 
+  .envelope {
+    align-items: center;
+    border-radius: 5px;
+    color:white;
+    cursor: pointer !important;
+    display: flex;
+    font-weight: 100;
+    height: 35px;
+    justify-content: flex-end;
+    span {
+      cursor: pointer !important;
+      background: url(asset_path('messages.svg'));
+      background-size: cover;
+      height: 20px;
+      width: 20px;
+      color: white;
+    }
+  }
   .directory-container {
     width: 100%;
     .family-link {
@@ -9,23 +27,6 @@
       transition: all .5s ease;
       &:hover {
         transform: translateY(-5px);
-      }
-    }
-    .envelope {
-      align-items: center;
-      border-radius: 5px;
-      color:white;
-      cursor: pointer;
-      display: flex;
-      font-weight: 100;
-      height: 35px;
-      justify-content: flex-end;
-      span {
-        background: url(asset_path('messages.svg'));
-        background-size: cover;
-        height: 20px;
-        width: 20px;
-        color: white;
       }
     }
     .list {
@@ -115,7 +116,7 @@
           cursor: default;
         }
         &:hover {
-          background: $yellow;
+          background: $hoverYellow !important;
         }
         &.updated {
           content: "Saved!";
@@ -127,7 +128,7 @@
           background: $red;
         }
         &.deleted {
-          background: $red;
+          background: $red !important;
           cursor: default;
         }
       }
@@ -270,6 +271,29 @@
         &:hover {
           background: lighten($red, 10%);
         }
+      }
+    }
+  }
+}
+@include media(tablet) {
+  #family-profile-wrapper {
+    .search {
+      display: none;
+    }
+    .directory-container {
+      padding: 0;
+    }
+  }
+}
+@include media(mobile) {
+  #family-profile-wrapper {
+    .search {
+      display: none;
+    }
+    .profile-container {
+      flex-direction: column;
+      section {
+        width: 100% !important;
       }
     }
   }
