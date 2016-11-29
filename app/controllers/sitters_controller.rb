@@ -8,7 +8,7 @@ class SittersController < ApplicationController
   end
 
   def show
-    @sitter = User.get_sitter(params[:id])
+    @sitter = User.find(params[:id])
 
     render json: @sitter
   end

@@ -20,7 +20,7 @@
 
   <section class="name">
     <h1>{{$ctrl.info.first_name}} {{$ctrl.info.last_name}}</h1>
-    <%= image_tag("placeholder.jpeg", :alt => "Preview image on landing page") %>
+    <img src="{{$ctrl.nanny.picture.url}}" alt="Nanny Photo">
   </section>
   <!-- ******************************
    Basic Information Section
@@ -30,7 +30,7 @@
     <h2>Basic Information</h2>
     <!-- Phone Field -->
     <label for="phone">Phone:</label>
-    <input class="pending-sitter" id="phone" type="text" ng-model="$ctrl.info.phone" ng-disabled="true">
+    <input class="pending-sitter" id="phone" type="text" ng-model="$ctrl.info.phone_number" ng-disabled="true">
     <!-- Email Field -->
     <label for="email">Email:</label>
     <input class="pending-sitter" id="email" type="text" ng-model="$ctrl.info.email" ng-disabled="true">
