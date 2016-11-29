@@ -33,7 +33,7 @@ angular.module('familyApp')
         console.log(object, key);
         var messageId = object.message_id;
         familyAppAPI.message(object.conversation_id, messageId).success(function(response) {
-          $state.go('message', {messageParam: {message: response}, conversationId: response.conversation_id}, {reload: true});
+          $state.go('message', {messageId: response.message_id, conversationId: response.conversation_id}, {reload: true});
         });
       }
       /*************************

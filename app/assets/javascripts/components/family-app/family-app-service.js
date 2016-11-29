@@ -39,6 +39,8 @@ angular.module('familyApp').service('familyAppAPI', ['$http', '$window', functio
         });
       },
       message: function(conversationId, messageId) {
+        console.log(conversationId);
+        console.log(messageId);
         return $http({
           url: "/conversations/" + conversationId + "/messages/" + parseInt(messageId),
           method: "GET",
