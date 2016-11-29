@@ -27,15 +27,15 @@
       },
 
       toggleActiveState: function(id) {
-        return $http.patch("/api/v1/family.json", {id: id});
+        return $http.patch("/api/v1/family/" + id + ".json", {id: id});
       },
 
       saveProfile: function(id, data) {
-        return $http.patch("/api/v1/family/update.json", {user: data, user_id: id});
+        return $http.patch("/api/v1/family/update/" + id + ".json", {user: data, user_id: id});
       },
 
       deleteProfile: function(id) {
-        return $http.patch("/api/v1/family/delete.json", {id: id});
+        return $http.patch("/api/v1/family/delete/" + id + ".json", {id: id});
       }
     };
   }]);
