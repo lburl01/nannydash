@@ -112,6 +112,14 @@
   .key-info {
     padding-right: 0;
 
+    .line {
+      width: 100%;
+      background: #eee;
+      padding: .5px 0;
+      margin: 10px 0 15px;
+      display: inline-block;
+    }
+
     h2 {
       white-space: nowrap;
       overflow: hidden !important;

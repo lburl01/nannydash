@@ -43,7 +43,7 @@ angular.module('familyApp')
         newMsg['conversation_id'] = null;
 
         familyAppAPI.reply(newMsg);
-        $state.go('messages')
+        $state.go('conversations', {newMessage: true});
       }
 
       this.loadUser = function(user) {

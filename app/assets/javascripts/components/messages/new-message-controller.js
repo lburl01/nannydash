@@ -32,7 +32,6 @@ angular.module('app')
         newMsg['body'] = body;
         newMsg['conversation_id'] = null;
 
-        console.log(newMsg);
         dashboardAPI.reply(newMsg);
         $state.go('conversations', {newMessage: true});
       };

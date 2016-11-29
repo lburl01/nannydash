@@ -41,8 +41,8 @@
       <p ng-class="{sitter: job.familyJob.is_assigned === false}">Waiting on Sitter</p>
       <p ng-class="{parent: job.familyJob.is_assigned === true && job.familyJob.confirmed === false}">Waiting on Parent</p>
       <p ng-class="{confirmed: job.familyJob.confirmed === true}">Confirmed</p>
-
-      <button class="request-button" ng-class="{'yellowRequest': $ctrl.visibility || $ctrl.jobInfo.is_assigned}" type="button">{{$ctrl.jobInfo.is_assigned ? "Save Job" : "Saved!"}}</button>
+      <div class="line"></div>
+      <button class="request-button yellowRequest"type="button">Save Changes</button>
       <button ng-click="$ctrl.popup()" class="request-button" ng-class="{'yellowRequest': $ctrl.visibility || $ctrl.jobInfo.is_assigned}" type="button">Delete Job</button>
     </section>
     <div ng-class="{'visible': $ctrl.visibility}" class="popup" role="alert">
