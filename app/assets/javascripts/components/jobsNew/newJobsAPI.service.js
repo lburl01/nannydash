@@ -33,7 +33,7 @@
       },
 
       assignSitter: function(data) {
-        return $http.patch('/api/v1/job/agency_assign/' + data.id + '.json', {id: data.jobId, sitter_id: data.sitterId}).then(function(response) {
+        return $http.patch('/api/v1/job/agency_assign/' + data.id + '.json', {id: data.id, sitter_id: data.sitter_id}).then(function(response) {
           console.log('sitter was assigned successfully');
         }, function() {
           console.log('Sitter was not assigned.');
