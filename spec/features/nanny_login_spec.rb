@@ -6,14 +6,12 @@ RSpec.feature "Nanny logs in" do
     it "shows the user's name" do
       @nanny = create(:recipient)
 
-      get '/users/sign_in'
+      visit '/'
       fill_in('Email', :with => @nanny.email)
       fill_in('Password', :with => @nanny.password)
-      click_button('Log In')
+      click_button('Log in')
 
-      get '/'
-
-      expect(page).to have_text(@user.first_name)
+      expect(current_path).to eq nanny_root_path
 
     end
   end

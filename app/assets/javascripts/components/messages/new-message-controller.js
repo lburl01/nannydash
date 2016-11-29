@@ -32,12 +32,12 @@ angular.module('app')
         console.log(newMsg);
         dashboardAPI.reply(newMsg);
         $state.go('conversations', {newMessage: true});
-      }
+      };
 
       this.loadUser = function(user) {
         self.showUsers = false;
-        self.id = user.id
+        self.id = user.id;
         return self.recipient = user.name;
-      }
+      };
 
     }]);

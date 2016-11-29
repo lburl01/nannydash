@@ -1,5 +1,5 @@
 (function() {
-  angular.module('familyApp', ['ui.router', 'templates', 'angularUtils.directives.dirPagination'])
+  angular.module('familyApp', ['ui.router', 'templates', 'angularUtils.directives.dirPagination', 'shared'])
     .config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $urlRouterProvider) {
 
       $urlRouterProvider.otherwise('/');

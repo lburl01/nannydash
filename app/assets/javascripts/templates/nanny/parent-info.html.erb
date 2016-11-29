@@ -3,7 +3,7 @@
 
     <div class="list">
       <div class="title-container">
-        <div class="envelope">
+        <div ui-sref="new-message" class="envelope">
           <h4>Message</h4>
           <span></span>
         </div>
@@ -21,7 +21,6 @@
       <section class="basic-info">
         <h2>Basic Information</h2>
 
-      <fieldset ng-disabled=true>
         <form name="familyForm" ng-submit="">
           <!-- Phone Field -->
           <label for="phone">Phone:</label>
@@ -49,7 +48,6 @@
           <textarea name="about" rows="4" cols="50" ng-model="$ctrl.parent.about" ng-model-options="{updateOn: 'blur'}" ng-change="$ctrl.updateCurrent( 'about', $ctrl.parent.about)">
           </textarea>
         </form>
-      </fieldset>
 
       </section>
     </div>

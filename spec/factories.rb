@@ -58,7 +58,7 @@ FactoryGirl.define do
   end
 
   factory :family, class: User do
-    id 2
+    id 3
     first_name "Lori"
     last_name "Burlegartner"
     email "lori@example.com"
@@ -90,9 +90,9 @@ FactoryGirl.define do
 
   factory :assigned_job, class: Job do
     id 2
-    family_id 2
-    sitter_id 1
-    date "2016-11-17"
+    family_id 3
+    sitter_id 2
+    date "2016-12-17"
     start_time "15:34:06.88851"
     end_time "18:34:06.888555"
     notes "My kid is allergic to bad colors. Don't wear the color red, please"

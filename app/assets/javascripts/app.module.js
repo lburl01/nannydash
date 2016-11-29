@@ -1,4 +1,4 @@
-angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPagination'])
+angular.module('app', ['ui.router', 'templates', 'angularUtils.directives.dirPagination', 'shared'])
     .config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise('/');
         $stateProvider.state('dashboard', {

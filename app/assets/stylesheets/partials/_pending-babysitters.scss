@@ -5,18 +5,17 @@
   .panel-heading {
     display: flex;
   }
-  li {
-    width: 20%;
-    cursor: default;
+  li:nth-child(1) {
+    width: 18%;
   }
   li:nth-child(2) {
-    width: 10%;
+    width: 8%;
   }
   li:nth-child(3) {
     width: 30%;
   }
   li:nth-child(4) {
-    width: 15%;
+    width: 12%;
     span {
       color: #fff;
       padding: 5px 10px;
@@ -32,11 +31,11 @@
     }
   }
   li:nth-child(5) {
-    width: 15%;
+    width: 17%;
     text-align: left;
   }
   li:nth-child(6) {
-    width: 10%;
+    width: 15%;
     text-align: right;
     span.view-sitter {
       background: #efba59 !important;
@@ -52,23 +51,26 @@
     }
   }
 }
+#agency-dashboard {
+  .name {
+    img {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+}
 input.pending-sitter {
   background: white !important;
   cursor: default;
 }
 span.pending-sitter-buttons {
-  align-items: flex-end;
   bottom: 100px;
   display: flex;
   flex-direction: column;
-  float: right;
-  padding-right: 47px;
-  position: relative;
-  width: 22%;
+  width: 100%;
   button.pending-sitter {
     width: 100%;
     padding: 0 40px;
-    background: $grey;
     border-radius: 4px;
     border: transparent;
     color: #fff;
@@ -78,16 +80,17 @@ span.pending-sitter-buttons {
     font-weight: 100;
     padding: 7px 10px;
     margin-top: 15px;
-    text-shadow: 1px 1px 1px darken($grey, 30%) !important;
     outline: none;
     margin-right: 4%;
     &:first-child {
+      background: $yellow !important;
+      text-shadow: 1px 1px 1px darken($yellow, 30%);
       &:hover {
-        background: $yellow !important;
-        text-shadow: 1px 1px 1px darken($yellow, 30%);
+        background: $hoverYellow !important;
       }
     }
     &:last-child {
+      background: $brick !important;
       &:hover {
         background: $red !important;
         text-shadow: 1px 1px 1px darken($red, 30%);
@@ -103,6 +106,7 @@ span.pending-sitter-buttons {
   display: flex;
   justify-content: flex-end;
   padding-right: 10px;
+  cursor: pointer;
   span {
     background: url(asset_path('messages.svg'));
     background-size: cover;
@@ -112,9 +116,11 @@ span.pending-sitter-buttons {
   }
 }
 
-@media (max-width: 800px) {
-  .search h1 {
-    display: none;
+@include media(tablet) {
+  #agency-dashboard {
+    .search.hide-title {
+      display: none;
+    }
   }
   #pending-sitter-list {
     li:nth-child(1) {
@@ -127,16 +133,17 @@ span.pending-sitter-buttons {
       width: 40% !important;
     }
     li:nth-child(4) {
-      width: 15% !important;
+      width: 12% !important;
     }
     li:nth-child(5) {
       display: none;
     }
     li:nth-child(6) {
-      width: 15% !important;
+      width: 18% !important;
     }
   }
 }
+
 @include media(largeMobile) {
   .pending-sitters {
     padding: 0 0 20px 0;
@@ -144,7 +151,6 @@ span.pending-sitter-buttons {
       right: 220px;
     }
   }
-
   #pending-sitter-list {
     li:nth-child(4) {
       display: none;
@@ -160,13 +166,29 @@ span.pending-sitter-buttons {
     }
   }
 }
-
+@include media(medMobile) {
+  #agency-dashboard {
+    .name {
+      h1 {
+        text-align: center;
+      }
+      img {
+        margin: auto;
+      }
+    }
+  }
+}
 @include media(mobile) {
   .pending-sitters {
     padding: 0 0 20px 0;
     .search:before {
       left: 35px;
       top: 377px;
+    }
+    #pending-sitter-list {
+      li:nth-child(6) {
+        width: 30% !important;
+      }
     }
   }
 }
