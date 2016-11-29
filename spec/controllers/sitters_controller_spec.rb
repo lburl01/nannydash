@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe SittersController, type: :controller do
-
+  include Devise::Test::ControllerHelpers
+  
   describe "GET #index" do
     it 'returns an array of json sitter objects and an array of unique counties' do
       @user = create(:user, role: 2)

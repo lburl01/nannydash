@@ -296,6 +296,7 @@ class Job < ApplicationRecord
                          "end_time" => job.end_time.strftime("%I:%M %p"),
                          "notes" => job.notes, "confirmed" => job.confirmed,
                          "is_assigned" => job.is_assigned,
+                         "is_deleted" => job.is_deleted,
                          "posted_on" => job.created_at.strftime("%m/%d/%Y %I:%M %p")}
     end
 

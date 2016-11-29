@@ -1,15 +1,19 @@
 require 'rails_helper'
 
 RSpec.describe AgencyController, type: :controller do
-  describe "GET agency#index" do
-    it 'returns correct json keys' do
-      @current_user = build(:user)
+  include Devise::Test::ControllerHelpers
 
-      wanted_keys = ["messages", "applications", "assignments", "open_jobs"]
+  describe '#new' do
+    it 'assigns @agency' do
+      get :new
 
-      get :index
+      expect(assigns(:agency)).to be_a_new(User)
+    end
+  end
 
-      expect(json_body.keys).to contain_exactly(wanted_keys)
+  describe '#create' do
+    it 'creates new @agency' do
+      
     end
   end
 end
