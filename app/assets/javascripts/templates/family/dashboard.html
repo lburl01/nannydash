@@ -12,14 +12,19 @@
         <th>Date</th>
         <th>Time</th>
         <th>Babysitter</th>
+        <th>Confirmed</th>
       </tr>
       <tr ng-repeat="person in dashboard.openJobs" ng-click="dashboard.newJobs(person)">
         <td>{{person.name}}</td>
         <td>{{person.submitted}}</td>
         <td>{{person.sitter}}</td>
+        <td ng-show="person.is_assigned === false"><h6 class="sitter">Waiting Sitter</h6></td>
+        <td ng-show="person.is_assigned === true && person.confirmed === false"><h6 class="parent">Waiting Parent</h6></td>
+        <td ng-show="person.confirmed === true"><h6 class="confirmed">Confirmed</h6></td>
       </tr>
     </table>
   </section>
+
   <!-- ******************************
    Messaging Section
   ******************************* -->
@@ -36,7 +41,7 @@
       <tr ng-click="dashboard.message(dashboard.messages[key], key)" ng-repeat="(key, value) in dashboard.messages">
         <td>{{value.from}}</td>
         <td>{{value.subject}}</td>
-        <td>{{value.is_read}}</td>
+        <td><h6 ng-class="{'readTrue': value.is_read === true, 'dateRed': value.is_read === false}">{{dashboard.readValidate(value.is_read)}}</h6></td>
       </tr>
     </table>
   </section>

@@ -13,9 +13,21 @@ angular.module('familyApp')
         self.assignments = response.assignments
         self.messages = response.messages;
         self.openJobs = response.open_jobs;
+        console.log(self.messages);
+        console.log(self.openJobs);
       }, function(response) {
         alert('Failed');
       });
+      /*************************
+      Checking if message was read
+      *************************/
+      this.readValidate = function(value) {
+        if(value === true) {
+          return 'Yes';
+        } else if(value === false) {
+          return 'No';
+        }
+      }
 
       this.changeStates = function(page) {
         $state.go(page);
