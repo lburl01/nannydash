@@ -89,8 +89,8 @@
     <!-- Certifications Field -->
     <div class="cert">
       <label>Certifications</label>
-      <button ng-class="babysitter.user.cpr_certification ? 'toggleGreen' : 'toggleRed'" type="button" ng-click="babysitter.toggleCPR(babysitter.user.sitter_id)">{{babysitter.cpr}}</button>
-      <button ng-class="babysitter.user.first_aid_certification ? 'toggleGreen' : 'toggleRed'" type="button" ng-click="babysitter.toggleCert(babysitter.user.sitter_id)">{{babysitter.firstAid}}</button>
+      <button ng-class="babysitter.user.cpr_certification ? 'toggleGreen' : 'toggleRed'" type="button" ng-click="babysitter.toggleCPR(babysitter.user.id)">{{babysitter.cpr}}</button>
+      <button ng-class="babysitter.user.first_aid_certification ? 'toggleGreen' : 'toggleRed'" type="button" ng-click="babysitter.toggleCert(babysitter.user.id)">{{babysitter.firstAid}}</button>
     </div>
     <!-- Hourly Rate Field -->
     <label for="rate">Hourly Rate:</label>

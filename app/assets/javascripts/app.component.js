@@ -13,6 +13,14 @@
   function AppController (appAPI, $scope, $http, $location, $window, dashboardAPI) {
     var ctrl = this;
 
+    dashboardAPI.conversationMessages().success(function(response) {
+      for(var i = 0; i < response.length; i++) {
+        if(response[i].sender_name != "Agency Manager" && response[i].recipient_read === false) {
+          return ctrl.newMessage = true;
+        }
+      }
+    });
+
     ctrl.$onInit = function() {
       appAPI.totalCount().then(function(data) {
         ctrl.count = data;

@@ -1,18 +1,6 @@
 angular.module('app').service('dashboardAPI', ['$http', function($http) {
 
-    var buttonAlert;
-
-    function setButton(data) {
-      console.log(data);
-      buttonAlert = data;
-    }
-    function getData() {
-      return buttonAlert;
-    }
-
     return {
-      set: setButton,
-      get: getData,
       user: function() {
         return $http({
           url: "/user/logged_in",
