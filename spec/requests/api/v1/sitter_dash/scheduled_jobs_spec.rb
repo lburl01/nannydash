@@ -9,7 +9,7 @@ RSpec.describe "GET sitter_dash/scheduled_jobs" do
     create(:assigned_job)
   end
 
-  it "contains 10 key value pairs" do
+  it "returns array with one item" do
 
     get "/sitter_dash/scheduled_jobs"
 
