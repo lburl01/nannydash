@@ -6,9 +6,17 @@ module Messageable
       if convo.nil?
         convo = Conversation.create!(
           recipient: recipient,
+          recipient_read: false,
+          sender_read: true,
           sender: self,
           subject: subject
         )
+      else
+        if convo.sender_id == self.id
+          convo.update_attributes(sender_read: false, recipient_read: true)
+        else
+          convo.update_attributes(sender_read: true, recipient_read: false)
+        end
       end
 
       message = Message.create!({
