@@ -9,6 +9,11 @@
       @content;
     }
   }
+  @if $bp == smallDesktop {
+    @media only screen and (max-width: 931px) {
+      @content;
+    }
+  }
   @if $bp == tablet {
     @media only screen and (max-width: 839px) {
       @content;

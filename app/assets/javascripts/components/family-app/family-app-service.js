@@ -133,7 +133,7 @@ angular.module('familyApp').service('familyAppAPI', ['$http', '$window', functio
         return $http({
           url: "api/v1/job/confirm/" + id.id + ".json",
           method: "PATCH",
-          data: id
+          data: {'id': id}
         });
       }
     };

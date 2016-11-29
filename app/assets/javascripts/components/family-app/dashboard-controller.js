@@ -11,9 +11,20 @@ angular.module('familyApp')
       familyAppAPI.list().success(function(response) {
         self.confirmed = response.confirmed_jobs;
         self.messages = response.messages;
+        self.openJobs = response.open_jobs;
       }, function(response) {
         alert('Failed');
       });
+      /*************************
+      Checking if message was read
+      *************************/
+      this.readValidate = function(value) {
+        if(value === true) {
+          return 'Yes';
+        } else if(value === false) {
+          return 'No';
+        }
+      }
 
       this.changeStates = function(page) {
         $state.go(page);

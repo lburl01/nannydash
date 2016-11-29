@@ -27,16 +27,13 @@ angular.module('app')
       Verifying Certifications
       *************************/
       this.toggleCPR = function(id) {
-        var certArray = {};
-        certArray['id'] = id;
-        babysitterDirectoryAPI.cpr(certArray).then( function() {
+        console.log(id);
+        babysitterDirectoryAPI.cpr(id).then( function() {
           return self.user.cpr_certification = !self.user.cpr_certification;
         });;
       }
       this.toggleCert = function(id) {
-        var certArray = {};
-        certArray['id'] = id;
-        babysitterDirectoryAPI.first_aid(certArray).then( function() {
+        babysitterDirectoryAPI.first_aid(id).then( function() {
           return self.user.first_aid_certification = !self.user.first_aid_certification;
         });;
       }

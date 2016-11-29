@@ -18,7 +18,6 @@ angular.module('app')
 
       this.ifRead = function(message, data) {
         if(message.sender_name != "Agency Manager" && data === false) {
-          //dashboardAPI.set('true');
           return message['star'] = true;
         }
       }

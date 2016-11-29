@@ -74,6 +74,12 @@
             margin: 0 !important;
         }
 
+        .btnYellow {
+          background: $yellow;
+          color: #fff;
+          text-shadow: 1px 1px 1px #a58741;
+        }
+
         button {
             background: $lightCream;
             border-radius: 7px;
