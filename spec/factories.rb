@@ -79,7 +79,7 @@ FactoryGirl.define do
   factory :job do
     id 1
     family_id 1
-    date "2016-11-17"
+    date "2016-12-17"
     start_time "15:34:06.88851"
     end_time "18:34:06.888555"
     notes "My kid is allergic to bad colors. Don't wear the color red, please"

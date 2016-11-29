@@ -14,7 +14,7 @@ RSpec.describe "GET family_dash/5_confirmed_jobs" do
     create(:assigned_job, id: 6, family_id: @family.id, confirmed: true, is_assigned: true)
   end
 
-  it "returns not more than five jobs" do
+  it "returns no more than five jobs" do
 
     get "/family_dash/5_confirmed_jobs"
 
