@@ -14,12 +14,13 @@
           <th>Date</th>
           <th>Time</th>
         </tr>
-        <tr ng-repeat="job in $ctrl.scheduledJob" ui-sref="upcomingJobInfo({jobId: job.job_id})">
+        <tr dir-paginate="job in $ctrl.scheduledJob | itemsPerPage: 5" pagination-id="scheduled" ui-sref="upcomingJobInfo({jobId: job.job_id})">
           <td>{{job.family_name}}</td>
           <td>{{job.date}}</td>
           <td>{{job.start_time}} - {{job.end_time}}</td>
         </tr>
       </table>
+      <dir-pagination-controls max-size="5" pagination-id="scheduled" ></dir-pagination-controls>
     </section>
     <!-- ******************************
     Parent Requests Jobs Section
@@ -34,12 +35,13 @@
           <th>Date</th>
           <th>Time</th>
         </tr>
-        <tr ng-repeat="job in $ctrl.requestedJob" ui-sref="upcomingJobInfo({jobId: job.job_id})">
+        <tr dir-paginate="job in $ctrl.requestedJob | itemsPerPage: 5" pagination-id="requested" ui-sref="upcomingJobInfo({jobId: job.job_id})">
           <td>{{job.family_name}}</td>
           <td>{{job.date}}</td>
           <td>{{job.start_time}} - {{job.end_time}}</td>
         </tr>
       </table>
+      <dir-pagination-controls pagination-id="requested" max-size="5"></dir-pagination-controls>
     </section>
 
   </div>
