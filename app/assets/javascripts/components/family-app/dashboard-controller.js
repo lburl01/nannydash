@@ -9,31 +9,14 @@ angular.module('familyApp')
       Loading in dashboard endpoints
       *************************/
       familyAppAPI.list().success(function(response) {
-        self.application = response.applications
-        self.assignments = response.assignments
+        self.confirmed = response.confirmed_jobs;
         self.messages = response.messages;
-        self.openJobs = response.open_jobs;
       }, function(response) {
         alert('Failed');
       });
 
       this.changeStates = function(page) {
         $state.go(page);
-      }
-      /*************************
-      When user clicks on pending application, first sees if role is nanny/babysitter
-      then takes user to more detailed application page
-      *************************/
-      this.pendingApplication = function(person) {
-        if(person.role === "nanny") {
-          familyAppAPI.pendingApps(person.application_id).success(function(response) {
-            $state.go("pendingBabysitterInfo", {sitterId: response.id});
-          });
-        } else {
-          familyAppAPI.pendingApps(person.application_id).success(function(response) {
-            $state.go("pendingParentInfo", {parentId: response.id});
-          });
-        }
       }
       /*************************
       When user clicks on new/current jobs
@@ -50,7 +33,7 @@ angular.module('familyApp')
         console.log(object, key);
         var messageId = object.message_id;
         familyAppAPI.message(object.conversation_id, messageId).success(function(response) {
-          $state.go('message', {messageParam: {message: response}, conversationId: response.conversation_id}, {reload: true});
+          $state.go('message', {messageId: response.message_id, conversationId: response.conversation_id}, {reload: true});
         });
       }
       /*************************

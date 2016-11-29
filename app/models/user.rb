@@ -34,7 +34,7 @@ class User < ApplicationRecord
   validate :picture_size
 
   def self.get_active_sitters
-    response = User.nanny.where(is_deleted: false).all
+    response = User.nanny.where(is_deleted: false).order(created_at: :desc).all
 
     @sitters = []
     @all_counties = []
@@ -179,7 +179,7 @@ class User < ApplicationRecord
   end
 
   def self.get_pending_sitters
-    pending_sitters = User.nanny.where( { active: true, is_deleted: false, approved: false } ).all
+    pending_sitters = User.nanny.where( { active: true, is_deleted: false, approved: false } ).order(created_at: :desc).all
 
     @all_counties = []
 
@@ -193,7 +193,7 @@ class User < ApplicationRecord
   end
 
   def self.get_pending_families
-    pending_families = User.family.where( { active: true, is_deleted: false, approved: false } ).all
+    pending_families = User.family.where( { active: true, is_deleted: false, approved: false } ).order(created_at: :desc).all
 
     @all_counties = []
 
@@ -207,7 +207,7 @@ class User < ApplicationRecord
   end
 
   def self.get_recipients
-    possible_recipients = User.where(is_deleted: false).all
+    possible_recipients = User.where(is_deleted: false).order(first_name: :asc).all
 
     @all_recipients = []
 
@@ -222,7 +222,7 @@ class User < ApplicationRecord
   end
 
   def self.get_available_sitters
-    sitters = User.nanny.where( { is_deleted: false, active: true, approved: true  }).all
+    sitters = User.nanny.where( { is_deleted: false, active: true, approved: true  }).order(created_at: :desc).all
 
     @available_sitters = []
 

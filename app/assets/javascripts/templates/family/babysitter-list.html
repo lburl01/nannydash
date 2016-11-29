@@ -36,7 +36,7 @@
         <ul ng-click="babysitters.userClick(babysitter.sitter_id)" dir-paginate="babysitter in babysitters.babysitters | filter: searchBox |itemsPerPage: 5">
             <li>{{babysitter.first_name}}</li>
             <li>{{babysitter.last_name}}</li>
-            <li ng-init="babysitters.calculateAge(babysitter.birthday)">{{babysitters.age}}</li>
+            <li ng-init="babysitters.calculateAge(babysitter)">{{babysitter.age}}</li>
             <li>${{babysitter.hourly_rate}}</li>
             <li>{{babysitter.email}}</li>
         </ul>

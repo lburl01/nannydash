@@ -5,7 +5,7 @@ class Job < ApplicationRecord
   validates_presence_of :family_id, :date, :start_time, :end_time
 
   def self.get_assigned_jobs
-    response = Job.where("date >= ?", Time.zone.now.beginning_of_day).where( { is_deleted: false, is_assigned: true } ).all
+    response = Job.where("date >= ?", Time.zone.now.beginning_of_day).where( { is_deleted: false, is_assigned: true } ).order(created_at: :desc).all
 
     @jobs = []
 
@@ -27,7 +27,7 @@ class Job < ApplicationRecord
   end
 
   def self.get_new_jobs
-    response = Job.where("date >= ?", Time.zone.now.beginning_of_day).where( { is_deleted: false, is_assigned: false, confirmed: false } ).all
+    response = Job.where("date >= ?", Time.zone.now.beginning_of_day).where( { is_deleted: false, is_assigned: false, confirmed: false } ).order(date: :desc).all
 
     @new_jobs = []
 
@@ -49,7 +49,7 @@ class Job < ApplicationRecord
   end
 
   def self.get_five_newest_jobs
-    @response = Job.where("date >= ?", Time.zone.now.beginning_of_day).where( { confirmed: false, is_assigned: false, is_deleted: false } ).order(created_at: :desc).limit(5)
+    @response = Job.where("date >= ?", Time.zone.now.beginning_of_day).where( { confirmed: false, is_assigned: false, is_deleted: false } ).order(date: :desc).limit(5)
 
     @newest_jobs = []
 
@@ -68,7 +68,7 @@ class Job < ApplicationRecord
   end
 
   def self.get_five_open_jobs
-    @response = Job.where("date >= ?", Time.zone.now.beginning_of_day).where( { confirmed: true, is_assigned: true, is_deleted: false } ).order(created_at: :desc).limit(5)
+    @response = Job.where("date >= ?", Time.zone.now.beginning_of_day).where( { confirmed: true, is_assigned: true, is_deleted: false } ).order(date: :desc).limit(5)
 
     @upcoming_jobs = []
 
@@ -144,12 +144,17 @@ class Job < ApplicationRecord
   def self.assign_sitter_job(current_user, options)
     job = Job.find(options)
 
-    job.sitter_id = current_user.id
-    job.update_attribute(:is_assigned, true)
+    job.update_attributes(sitter_id: current_user.id, is_assigned: true)
+  end
+
+  def self.agency_assign_sitter(job_id, sitter_id)
+    job = Job.find(job_id)
+
+    job.update_attributes(sitter_id: sitter_id, is_assigned: true)
   end
 
   def self.get_sitter_jobs(current_user)
-    jobs = Job.where("date >= ?", Time.zone.now.beginning_of_day).where( { is_assigned: true, sitter_id: current_user.id } ).all
+    jobs = Job.where("date >= ?", Time.zone.now.beginning_of_day).where( { is_assigned: true, sitter_id: current_user.id } ).order(date: :desc).all
 
     @job_details = []
 
@@ -167,7 +172,7 @@ class Job < ApplicationRecord
   end
 
   def self.get_confirmed_sitter_jobs(current_user)
-    jobs = Job.where("date >= ?", Time.zone.now.beginning_of_day).where({confirmed: true, is_assigned: true, sitter_id: current_user.id})
+    jobs = Job.where("date >= ?", Time.zone.now.beginning_of_day).where({confirmed: true, is_assigned: true, sitter_id: current_user.id}).order(date: :desc).all
 
     @five_job_details = []
 
@@ -186,7 +191,7 @@ class Job < ApplicationRecord
   end
 
   def self.get_confirmed_family_jobs(current_user)
-    jobs = Job.where("date >= ?", Time.zone.now.beginning_of_day).where( { confirmed: true, is_assigned: true, family_id: current_user.id } ).all
+    jobs = Job.where("date >= ?", Time.zone.now.beginning_of_day).where( { confirmed: true, is_assigned: true, family_id: current_user.id } ).order(date: :desc).all
 
     @job_details = []
 
@@ -206,7 +211,7 @@ class Job < ApplicationRecord
   end
 
   def self.get_pending_family_jobs(current_user)
-    jobs = Job.where("date >= ?", Time.zone.now.beginning_of_day).where( { confirmed: false, family_id: current_user.id } ).all
+    jobs = Job.where("date >= ?", Time.zone.now.beginning_of_day).where( { confirmed: false, family_id: current_user.id } ).order(date: :desc).all
 
     @job_details = []
     all_info = {}
@@ -232,7 +237,7 @@ class Job < ApplicationRecord
   end
 
   def self.get_pending_sitter_jobs(current_user)
-    jobs = Job.where("date >= ?", Time.zone.now.beginning_of_day).where( { confirmed: false, is_assigned: true, sitter_id: current_user.id } ).all
+    jobs = Job.where("date >= ?", Time.zone.now.beginning_of_day).where( { confirmed: false, is_assigned: true, sitter_id: current_user.id } ).order(date: :desc).all
 
     @job_details = []
 
@@ -254,7 +259,7 @@ class Job < ApplicationRecord
   end
 
   def self.get_five_family_jobs(current_user)
-    jobs = Job.where("date >= ?", Time.zone.now.beginning_of_day).where({confirmed: true, is_assigned: true, family_id: current_user.id}).limit(5)
+    jobs = Job.where("date >= ?", Time.zone.now.beginning_of_day).where({confirmed: true, is_assigned: true, family_id: current_user.id}).order(date: :desc).limit(5)
 
     @five_job_details = []
 
@@ -283,7 +288,7 @@ class Job < ApplicationRecord
   end
 
   def self.get_sitter_requested_jobs(current_user)
-    requested_jobs = Job.where("date >= ?", Time.zone.now.beginning_of_day).where( { sitter_id: current_user.id, is_deleted: false, confirmed: false, is_assigned: false } ).all
+    requested_jobs = Job.where("date >= ?", Time.zone.now.beginning_of_day).where( { sitter_id: current_user.id, is_deleted: false, confirmed: false, is_assigned: false } ).order(date: :desc).all
 
     @jobs_details = []
 
@@ -304,7 +309,7 @@ class Job < ApplicationRecord
   end
 
   def self.get_all_family_jobs(current_user)
-    jobs = Job.where("date >= ?", Time.zone.now.beginning_of_day).where( { is_deleted: false, family_id: current_user.id } ).all
+    jobs = Job.where("date >= ?", Time.zone.now.beginning_of_day).where( { is_deleted: false, family_id: current_user.id } ).order(date: :desc).all
 
     @job_details = []
     all_info = {}
