@@ -42,6 +42,8 @@
           padding: 5px 7px;
           letter-spacing: .5px;
           color: #fff;
+          cursor: pointer;
+          outline: none;
         }
       }
     }
@@ -63,7 +65,7 @@
           font-size: 16px;
           text-align: left;
           color: #777;
-          padding: 10px 10px 15px;
+          padding: 15px;
 
           input {
             width: 40px;
@@ -86,10 +88,11 @@
           overflow:hidden !important;
           text-overflow: ellipsis;
           position: absolute;
-          top: 5px;
+          top: 9px;
           border-radius: 4px;
-          width: 90%;
-          padding: 5px;
+          width: 40%;
+          padding: 6px;
+          text-align: center;
         }
 
         .dateRed {
@@ -103,7 +106,7 @@
         }
 
         .readTrue {
-          width: 52%;
+          width: 40%;
 
           &:before {
             font-family: fontawesome;
@@ -114,7 +117,7 @@
         }
 
         td {
-          padding: 10px;
+          padding: 15px 10px;
           font-size: 14px;
           font-weight: 100;
           color: #888;
@@ -146,9 +149,9 @@
 
           h6 {
             position: absolute;
-            padding: 5px;
+            padding: 6px;
             border-radius: 4px;
-            top: 5px;
+            top: 9px;
           }
         }
       }
@@ -159,7 +162,18 @@
     padding-top: 35px;
   }
 
+  .applications {
+    table {
+      position: relative;
+      top: -13px;  
+    }
+  }
+
   .new-jobs {
+    .dateRed, .dateGreen {
+      width: 75%;
+    }
+
     @include media(smallTablet) {
       padding-top: 35px;
     };

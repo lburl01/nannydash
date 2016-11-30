@@ -15,7 +15,6 @@
       var ctrl = this;
 
       ctrl.$onInit = function() {
-        console.log('work');
         ctrl.columnSort = "last_name";
         ctrl.reverse = "true";
 

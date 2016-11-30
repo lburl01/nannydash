@@ -2,6 +2,7 @@
   <!-- ******************************
    Top Navigation
   ******************************* -->
+
   <header>
     <nav>
       <h4 ui-sref="dashboard"><i class="fa fa-home"></i>Dashboard</h4>
@@ -24,7 +25,7 @@
           <%= image_tag("messages.svg", :alt => "Directories Icon") %>
           <h1>Messaging Center</h1>
         </div>
-        <button ui-sref="conversations" type="button"><span>{{$ctrl.count.new_messages}} | </span>Messages</button>
+        <button ng-class="{btnYellow: $ctrl.newMessage === true}" ui-sref="conversations" type="button"><span>{{$ctrl.count.new_messages}} | </span>Messages</button>
         <button ui-sref="new-message" type="button">New Message</button>
       </section>
       <!-- Pending Applications Nav Section -->

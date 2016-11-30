@@ -4,7 +4,6 @@ angular.module('app')
       Variables
       *************************/
       var self = this;
-
       /*************************
       Loading in dashboard endpoints
       *************************/

@@ -105,7 +105,7 @@ angular.module('familyApp').service('familyAppAPI', ['$http', '$window', functio
       },
       activeBabysitters: function() {
         return $http({
-          url: "/users/all_active",
+          url: "/api/v1/sitters/available",
           method: "GET"
         });
       },
@@ -129,9 +129,9 @@ angular.module('familyApp').service('familyAppAPI', ['$http', '$window', functio
       },
       confirmJob: function(id) {
         return $http({
-          url: "api/v1/job/confirm/" + id.id + ".json",
+          url: "api/v1/job/confirm/" + id + ".json",
           method: "PATCH",
-          data: id
+          data: {'id': id}
         });
       }
     };

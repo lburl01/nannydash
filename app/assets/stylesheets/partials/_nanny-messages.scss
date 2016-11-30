@@ -4,6 +4,22 @@
     margin-top: 90px;
   }
 }
+.nanny-conversations {
+  .sent-alert {
+    top: 0;
+    width: 100%;
+    margin-top: -65px;
+    h3 {
+      text-align: center;
+      font-size: 22px;
+      background: #74A588;
+      padding: 15px 0;
+      margin-bottom: 25px;
+      border-radius: 7px;
+      color: #fff;
+    }
+  }
+}
 .messages-header {
   cursor: default;
   display: flex;
@@ -71,13 +87,14 @@
   }
 }
 .newMessage {
-  padding: 0 5% 0 1% !important;
-  @include media(desktop) {
-    padding-bottom: 45px !important;
+  padding: 0 20% !important;
+  @include media(largeDesktop) {
+    padding: 1% 5% !important;
   };
-  @include media(mobile) {
-    padding: 30px 0 45px 0 !important;
+  @include media(largeMobile) {
+    padding: 6% 5% 1% !important;
   };
+
 }
 
 @include media(mobile) {

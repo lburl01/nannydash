@@ -8,19 +8,18 @@ angular.module('app').service('babysitterDirectoryAPI', ['$http', function($http
           method: "GET"
         });
       },
-
       cpr: function(id) {
         return $http({
-          url: "/api/v1/sitter/cpr" + id + ".json",
+          url: "/api/v1/sitter/cpr/" + id + ".json",
           method: "PATCH",
-          data: id
+          data: {'id': id}
         });
       },
       first_aid: function(id) {
         return $http({
           url: "/api/v1/sitter/first_aid/" + id + ".json",
           method: "PATCH",
-          data: id
+          data: {'id': id}
         });
       },
       userProfile: function(id) {

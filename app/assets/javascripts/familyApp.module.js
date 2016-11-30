@@ -38,7 +38,10 @@
       }).state('conversations', {
           url: '/conversations',
           controller: 'familyAppConversationController as conversations',
-          templateUrl: 'family/conversations.html'
+          templateUrl: 'family/conversations.html',
+          params: {
+            newMessage: null
+          }
       }).state('messages', {
           url: '/messages/:conversationId',
           templateUrl: 'family/messages.html',

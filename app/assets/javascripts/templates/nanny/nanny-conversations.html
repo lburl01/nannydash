@@ -1,8 +1,12 @@
-<div class="directory-container" id="nanny-messages">
+<div class="directory-container nanny-conversations" id="nanny-messages">
   <div class="list">
+    <div ng-show="$ctrl.messageTrue" class="sent-alert">
+      <h3>Message Sent!</h3>
+    </div>
+
     <div class="title-container">
       <h4>{{$ctrl.conversation.length}} Conversations</h4>
-      <div  ui-sref="newMessage" class="message-row">
+      <div  ui-sref="newMessage({id: null})" class="message-row">
         <i class="fa fa-plus-circle"></i>
         <h4>New Message</h4>
       </div>

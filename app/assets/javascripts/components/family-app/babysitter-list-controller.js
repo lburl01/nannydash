@@ -9,7 +9,7 @@ angular.module('familyApp')
       /*************************
       When page first loads, load in babysitters
       *************************/
-      familyAppAPI.babysitters().success(function(response) {
+      familyAppAPI.activeBabysitters().success(function(response) {
         console.log(response);
         self.babysitters = response.sitters;
         self.counties = response.counties;

@@ -1,8 +1,6 @@
 (function() {
   'use strict';
-  angular.module('app').factory('appAPI', ['$http', '$state', '$location', 'dashboardAPI', function($http, $state, $location, dashboardAPI){
-    this.newMessage = dashboardAPI.get();
-    console.log(this.newMessage);
+  angular.module('app').factory('appAPI', ['$http', '$state', '$location', function($http, $state, $location){
 
     return {
       totalCount: function() {

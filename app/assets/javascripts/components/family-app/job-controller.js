@@ -9,7 +9,6 @@ angular.module('familyApp')
 
       this.init = function() {
         familyAppAPI.jobDetails(this.id).success(function(response) {
-          console.log(response);
           self.date(response.date);
           self.startTime(response.start_time);
           self.endTime(response.end_time);
@@ -30,11 +29,10 @@ angular.module('familyApp')
       }
 
       this.confirm = function(id) {
-        var confirmObj = {};
-        confirmObj['id'] = id
-
-        familyAppAPI.confirmJob(confirmObj);
+        familyAppAPI.confirmJob(id);
+        $state.go('job', {jobId: id}, {reload: true});
       }
+
       /*************************
       When user hits 'submit' object will be patched to database
       *************************/
