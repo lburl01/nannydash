@@ -7,7 +7,7 @@
       <div class="subject">
         <label for="recipient">To:</label>
         <i class="fa fa-plus-square" ng-click="$ctrl.showUsers = !$ctrl.showUsers"></i>
-        <input id="subject" type="text" ng-model="$ctrl.recipient.name" >
+        <input type="text" ng-model="$ctrl.recipient" >
         <div class="arrow-left" ng-show="$ctrl.showUsers"></div>
 
         <div class="users" ng-show="$ctrl.showUsers">
@@ -29,7 +29,7 @@
 
       <label for="message">Message:</label>
       <textarea id="message" name="message" rows="8" cols="40" ng-model="body"></textarea>
-      <button type="button" ng-click="$ctrl.send($ctrl.recipient.id, subject, body)">Send</button>
+      <button type="button" ng-click="$ctrl.send($ctrl.recipientId, subject, body)">Send</button>
     </div>
   </div>
 </div>
