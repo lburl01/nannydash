@@ -53,9 +53,9 @@
         <input type="text" name="dateNeeded" value="{{$ctrl.job.start_time}} - {{$ctrl.job.end_time}}"}} ng-disabled="true">
         <label for="name">Date Posted:</label>
         <input type="text" name="posted" value="" ng-model="$ctrl.job.date_posted" ng-change="$ctrl.updateCurrent( 'date_posted', $ctrl.job.date_posted)" ng-disabled="true">
-
-        <input type="text" name="" value="{{$ctrl.nanny.name}}" ng-disabled="true">
-        <button class="new-job-assign" ng-click="$ctrl.assignPopup()" class="assign" ng-class="" type="button">Assign Nanny</button>
+        <label for="sitter">Assign a Nanny:</label>
+        <input type="text" name="" value="{{$ctrl.nanny.name}}" ng-disabled="true" placeholder="Needs assignment">
+        <button class="new-job-assign" ng-click="$ctrl.assignPopup()" class="assign" ng-class="" type="button">Select a Nanny</button>
         <button class="new-job-delete" ng-click="$ctrl.popup()" class="delete" ng-class="{'redDelete': $ctrl.visibility}" type="button">Delete Job</button>
       </section>
       </form>

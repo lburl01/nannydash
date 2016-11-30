@@ -58,7 +58,12 @@
   }
 }
 button.new-job-assign {
-  margin: 15px 0;
+  cursor: pointer;
+  background: $yellow !important;
+  text-shadow: 1px 1px 1px darken($yellow, 30%) !important;
+  &:hover {
+    background: $hoverYellow !important;
+  }
 }
 .popup-container.assign-container {
   background: #eee;
@@ -69,7 +74,7 @@ button.new-job-assign {
   justify-content: flex-start;
   margin-top: 7%;
   overflow: scroll;
-  padding: 25px;
+  padding-top: 25px;
   width: 370px;
   z-index: 1;
   .nanny-popup-list {
@@ -79,12 +84,18 @@ button.new-job-assign {
     h3 {
       border-bottom: 1px solid #dfdfdf;
       font-size: 20px;
+      margin-bottom: 10px;
       padding-bottom: 5px;
       width: 70%;
     }
     p {
       padding: 0 !important ;
       line-height: 30px;
+      cursor: pointer;
+      &:hover {
+        background: #dfdfdf;
+        color: white;
+      }
     }
   }
 }
