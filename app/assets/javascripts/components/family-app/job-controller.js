@@ -30,7 +30,6 @@ angular.module('familyApp')
 
       this.confirm = function(id) {
         familyAppAPI.confirmJob(id);
-        console.log(id);
         $state.go('job', {jobId: id}, {reload: true});
       }
 

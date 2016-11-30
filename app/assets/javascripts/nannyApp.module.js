@@ -104,8 +104,11 @@
           }]
         }
       }).state('newMessage', {
-        url: '/message/new',
-        component: 'newMessage'
+        url: '/message/new/',
+        component: 'newMessage',
+        params: {
+          newMessage: null
+        }
       });
     }]);
 })();
