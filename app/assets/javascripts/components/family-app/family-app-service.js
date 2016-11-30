@@ -107,7 +107,7 @@ angular.module('familyApp').service('familyAppAPI', ['$http', '$window', functio
       },
       activeBabysitters: function() {
         return $http({
-          url: "/users/all_active",
+          url: "/api/v1/sitters/available",
           method: "GET"
         });
       },

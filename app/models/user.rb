@@ -225,16 +225,44 @@ class User < ApplicationRecord
     sitters = User.nanny.where( { is_deleted: false, active: true, approved: true  }).order(created_at: :desc).all
 
     @available_sitters = []
+    @all_counties = []
+    @data = {}
 
     sitters.each do |sitter|
       full_name = "#{sitter.first_name} #{sitter.last_name}"
-      @available_sitters << { "name" => full_name, "active" => sitter.active,
+      @sitter_data = { "approved" => sitter.approved,
+                              "sitter_id" => sitter.id, "first_name" => sitter.first_name,
+                              "last_name" => sitter.last_name, "email" => sitter.email,
+                              "phone" => sitter.phone_number, "birthday" => sitter.birthday,
+                              "hourly_rate" => sitter.hourly_rate,
+                              "cpr_certification" => sitter.cpr_certification,
+                              "first_aid_certification" => sitter.first_aid_certification,
+                              "street" => sitter.street, "city" => sitter.city,
+                              "state" => sitter.state, "zip_code" => sitter.zip_code,
+                              "active" => sitter.active,
                               "is_deleted" => sitter.is_deleted,
-                              "approved" => sitter.approved}
+                              "recommendation_one_name" => sitter.recommendation_one_name,
+                              "recommendation_one_email" => sitter.recommendation_one_email,
+                              "recommendation_two_name" => sitter.recommendation_two_name,
+                              "recommendation_two_email" => sitter.recommendation_two_email,
+                              "recommendation_three_name" => sitter.recommendation_three_name,
+                              "recommendation_three_email" => sitter.recommendation_three_email,
+                              "joined" => sitter.created_at}
+
+        @available_sitters << @sitter_data
+        
+        @all_counties << sitter.county
+      end
+
+      @counties = @all_counties.uniq
+
+      @data = { "sitters" => @available_sitters, "counties" => @counties}
+
+      return @data
     end
 
-    return @available_sitters
-
+  def self.get_available_sitters_count
+    sitters = User.nanny.where( { is_deleted: false, active: true, approved: true  }).all.count
   end
 
   private

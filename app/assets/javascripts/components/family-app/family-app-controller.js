@@ -9,11 +9,9 @@ angular.module('familyApp').controller('familyAppController', ['$http', 'familyA
       self.firstName = response.first_name;
     });
 
-    familyAppAPI.babysitters().success(function(response) {
-      self.babysitters = response.sitters.length;
-    });
-
     familyAppAPI.counts().success(function(response) {
+      console.log(response);
+      self.babysitters = response.all_sitters;
       self.jobs = response.confirmed_jobs + response.pending_jobs;
       self.newMessages = response.new_messages;
     });

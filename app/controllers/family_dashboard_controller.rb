@@ -10,7 +10,7 @@ class FamilyDashboardController < ApplicationController
     @pending_jobs = Job.get_family_pending_jobs_count(current_user)
     @confirmed_jobs = Job.get_family_confirmed_jobs_count(current_user)
     @new_messages = Message.get_new_messages_count(current_user)
-    @all_sitters = User.get_available_sitters
+    @all_sitters = User.get_available_sitters_count
 
     @count_totals = { "pending_jobs" => @pending_jobs,
                       "confirmed_jobs" => @confirmed_jobs,
