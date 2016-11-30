@@ -6,18 +6,21 @@ angular.module('app')
       var self = this;
       this.messageTrue = $stateParams.newMessage;
 
+      dashboardAPI.user().success(function(response) {
+        self.user = response.first_name + ' ' + response.last_name;
+      });
+
       this.messageClick = function() {
         $state.go('new-message');
       };
 
       dashboardAPI.conversationMessages().success(function(response) {
-        console.log(response);
         self.convLength = response.length;
         self.conversation = response;
       });
 
       this.ifRead = function(message, data) {
-        if(message.sender_name != "Agency Manager" && data === false) {
+        if(message.sender_name != self.user && data === false) {
           return message['star'] = true;
         }
       };
