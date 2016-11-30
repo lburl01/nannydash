@@ -6,12 +6,12 @@
         }
 
         .parent {
-            background: $yellow;
+            background: $green;
             color: #fff;
         }
 
         .confirmed {
-            background: $green;
+            background: $yellow;
             color: #fff;
         }
 
@@ -21,6 +21,9 @@
             border-radius: 4px;
             padding: 7px;
             color: #aaa;
+            white-space: nowrap;
+            overflow: hidden !important;
+            text-overflow: ellipsis;
         }
     }
 }
