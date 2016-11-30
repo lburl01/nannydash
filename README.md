@@ -26,9 +26,29 @@ As a babysitter, you can view and apply for jobs that parents have posted, view 
 * All parties have clear visuals denoting status of a job
 
 
+## Technologies
+
+###### Tools 
+  Git
+  Atom
+  Sketch
+  
+###### Backend 
+  Ruby on Rails
+  Heroku
+  
+###### Front-End 
+  HTML5
+  Sass
+  JavaScript
+  JQuery
+  AngularJS
+  AJAX
+
 ## Our Team
 
 * [Chloe Collier](https://github.com/AlyChloe) - Designer, Front-End Developer
 * [Marliana Lara](https://github.com/marshmalien) - Designer, Front-End Developer
 * [Sam Davis-Castro](https://github.com/SamPlifier) - Designer, Front-End Developer
 * [Lori Baumgartner](https://github.com/lburl01) - Rails Developer
+
