@@ -129,8 +129,8 @@ class Job < ApplicationRecord
 
   end
 
-  def self.get_assigned_jobs_count
-    new_jobs = Job.where("date >= ?", Time.zone.now.beginning_of_day).where({is_assigned: true, is_deleted: false}).all.count
+  def self.get_active_jobs_count
+    new_jobs = Job.where("date >= ?", Time.zone.now.beginning_of_day).where({is_deleted: false}).all.count
   end
 
   def self.get_sitter_assigned_jobs_count(current_user)
