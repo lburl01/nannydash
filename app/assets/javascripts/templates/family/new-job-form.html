@@ -7,7 +7,7 @@
       </div>
       <aside class="sitters">
         <h2>All Babysitters</h2>
-        <h6 ng-click="jobForm.loadUser(nanny)" ng-repeat="nanny in jobForm.nannys">{{nanny.name}}</h6>
+        <h6 ng-click="jobForm.loadUser(nanny)" ng-repeat="nanny in jobForm.sitters">{{nanny.first_name}} {{nanny.last_name}}</h6>
       </aside>
     <!-- New Job Form -->
     <div class="form" ng-show="jobForm.toggleShow">
