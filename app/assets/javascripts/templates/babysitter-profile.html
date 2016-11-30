@@ -101,8 +101,8 @@
     <!-- Joined Field -->
     <label for="joined">Joined:</label>
     <input id="joined" type="text" ng-model="babysitter.getDate(babysitter.user.created_at)" ng-model-options="{ updateOn: 'blur' }" ng-change="babysitter.userInputClick('joined', babysitter.user.joined, babysitter.user.sitter_id)">
-    <button ng-click="babysitter.updateBabysitter(babysitter.user.sitter_id)" type="button">Update Account</button>
-    <button ng-click="babysitter.popup()" ng-class="{'redDelete': babysitter.visibility}" type="button">Delete Account</button>
+    <button class="sitter-approve" ng-click="babysitter.updateBabysitter(babysitter.user.sitter_id)" type="button">Update Account</button>
+    <button class="sitter-decline" ng-click="babysitter.popup()" ng-class="{'redDelete': babysitter.visibility}" type="button">Delete Account</button>
   </section>
 
   <div ng-class="{'visible': babysitter.visibility}" class="popup" role="alert">
