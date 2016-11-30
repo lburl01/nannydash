@@ -8,10 +8,10 @@
       nanny: '<'
     },
     templateUrl: 'nanny/nanny-profile.html',
-    controller: ['nannyApp', '$http', NannyProfile]
+    controller: ['nannyApp', '$http', '$state', NannyProfile]
   });
 
-  function NannyProfile(nannyApp, $http) {
+  function NannyProfile(nannyApp, $http, $state) {
     var ctrl = this;
     ctrl.file = "";
     ctrl.updateNanny = {};
@@ -19,6 +19,21 @@
     ctrl.$onInit = function() {
       ctrl.id = ctrl.nanny.id;
     };
+
+    ctrl.submitImage = function() {
+      var data = new FormData(document.getElementById("imageUploadForm"));
+      $.ajax({
+        url: "/api/v1/sitter",
+        data: data,
+        type: 'POST',
+        contentType: false,
+        processData: false,
+        success: function() {
+          $state.reload();
+        }
+      });
+    };
+
 
     ctrl.getSitter = function() {
       ctrl.nanny = nannyApp.user(ctrl.id);

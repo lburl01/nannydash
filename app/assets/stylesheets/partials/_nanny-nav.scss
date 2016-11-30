@@ -8,6 +8,13 @@
     display: flex;
     justify-content: space-around;
     width: 100%;
+    li {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding-bottom: 10px;
+    }
   }
   .title {
     h2 {
