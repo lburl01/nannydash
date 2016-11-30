@@ -69,16 +69,26 @@
         button:nth-child(2) {
             margin-right: 10px;
         }
-
-        button#messagesBtn {
-            margin: 0 !important;
+        &.messages {
+          button:first-of-type {
+            span {
+              z-index: 1;
+              position: relative;
+              .star-nav {
+                color: #EFBA59;
+                position: absolute;
+                top: 0;
+                font-size: 24px;
+                z-index: -1;
+                top: -20px;
+                left: -20px;
+                text-shadow: 0px 0px 3px rgb(159, 139, 104);
+                transform: rotate(-40deg);
+              }
+            }
+          }
         }
 
-        .btnYellow {
-          background: $yellow;
-          color: #fff;
-          text-shadow: 1px 1px 1px #a58741;
-        }
 
         button {
             background: $lightCream;
