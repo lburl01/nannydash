@@ -9,47 +9,45 @@
       </div>
     </div>
 
-    <fieldset ng-disabled=true;>
-      <section class="basic-info">
-        <form>
-        <h2>Basic Information</h2>
-        <!-- Family -->
-        <label for="name">Name:</label>
-        <input type="text" name="name" ng-model="$ctrl.jobInfo.name">
-        <!-- Phone Field -->
-        <label for="phone">Phone:</label>
-        <input id="phone" type="text" ng-model="$ctrl.jobInfo.phone">
-        <!-- Email Field -->
-        <label for="email">Email:</label>
-        <input id="email" type="text" ng-model="$ctrl.jobInfo.email">
-        <!-- Street Field -->
-        <label for="street">Street:</label>
-        <input id="street" type="text" ng-model="$ctrl.jobInfo.street">
-        <!-- City Field -->
-        <label for="city">City:</label>
-        <input id="city" type="text" ng-model="$ctrl.jobInfo.city">
-        <!-- State Field -->
-        <label for="state">State:</label>
-        <input id="state" type="text" ng-model="$ctrl.jobInfo.state">
-        <!-- Zip Field -->
-        <label for="zip">Zip Code:</label>
-        <input id="zip" type="text" ng-model="$ctrl.jobInfo.zip_code">
-        <!-- Notes Field -->
-        <label for="name">Notes:</label>
-        <textarea type="text" name="posted" value="">{{$ctrl.jobInfo.notes === "" ? "None" : $ctrl.jobInfo.notes}}</textarea>
+    <form>
+    <section class="basic-info">
+      <h2>Basic Information</h2>
+      <!-- Family -->
+      <label for="name">Name:</label>
+      <input type="text" name="name" ng-model="$ctrl.jobInfo.name" ng-disabled="true">
+      <!-- Phone Field -->
+      <label for="phone">Phone:</label>
+      <input id="phone" type="text" ng-model="$ctrl.jobInfo.phone" ng-disabled="true">
+      <!-- Email Field -->
+      <label for="email">Email:</label>
+      <input id="email" type="text" ng-model="$ctrl.jobInfo.email" ng-disabled="true">
+      <!-- Street Field -->
+      <label for="street">Street:</label>
+      <input id="street" type="text" ng-model="$ctrl.jobInfo.street" ng-disabled="true">
+      <!-- City Field -->
+      <label for="city">City:</label>
+      <input id="city" type="text" ng-model="$ctrl.jobInfo.city" ng-disabled="true">
+      <!-- State Field -->
+      <label for="state">State:</label>
+      <input id="state" type="text" ng-model="$ctrl.jobInfo.state" ng-disabled="true">
+      <!-- Zip Field -->
+      <label for="zip">Zip Code:</label>
+      <input id="zip" type="text" ng-model="$ctrl.jobInfo.zip_code" ng-disabled="true">
+      <!-- Notes Field -->
+      <label for="name">Notes:</label>
+      <textarea type="text" name="posted" value="">{{$ctrl.jobInfo.notes === "" ? "None" : $ctrl.jobInfo.notes}}</textarea>
 
-      </section>
+    </section>
 
-      <section class="key-info">
-        <h2>Key Information</h2>
-        <label for="name">Job Needed For:</label>
-        <input type="text" value="{{$ctrl.jobInfo.date}}">
-        <input type="text" value="{{$ctrl.jobInfo.start_time + ' - ' + $ctrl.jobInfo.end_time}}">
-        <label for="name">Date Posted:</label>
-        <input type="text" name="posted" value="" ng-model="$ctrl.jobInfo.date_posted">
-      </section>
-      </fieldset>
+    <section class="key-info">
+      <h2>Key Information</h2>
+      <label for="name">Job Needed For:</label>
+      <input type="text" value="{{$ctrl.jobInfo.date}}" ng-disabled="true">
+      <input type="text" value="{{$ctrl.jobInfo.start_time + ' - ' + $ctrl.jobInfo.end_time}}" ng-disabled="true">
+      <label for="name">Date Posted:</label>
+      <input type="text" name="posted" value="" ng-model="$ctrl.jobInfo.date_posted" ng-disabled="true">
       <button ng-click="$ctrl.popup()" ng-disabled="$ctrl.jobInfo.is_assigned" class="request-button" ng-class="{'yellowRequest': $ctrl.visibility || $ctrl.jobInfo.is_assigned}" type="button">{{$ctrl.jobInfo.is_assigned ? "Assigned" : "Request Job"}}</button>
+    </section>
     </form>
 
     <div ng-class="{'visible': $ctrl.visibility}" class="popup" role="alert">
