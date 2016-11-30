@@ -28,22 +28,22 @@ As a babysitter, you can view and apply for jobs that parents have posted, view 
 
 ## Technologies
 
-###### Tools 
-  Git
-  Atom
-  Sketch
-  
-###### Backend 
-  Ruby on Rails
-  Heroku
-  
-###### Front-End 
-  HTML5
-  Sass
-  JavaScript
-  JQuery
-  AngularJS
-  AJAX
+  #### Tools 
+    Git
+    Atom
+    Sketch
+
+  #### Backend 
+    Ruby on Rails
+    Heroku
+
+  #### Front-End 
+    HTML5
+    Sass
+    JavaScript
+    JQuery
+    AngularJS
+    AJAX
 
 ## Our Team
 
