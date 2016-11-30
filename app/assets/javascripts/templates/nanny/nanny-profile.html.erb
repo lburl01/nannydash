@@ -13,9 +13,8 @@
   <section class="name">
     <img src="{{$ctrl.nanny.picture.url}}" alt="Nanny Photo">
 
-    <form action="/api/v1/sitter" enctype="multipart/form-data" accept-charset="UTF-8" method="post">
+    <form id="imageUploadForm" name="$ctrl.imageUpload" enctype="multipart/form-data" ng-submit="$ctrl.submitImage()">
       <input type="hidden" name="id" value="{{$ctrl.nanny.id}}">
-
       <%= image_tag("upload.svg", :alt => "Upload image")%>
       <input upload-watcher id="image-upload" class="upload" accept="image/jpeg,image/gif,image/png,image/jpg" type="file" name="user[picture]">
       <label for="image-upload"><span>Choose a file</span></label>

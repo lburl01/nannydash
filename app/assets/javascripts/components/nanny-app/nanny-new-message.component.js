@@ -3,10 +3,10 @@
 
   angular.module('nannyApp').component('newMessage', {
     templateUrl: 'nanny/nanny-new-message.html',
-    controller: ['nannyAppAPI', NannyNewMessageController]
+    controller: ['nannyAppAPI', '$state', NannyNewMessageController]
   });
-  
-  function NannyNewMessageController(nannyAppAPI) {
+
+  function NannyNewMessageController(nannyAppAPI, $state) {
     var ctrl = this;
     ctrl.showUsers = false;
     ctrl.recipient = "";
@@ -33,6 +33,7 @@
 
     ctrl.send = function(id, subject, body) {
       nannyAppAPI.sendMessage(id, subject, body);
+      $state.go('conversations', {newMessage: true});
     };
 
   }

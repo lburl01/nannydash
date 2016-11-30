@@ -75,6 +75,9 @@
       }).state('conversations', {
         url: '/conversations',
         component: 'conversations',
+        params: {
+          newMessage: null
+        },
         resolve: {
           conversation: ['nannyAppAPI', function(nannyAppAPI) {
             return nannyAppAPI.conversationList();

@@ -16,7 +16,7 @@
         <li>Job Date</li>
         <li>Time</li>
         <li class="notes">Notes</li>
-        <li>Posted</li>
+        <li class="posted">Posted</li>
       </ul>
 
       <div class="table-body">
@@ -25,7 +25,7 @@
           <li>{{job.date}}</li>
           <li>{{job.start_time}}-{{job.end_time}}</li>
           <li class="notes">{{job.notes === "" ? "None" : job.notes | limitTo: 20}}</li>
-          <li>{{job.created}}</li>
+          <li class="posted">{{job.created}}</li>
         </ul>
 
       </div>
