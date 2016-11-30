@@ -7,19 +7,14 @@ angular.module('familyApp')
       this.toggleShow = true;
 
       familyAppAPI.activeBabysitters().success(function(response) {
-        var nannysArray = [];
-        for(var i = 0; i < response.length; i++) {
-          if(response[i].role === 'nanny') {
-            nannysArray.push(response[i]);
-          }
-        };
-        self.nannys = nannysArray;
+        console.log(response);
+        self.sitters = response.sitters
       });
 
       this.loadUser = function(user) {
         self.showUsers = false;
-        self.id = user.id
-        return self.recipient = user.name;
+        self.id = user.sitter_id;
+        return self.recipient = user.first_name + " " + user.last_name;
       }
 
       this.sendMessage = function(id, date, startTime, endTime, body) {
