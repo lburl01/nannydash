@@ -51,6 +51,7 @@
       },
       conversationList: function() {
         return $http.get('/conversations.json').then(function(response) {
+          console.log(response.data);
           return response.data;
         }, function() {
           console.log('Failed to return list of conversations');
@@ -58,6 +59,7 @@
       },
       messageList: function(id) {
         return $http.get('/conversations/' + id + '/messages.json').then(function(response) {
+          console.log(response.data);
           return response.data;
         }, function() {
           console.log('Failed to return the messages inside of conversation');

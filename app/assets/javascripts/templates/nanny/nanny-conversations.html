@@ -18,8 +18,8 @@
         <th>Subject</th>
         <th>Sent</th>
       </tr>
-      <tr ui-sref="conversation({convoId: message.convo_id, recipient: $ctrl.recipient(message)})" ng-repeat="message in $ctrl.conversation">
-        <td><h6>{{message.messages_count}}</h6></td>
+      <tr ui-sref="conversation({convoId: message.convo_id, recipient: $ctrl.recipient(message)})" ng-repeat="message in $ctrl.conversation" ng-init="$ctrl.ifRead(message, message.recipient_read)">
+        <td><h6>{{message.messages_count}}</h6><i ng-show="message.star" class="fa fa-star"></i></td>
         <td>
           {{$ctrl.recipient(message)}}
         </td>
