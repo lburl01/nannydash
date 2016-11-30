@@ -6,9 +6,11 @@
 
             allJobsAPI.jobsList().success(function(response) {
                 self.totalJobs = response;
+                console.log(response);
             });
             allJobsAPI.allJobs().success(function(familyResponse) {
                 self.jobs = familyResponse;
+                // console.log(familyResponse);
             });
 
             this.name = function(firstName, lastName) {

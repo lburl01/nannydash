@@ -4,40 +4,40 @@
         <h1>All Jobs</h1>
         <input type="text" search-image ng-model="searchBox" class="form-control" id="iconified" placeholder="&#xF002;" />
     </div>
-    <div class="list">
-        <div class="title-container">
-            <h4>Total: {{ allJobs.totalJobs.length }} </h4>
+
+        <div class="list">
+            <div class="title-container">
+                <h4>Total: {{ allJobs.totalJobs.length }} </h4>
+            </div>
+            <table>
+                <tr>
+                    <th>Parent</th>
+                    <th>Babysitter</th>
+                    <th>Time</th>
+                    <th>Stage</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr dir-paginate="item in allJobs.totalJobs | filter: searchBox | itemsPerPage: 5" ui-sref="jobs-list-details({jobId:item.job_id})">
+                    <td>{{ allJobs.name( item.family_first_name, item.family_last_name ) }}</td>
+
+                    <td>{{ allJobs.name( item.sitter_first_name, item.sitter_last_name ) }}</td>
+
+                    <td>{{ allJobs.time( item.start_time, item.end_time ) }}</td>
+
+                    <td>
+                        <p ng-class="{sitter: item.is_assigned === false}">Waiting on Sitter</p>
+                    </td>
+                    <td>
+                        <p ng-class="{parent: item.is_assigned === true && item.confirmed === false}">Waiting on Parent</p>
+                    </td>
+                    <td>
+                        <p ng-class="{confirmed: item.confirmed === true}">Confirmed</p>
+                    </td>
+                </tr>
+            </table>
+            <dir-pagination-controls max-size="5"></dir-pagination-controls>
         </div>
-        <table>
-            <tr>
-                <th>Parent</th>
-                <th>Babysitter</th>
-                <th>Time</th>
-                <th>Stage</th>
-                <th></th>
-                <th></th>
-            </tr>
-            <tr dir-paginate="item in allJobs.totalJobs | filter: searchBox | itemsPerPage: 5" ui-sref="jobs-list-details({jobId:item.job_id})">
-                <td>{{ allJobs.name( item.family_first_name, item.family_last_name ) }}</td>
 
-                <td>{{ allJobs.name( item.sitter_first_name, item.sitter_last_name ) }}</td>
-
-                <td>{{ allJobs.time( item.start_time, item.end_time ) }}</td>
-
-                <td>
-                    <p ng-class="{sitter: job.is_assigned === false}">Waiting on Sitter</p>
-                </td>
-                <td>
-                    <p ng-class="{parent: job.is_assigned === true && job.confirmed === false}">Waiting on Parent</p>
-                </td>
-                <td>
-                    <p ng-class="{confirmed: job.confirmed === true}">Confirmed</p>
-                </td>
-
-            </tr>
-        </table>
-        <dir-pagination-controls max-size="5"></dir-pagination-controls>
     </div>
-
-</div>
 </div>
