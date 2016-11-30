@@ -8,7 +8,7 @@ angular.module('app')
 
       this.messageClick = function() {
         $state.go('new-message');
-      }
+      };
 
       dashboardAPI.conversationMessages().success(function(response) {
         console.log(response);
@@ -20,7 +20,7 @@ angular.module('app')
         if(message.sender_name != "Agency Manager" && data === false) {
           return message['star'] = true;
         }
-      }
+      };
 
       this.conversationClick = function(id) {
         dashboardAPI.allMessages(id).success(function(response) {
@@ -31,6 +31,6 @@ angular.module('app')
               reload: true
             });
         });
-      }
+      };
 
     }]);

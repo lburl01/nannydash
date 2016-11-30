@@ -37,10 +37,11 @@ class User < ApplicationRecord
     response = User.nanny.where(is_deleted: false).order(created_at: :desc).all
 
     @sitters = []
+    @sitter_data = {}
     @all_counties = []
 
     response.each do |sitter|
-      @sitters << {"sitter_id" => sitter.id, "first_name" => sitter.first_name,
+      @sitter_data = {"sitter_id" => sitter.id, "first_name" => sitter.first_name,
                       "last_name" => sitter.last_name, "email" => sitter.email,
                       "phone" => sitter.phone_number, "birthday" => sitter.birthday,
                       "hourly_rate" => sitter.hourly_rate,
@@ -58,7 +59,14 @@ class User < ApplicationRecord
                       "recommendation_three_email" => sitter.recommendation_three_email,
                       "joined" => sitter.created_at
                     }
+
+      if sitter.picture.model["picture"]
+        @sitter_data["picture_url"] = "#{sitter.picture}"
+      end
+
       @all_counties << sitter.county
+
+      @sitters << @sitter_data
     end
 
     @counties = @all_counties.uniq
@@ -88,21 +96,33 @@ class User < ApplicationRecord
                     "recommendation_three_email" => sitter.recommendation_three_email,
                     "joined" => sitter.created_at
                   }
+
+    if sitter.picture.model["picture"]
+      @sitter["picture_url"] = "#{sitter.picture}"
+    end
   end
 
   def self.get_approved_families
     response = User.family.where( { is_deleted: false, approved: true, active: true } ).all
 
     @families = []
+    @family_data = {}
     @all_counties = []
 
     response.each do |family|
-      @families << {"family_id" => family.id, "first_name" => family.first_name,
+      @family_data = {"family_id" => family.id, "first_name" => family.first_name,
                       "last_name" => family.last_name, "email" => family.email,
                       "phone" => family.phone_number, "county" => family.county,
-                      "about" => family.about, "active" => family.active
+                      "about" => family.about, "active" => family.active,
                     }
+
+      if family.picture.model["picture"]
+        @family_data["picture_url"] = "#{family.picture}"
+      end
+
       @all_counties << family.county
+
+      @families << @family_data
     end
 
     @counties = @all_counties.uniq
@@ -124,7 +144,7 @@ class User < ApplicationRecord
                     "phone" => family.phone_number, "street" => family.street,
                     "city" => family.city, "state" => family.state,
                     "zip_code" => family.zip_code, "county" => family.county,
-                    "about" => family.about, "active" => family.active
+                    "about" => family.about, "active" => family.active,
                   }
 
     if family.picture.model["picture"]
@@ -139,13 +159,20 @@ class User < ApplicationRecord
     @five_applicants = @all_applicants.order(created_at: :desc).limit(5)
 
     @new_applicants = []
+    @application_data = {}
 
     @five_applicants.each do |application|
       name = "#{application.first_name} #{application.last_name}"
-      @new_applicants << { "application_id" => application.id, "name" => name,
+      @application_data = { "application_id" => application.id, "name" => name,
                            "role" => application.role,
                            "submitted" => application.created_at.strftime("%m/%d/%Y %I:%M %p")
                          }
+
+       if application.picture.model["picture"]
+         @application_data["picture_url"] = "#{application.picture}"
+       end
+
+       @new_applicants << @application_data
     end
 
     @new_applicants
@@ -210,11 +237,18 @@ class User < ApplicationRecord
     possible_recipients = User.where(is_deleted: false).order(first_name: :asc).all
 
     @all_recipients = []
+    @recipient_data = {}
 
     possible_recipients.each do |user|
       full_name = "#{user.first_name} #{user.last_name}"
-      @all_recipients << { "id" => user.id,
-                           "name" => full_name, "role" => user.role }
+      @recipient_data = { "id" => user.id,
+                          "name" => full_name, "role" => user.role}
+
+      if user.picture.model["picture"]
+        @recipient_data["picture_url"] = "#{user.picture}"
+      end
+
+      @all_recipients << @recipient_data
     end
 
     return @all_recipients
@@ -225,12 +259,19 @@ class User < ApplicationRecord
     sitters = User.nanny.where( { is_deleted: false, active: true, approved: true  }).order(created_at: :desc).all
 
     @available_sitters = []
+    @sitter_data = {}
 
     sitters.each do |sitter|
       full_name = "#{sitter.first_name} #{sitter.last_name}"
-      @available_sitters << { "name" => full_name, "active" => sitter.active,
+      @sitter_data = { "name" => full_name, "active" => sitter.active,
                               "is_deleted" => sitter.is_deleted,
                               "approved" => sitter.approved}
+
+      if sitter.picture.model["picture"]
+        @sitter_data["picture_url"] = "#{sitter.picture}"
+      end
+
+      @available_sitters << @sitter_data
     end
 
     return @available_sitters
