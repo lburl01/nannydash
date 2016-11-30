@@ -3,7 +3,7 @@
   h1 {
     font-size: 24px;
     font-weight: 100;
-    color: #666;
+    color: $grey;
     text-align: center;
     padding: 10px 0 45px;
   }
@@ -120,7 +120,7 @@
           padding: 15px 10px;
           font-size: 14px;
           font-weight: 100;
-          color: #888;
+          color: $grey;
           white-space: nowrap;
           overflow:hidden !important;
           text-overflow: ellipsis;
@@ -165,7 +165,7 @@
   .applications {
     table {
       position: relative;
-      top: -13px;  
+      top: -13px;
     }
   }
 

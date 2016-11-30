@@ -221,7 +221,7 @@
     width: 30px;
     transition: all 0.4s ease-out;
     &::before {
-      background-color: $grey;
+      background-color: #9f9f9f;
       content: '';
       height: 3px;
       left: 8px;
@@ -231,7 +231,7 @@
       width: 14px;
     }
     &::after {
-      background-color: $grey;
+      background-color: #9f9f9f;
       content: '';
       height: 3px;
       position: absolute;
