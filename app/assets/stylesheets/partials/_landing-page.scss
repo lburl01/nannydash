@@ -93,6 +93,9 @@
                 margin-top: 7px;
                 text-shadow: 1px 1px 1px #a58741;
             }
+            .actions input:active {
+              background: $green;
+            }
         }
 
         #user_email,
@@ -155,7 +158,7 @@
             }
 
             .explanatoryParagraph {
-                line-height: 1.8rem;
+                line-height: 1.9rem;
                 margin-top: -40px;
 
                 .usersInParagraph {
