@@ -53,7 +53,6 @@
 
         .returningUser {
             box-shadow: 2px 2px 20px -3px #bbb;
-            padding: 9px;
         }
 
         .newAgency,
@@ -67,15 +66,19 @@
                 margin-bottom: 6px;
                 background: #D6655A;
                 color: white;
-                width: 108%;
                 position: relative;
-                right: 4%;
                 bottom: 9px;
+            }
+
+            .actions,
+            .field {
+                padding: 0 11px;
             }
 
             .actions {
                 display: flex;
                 justify-content: center;
+                margin-bottom: 16px;
             }
 
             .actions input {

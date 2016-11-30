@@ -7,7 +7,7 @@
     <section class="topThreeHeader">
         <div class="returningUser">
             <h2>Returning User?</h2>
-
+            <div class="loginFormFields">
             <%= form_for("user", :url => user_session_path) do |f| %>
             <div class="field">
                 <%= f.label :email %><br/>
@@ -23,6 +23,7 @@
                 <%= f.submit "Log in" %>
             </div>
             <% end %>
+          </div>
 
         </div>
         <div class="liftingKidIcon">
