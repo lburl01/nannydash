@@ -9,7 +9,6 @@
         </div>
       </div>
     </div>
-
     <div ng-show="job.familyJob.is_assigned === true && job.familyJob.confirmed === false" class="confirmation">
       <h4>Please confirm your job with {{job.familyJob.sitter_name}}.</h4>
       <button ng-click="job.confirm(job.familyJob.job_id)" type="button">Confirm!</button>
