@@ -27,7 +27,6 @@ angular.module('app')
       Verifying Certifications
       *************************/
       this.toggleCPR = function(id) {
-        console.log(id);
         babysitterDirectoryAPI.cpr(id).then( function() {
           return self.user.cpr_certification = !self.user.cpr_certification;
         });;

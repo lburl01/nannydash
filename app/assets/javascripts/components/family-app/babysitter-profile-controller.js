@@ -18,6 +18,7 @@ angular.module('familyApp')
       *************************/
       familyAppAPI.userProfile(self.user).success(function(response) {
         self.user = response
+        console.log(response);
         self.calculateAge(self.user.birthday);
         return self.user;
       });

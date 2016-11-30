@@ -1,4 +1,4 @@
-<div class="directory-container">
+<div class="directory-container family-babysitter-profile">
   <!-- ******************************
    Header Section: Name Breadcrumbs and Search Field
   ******************************* -->
@@ -37,11 +37,12 @@
   <!-- ******************************
    Basic Information Section
   ******************************* -->
+
   <section class="basic-info">
     <h2>Basic Information</h2>
     <!-- Phone Field -->
     <label for="phone">Phone:</label>
-    <p>{{babysitter.user.phone}}</p>
+    <p>{{babysitter.user.phone_number}}</p>
     <!-- Email Field -->
     <label for="email">Email:</label>
     <p>{{babysitter.user.email}}</p>
@@ -69,8 +70,8 @@
     <!-- Certifications Field -->
     <div class="cert">
       <label>Certifications</label>
-      <button ng-class="babysitter.user.cpr_certification ? 'toggleGreen' : 'toggleRed'" type="button" ng-click="babysitter.toggleCPR(babysitter.user.sitter_id, babysitter.user.cpr_certification)">{{babysitter.cpr}}</button>
-      <button ng-class="babysitter.user.first_aid_certification ? 'toggleGreen' : 'toggleRed'" type="button" ng-click="babysitter.toggleFirstAid(babysitter.user.sitter_id, babysitter.user.first_aid_certification)">{{babysitter.firstAid}}</button>
+      <button disabled ng-class="babysitter.user.cpr_certification ? 'toggleGreen' : 'toggleRed'" type="button" ng-click="babysitter.toggleCPR(babysitter.user.sitter_id, babysitter.user.cpr_certification)">{{babysitter.cpr}}</button>
+      <button disabled ng-class="babysitter.user.first_aid_certification ? 'toggleGreen' : 'toggleRed'" type="button" ng-click="babysitter.toggleFirstAid(babysitter.user.sitter_id, babysitter.user.first_aid_certification)">{{babysitter.firstAid}}</button>
     </div>
 
     <!-- Hourly Rate Field -->
