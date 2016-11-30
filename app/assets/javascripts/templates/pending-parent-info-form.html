@@ -1,35 +1,32 @@
-<fieldset ng-disabled=true>
   <form name="familyForm" ng-submit="">
     <!-- Phone Field -->
     <label for="phone">Phone:</label>
-    <input class="pending-parent" name="phone" id="phone" type="text" ng-model="$ctrl.info.phone" ng-model-options="{updateOn: 'blur'}" ng-change="$ctrl.updateCurrent( 'phone', $ctrl.info.phone)">
+    <input class="pending-parent" name="phone" id="phone" type="text" ng-disabled="true" ng-model="$ctrl.info.phone">
     <!-- Email Field -->
     <label for="email">Email:</label>
-    <input class="pending-parent" name="phone" id="email" type="text" ng-model="$ctrl.info.email" ng-model-options="{updateOn: 'blur'}" ng-change="$ctrl.updateCurrent( 'email', $ctrl.info.email)">
+    <input class="pending-parent" name="phone" id="email" type="text" ng-disabled="true" ng-model="$ctrl.info.email">
     <!-- Street Field -->
     <label for="street">Street:</label>
-    <input class="pending-parent" name="phone" id="street" type="text" ng-model="$ctrl.info.street" ng-model-options="{updateOn: 'blur'}" ng-change="$ctrl.updateCurrent( 'street', $ctrl.info.street)">
+    <input class="pending-parent" name="phone" id="street" type="text" ng-disabled="true" ng-model="$ctrl.info.street">
     <!-- City Field -->
     <label for="city">City:</label>
-    <input class="pending-parent" name="phone" id="city" type="text" ng-model="$ctrl.info.city" ng-model-options="{updateOn: 'blur'}" ng-change="$ctrl.updateCurrent( 'city', $ctrl.info.city)">
+    <input class="pending-parent" name="phone" id="city" type="text" ng-disabled="true" ng-model="$ctrl.info.city">
     <!-- County Field -->
     <label for="count">County:</label>
-    <input class="pending-parent" name="phone" id="county" type="text" ng-model="$ctrl.info.county" ng-model-options="{updateOn: 'blur'}" ng-change="$ctrl.updateCurrent( 'county', $ctrl.info.county)">
+    <input class="pending-parent" name="phone" id="county" type="text" ng-disabled="true" ng-model="$ctrl.info.county">
     <!-- State Field -->
     <label for="state">State:</label>
-    <input class="pending-parent" name="phone" id="state" type="text" ng-model="$ctrl.info.state" ng-model-options="{updateOn: 'blur'}" ng-change="$ctrl.updateCurrent( 'state', $ctrl.info.state)">
+    <input class="pending-parent" name="phone" id="state" type="text" ng-disabled="true" ng-model="$ctrl.info.state">
     <!-- zip Field -->
     <label for="zip">Zip Code:</label>
-    <input class="pending-parent" name="phone" id="zip" type="text" ng-model="$ctrl.info.zip_code" ng-model-options="{updateOn: 'blur'}" ng-change="$ctrl.updateCurrent( 'zip_code', $ctrl.info.zip_code)">
+    <input class="pending-parent" name="phone" id="zip" type="text" ng-disabled="true" ng-model="$ctrl.info.zip_code">
     <!-- About Field -->
     <label for="about">About:</label>
-    <textarea class="pending-parent" name="about" rows="4" cols="50" ng-model="$ctrl.info.about" ng-model-options="{updateOn: 'blur'}" ng-change="$ctrl.updateCurrent( 'about', $ctrl.info.about)">
-    </textarea>
+    <textarea class="pending-parent" name="about" rows="4" cols="50">{{$ctrl.info.about || "No Notes"}}</textarea>
+    <input type="button" class="approve" ng-click="$ctrl.handleToggle($ctrl.info.family_id)" value="Approve"></input>
+    <button ng-click="$ctrl.popup()" class="delete" ng-class="{'redDelete': $ctrl.visibility}" type="button">Delete Application</button>
 
   </form>
-</fieldset>
-<input type="button" class="approve" ng-click="$ctrl.handleToggle($ctrl.info.family_id)" value="Approve"></input>
-<button ng-click="$ctrl.popup()" class="delete" ng-class="{'redDelete': $ctrl.visibility}" type="button">Delete Application</button>
 
 <div ng-class="{'visible': $ctrl.visibility}" class="popup" role="alert">
   <div class="popup-container">

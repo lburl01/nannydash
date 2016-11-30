@@ -2,7 +2,7 @@
   <li>{{$ctrl.parent.first_name}}</li>
   <li>{{$ctrl.parent.last_name}}</li>
   <li class="mobile-hide">{{$ctrl.parent.phone_number}}</li>
-  <li class="tablet-hide">{{$ctrl.parent.about | limitTo: 30}}</li>
+  <li class="tablet-hide">{{$ctrl.parent.about === null ? "No Notes" : $ctrl.parent.about | limitTo: 30}}</li>
   <li>
     <span ui-sref="pendingParentInfo({parentId: $ctrl.parent.id})" class="pending-parent-profile">View
     </span>
