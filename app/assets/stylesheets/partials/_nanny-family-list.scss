@@ -8,6 +8,10 @@
   ul {
     display: flex;
     li {
+      white-space: nowrap;
+      overflow: hidden !important;
+      text-overflow: ellipsis;
+      
       &:nth-child(3) {
         width: 25%;
       }

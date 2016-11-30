@@ -28,7 +28,6 @@
     };
     ctrl.delete = function(id) {
       allJobsAPI.deleteJob(id).then(function() {
-        console.log('success!');
         $scope.$emit('updateCount', {});
           $state.go('allJobs');
       });

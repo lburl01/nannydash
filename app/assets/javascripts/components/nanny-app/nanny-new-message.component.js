@@ -3,17 +3,29 @@
 
   angular.module('nannyApp').component('newMessage', {
     templateUrl: 'nanny/nanny-new-message.html',
-    controller: ['nannyAppAPI', '$state', NannyNewMessageController]
+    bindings: {
+      parent: '<',
+      newMessage: '<'
+    },
+    controller: ['nannyAppAPI', '$state', '$stateParams', NannyNewMessageController]
   });
 
-  function NannyNewMessageController(nannyAppAPI, $state) {
+  function NannyNewMessageController(nannyAppAPI, $state, $stateParams) {
     var ctrl = this;
     ctrl.showUsers = false;
     ctrl.recipient = "";
+    ctrl.recipientId = "";
 
     ctrl.$onInit = function() {
       ctrl.nannyList = [];
       ctrl.parentList = [];
+
+      if($stateParams.newMessage != null) {
+        nannyAppAPI.singleFamily($stateParams.newMessage).then(function(response) {
+          ctrl.recipientId = response.family_id;
+          ctrl.recipient = response.first_name + ' ' + response.last_name;
+        });
+      }
 
       nannyAppAPI.activeUsers().then(function(response) {
         response.forEach(function(user) {
@@ -28,11 +40,13 @@
 
     ctrl.selectRecipient = function(user) {
       ctrl.showUsers = false;
-      ctrl.recipient = user;
+      ctrl.recipient = user.name;
+      ctrl.recipientId = user.id;
     };
 
-    ctrl.send = function(id, subject, body) {
-      nannyAppAPI.sendMessage(id, subject, body);
+    ctrl.send = function(recipientId, subject, body) {
+      nannyAppAPI.sendMessage(recipientId, subject, body);
+      console.log('sent!');
       $state.go('conversations', {newMessage: true});
     };
 

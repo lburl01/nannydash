@@ -11,7 +11,6 @@ angular.module('familyApp').service('familyAppAPI', ['$http', '$window', functio
         return $http.delete("/users/sign_out").then(function() {
           $window.location.href = '/home';
         }, function() {
-          console.log('Failed to sign out');
         });
       },
       jobDetails: function(id) {
@@ -80,7 +79,6 @@ angular.module('familyApp').service('familyAppAPI', ['$http', '$window', functio
         });
       },
       newJob: function(data) {
-        console.log(data);
         return $http({
           url: "/job/new.json",
           method: "POST",

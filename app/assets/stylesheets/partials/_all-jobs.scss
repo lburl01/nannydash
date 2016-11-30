@@ -21,6 +21,9 @@
             border-radius: 4px;
             padding: 7px;
             color: #aaa;
+            white-space: nowrap;
+            overflow: hidden !important;
+            text-overflow: ellipsis;
         }
     }
 }
