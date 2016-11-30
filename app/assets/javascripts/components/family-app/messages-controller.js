@@ -7,6 +7,10 @@ angular.module('familyApp')
       this.conversationMessage;
       this.convoId = $stateParams.conversationId;
 
+      familyAppAPI.user().success(function(response) {
+        this.loggedUserId = response.id;
+      })
+
       familyAppAPI.allMessages(self.convoId).success(function(response) {
         self.conversationMessage = response
       });
@@ -17,9 +21,9 @@ angular.module('familyApp')
 
         for (i in self.conversationMessage) {
             if(self.conversationMessage.hasOwnProperty(i)) {
-              if(self.conversationMessage[i].recipient_name != 'Agency Manager') {
+              if(self.conversationMessage[i].sender_id != self.loggedUserId) {
                 return self.convoWith = self.conversationMessage[i].sender_name
-              } else if(self.conversationMessage[i].sender_name != 'Agency Manager') {
+              } else if(self.conversationMessage[i].recipient_id != self.loggedUserId) {
                 return self.convoWith = self.conversationMessage[i].recipient_name
               }
               count++;
