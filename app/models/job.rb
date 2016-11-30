@@ -4,8 +4,8 @@ class Job < ApplicationRecord
 
   validates_presence_of :family_id, :date, :start_time, :end_time
 
-  def self.get_assigned_jobs
-    response = Job.where("date >= ?", Time.zone.now.beginning_of_day).where( { is_deleted: false, is_assigned: true } ).order(created_at: :desc).all
+  def self.get_active_jobs
+    response = Job.where("date >= ?", Time.zone.now.beginning_of_day).where( { is_deleted: false } ).order(created_at: :desc).all
 
     @jobs = []
 

@@ -2,7 +2,7 @@ class JobsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    @jobs = Job.get_assigned_jobs
+    @jobs = Job.get_active_jobs
 
     render json: @jobs
   end
