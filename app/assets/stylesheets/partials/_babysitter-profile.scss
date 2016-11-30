@@ -11,7 +11,7 @@
     width: 25%;
     float: left;
     overflow: hidden;
-    padding: 0 40px;
+    padding: 0 20px;
     @include media(medMobile) {
       width: 100%;
       padding: 40px 0;
@@ -196,13 +196,19 @@
       text-shadow: 1px 1px 1px darken(#9e9e9e, 20%);
       width: 100%;
 
-      &:first-of-type:hover {
+      &.sitter-approve {
         background: $yellow;
         text-shadow: 1px 1px 1px darken($yellow, 20%);
+        &:hover {
+          background: $hoverYellow;
+        }
       }
-      &:last-of-type:hover {
-        background: $red;
+      &.sitter-decline {
+        background: $brick;
         text-shadow: 1px 1px 1px darken($red, 20%);
+        &:hover {
+          background: $red;
+        }
       }
       &.redDelete {
         background: $red !important;
@@ -211,7 +217,6 @@
     }
 
     .cert {
-
       button {
         text-shadow: none;
       }
