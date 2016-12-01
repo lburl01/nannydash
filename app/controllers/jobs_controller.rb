@@ -64,7 +64,7 @@ class JobsController < ApplicationController
                      notes: params[:notes])
 
       if @job.save
-        @text_message = %Q(You've been requested for a new babysitting gig on #{@job.date}
+        @text_message = %Q(The #{@job.posted_job.last_Name} has requested you on #{@job.date}.
           For more details or to claim this job, visit:
           https://nannydash.herokuapp.com/#/upcoming-job/#{@job.id})
 
