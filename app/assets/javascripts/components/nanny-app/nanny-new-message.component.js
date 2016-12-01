@@ -19,6 +19,7 @@
     ctrl.$onInit = function() {
       ctrl.nannyList = [];
       ctrl.parentList = [];
+      ctrl.agencyList = [];
 
       if($stateParams.newMessage != null) {
         nannyAppAPI.singleFamily($stateParams.newMessage).then(function(response) {
@@ -33,6 +34,8 @@
             ctrl.nannyList.push(user);
           } else if (user.role === "family") {
             ctrl.parentList.push(user);
+          } else if (user.role === "manager") {
+            ctrl.agencyList.push(user);
           }
         });
       });
