@@ -3,14 +3,12 @@
     angular.module('app').factory('allJobsAPI', ['$http', function($http) {
         return {
             jobsList: function() {
-                console.log('jobslist');
                 return $http({
                     url: '/api/v1/jobs',
                     method: 'GET'
                 });
             },
             allJobs: function() {
-              console.log('alljobs');
               return $http({
                 url: "/family_dash/all_family_jobs",
                 method: "GET"

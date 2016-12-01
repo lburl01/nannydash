@@ -1,4 +1,6 @@
 .all-jobs-page {
+    @import 'all-jobs-mobile';
+
     .directory-container {
         .sitter {
             background: $red;
