@@ -14,6 +14,7 @@
     var ctrl = this;
 
     ctrl.$onInit = function() {
+      ctrl.newMessage = null;
       appAPI.totalCount().then(function(data) {
         ctrl.count = data;
       });
@@ -22,13 +23,13 @@
     dashboardAPI.user().success(function(response) {
       ctrl.firstName = response.first_name;
       ctrl.name = ctrl.firstName + ' ' + response.last_name;
-      console.log(ctrl.name);
     });
 
     dashboardAPI.conversationMessages().success(function(response) {
       for(var i = 0; i < response.length; i++) {
-        if(response[i].sender_name !== ctrl.name && response[i].recipient_read === false) {
-          return ctrl.newMessage = true;
+        if(response[i].sender_name !== ctrl.name  && response[i].recipient_read === false) {
+          ctrl.newMessage = true;
+          return ctrl.newMessage;
         }
       }
     });
