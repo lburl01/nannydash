@@ -10,7 +10,6 @@ angular.module('app')
       dashboardAPI.list().success(function(response) {
         self.application = response.applications
         self.assignments = response.assignments
-        console.log(response.assignments);
         self.messages = response.messages;
         self.openJobs = response.open_jobs;
       }, function(response) {

@@ -3,6 +3,7 @@ angular.module('app')
       /*************************
       Variables
       *************************/
+
       var self = this;
       this.messageTrue = $stateParams.newMessage;
 

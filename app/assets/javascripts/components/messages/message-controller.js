@@ -8,10 +8,8 @@ angular.module('app')
       this.messageConvoId = $stateParams.conversationMessId;
       this.replyShow = false;
       this.sentMsg = false;
-      console.log($stateParams);
 
       dashboardAPI.message(self.messageConvoId, self.messageId).success(function(response) {
-        console.log(response);
         return self.message = response;
       });
 
