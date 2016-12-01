@@ -295,11 +295,11 @@ class Job < ApplicationRecord
   end
 
   def self.get_family_pending_jobs_count(current_user)
-    @pending_jobs_count = Job.where("date >= ?", Time.zone.now.beginning_of_day).where( { family_id: current_user.id, is_assigned: true, confirmed: false } ).all.count
+    @pending_jobs = Job.where("date >= ?", Time.zone.now.beginning_of_day).where( { family_id: current_user.id, confirmed: false } ).all.count
   end
 
   def self.get_family_confirmed_jobs_count(current_user)
-    @confirmed_jobs_count = Job.where("date >= ?", Time.zone.now.beginning_of_day).where( { family_id: current_user.id, is_assigned: true, confirmed: true } ).all.count
+    @confirmed_jobs_count = Job.where("date >= ?", Time.zone.now.beginning_of_day).where( { family_id: current_user.id, confirmed: true } ).all.count
   end
 
   def self.get_sitter_requested_jobs(current_user)
