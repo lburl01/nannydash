@@ -34,7 +34,7 @@ class User < ApplicationRecord
   validate :picture_size
 
   def self.get_active_sitters
-    response = User.nanny.where(is_deleted: false).order(created_at: :desc).all
+    response = User.nanny.where(is_deleted: false, active: true).order(created_at: :desc).all
 
     @sitters = []
     @sitter_data = {}

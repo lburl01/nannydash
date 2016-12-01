@@ -42,6 +42,7 @@ class SittersController < ApplicationController
   def toggle_approved_sitter
     sitter = User.find(params[:id])
     sitter.toggle!(:approved)
+    sitter.toggle!(:active)
   end
 
   def pending
