@@ -8,7 +8,7 @@
         <div class="returningUser">
             <h2>Returning User?</h2>
             <div class="loginFormFields">
-            <%= form_for("user", :url => user_session_path, remote: true, :html => {:id => "login-form"}) do |f| %>
+            <%= form_for("user", :url => user_session_path) do |f| %>
             <div class="field">
                 <%= f.label :email %><br/>
                 <%= f.email_field :email, autofocus: true %>

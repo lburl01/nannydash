@@ -17,14 +17,3 @@
 //= require app.service.js
 //= require_tree ./templates
 //= require_tree ./components
-
-
-// AJAX for login to dashboards
-$(document).ready(function() {
-  $("#login-form").on('ajax:success', function(evt, data, status, xhr) {
-    window.location = "/#/";
-  })
-  .on("ajax:error", function(evt, xhr, status, error) {
-    $(this).find(".actions").effect("shake", {distance: 10});
-  });
-});

@@ -13,19 +13,26 @@
   function AppController (appAPI, $scope, $http, $location, $window, dashboardAPI) {
     var ctrl = this;
 
-    dashboardAPI.conversationMessages().success(function(response) {
-      for(var i = 0; i < response.length; i++) {
-        if(response[i].sender_name != "Agency Manager" && response[i].recipient_read === false) {
-          return ctrl.newMessage = true;
-        }
-      }
-    });
-
     ctrl.$onInit = function() {
       appAPI.totalCount().then(function(data) {
         ctrl.count = data;
       });
     };
+
+    dashboardAPI.user().success(function(response) {
+      ctrl.firstName = response.first_name;
+      ctrl.name = ctrl.firstName + ' ' + response.last_name;
+      console.log(ctrl.name);
+    });
+
+    dashboardAPI.conversationMessages().success(function(response) {
+      for(var i = 0; i < response.length; i++) {
+        if(response[i].sender_name !== ctrl.name && response[i].recipient_read === false) {
+          return ctrl.newMessage = true;
+        }
+      }
+    });
+
 
     $scope.$on('updateCount', function(event) {
       console.log('scope on updated count');
@@ -44,9 +51,6 @@
       });
     };
 
-    dashboardAPI.user().success(function(response) {
-      ctrl.firstName = response.first_name;
-    });
 
   }
 })();

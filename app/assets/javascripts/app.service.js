@@ -11,16 +11,6 @@
           alert('Failed');
         });
       }
-      //
-      // signOut: function() {
-      //   return $http.delete("/users/sign_out", {}).then(function() {
-      //     console.log('Signed Out!');
-      //   }, function() {
-      //     $location.path('/home');
-      //     alert('Failed to sign out.');
-      //   });
-      // }
-
     };
   }]);
 })();
