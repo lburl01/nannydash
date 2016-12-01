@@ -26,16 +26,16 @@
                     <td>{{ allJobs.time( item.start_time, item.end_time ) }}</td>
 
                     <td>
-                        <p ng-class="{sitter: item.is_assigned === false && item.confirmed === false}">Awaiting Sitter</p>
+                        <p ng-class="{sitter: item.is_assigned === false && item.confirmed === false}">Sitter</p>
                     </td>
                     <td>
-                        <p ng-class="{parent: item.is_assigned === true && item.confirmed === false}">Awaiting Parent</p>
+                        <p ng-class="{parent: item.is_assigned === true && item.confirmed === false}">Parent</p>
                     </td>
                     <td>
                         <p ng-class="{confirmed: item.confirmed === true && item.confirmed === true}">Confirmed</p>
                     </td>
                 </tr>
-            </table>
+          </section>
             <dir-pagination-controls max-size="5"></dir-pagination-controls>
         </div>
 

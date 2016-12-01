@@ -29,9 +29,9 @@ ActiveRecord::Schema.define(version: 20161129145327) do
   create_table "jobs", force: :cascade do |t|
     t.integer  "family_id",                                   null: false
     t.integer  "sitter_id"
-    t.date     "date",        default: '2016-11-29',          null: false
-    t.time     "start_time",  default: '2000-01-01 23:54:52', null: false
-    t.time     "end_time",    default: '2000-01-01 02:54:52', null: false
+    t.date     "date",        default: '2016-11-30',          null: false
+    t.time     "start_time",  default: '2000-01-01 00:50:48', null: false
+    t.time     "end_time",    default: '2000-01-01 03:50:48', null: false
     t.text     "notes"
     t.boolean  "confirmed",   default: false,                 null: false
     t.boolean  "is_assigned", default: false,                 null: false
