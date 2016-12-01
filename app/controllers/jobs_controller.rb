@@ -64,9 +64,7 @@ class JobsController < ApplicationController
                      notes: params[:notes])
 
       if @job.save
-        @text_message = %Q(The Lara family has requested you on #{@job.date}.
-          For more details or to claim this job, visit:
-          https://nannydash.herokuapp.com/#/upcoming-job/#{@job.id})
+        @text_message = %Q(The Lara family has requested you on #{@job.date}. For more details or to claim this job, visit: https://nannydash.herokuapp.com/#/upcoming-job/#{@job.id})
 
         @recipient = User.find(@sitter.id)
         phone_number = ENV['SAMPLE_NUMBER']
