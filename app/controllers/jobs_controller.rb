@@ -64,7 +64,7 @@ class JobsController < ApplicationController
                      notes: params[:notes])
 
       if @job.save
-        @text_message = %Q(The #{@job.posted_job.last_Name} has requested you on #{@job.date}.
+        @text_message = %Q(The Lara family has requested you on #{@job.date}.
           For more details or to claim this job, visit:
           https://nannydash.herokuapp.com/#/upcoming-job/#{@job.id})
 
