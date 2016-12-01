@@ -180,7 +180,7 @@ class User < ApplicationRecord
   end
 
   def self.get_pending_sitter_count
-    pending_sitter_count = User.nanny.where( {active: true, is_deleted: false, approved: false} ).all.count
+    pending_sitter_count = User.nanny.where( {active: false, is_deleted: false, approved: false} ).all.count
 
     if pending_sitter_count == 0
       return 0
@@ -206,7 +206,7 @@ class User < ApplicationRecord
   end
 
   def self.get_pending_sitters
-    pending_sitters = User.nanny.where( { active: true, is_deleted: false, approved: false } ).order(created_at: :asc).all
+    pending_sitters = User.nanny.where( { active: false, is_deleted: false, approved: false } ).order(created_at: :asc).all
 
     @all_counties = []
 
