@@ -10,17 +10,20 @@ class Job < ApplicationRecord
     @jobs = []
 
     response.each do |job|
-      @jobs << { "job_id" => job.id, "family_id" => job.family_id,
-                 "family_first_name" => job.posted_job.first_name,
-                 "family_last_name" => job.posted_job.last_name,
-                 "sitter_first_name" => job.assignment.first_name,
-                 "sitter_last_name" => job.assignment.last_name,
-                 "date" => job.date, "is_assigned" => job.is_assigned,
-                 "start_time" => job.start_time.strftime("%I:%M %p"),
-                 "end_time" => job.end_time.strftime("%I:%M %p"),
-                 "confirmed" => job.confirmed,
-                 "created" => job.created_at.strftime("%m/%d/%Y %I:%M %p")
-               }
+      if job.sitter_id
+        @jobs << { "job_id" => job.id, "family_id" => job.family_id,
+                   "family_first_name" => job.posted_job.first_name,
+                   "family_last_name" => job.posted_job.last_name,
+                   "sitter_first_name" => job.assignment.first_name,
+                   "sitter_last_name" => job.assignment.last_name,
+                   "sitter_id" => job.sitter_id,
+                   "date" => job.date, "is_assigned" => job.is_assigned,
+                   "start_time" => job.start_time.strftime("%I:%M %p"),
+                   "end_time" => job.end_time.strftime("%I:%M %p"),
+                   "confirmed" => job.confirmed,
+                   "created" => job.created_at.strftime("%m/%d/%Y %I:%M %p")
+                 }
+      end
     end
 
     return @jobs
@@ -130,7 +133,19 @@ class Job < ApplicationRecord
   end
 
   def self.get_active_jobs_count
-    new_jobs = Job.where("date >= ?", Time.zone.now.beginning_of_day).where({is_deleted: false}).all.count
+    new_jobs = Job.where("date >= ?", Time.zone.now.beginning_of_day).where({is_deleted: false}).all
+
+    @jobs = []
+
+    new_jobs.each do |job|
+      if job.sitter_id
+        @jobs << job
+      end
+    end
+
+    @active_jobs_count = @jobs.length
+
+    return @active_jobs_count
   end
 
   def self.get_sitter_assigned_jobs_count(current_user)
