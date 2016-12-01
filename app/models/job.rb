@@ -52,7 +52,7 @@ class Job < ApplicationRecord
   end
 
   def self.get_five_newest_jobs
-    @response = Job.where("date >= ?", Time.zone.now.beginning_of_day).where( { confirmed: false, is_assigned: false, is_deleted: false } ).order(date: :desc).limit(5)
+    @response = Job.where("date >= ?", Time.zone.now.beginning_of_day).where( { confirmed: false, is_assigned: false, is_deleted: false } ).order(date: :asc).limit(5)
 
     @newest_jobs = []
 
