@@ -2,6 +2,7 @@
 
 http://nannydash.herokuapp.com/
 
+![nannydash preview](app/assets/images/nannydashPreview.png)
 
 ## Learn More
 
