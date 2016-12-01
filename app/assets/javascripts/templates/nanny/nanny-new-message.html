@@ -12,6 +12,8 @@
 
         <div class="users" ng-show="$ctrl.showUsers">
           <div class="user-group">
+            <h2>Agency</h2>
+            <p ng-click="$ctrl.selectRecipient(agency)" ng-repeat="agency in $ctrl.agencyList">{{agency.name}}</p>
             <h2>Babysitters</h2>
             <p ng-click="$ctrl.selectRecipient(nanny)" ng-repeat="nanny in $ctrl.nannyList">{{nanny.name}}</p>
           </div>

@@ -74,6 +74,9 @@
             &:nth-child(3) {
               padding-top: 15px;
             }
+            &:last-of-type {
+              margin-top: 10px;
+            }
           }
 
           p {
