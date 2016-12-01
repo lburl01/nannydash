@@ -34,8 +34,11 @@ As a babysitter, you can view and apply for jobs that parents have posted, view 
   * Sketch
 
 ### Backend 
-  * Ruby on Rails
+  * Ruby 2.3.1
+  * Rails 5.0.0
   * Heroku
+  * PostgreSQL
+  * Amazon Web Services: S3
 
 ### Front-End 
   * HTML5
@@ -50,5 +53,5 @@ As a babysitter, you can view and apply for jobs that parents have posted, view 
 * [Chloe Collier](https://github.com/AlyChloe) - Designer, Front-End Developer
 * [Marliana Lara](https://github.com/marshmalien) - Designer, Front-End Developer
 * [Sam Davis-Castro](https://github.com/SamPlifier) - Designer, Front-End Developer
-* [Lori Baumgartner](https://github.com/lburl01) - Rails Developer
+* [Lori Baumgartner](https://github.com/lburl01) - Ruby on Rails Developer
 
