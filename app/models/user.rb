@@ -156,7 +156,7 @@ class User < ApplicationRecord
 
   def self.get_new_applicants
     @all_applicants = User.family.where({ active: true, approved: false }).or(User.nanny.where({ active: true, approved: false }))
-    @five_applicants = @all_applicants.order(created_at: :desc).limit(5)
+    @five_applicants = @all_applicants.order(created_at: :asc).limit(5)
 
     @new_applicants = []
     @application_data = {}
@@ -206,7 +206,7 @@ class User < ApplicationRecord
   end
 
   def self.get_pending_sitters
-    pending_sitters = User.nanny.where( { active: true, is_deleted: false, approved: false } ).order(created_at: :desc).all
+    pending_sitters = User.nanny.where( { active: true, is_deleted: false, approved: false } ).order(created_at: :asc).all
 
     @all_counties = []
 
@@ -220,7 +220,7 @@ class User < ApplicationRecord
   end
 
   def self.get_pending_families
-    pending_families = User.family.where( { active: true, is_deleted: false, approved: false } ).order(created_at: :desc).all
+    pending_families = User.family.where( { active: true, is_deleted: false, approved: false } ).order(created_at: :asc).all
 
     @all_counties = []
 
@@ -256,7 +256,7 @@ class User < ApplicationRecord
   end
 
   def self.get_available_sitters
-    sitters = User.nanny.where( { is_deleted: false, active: true, approved: true  }).order(created_at: :desc).all
+    sitters = User.nanny.where( { is_deleted: false, active: true, approved: true  }).order(created_at: :asc).all
 
     @available_sitters = []
     @all_counties = []
