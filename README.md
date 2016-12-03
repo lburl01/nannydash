@@ -4,6 +4,23 @@ http://nannydash.herokuapp.com/
 
 ![nannydash preview](app/assets/images/nannydashPreview.png)
 
+---
+## Login
+
+> __Babysitting Agency__<br />
+> UN: lori@example.com<br />
+> PW: example<br />
+>
+> __Parent__<br />
+> UN: marliana@example.com<br />
+> PW: example<br />
+>
+> __Babysitter__<br />
+> UN: chloe@example.com<br />
+> PW: example<br />
+
+
+
 ## Learn More
 
 NannyDash was created in November of 2016 to help babysitting agencies, parents, and sitters communicate more efficiently.
