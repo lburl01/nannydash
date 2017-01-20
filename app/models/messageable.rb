@@ -13,9 +13,9 @@ module Messageable
         )
       else
         if convo.sender_id == self.id
-          convo.update_attributes(sender_read: false, recipient_read: false)
+          convo.update_attributes(sender_read: true, recipient_read: false)
         else
-          convo.update_attributes(sender_read: false, recipient_read: false)
+          convo.update_attributes(sender_read: false, recipient_read: true)
         end
       end
 
